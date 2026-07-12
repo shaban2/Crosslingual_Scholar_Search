@@ -1,0 +1,3041 @@
+{
+  "top_k": 10,
+  "encoders": {
+    "clip": {
+      "raw": {
+        "en_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "How does the attention mechanism work in a Transformer?",
+              "modalities": {
+                "text": 5,
+                "transcript": 5
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1706.03762_attention#conclusion#2",
+                "transcript:7jlZlSxZZ1g@33.0",
+                "transcript:RQowiOF_FvQ@80.799",
+                "transcript:RQowiOF_FvQ@149.52",
+                "text:2406.07887_empirical_mamba#results#129",
+                "text:2405.21060_mamba2#results#2",
+                "transcript:9dSkvxS2EB0@73.3",
+                "transcript:uazVw7ImZiQ@0.0",
+                "text:2406.07887_empirical_mamba#results#145",
+                "text:2404.16112_mamba360#results#66"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "What problem does self-attention solve compared to recurrent networks?",
+              "modalities": {
+                "transcript": 7,
+                "text": 3
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@1606.08",
+                "transcript:RQowiOF_FvQ@1620.4",
+                "text:2312.00752_mamba#results#33",
+                "text:1301.3781_word2vec#results#50",
+                "transcript:RQowiOF_FvQ@164.239",
+                "transcript:eMlx5fFNoYc@219.458",
+                "transcript:RQowiOF_FvQ@1291.28",
+                "transcript:RQowiOF_FvQ@3734.559",
+                "transcript:eMlx5fFNoYc@1157.18",
+                "text:2405.21060_mamba2#results#2"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Explain the architecture diagram of the Transformer model",
+              "modalities": {
+                "transcript": 6,
+                "text": 4
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@149.52",
+                "text:1706.03762_attention#conclusion#2",
+                "transcript:RQowiOF_FvQ@80.799",
+                "transcript:9dSkvxS2EB0@759.3",
+                "transcript:9dSkvxS2EB0@846.7",
+                "transcript:RQowiOF_FvQ@3901.44",
+                "text:2404.16112_mamba360#results#66",
+                "text:2405.21060_mamba2#results#1",
+                "text:2406.07887_empirical_mamba#results#129",
+                "transcript:9dSkvxS2EB0@631.7"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "How are word embeddings learned in word2vec?",
+              "modalities": {
+                "transcript": 8,
+                "text": 2
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:viZrOnJclY0@693.442",
+                "transcript:viZrOnJclY0@773.862",
+                "transcript:viZrOnJclY0@657.11",
+                "transcript:viZrOnJclY0@638.023",
+                "transcript:viZrOnJclY0@907.165",
+                "transcript:eMlx5fFNoYc@1434.947",
+                "text:1810.04805_bert#results#2",
+                "transcript:viZrOnJclY0@675.123",
+                "transcript:eMlx5fFNoYc@835.886",
+                "text:1301.3781_word2vec#method#1"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "What is the difference between CBOW and skip-gram?",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1301.3781_word2vec#results#30",
+                "text:2405.21060_mamba2#method#162",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2405.21060_mamba2#method#177",
+                "text:1810.04805_bert#results#146",
+                "text:2405.21060_mamba2#method#163",
+                "text:1512.03385_resnet#results#45",
+                "text:2405.21060_mamba2#results#325",
+                "text:1512.03385_resnet#results#46",
+                "text:2405.21060_mamba2#conclusion#19"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "How do convolutional neural networks extract features from images?",
+              "modalities": {
+                "transcript": 7,
+                "text": 3
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:ANyxBVxmdZ0@1220.49",
+                "transcript:ANyxBVxmdZ0@4075.3",
+                "transcript:RQowiOF_FvQ@1606.08",
+                "transcript:ANyxBVxmdZ0@1205.91",
+                "text:1409.1556_vgg#abstract#0",
+                "text:1512.03385_resnet#introduction#0",
+                "transcript:ANyxBVxmdZ0@1580.039",
+                "transcript:RQowiOF_FvQ@3599.52",
+                "transcript:ANyxBVxmdZ0@2622.48",
+                "text:1409.1556_vgg#introduction#0"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Why do residual connections help train very deep networks?",
+              "modalities": {
+                "transcript": 8,
+                "text": 2
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@3734.559",
+                "text:1301.3781_word2vec#results#3",
+                "transcript:RQowiOF_FvQ@1606.08",
+                "transcript:RQowiOF_FvQ@228.48",
+                "text:2312.00752_mamba#results#33",
+                "transcript:eMlx5fFNoYc@219.458",
+                "transcript:ANyxBVxmdZ0@3838.2",
+                "transcript:RQowiOF_FvQ@17.039",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:ANyxBVxmdZ0@3162.93"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "How is BERT pre-trained with masked language modeling?",
+              "modalities": {
+                "transcript": 7,
+                "text": 3
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@2448.72",
+                "transcript:knTc-NQSjKA@1383.2",
+                "transcript:knTc-NQSjKA@1588.72",
+                "transcript:knTc-NQSjKA@1356.88",
+                "transcript:knTc-NQSjKA@2533.839",
+                "text:1810.04805_bert#results#120",
+                "text:1810.04805_bert#results#118",
+                "transcript:knTc-NQSjKA@2751.44",
+                "transcript:knTc-NQSjKA@1861.519",
+                "text:1810.04805_bert#results#7"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "How can BERT be used for sentiment analysis?",
+              "modalities": {
+                "transcript": 6,
+                "text": 4
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@2533.839",
+                "transcript:knTc-NQSjKA@1588.72",
+                "transcript:knTc-NQSjKA@1356.88",
+                "transcript:knTc-NQSjKA@1383.2",
+                "transcript:knTc-NQSjKA@2751.44",
+                "text:1810.04805_bert#results#7",
+                "transcript:knTc-NQSjKA@1861.519",
+                "text:1810.04805_bert#results#118",
+                "text:1810.04805_bert#results#120",
+                "text:1810.04805_bert#results#132"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "What are the limitations of LSTM networks for long sequences?",
+              "modalities": {
+                "text": 6,
+                "transcript": 4
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "text:2405.21060_mamba2#results#31",
+                "transcript:9dSkvxS2EB0@881.1",
+                "text:1301.3781_word2vec#results#4",
+                "transcript:yuvtlMfo3_Y@2672.92",
+                "text:2404.16112_mamba360#introduction#7",
+                "text:2312.00752_mamba#results#33",
+                "text:1301.3781_word2vec#results#3",
+                "transcript:RQowiOF_FvQ@17.039",
+                "text:2405.21060_mamba2#method#86",
+                "transcript:RQowiOF_FvQ@228.48"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "How does Mamba handle long-range dependencies?",
+              "modalities": {
+                "transcript": 4,
+                "text": 6
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:uazVw7ImZiQ@79.0",
+                "transcript:uazVw7ImZiQ@118.6",
+                "transcript:uazVw7ImZiQ@60.2",
+                "text:2405.21060_mamba2#method#5",
+                "text:2403.19887_jamba#results#24",
+                "text:2406.07887_empirical_mamba#method#0",
+                "text:2405.21060_mamba2#method#120",
+                "text:2404.16112_mamba360#method#85",
+                "transcript:7jlZlSxZZ1g@144.6",
+                "text:2404.16112_mamba360#results#38"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Compare the computational cost of attention and state space models",
+              "modalities": {
+                "transcript": 4,
+                "text": 6
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@3734.559",
+                "text:1301.3781_word2vec#results#3",
+                "transcript:eMlx5fFNoYc@1107.446",
+                "text:2312.00752_mamba#results#33",
+                "text:1301.3781_word2vec#results#0",
+                "transcript:knTc-NQSjKA@3237.599",
+                "text:2405.21060_mamba2#results#103",
+                "text:2312.00752_mamba#conclusion#12",
+                "text:2404.16112_mamba360#results#265",
+                "transcript:7jlZlSxZZ1g@383.6"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Show training loss curves for deep language models",
+              "modalities": {
+                "text": 8,
+                "transcript": 2
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1301.3781_word2vec#results#3",
+                "text:1301.3781_word2vec#results#4",
+                "text:2312.00752_mamba#results#33",
+                "text:2406.07887_empirical_mamba#method#3",
+                "text:1301.3781_word2vec#results#0",
+                "text:1301.3781_word2vec#method#28",
+                "transcript:eMlx5fFNoYc@1107.446",
+                "text:1301.3781_word2vec#results#2",
+                "transcript:ANyxBVxmdZ0@3915.06",
+                "text:1810.04805_bert#results#75"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "What does the scaled dot-product attention formula mean?",
+              "modalities": {
+                "text": 5,
+                "transcript": 5
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1810.04805_bert#results#146",
+                "transcript:RQowiOF_FvQ@2357.52",
+                "text:2405.21060_mamba2#method#177",
+                "transcript:RQowiOF_FvQ@2503.119",
+                "transcript:RQowiOF_FvQ@2795.52",
+                "transcript:RQowiOF_FvQ@2808.319",
+                "text:2312.00752_mamba#results#33",
+                "text:2405.21060_mamba2#method#162",
+                "transcript:RQowiOF_FvQ@2671.04",
+                "text:1706.03762_attention#method#21"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "How does transfer learning work with pretrained models?",
+              "modalities": {
+                "text": 7,
+                "transcript": 3
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:2312.00752_mamba#results#33",
+                "transcript:knTc-NQSjKA@1763.84",
+                "transcript:knTc-NQSjKA@3044.64",
+                "text:1810.04805_bert#conclusion#0",
+                "text:1301.3781_word2vec#results#3",
+                "transcript:knTc-NQSjKA@3156.4",
+                "text:2406.07887_empirical_mamba#method#3",
+                "text:1810.04805_bert#method#10",
+                "text:1301.3781_word2vec#results#50",
+                "text:1301.3781_word2vec#method#48"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 74,
+            "figure": 0,
+            "transcript": 76
+          },
+          "language_counts": {
+            "en": 148,
+            "id": 2
+          },
+          "coverage": {
+            "queries_with_figure": 0,
+            "queries_with_transcript": 14,
+            "queries_with_en_content": 15,
+            "queries_with_id_content": 2,
+            "n_queries": 15
+          }
+        },
+        "id_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "Bagaimana mekanisme attention bekerja pada Transformer?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:bjTM02jXgvE@3872.82",
+                "transcript:Ib5Wum2SRhY@843.32",
+                "transcript:bjTM02jXgvE@0.0",
+                "transcript:Ib5Wum2SRhY@953.12",
+                "transcript:Ib5Wum2SRhY@1207.48",
+                "transcript:bjTM02jXgvE@2213.4",
+                "transcript:Ib5Wum2SRhY@4348.719",
+                "transcript:Ib5Wum2SRhY@2.76",
+                "transcript:Ib5Wum2SRhY@1778.919",
+                "transcript:yuvtlMfo3_Y@1433.84"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:bjTM02jXgvE@3822.76",
+                "transcript:Ib5Wum2SRhY@1879.44",
+                "transcript:YtmOw515BRQ@338.27",
+                "transcript:zdBCbz7pmkY@2505.28",
+                "transcript:Ib5Wum2SRhY@1778.919",
+                "transcript:Ib5Wum2SRhY@1851.12",
+                "transcript:Ib5Wum2SRhY@211.239",
+                "transcript:O-tfsQPI3RE@534.6",
+                "transcript:Ib5Wum2SRhY@785.199",
+                "transcript:ITc9C9-Y9uY@839.76"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Jelaskan diagram arsitektur model Transformer",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:zdBCbz7pmkY@3676.49",
+                "transcript:bjTM02jXgvE@3211.04",
+                "transcript:Ib5Wum2SRhY@893.32",
+                "transcript:bjTM02jXgvE@2584.87",
+                "transcript:bjTM02jXgvE@2674.07",
+                "transcript:Ib5Wum2SRhY@450.12",
+                "transcript:zdBCbz7pmkY@3699.5",
+                "transcript:bjTM02jXgvE@76.99",
+                "transcript:bjTM02jXgvE@3349.44",
+                "transcript:Ib5Wum2SRhY@4298.0"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "Bagaimana word embedding dipelajari dalam word2vec?",
+              "modalities": {
+                "transcript": 8,
+                "text": 2
+              },
+              "languages": {
+                "id": 6,
+                "en": 4
+              },
+              "items": [
+                "transcript:zdBCbz7pmkY@1206.2",
+                "text:1810.04805_bert#results#36",
+                "transcript:zdBCbz7pmkY@136.28",
+                "transcript:zdBCbz7pmkY@658.91",
+                "transcript:eMlx5fFNoYc@251.457",
+                "transcript:zdBCbz7pmkY@830.75",
+                "text:1301.3781_word2vec#results#4",
+                "transcript:bjTM02jXgvE@734.64",
+                "transcript:viZrOnJclY0@773.862",
+                "transcript:zdBCbz7pmkY@4314.61"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "Apa perbedaan antara CBOW dan skip-gram?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@278.28",
+                "transcript:YtmOw515BRQ@338.27",
+                "transcript:yuvtlMfo3_Y@1433.84",
+                "transcript:Ib5Wum2SRhY@1778.919",
+                "transcript:Ib5Wum2SRhY@822.519",
+                "transcript:Ib5Wum2SRhY@4127.319",
+                "transcript:Ib5Wum2SRhY@2390.48",
+                "transcript:Ib5Wum2SRhY@4041.039",
+                "transcript:O-tfsQPI3RE@298.08",
+                "transcript:O-tfsQPI3RE@1800.039"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "en": 3,
+                "id": 7
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@17.039",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:yuvtlMfo3_Y@79.88",
+                "transcript:O-tfsQPI3RE@3130.28",
+                "transcript:O-tfsQPI3RE@2031.84",
+                "transcript:ANyxBVxmdZ0@1220.49",
+                "transcript:O-tfsQPI3RE@50.199",
+                "transcript:ITc9C9-Y9uY@1.13",
+                "transcript:ANyxBVxmdZ0@376.81",
+                "transcript:bjTM02jXgvE@1411.82"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Mengapa residual connection membantu melatih jaringan yang sangat dalam?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@1879.44",
+                "transcript:Ib5Wum2SRhY@339.52",
+                "transcript:YtmOw515BRQ@338.27",
+                "transcript:Ib5Wum2SRhY@3881.92",
+                "transcript:Ib5Wum2SRhY@822.519",
+                "transcript:Ib5Wum2SRhY@1296.08",
+                "transcript:Ib5Wum2SRhY@1584.159",
+                "transcript:O-tfsQPI3RE@1319.919",
+                "transcript:Ib5Wum2SRhY@1778.919",
+                "transcript:O-tfsQPI3RE@2223.16"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "Bagaimana BERT dilatih dengan masked language modeling?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@1959.159",
+                "transcript:Ib5Wum2SRhY@5096.199",
+                "transcript:Ib5Wum2SRhY@5237.32",
+                "transcript:zdBCbz7pmkY@109.17",
+                "transcript:zdBCbz7pmkY@4236.08",
+                "transcript:zdBCbz7pmkY@732.48",
+                "transcript:yuvtlMfo3_Y@2764.0",
+                "transcript:Ib5Wum2SRhY@5053.52",
+                "transcript:zdBCbz7pmkY@2663.66",
+                "transcript:zdBCbz7pmkY@83.1"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "Bagaimana BERT dapat digunakan untuk analisis sentimen?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@1778.919",
+                "transcript:Ib5Wum2SRhY@822.519",
+                "transcript:YtmOw515BRQ@338.27",
+                "transcript:Ib5Wum2SRhY@1296.08",
+                "transcript:ITc9C9-Y9uY@1872.03",
+                "transcript:ITc9C9-Y9uY@839.76",
+                "transcript:O-tfsQPI3RE@1800.039",
+                "transcript:O-tfsQPI3RE@1663.76",
+                "transcript:O-tfsQPI3RE@1319.919",
+                "transcript:yuvtlMfo3_Y@143.4"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:zdBCbz7pmkY@1395.82",
+                "transcript:Ib5Wum2SRhY@1778.919",
+                "transcript:ITc9C9-Y9uY@839.76",
+                "transcript:O-tfsQPI3RE@1037.64",
+                "transcript:Ib5Wum2SRhY@4898.639",
+                "transcript:YtmOw515BRQ@338.27",
+                "transcript:Ib5Wum2SRhY@822.519",
+                "transcript:Ib5Wum2SRhY@4127.319",
+                "transcript:yuvtlMfo3_Y@1959.159",
+                "transcript:YtmOw515BRQ@771.269"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "Bagaimana Mamba menangani dependensi jarak jauh?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@1319.919",
+                "transcript:Ib5Wum2SRhY@3881.92",
+                "transcript:Ib5Wum2SRhY@1778.919",
+                "transcript:YtmOw515BRQ@338.27",
+                "transcript:O-tfsQPI3RE@576.88",
+                "transcript:O-tfsQPI3RE@278.28",
+                "transcript:yuvtlMfo3_Y@1433.84",
+                "transcript:YtmOw515BRQ@358.16",
+                "transcript:O-tfsQPI3RE@1386.08",
+                "transcript:O-tfsQPI3RE@1663.76"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Bandingkan biaya komputasi antara attention dan model state space",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@4612.8",
+                "transcript:yuvtlMfo3_Y@4225.56",
+                "transcript:yuvtlMfo3_Y@3319.799",
+                "transcript:zdBCbz7pmkY@4039.06",
+                "transcript:Ib5Wum2SRhY@1851.12",
+                "transcript:Ib5Wum2SRhY@822.519",
+                "transcript:Ib5Wum2SRhY@515.0",
+                "transcript:Ib5Wum2SRhY@4977.32",
+                "transcript:Ib5Wum2SRhY@339.52",
+                "transcript:zdBCbz7pmkY@109.17"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@3319.799",
+                "transcript:yuvtlMfo3_Y@4225.56",
+                "transcript:O-tfsQPI3RE@1319.919",
+                "transcript:zdBCbz7pmkY@109.17",
+                "transcript:zdBCbz7pmkY@1395.82",
+                "transcript:YtmOw515BRQ@358.16",
+                "transcript:Ib5Wum2SRhY@4977.32",
+                "transcript:yuvtlMfo3_Y@4699.12",
+                "transcript:yuvtlMfo3_Y@3874.52",
+                "transcript:Ib5Wum2SRhY@339.52"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "Apa arti rumus scaled dot-product attention?",
+              "modalities": {
+                "text": 9,
+                "transcript": 1
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "text:2405.21060_mamba2#results#325",
+                "text:2405.21060_mamba2#method#177",
+                "text:2405.21060_mamba2#method#162",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2405.21060_mamba2#results#312",
+                "text:1512.03385_resnet#results#46",
+                "text:1810.04805_bert#results#146",
+                "text:2405.21060_mamba2#method#163",
+                "transcript:bjTM02jXgvE@1598.57",
+                "text:2405.21060_mamba2#method#169"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "Bagaimana cara kerja transfer learning dengan model yang sudah dilatih sebelumnya?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:c4krGYzu4DI@384.479",
+                "transcript:Ib5Wum2SRhY@5458.44",
+                "transcript:yuvtlMfo3_Y@777.32",
+                "transcript:yuvtlMfo3_Y@2764.0",
+                "transcript:Ib5Wum2SRhY@3649.559",
+                "transcript:Ib5Wum2SRhY@4612.8",
+                "transcript:c4krGYzu4DI@515.62",
+                "transcript:Ib5Wum2SRhY@5665.119",
+                "transcript:yuvtlMfo3_Y@1959.159",
+                "transcript:Ib5Wum2SRhY@977.16"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 11,
+            "figure": 0,
+            "transcript": 139
+          },
+          "language_counts": {
+            "en": 16,
+            "id": 134
+          },
+          "coverage": {
+            "queries_with_figure": 0,
+            "queries_with_transcript": 15,
+            "queries_with_en_content": 3,
+            "queries_with_id_content": 15,
+            "n_queries": 15
+          }
+        },
+        "en_id_consistency": {
+          "mean_jaccard": 0.019,
+          "mean_overlap_at_k": 0.033,
+          "per_query_jaccard": {
+            "q01": 0.0,
+            "q02": 0.0,
+            "q03": 0.0,
+            "q04": 0.053,
+            "q05": 0.0,
+            "q06": 0.053,
+            "q07": 0.0,
+            "q08": 0.0,
+            "q09": 0.0,
+            "q10": 0.0,
+            "q11": 0.0,
+            "q12": 0.0,
+            "q13": 0.0,
+            "q14": 0.176,
+            "q15": 0.0
+          }
+        }
+      },
+      "calibrated": {
+        "en_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "How does the attention mechanism work in a Transformer?",
+              "modalities": {
+                "transcript": 9,
+                "figure": 1
+              },
+              "languages": {
+                "id": 6,
+                "en": 4
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "transcript:7jlZlSxZZ1g@33.0",
+                "transcript:bjTM02jXgvE@2584.87",
+                "transcript:RQowiOF_FvQ@80.799",
+                "transcript:bjTM02jXgvE@3695.15",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/1706.03762_attention/page3_fig1.png",
+                "transcript:RQowiOF_FvQ@149.52",
+                "transcript:bjTM02jXgvE@2701.62",
+                "transcript:bjTM02jXgvE@3211.04",
+                "transcript:bjTM02jXgvE@3969.77"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "What problem does self-attention solve compared to recurrent networks?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "en": 3,
+                "id": 7
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@1606.08",
+                "transcript:bjTM02jXgvE@566.97",
+                "transcript:RQowiOF_FvQ@1620.4",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:O-tfsQPI3RE@3042.92",
+                "transcript:O-tfsQPI3RE@2031.84",
+                "transcript:O-tfsQPI3RE@2687.079",
+                "transcript:O-tfsQPI3RE@3020.0",
+                "transcript:RQowiOF_FvQ@164.239",
+                "transcript:zdBCbz7pmkY@3169.79"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Explain the architecture diagram of the Transformer model",
+              "modalities": {
+                "transcript": 9,
+                "figure": 1
+              },
+              "languages": {
+                "id": 7,
+                "en": 3
+              },
+              "items": [
+                "transcript:bjTM02jXgvE@2584.87",
+                "transcript:bjTM02jXgvE@3969.77",
+                "transcript:bjTM02jXgvE@3211.04",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "transcript:bjTM02jXgvE@2701.62",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/1706.03762_attention/page3_fig1.png",
+                "transcript:bjTM02jXgvE@76.99",
+                "transcript:RQowiOF_FvQ@149.52",
+                "transcript:bjTM02jXgvE@3695.15",
+                "transcript:RQowiOF_FvQ@80.799"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "How are word embeddings learned in word2vec?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "transcript:viZrOnJclY0@693.442",
+                "transcript:viZrOnJclY0@773.862",
+                "transcript:viZrOnJclY0@657.11",
+                "transcript:viZrOnJclY0@638.023",
+                "transcript:viZrOnJclY0@907.165",
+                "transcript:eMlx5fFNoYc@1434.947",
+                "transcript:viZrOnJclY0@675.123",
+                "transcript:zdBCbz7pmkY@136.28",
+                "text:1810.04805_bert#results#2",
+                "transcript:eMlx5fFNoYc@835.886"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "What is the difference between CBOW and skip-gram?",
+              "modalities": {
+                "text": 9,
+                "transcript": 1
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1301.3781_word2vec#results#30",
+                "text:2405.21060_mamba2#method#162",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2405.21060_mamba2#method#177",
+                "text:1810.04805_bert#results#146",
+                "text:2405.21060_mamba2#method#163",
+                "text:1512.03385_resnet#results#45",
+                "text:2405.21060_mamba2#results#325",
+                "transcript:9dSkvxS2EB0@550.2",
+                "text:1512.03385_resnet#results#46"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "How do convolutional neural networks extract features from images?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "en": 7,
+                "id": 3
+              },
+              "items": [
+                "transcript:ANyxBVxmdZ0@1220.49",
+                "transcript:ANyxBVxmdZ0@4075.3",
+                "transcript:bjTM02jXgvE@2395.77",
+                "transcript:RQowiOF_FvQ@1606.08",
+                "transcript:ANyxBVxmdZ0@1205.91",
+                "transcript:O-tfsQPI3RE@3042.92",
+                "transcript:ANyxBVxmdZ0@1580.039",
+                "transcript:O-tfsQPI3RE@2031.84",
+                "transcript:RQowiOF_FvQ@3599.52",
+                "transcript:ANyxBVxmdZ0@2622.48"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Why do residual connections help train very deep networks?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "id": 7,
+                "en": 3
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:RQowiOF_FvQ@3734.559",
+                "transcript:O-tfsQPI3RE@3042.92",
+                "transcript:O-tfsQPI3RE@2031.84",
+                "transcript:RQowiOF_FvQ@1606.08",
+                "transcript:yuvtlMfo3_Y@1655.679",
+                "transcript:yuvtlMfo3_Y@1540.76",
+                "transcript:bjTM02jXgvE@566.97",
+                "transcript:yuvtlMfo3_Y@79.88",
+                "text:1301.3781_word2vec#results#3"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "How is BERT pre-trained with masked language modeling?",
+              "modalities": {
+                "transcript": 8,
+                "text": 2
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@2448.72",
+                "transcript:knTc-NQSjKA@1383.2",
+                "transcript:knTc-NQSjKA@1588.72",
+                "transcript:knTc-NQSjKA@1356.88",
+                "transcript:knTc-NQSjKA@2533.839",
+                "transcript:knTc-NQSjKA@2751.44",
+                "transcript:knTc-NQSjKA@1861.519",
+                "text:1810.04805_bert#results#120",
+                "text:1810.04805_bert#results#118",
+                "transcript:Ib5Wum2SRhY@5299.56"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "How can BERT be used for sentiment analysis?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "en": 8,
+                "id": 2
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@2533.839",
+                "transcript:knTc-NQSjKA@1588.72",
+                "transcript:knTc-NQSjKA@1356.88",
+                "transcript:knTc-NQSjKA@1383.2",
+                "transcript:knTc-NQSjKA@2751.44",
+                "transcript:knTc-NQSjKA@1861.519",
+                "transcript:knTc-NQSjKA@1507.2",
+                "transcript:zdBCbz7pmkY@830.75",
+                "text:1810.04805_bert#results#7",
+                "transcript:zdBCbz7pmkY@1120.11"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "What are the limitations of LSTM networks for long sequences?",
+              "modalities": {
+                "transcript": 8,
+                "figure": 2
+              },
+              "languages": {
+                "id": 6,
+                "en": 4
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@2672.92",
+                "transcript:yuvtlMfo3_Y@2603.28",
+                "transcript:yuvtlMfo3_Y@3599.319",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2405.21060_mamba2/page9_fig1.jpeg",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:yuvtlMfo3_Y@3631.4",
+                "transcript:yuvtlMfo3_Y@3072.599",
+                "transcript:9dSkvxS2EB0@881.1",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2405.21060_mamba2/page9_fig2.png",
+                "transcript:RQowiOF_FvQ@17.039"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "How does Mamba handle long-range dependencies?",
+              "modalities": {
+                "transcript": 8,
+                "figure": 2
+              },
+              "languages": {
+                "en": 6,
+                "id": 4
+              },
+              "items": [
+                "transcript:uazVw7ImZiQ@79.0",
+                "transcript:uazVw7ImZiQ@118.6",
+                "transcript:uazVw7ImZiQ@60.2",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page10_fig1.png",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page13_fig1.png",
+                "transcript:bjTM02jXgvE@1190.26",
+                "transcript:7jlZlSxZZ1g@144.6",
+                "transcript:yuvtlMfo3_Y@2603.28",
+                "transcript:yuvtlMfo3_Y@1540.76",
+                "transcript:yuvtlMfo3_Y@1655.679"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Compare the computational cost of attention and state space models",
+              "modalities": {
+                "transcript": 9,
+                "figure": 1
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@3734.559",
+                "transcript:eMlx5fFNoYc@1107.446",
+                "transcript:knTc-NQSjKA@3237.599",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "transcript:eMlx5fFNoYc@219.458",
+                "transcript:ANyxBVxmdZ0@3915.06",
+                "transcript:RQowiOF_FvQ@1606.08",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2405.21060_mamba2/page9_fig1.jpeg",
+                "transcript:knTc-NQSjKA@2566.8",
+                "transcript:knTc-NQSjKA@82.479"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Show training loss curves for deep language models",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "en": 7,
+                "id": 3
+              },
+              "items": [
+                "transcript:eMlx5fFNoYc@1107.446",
+                "transcript:yuvtlMfo3_Y@3631.4",
+                "transcript:ANyxBVxmdZ0@3915.06",
+                "transcript:knTc-NQSjKA@1763.84",
+                "transcript:knTc-NQSjKA@82.479",
+                "transcript:yuvtlMfo3_Y@2603.28",
+                "transcript:ANyxBVxmdZ0@3838.2",
+                "transcript:yuvtlMfo3_Y@1540.76",
+                "transcript:knTc-NQSjKA@3237.599",
+                "transcript:knTc-NQSjKA@3044.64"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "What does the scaled dot-product attention formula mean?",
+              "modalities": {
+                "figure": 2,
+                "transcript": 6,
+                "text": 2
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/1706.03762_attention/page4_fig2.png",
+                "transcript:RQowiOF_FvQ@2357.52",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2405.21060_mamba2/page9_fig1.jpeg",
+                "transcript:RQowiOF_FvQ@2503.119",
+                "transcript:RQowiOF_FvQ@2795.52",
+                "transcript:RQowiOF_FvQ@2808.319",
+                "text:1810.04805_bert#results#146",
+                "transcript:RQowiOF_FvQ@2671.04",
+                "transcript:eMlx5fFNoYc@1107.446",
+                "text:2405.21060_mamba2#method#177"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "How does transfer learning work with pretrained models?",
+              "modalities": {
+                "transcript": 7,
+                "text": 1,
+                "figure": 2
+              },
+              "languages": {
+                "en": 6,
+                "id": 4
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@1763.84",
+                "transcript:knTc-NQSjKA@3044.64",
+                "transcript:knTc-NQSjKA@3156.4",
+                "transcript:yuvtlMfo3_Y@2672.92",
+                "transcript:Ib5Wum2SRhY@924.24",
+                "text:2312.00752_mamba#results#33",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2405.21060_mamba2/page9_fig1.jpeg",
+                "transcript:O-tfsQPI3RE@2687.079",
+                "transcript:zdBCbz7pmkY@3169.79",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 17,
+            "figure": 11,
+            "transcript": 122
+          },
+          "language_counts": {
+            "en": 99,
+            "id": 51
+          },
+          "coverage": {
+            "queries_with_figure": 7,
+            "queries_with_transcript": 15,
+            "queries_with_en_content": 15,
+            "queries_with_id_content": 12,
+            "n_queries": 15
+          }
+        },
+        "id_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "Bagaimana mekanisme attention bekerja pada Transformer?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 4,
+                "en": 6
+              },
+              "items": [
+                "transcript:bjTM02jXgvE@3872.82",
+                "transcript:Ib5Wum2SRhY@843.32",
+                "transcript:9dSkvxS2EB0@631.7",
+                "transcript:RQowiOF_FvQ@3191.839",
+                "transcript:9dSkvxS2EB0@724.3",
+                "transcript:bjTM02jXgvE@0.0",
+                "transcript:Ib5Wum2SRhY@953.12",
+                "transcript:ANyxBVxmdZ0@3529.489",
+                "transcript:9dSkvxS2EB0@2002.3",
+                "transcript:9dSkvxS2EB0@550.2"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?",
+              "modalities": {
+                "transcript": 5,
+                "text": 5
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@2566.8",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "text:2405.21060_mamba2#method#169",
+                "text:2405.21060_mamba2#results#312",
+                "transcript:9dSkvxS2EB0@550.2",
+                "transcript:RQowiOF_FvQ@3734.559",
+                "text:2405.21060_mamba2#results#325",
+                "text:1301.3781_word2vec#results#50",
+                "text:1301.3781_word2vec#results#2",
+                "transcript:ANyxBVxmdZ0@3529.489"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Jelaskan diagram arsitektur model Transformer",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 4,
+                "en": 6
+              },
+              "items": [
+                "transcript:zdBCbz7pmkY@3676.49",
+                "transcript:bjTM02jXgvE@3211.04",
+                "transcript:9dSkvxS2EB0@724.3",
+                "transcript:ANyxBVxmdZ0@145.98",
+                "transcript:Ib5Wum2SRhY@893.32",
+                "transcript:RQowiOF_FvQ@3240.64",
+                "transcript:bjTM02jXgvE@2584.87",
+                "transcript:9dSkvxS2EB0@2393.0",
+                "transcript:9dSkvxS2EB0@846.7",
+                "transcript:9dSkvxS2EB0@1168.7"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "Bagaimana word embedding dipelajari dalam word2vec?",
+              "modalities": {
+                "transcript": 7,
+                "text": 2,
+                "figure": 1
+              },
+              "languages": {
+                "id": 5,
+                "en": 5
+              },
+              "items": [
+                "transcript:zdBCbz7pmkY@1206.2",
+                "text:1810.04805_bert#results#36",
+                "transcript:eMlx5fFNoYc@251.457",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2405.21060_mamba2/page9_fig2.png",
+                "transcript:zdBCbz7pmkY@136.28",
+                "transcript:zdBCbz7pmkY@658.91",
+                "transcript:viZrOnJclY0@773.862",
+                "text:1301.3781_word2vec#results#4",
+                "transcript:zdBCbz7pmkY@830.75",
+                "transcript:bjTM02jXgvE@734.64"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "Apa perbedaan antara CBOW dan skip-gram?",
+              "modalities": {
+                "text": 7,
+                "transcript": 3
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:2405.21060_mamba2#method#169",
+                "text:2405.21060_mamba2#results#312",
+                "transcript:9dSkvxS2EB0@550.2",
+                "text:2405.21060_mamba2#results#325",
+                "transcript:eMlx5fFNoYc@109.44",
+                "text:2405.21060_mamba2#method#177",
+                "text:2405.21060_mamba2#method#154",
+                "transcript:ANyxBVxmdZ0@3529.489",
+                "text:2405.21060_mamba2#method#163",
+                "text:2405.21060_mamba2#method#162"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "en": 5,
+                "id": 5
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@17.039",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:ANyxBVxmdZ0@1220.49",
+                "transcript:yuvtlMfo3_Y@79.88",
+                "transcript:O-tfsQPI3RE@3130.28",
+                "transcript:ANyxBVxmdZ0@376.81",
+                "transcript:O-tfsQPI3RE@2031.84",
+                "transcript:ANyxBVxmdZ0@4075.3",
+                "transcript:RQowiOF_FvQ@1606.08",
+                "transcript:O-tfsQPI3RE@50.199"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Mengapa residual connection membantu melatih jaringan yang sangat dalam?",
+              "modalities": {
+                "transcript": 6,
+                "text": 4
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@2566.8",
+                "text:2405.21060_mamba2#method#169",
+                "transcript:RQowiOF_FvQ@3734.559",
+                "text:2405.21060_mamba2#results#312",
+                "transcript:ANyxBVxmdZ0@3529.489",
+                "transcript:9dSkvxS2EB0@550.2",
+                "text:2405.21060_mamba2#method#154",
+                "text:2405.21060_mamba2#results#325",
+                "transcript:9dSkvxS2EB0@2002.3",
+                "transcript:RQowiOF_FvQ@3191.839"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "Bagaimana BERT dilatih dengan masked language modeling?",
+              "modalities": {
+                "transcript": 5,
+                "text": 5
+              },
+              "languages": {
+                "en": 8,
+                "id": 2
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@3237.599",
+                "transcript:yuvtlMfo3_Y@1959.159",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "transcript:RQowiOF_FvQ@1101.76",
+                "text:1810.04805_bert#results#132",
+                "text:1301.3781_word2vec#results#4",
+                "transcript:Ib5Wum2SRhY@5096.199",
+                "text:1301.3781_word2vec#results#3",
+                "text:1810.04805_bert#results#7",
+                "text:1301.3781_word2vec#results#50"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "Bagaimana BERT dapat digunakan untuk analisis sentimen?",
+              "modalities": {
+                "transcript": 6,
+                "text": 4
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:9dSkvxS2EB0@550.2",
+                "text:2405.21060_mamba2#method#169",
+                "text:2405.21060_mamba2#results#312",
+                "transcript:RQowiOF_FvQ@1101.76",
+                "transcript:knTc-NQSjKA@2566.8",
+                "transcript:RQowiOF_FvQ@3734.559",
+                "transcript:knTc-NQSjKA@3237.599",
+                "text:1810.04805_bert#results#132",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "text:2405.21060_mamba2#method#154"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?",
+              "modalities": {
+                "transcript": 5,
+                "text": 5
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:knTc-NQSjKA@2566.8",
+                "transcript:RQowiOF_FvQ@3734.559",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "text:2405.21060_mamba2#method#169",
+                "text:2405.21060_mamba2#results#312",
+                "transcript:knTc-NQSjKA@188.64",
+                "transcript:RQowiOF_FvQ@3191.839",
+                "text:1301.3781_word2vec#results#2",
+                "text:1301.3781_word2vec#results#3",
+                "text:1301.3781_word2vec#results#0"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "Bagaimana Mamba menangani dependensi jarak jauh?",
+              "modalities": {
+                "transcript": 7,
+                "text": 2,
+                "figure": 1
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@3734.559",
+                "transcript:uazVw7ImZiQ@118.6",
+                "text:2405.21060_mamba2#method#169",
+                "transcript:9dSkvxS2EB0@550.2",
+                "transcript:knTc-NQSjKA@2566.8",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page10_fig1.png",
+                "text:2403.19887_jamba#other#0",
+                "transcript:knTc-NQSjKA@3237.599",
+                "transcript:eMlx5fFNoYc@109.44"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Bandingkan biaya komputasi antara attention dan model state space",
+              "modalities": {
+                "text": 6,
+                "transcript": 4
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "text:2405.21060_mamba2#method#169",
+                "text:2405.21060_mamba2#results#312",
+                "transcript:knTc-NQSjKA@3237.599",
+                "text:2405.21060_mamba2#method#154",
+                "text:2312.00752_mamba#results#255",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "text:2405.21060_mamba2#results#325",
+                "transcript:9dSkvxS2EB0@2002.3",
+                "transcript:Ib5Wum2SRhY@4612.8",
+                "text:1301.3781_word2vec#method#48"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam",
+              "modalities": {
+                "transcript": 5,
+                "text": 5
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@3734.559",
+                "text:2405.21060_mamba2#method#169",
+                "transcript:knTc-NQSjKA@2566.8",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "text:2405.21060_mamba2#results#312",
+                "text:2405.21060_mamba2#method#154",
+                "transcript:eMlx5fFNoYc@1107.446",
+                "transcript:knTc-NQSjKA@3237.599",
+                "text:1301.3781_word2vec#results#4",
+                "text:1301.3781_word2vec#results#3"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "Apa arti rumus scaled dot-product attention?",
+              "modalities": {
+                "text": 8,
+                "transcript": 2
+              },
+              "languages": {
+                "en": 8,
+                "id": 2
+              },
+              "items": [
+                "text:2405.21060_mamba2#results#325",
+                "text:2405.21060_mamba2#method#177",
+                "transcript:bjTM02jXgvE@1598.57",
+                "text:2405.21060_mamba2#method#162",
+                "transcript:Ib5Wum2SRhY@3324.799",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2405.21060_mamba2#results#312",
+                "text:1512.03385_resnet#results#46",
+                "text:1810.04805_bert#results#146",
+                "text:2405.21060_mamba2#method#163"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "Bagaimana cara kerja transfer learning dengan model yang sudah dilatih sebelumnya?",
+              "modalities": {
+                "transcript": 7,
+                "text": 3
+              },
+              "languages": {
+                "id": 2,
+                "en": 8
+              },
+              "items": [
+                "transcript:c4krGYzu4DI@384.479",
+                "transcript:RQowiOF_FvQ@3734.559",
+                "transcript:7jlZlSxZZ1g@383.6",
+                "transcript:knTc-NQSjKA@2566.8",
+                "transcript:Ib5Wum2SRhY@5458.44",
+                "transcript:RQowiOF_FvQ@3191.839",
+                "transcript:knTc-NQSjKA@3237.599",
+                "text:1301.3781_word2vec#results#3",
+                "text:1301.3781_word2vec#results#2",
+                "text:1301.3781_word2vec#results#50"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 56,
+            "figure": 2,
+            "transcript": 92
+          },
+          "language_counts": {
+            "en": 125,
+            "id": 25
+          },
+          "coverage": {
+            "queries_with_figure": 2,
+            "queries_with_transcript": 15,
+            "queries_with_en_content": 15,
+            "queries_with_id_content": 8,
+            "n_queries": 15
+          }
+        },
+        "en_id_consistency": {
+          "mean_jaccard": 0.087,
+          "mean_overlap_at_k": 0.147,
+          "per_query_jaccard": {
+            "q01": 0.0,
+            "q02": 0.0,
+            "q03": 0.111,
+            "q04": 0.111,
+            "q05": 0.333,
+            "q06": 0.25,
+            "q07": 0.053,
+            "q08": 0.0,
+            "q09": 0.0,
+            "q10": 0.0,
+            "q11": 0.111,
+            "q12": 0.111,
+            "q13": 0.111,
+            "q14": 0.111,
+            "q15": 0.0
+          }
+        }
+      }
+    },
+    "mclip": {
+      "raw": {
+        "en_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "How does the attention mechanism work in a Transformer?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@953.1",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "transcript:Ib5Wum2SRhY@4348.7",
+                "transcript:bjTM02jXgvE@3748.4",
+                "transcript:Ib5Wum2SRhY@1092.6",
+                "transcript:Ib5Wum2SRhY@1207.5",
+                "transcript:bjTM02jXgvE@2088.3",
+                "transcript:Ib5Wum2SRhY@4474.4",
+                "transcript:Ib5Wum2SRhY@977.2",
+                "transcript:Ib5Wum2SRhY@4064.7"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "What problem does self-attention solve compared to recurrent networks?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@3213.6",
+                "transcript:bjTM02jXgvE@567.0",
+                "transcript:O-tfsQPI3RE@2949.4",
+                "transcript:O-tfsQPI3RE@3020.0",
+                "transcript:O-tfsQPI3RE@2008.4",
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:O-tfsQPI3RE@2687.1",
+                "transcript:O-tfsQPI3RE@923.0",
+                "transcript:bjTM02jXgvE@2244.8",
+                "transcript:O-tfsQPI3RE@2975.7"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Explain the architecture diagram of the Transformer model",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@953.1",
+                "transcript:Ib5Wum2SRhY@893.3",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "transcript:Ib5Wum2SRhY@450.1",
+                "transcript:bjTM02jXgvE@2674.1",
+                "transcript:Ib5Wum2SRhY@977.2",
+                "transcript:Ib5Wum2SRhY@4348.7",
+                "transcript:Ib5Wum2SRhY@3921.0",
+                "transcript:Ib5Wum2SRhY@4298.0",
+                "transcript:Ib5Wum2SRhY@1066.4"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "How are word embeddings learned in word2vec?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "en": 2,
+                "id": 8
+              },
+              "items": [
+                "transcript:viZrOnJclY0@638.0",
+                "transcript:zdBCbz7pmkY@1603.2",
+                "transcript:Ib5Wum2SRhY@3196.5",
+                "transcript:yuvtlMfo3_Y@4385.5",
+                "transcript:yuvtlMfo3_Y@4474.6",
+                "transcript:zdBCbz7pmkY@1206.2",
+                "transcript:Ib5Wum2SRhY@2944.4",
+                "transcript:viZrOnJclY0@866.9",
+                "transcript:bjTM02jXgvE@2061.7",
+                "transcript:Ib5Wum2SRhY@2868.0"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "What is the difference between CBOW and skip-gram?",
+              "modalities": {
+                "transcript": 8,
+                "text": 2
+              },
+              "languages": {
+                "id": 8,
+                "en": 2
+              },
+              "items": [
+                "transcript:YtmOw515BRQ@481.7",
+                "transcript:Ib5Wum2SRhY@1296.1",
+                "text:2404.16112_mamba360#method#90",
+                "text:1810.04805_bert#results#118",
+                "transcript:Ib5Wum2SRhY@822.5",
+                "transcript:Ib5Wum2SRhY@5375.6",
+                "transcript:Ib5Wum2SRhY@5191.5",
+                "transcript:YtmOw515BRQ@132.4",
+                "transcript:yuvtlMfo3_Y@3247.6",
+                "transcript:O-tfsQPI3RE@2079.1"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "How do convolutional neural networks extract features from images?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "id": 8,
+                "en": 2
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@3020.0",
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:O-tfsQPI3RE@181.8",
+                "transcript:O-tfsQPI3RE@3151.7",
+                "text:1409.1556_vgg#abstract#0",
+                "transcript:ANyxBVxmdZ0@163.3",
+                "transcript:O-tfsQPI3RE@28.8",
+                "transcript:O-tfsQPI3RE@50.2",
+                "transcript:Ib5Wum2SRhY@52.0"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Why do residual connections help train very deep networks?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 7,
+                "en": 3
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:O-tfsQPI3RE@3020.0",
+                "transcript:O-tfsQPI3RE@2031.8",
+                "transcript:ANyxBVxmdZ0@163.3",
+                "transcript:O-tfsQPI3RE@2975.7",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:O-tfsQPI3RE@3151.7",
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:RQowiOF_FvQ@257.3",
+                "transcript:RQowiOF_FvQ@1217.1"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "How is BERT pre-trained with masked language modeling?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@5096.2",
+                "transcript:yuvtlMfo3_Y@1351.7",
+                "transcript:yuvtlMfo3_Y@1061.2",
+                "transcript:Ib5Wum2SRhY@5237.3",
+                "transcript:yuvtlMfo3_Y@4538.6",
+                "transcript:yuvtlMfo3_Y@1959.2",
+                "transcript:c4krGYzu4DI@65.8",
+                "transcript:yuvtlMfo3_Y@4442.8",
+                "transcript:YtmOw515BRQ@30.5",
+                "transcript:O-tfsQPI3RE@50.2"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "How can BERT be used for sentiment analysis?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "id": 9,
+                "en": 1
+              },
+              "items": [
+                "transcript:c4krGYzu4DI@604.5",
+                "transcript:bjTM02jXgvE@1484.0",
+                "transcript:c4krGYzu4DI@1465.7",
+                "text:1810.04805_bert#results#7",
+                "transcript:Ib5Wum2SRhY@1296.1",
+                "transcript:O-tfsQPI3RE@901.1",
+                "transcript:bjTM02jXgvE@1461.7",
+                "transcript:Ib5Wum2SRhY@2191.1",
+                "transcript:YtmOw515BRQ@381.3",
+                "transcript:Ib5Wum2SRhY@5299.6"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "What are the limitations of LSTM networks for long sequences?",
+              "modalities": {
+                "transcript": 7,
+                "text": 3
+              },
+              "languages": {
+                "id": 7,
+                "en": 3
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@4351.3",
+                "transcript:yuvtlMfo3_Y@3247.6",
+                "text:2312.00752_mamba#results#17",
+                "transcript:Ib5Wum2SRhY@2868.0",
+                "text:2404.16112_mamba360#method#31",
+                "transcript:zdBCbz7pmkY@1501.4",
+                "transcript:Ib5Wum2SRhY@243.3",
+                "text:2404.16112_mamba360#method#90",
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:yuvtlMfo3_Y@3072.6"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "How does Mamba handle long-range dependencies?",
+              "modalities": {
+                "transcript": 7,
+                "text": 3
+              },
+              "languages": {
+                "id": 4,
+                "en": 6
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@2868.0",
+                "text:2312.00752_mamba#results#124",
+                "transcript:uazVw7ImZiQ@118.6",
+                "text:2404.16112_mamba360#method#88",
+                "transcript:uazVw7ImZiQ@60.2",
+                "text:2404.16112_mamba360#method#31",
+                "transcript:yuvtlMfo3_Y@4538.6",
+                "transcript:YtmOw515BRQ@30.5",
+                "transcript:yuvtlMfo3_Y@2603.3",
+                "transcript:uazVw7ImZiQ@79.0"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Compare the computational cost of attention and state space models",
+              "modalities": {
+                "text": 3,
+                "transcript": 7
+              },
+              "languages": {
+                "en": 3,
+                "id": 7
+              },
+              "items": [
+                "text:2404.16112_mamba360#results#176",
+                "transcript:zdBCbz7pmkY@1603.2",
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:bjTM02jXgvE@3695.2",
+                "transcript:zdBCbz7pmkY@4910.2",
+                "transcript:bjTM02jXgvE@1621.2",
+                "transcript:O-tfsQPI3RE@779.6",
+                "text:2404.16112_mamba360#results#122",
+                "text:2312.00752_mamba#method#6",
+                "transcript:bjTM02jXgvE@3151.7"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Show training loss curves for deep language models",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@4538.6",
+                "transcript:c4krGYzu4DI@1068.9",
+                "transcript:yuvtlMfo3_Y@3029.8",
+                "transcript:c4krGYzu4DI@65.8",
+                "transcript:yuvtlMfo3_Y@4351.3",
+                "transcript:yuvtlMfo3_Y@4442.8",
+                "transcript:yuvtlMfo3_Y@441.1",
+                "transcript:yuvtlMfo3_Y@4580.8",
+                "transcript:yuvtlMfo3_Y@3631.4",
+                "transcript:yuvtlMfo3_Y@1061.2"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "What does the scaled dot-product attention formula mean?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@4442.2",
+                "transcript:bjTM02jXgvE@622.5",
+                "transcript:Ib5Wum2SRhY@3349.1",
+                "transcript:Ib5Wum2SRhY@3301.2",
+                "transcript:zdBCbz7pmkY@2159.4",
+                "transcript:Ib5Wum2SRhY@3368.3",
+                "transcript:Ib5Wum2SRhY@3501.7",
+                "transcript:bjTM02jXgvE@1484.0",
+                "transcript:O-tfsQPI3RE@2243.4",
+                "transcript:bjTM02jXgvE@1510.0"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "How does transfer learning work with pretrained models?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@924.2",
+                "transcript:Ib5Wum2SRhY@5458.4",
+                "transcript:yuvtlMfo3_Y@3029.8",
+                "transcript:O-tfsQPI3RE@2687.1",
+                "transcript:c4krGYzu4DI@1068.9",
+                "transcript:c4krGYzu4DI@515.6",
+                "transcript:O-tfsQPI3RE@2996.1",
+                "transcript:Ib5Wum2SRhY@4500.1",
+                "transcript:yuvtlMfo3_Y@4538.6",
+                "transcript:O-tfsQPI3RE@2949.4"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 13,
+            "figure": 0,
+            "transcript": 137
+          },
+          "language_counts": {
+            "en": 22,
+            "id": 128
+          },
+          "coverage": {
+            "queries_with_figure": 0,
+            "queries_with_transcript": 15,
+            "queries_with_en_content": 8,
+            "queries_with_id_content": 15,
+            "n_queries": 15
+          }
+        },
+        "id_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "Bagaimana mekanisme attention bekerja pada Transformer?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@953.1",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "transcript:Ib5Wum2SRhY@4348.7",
+                "transcript:Ib5Wum2SRhY@1092.6",
+                "transcript:bjTM02jXgvE@3748.4",
+                "transcript:Ib5Wum2SRhY@4474.4",
+                "transcript:Ib5Wum2SRhY@1207.5",
+                "transcript:bjTM02jXgvE@2088.3",
+                "transcript:Ib5Wum2SRhY@977.2",
+                "transcript:Ib5Wum2SRhY@4064.7"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@2949.4",
+                "transcript:bjTM02jXgvE@567.0",
+                "transcript:O-tfsQPI3RE@923.0",
+                "transcript:O-tfsQPI3RE@3213.6",
+                "transcript:Ib5Wum2SRhY@2843.0",
+                "transcript:bjTM02jXgvE@2244.8",
+                "transcript:O-tfsQPI3RE@2687.1",
+                "transcript:O-tfsQPI3RE@2996.1",
+                "transcript:O-tfsQPI3RE@50.2",
+                "transcript:O-tfsQPI3RE@155.4"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Jelaskan diagram arsitektur model Transformer",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@893.3",
+                "transcript:Ib5Wum2SRhY@953.1",
+                "transcript:Ib5Wum2SRhY@450.1",
+                "transcript:Ib5Wum2SRhY@4064.7",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "transcript:zdBCbz7pmkY@3676.5",
+                "transcript:zdBCbz7pmkY@3589.4",
+                "transcript:zdBCbz7pmkY@5043.4",
+                "transcript:Ib5Wum2SRhY@4348.7",
+                "transcript:Ib5Wum2SRhY@3921.0"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "Bagaimana word embedding dipelajari dalam word2vec?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 8,
+                "en": 2
+              },
+              "items": [
+                "transcript:zdBCbz7pmkY@1603.2",
+                "transcript:viZrOnJclY0@638.0",
+                "transcript:Ib5Wum2SRhY@3196.5",
+                "transcript:yuvtlMfo3_Y@4385.5",
+                "transcript:bjTM02jXgvE@2061.7",
+                "transcript:Ib5Wum2SRhY@2944.4",
+                "transcript:zdBCbz7pmkY@1206.2",
+                "transcript:yuvtlMfo3_Y@4474.6",
+                "transcript:Ib5Wum2SRhY@2919.5",
+                "transcript:viZrOnJclY0@866.9"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "Apa perbedaan antara CBOW dan skip-gram?",
+              "modalities": {
+                "transcript": 8,
+                "text": 2
+              },
+              "languages": {
+                "id": 8,
+                "en": 2
+              },
+              "items": [
+                "transcript:YtmOw515BRQ@481.7",
+                "transcript:Ib5Wum2SRhY@1296.1",
+                "transcript:Ib5Wum2SRhY@5191.5",
+                "text:1810.04805_bert#results#118",
+                "transcript:Ib5Wum2SRhY@3828.9",
+                "transcript:Ib5Wum2SRhY@822.5",
+                "transcript:YtmOw515BRQ@132.4",
+                "transcript:O-tfsQPI3RE@278.3",
+                "text:2404.16112_mamba360#method#90",
+                "transcript:Ib5Wum2SRhY@4612.8"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@3020.0",
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:O-tfsQPI3RE@3151.7",
+                "transcript:O-tfsQPI3RE@50.2",
+                "transcript:O-tfsQPI3RE@3213.6",
+                "transcript:O-tfsQPI3RE@3130.3",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:O-tfsQPI3RE@28.8",
+                "transcript:O-tfsQPI3RE@2975.7"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Mengapa residual connection membantu melatih jaringan yang sangat dalam?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:O-tfsQPI3RE@2975.7",
+                "transcript:O-tfsQPI3RE@3020.0",
+                "transcript:O-tfsQPI3RE@490.4",
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:O-tfsQPI3RE@923.0",
+                "transcript:O-tfsQPI3RE@2031.8",
+                "transcript:bjTM02jXgvE@567.0",
+                "transcript:O-tfsQPI3RE@2949.4",
+                "transcript:O-tfsQPI3RE@3213.6"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "Bagaimana BERT dilatih dengan masked language modeling?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@1351.7",
+                "transcript:Ib5Wum2SRhY@5096.2",
+                "transcript:yuvtlMfo3_Y@1061.2",
+                "transcript:Ib5Wum2SRhY@5237.3",
+                "transcript:yuvtlMfo3_Y@1959.2",
+                "transcript:zdBCbz7pmkY@4314.6",
+                "transcript:yuvtlMfo3_Y@4538.6",
+                "transcript:Ib5Wum2SRhY@5299.6",
+                "transcript:zdBCbz7pmkY@1339.5",
+                "transcript:Ib5Wum2SRhY@5257.4"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "Bagaimana BERT dapat digunakan untuk analisis sentimen?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "id": 9,
+                "en": 1
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@901.1",
+                "transcript:Ib5Wum2SRhY@1296.1",
+                "transcript:Ib5Wum2SRhY@2191.1",
+                "transcript:c4krGYzu4DI@1465.7",
+                "transcript:bjTM02jXgvE@1484.0",
+                "transcript:Ib5Wum2SRhY@3368.3",
+                "transcript:bjTM02jXgvE@1461.7",
+                "transcript:bjTM02jXgvE@809.0",
+                "text:1810.04805_bert#results#7",
+                "transcript:Ib5Wum2SRhY@5299.6"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@3247.6",
+                "transcript:yuvtlMfo3_Y@4351.3",
+                "transcript:zdBCbz7pmkY@3561.3",
+                "transcript:O-tfsQPI3RE@923.0",
+                "transcript:O-tfsQPI3RE@2949.4",
+                "transcript:Ib5Wum2SRhY@243.3",
+                "transcript:bjTM02jXgvE@2395.8",
+                "transcript:O-tfsQPI3RE@863.9",
+                "transcript:O-tfsQPI3RE@3191.8",
+                "transcript:yuvtlMfo3_Y@3029.8"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "Bagaimana Mamba menangani dependensi jarak jauh?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "id": 9,
+                "en": 1
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@180.5",
+                "text:2312.00752_mamba#results#124",
+                "transcript:Ib5Wum2SRhY@5634.5",
+                "transcript:Ib5Wum2SRhY@4588.8",
+                "transcript:Ib5Wum2SRhY@2697.4",
+                "transcript:Ib5Wum2SRhY@1713.2",
+                "transcript:Ib5Wum2SRhY@143.9",
+                "transcript:Ib5Wum2SRhY@4000.1",
+                "transcript:Ib5Wum2SRhY@1366.4",
+                "transcript:Ib5Wum2SRhY@1317.8"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Bandingkan biaya komputasi antara attention dan model state space",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "id": 8,
+                "en": 2
+              },
+              "items": [
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:zdBCbz7pmkY@1603.2",
+                "transcript:zdBCbz7pmkY@4910.2",
+                "transcript:yuvtlMfo3_Y@3247.6",
+                "text:2404.16112_mamba360#results#176",
+                "transcript:bjTM02jXgvE@3695.2",
+                "transcript:bjTM02jXgvE@1621.2",
+                "transcript:bjTM02jXgvE@622.5",
+                "transcript:yuvtlMfo3_Y@3029.8",
+                "transcript:RQowiOF_FvQ@3286.2"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@5237.3",
+                "transcript:yuvtlMfo3_Y@1061.2",
+                "transcript:c4krGYzu4DI@65.8",
+                "transcript:c4krGYzu4DI@1275.7",
+                "transcript:yuvtlMfo3_Y@4538.6",
+                "transcript:yuvtlMfo3_Y@1351.7",
+                "transcript:yuvtlMfo3_Y@998.1",
+                "transcript:Ib5Wum2SRhY@2697.4",
+                "transcript:yuvtlMfo3_Y@1959.2",
+                "transcript:Ib5Wum2SRhY@1829.1"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "Apa arti rumus scaled dot-product attention?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@4442.2",
+                "transcript:Ib5Wum2SRhY@339.5",
+                "transcript:Ib5Wum2SRhY@2240.0",
+                "transcript:Ib5Wum2SRhY@1879.4",
+                "transcript:Ib5Wum2SRhY@3301.2",
+                "transcript:O-tfsQPI3RE@420.3",
+                "transcript:bjTM02jXgvE@684.6",
+                "transcript:Ib5Wum2SRhY@2191.1",
+                "transcript:bjTM02jXgvE@1885.2",
+                "transcript:bjTM02jXgvE@3845.2"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "Bagaimana cara kerja transfer learning dengan model yang sudah dilatih sebelumnya?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 10
+              },
+              "items": [
+                "transcript:Ib5Wum2SRhY@924.2",
+                "transcript:Ib5Wum2SRhY@5458.4",
+                "transcript:yuvtlMfo3_Y@3029.8",
+                "transcript:O-tfsQPI3RE@2687.1",
+                "transcript:c4krGYzu4DI@1068.9",
+                "transcript:yuvtlMfo3_Y@4538.6",
+                "transcript:O-tfsQPI3RE@2996.1",
+                "transcript:O-tfsQPI3RE@2949.4",
+                "transcript:c4krGYzu4DI@515.6",
+                "transcript:Ib5Wum2SRhY@4500.1"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 5,
+            "figure": 0,
+            "transcript": 145
+          },
+          "language_counts": {
+            "en": 8,
+            "id": 142
+          },
+          "coverage": {
+            "queries_with_figure": 0,
+            "queries_with_transcript": 15,
+            "queries_with_en_content": 5,
+            "queries_with_id_content": 15,
+            "n_queries": 15
+          }
+        },
+        "en_id_consistency": {
+          "mean_jaccard": 0.474,
+          "mean_overlap_at_k": 0.593,
+          "per_query_jaccard": {
+            "q01": 1.0,
+            "q02": 0.429,
+            "q03": 0.429,
+            "q04": 0.818,
+            "q05": 0.538,
+            "q06": 0.429,
+            "q07": 0.429,
+            "q08": 0.429,
+            "q09": 0.667,
+            "q10": 0.176,
+            "q11": 0.053,
+            "q12": 0.429,
+            "q13": 0.176,
+            "q14": 0.111,
+            "q15": 1.0
+          }
+        }
+      },
+      "calibrated": {
+        "en_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "How does the attention mechanism work in a Transformer?",
+              "modalities": {
+                "text": 5,
+                "figure": 2,
+                "transcript": 3
+              },
+              "languages": {
+                "en": 8,
+                "id": 2
+              },
+              "items": [
+                "text:2406.07887_empirical_mamba#results#129",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/1706.03762_attention/page3_fig1.png",
+                "transcript:Ib5Wum2SRhY@953.1",
+                "transcript:RQowiOF_FvQ@3760.4",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "text:2404.16112_mamba360#results#132",
+                "text:2405.21060_mamba2#results#1",
+                "text:2404.16112_mamba360#results#133",
+                "text:2405.21060_mamba2#method#15"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "What problem does self-attention solve compared to recurrent networks?",
+              "modalities": {
+                "transcript": 4,
+                "text": 6
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@1291.3",
+                "transcript:RQowiOF_FvQ@257.3",
+                "transcript:RQowiOF_FvQ@553.4",
+                "text:1301.3781_word2vec#method#27",
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#32",
+                "text:2404.16112_mamba360#results#134",
+                "text:2404.16112_mamba360#results#135",
+                "transcript:RQowiOF_FvQ@3941.1"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Explain the architecture diagram of the Transformer model",
+              "modalities": {
+                "figure": 2,
+                "transcript": 5,
+                "text": 3
+              },
+              "languages": {
+                "en": 6,
+                "id": 4
+              },
+              "items": [
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/1706.03762_attention/page3_fig1.png",
+                "transcript:Ib5Wum2SRhY@953.1",
+                "text:2406.07887_empirical_mamba#results#129",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:Ib5Wum2SRhY@893.3",
+                "transcript:knTc-NQSjKA@490.9",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "text:2404.16112_mamba360#method#71",
+                "transcript:Ib5Wum2SRhY@450.1",
+                "text:1706.03762_attention#method#10"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "How are word embeddings learned in word2vec?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "transcript:viZrOnJclY0@638.0",
+                "transcript:viZrOnJclY0@866.9",
+                "transcript:viZrOnJclY0@675.1",
+                "transcript:viZrOnJclY0@773.9",
+                "transcript:zdBCbz7pmkY@1603.2",
+                "transcript:eMlx5fFNoYc@397.0",
+                "transcript:RQowiOF_FvQ@1813.1",
+                "transcript:viZrOnJclY0@907.2",
+                "transcript:RQowiOF_FvQ@2084.4",
+                "text:2404.16112_mamba360#method#66"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "What is the difference between CBOW and skip-gram?",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:2404.16112_mamba360#method#90",
+                "text:1810.04805_bert#results#118",
+                "text:2404.16112_mamba360#method#88",
+                "text:2404.16112_mamba360#method#93",
+                "text:2312.00752_mamba#results#124",
+                "text:2312.00752_mamba#results#121",
+                "text:2404.16112_mamba360#results#122",
+                "text:1301.3781_word2vec#method#32",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2404.16112_mamba360#method#33"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "How do convolutional neural networks extract features from images?",
+              "modalities": {
+                "transcript": 8,
+                "text": 2
+              },
+              "languages": {
+                "en": 5,
+                "id": 5
+              },
+              "items": [
+                "transcript:ANyxBVxmdZ0@163.3",
+                "transcript:O-tfsQPI3RE@3020.0",
+                "text:1409.1556_vgg#abstract#0",
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:O-tfsQPI3RE@181.8",
+                "transcript:O-tfsQPI3RE@3151.7",
+                "text:1512.03385_resnet#introduction#0",
+                "transcript:RQowiOF_FvQ@257.3",
+                "transcript:RQowiOF_FvQ@3513.6"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Why do residual connections help train very deep networks?",
+              "modalities": {
+                "transcript": 8,
+                "text": 1,
+                "figure": 1
+              },
+              "languages": {
+                "en": 7,
+                "id": 3
+              },
+              "items": [
+                "transcript:ANyxBVxmdZ0@163.3",
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:RQowiOF_FvQ@257.3",
+                "transcript:RQowiOF_FvQ@1217.1",
+                "text:1512.03385_resnet#method#4",
+                "transcript:O-tfsQPI3RE@3020.0",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:RQowiOF_FvQ@801.8",
+                "transcript:RQowiOF_FvQ@935.9",
+                "transcript:O-tfsQPI3RE@2031.8"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "How is BERT pre-trained with masked language modeling?",
+              "modalities": {
+                "text": 8,
+                "transcript": 2
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1810.04805_bert#results#118",
+                "text:1810.04805_bert#results#7",
+                "transcript:RQowiOF_FvQ@3286.2",
+                "text:2404.16112_mamba360#results#122",
+                "transcript:knTc-NQSjKA@766.9",
+                "text:2404.16112_mamba360#method#33",
+                "text:1810.04805_bert#results#132",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2404.16112_mamba360#method#32",
+                "text:2312.00752_mamba#results#76"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "How can BERT be used for sentiment analysis?",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1810.04805_bert#results#7",
+                "text:1810.04805_bert#results#118",
+                "text:1810.04805_bert#results#132",
+                "text:2404.16112_mamba360#method#81",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#80",
+                "text:2404.16112_mamba360#method#32",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2404.16112_mamba360#method#33",
+                "text:2312.00752_mamba#results#128"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "What are the limitations of LSTM networks for long sequences?",
+              "modalities": {
+                "transcript": 8,
+                "text": 1,
+                "figure": 1
+              },
+              "languages": {
+                "id": 2,
+                "en": 8
+              },
+              "items": [
+                "transcript:yuvtlMfo3_Y@4351.3",
+                "transcript:yuvtlMfo3_Y@3247.6",
+                "transcript:RQowiOF_FvQ@1863.6",
+                "transcript:RQowiOF_FvQ@3513.6",
+                "text:2312.00752_mamba#results#17",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:RQowiOF_FvQ@801.8",
+                "transcript:RQowiOF_FvQ@3286.2",
+                "transcript:9dSkvxS2EB0@114.7",
+                "transcript:RQowiOF_FvQ@257.3"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "How does Mamba handle long-range dependencies?",
+              "modalities": {
+                "figure": 2,
+                "transcript": 4,
+                "text": 4
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page10_fig1.png",
+                "transcript:uazVw7ImZiQ@118.6",
+                "transcript:uazVw7ImZiQ@60.2",
+                "transcript:uazVw7ImZiQ@79.0",
+                "text:2312.00752_mamba#results#124",
+                "text:2404.16112_mamba360#method#88",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page13_fig1.png",
+                "text:2404.16112_mamba360#method#31",
+                "transcript:RQowiOF_FvQ@3286.2",
+                "text:2404.16112_mamba360#method#90"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Compare the computational cost of attention and state space models",
+              "modalities": {
+                "text": 4,
+                "transcript": 6
+              },
+              "languages": {
+                "en": 8,
+                "id": 2
+              },
+              "items": [
+                "text:2404.16112_mamba360#results#176",
+                "transcript:RQowiOF_FvQ@1813.1",
+                "transcript:RQowiOF_FvQ@3286.2",
+                "transcript:RQowiOF_FvQ@2303.8",
+                "text:2404.16112_mamba360#results#122",
+                "text:2312.00752_mamba#method#6",
+                "transcript:RQowiOF_FvQ@2108.6",
+                "text:2404.16112_mamba360#results#31",
+                "transcript:zdBCbz7pmkY@1603.2",
+                "transcript:zdBCbz7pmkY@0.0"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Show training loss curves for deep language models",
+              "modalities": {
+                "transcript": 4,
+                "figure": 2,
+                "text": 4
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@3286.2",
+                "transcript:viZrOnJclY0@586.2",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page10_fig1.png",
+                "text:1810.04805_bert#conclusion#0",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page10_fig2.png",
+                "transcript:viZrOnJclY0@675.1",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#31",
+                "transcript:RQowiOF_FvQ@1462.1",
+                "text:2404.16112_mamba360#results#134"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "What does the scaled dot-product attention formula mean?",
+              "modalities": {
+                "transcript": 3,
+                "text": 7
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@1941.4",
+                "transcript:RQowiOF_FvQ@2290.0",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#results#134",
+                "text:2404.16112_mamba360#method#33",
+                "transcript:Ib5Wum2SRhY@4442.2",
+                "text:2404.16112_mamba360#results#135",
+                "text:2404.16112_mamba360#method#67",
+                "text:2404.16112_mamba360#method#32",
+                "text:2312.00752_mamba#results#128"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "How does transfer learning work with pretrained models?",
+              "modalities": {
+                "text": 6,
+                "transcript": 3,
+                "figure": 1
+              },
+              "languages": {
+                "en": 8,
+                "id": 2
+              },
+              "items": [
+                "text:1810.04805_bert#conclusion#0",
+                "transcript:Ib5Wum2SRhY@924.2",
+                "text:2406.07887_empirical_mamba#conclusion#7",
+                "text:2406.07887_empirical_mamba#results#20",
+                "text:2404.16112_mamba360#method#31",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:Ib5Wum2SRhY@5458.4",
+                "transcript:RQowiOF_FvQ@3286.2",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#32"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 72,
+            "figure": 11,
+            "transcript": 67
+          },
+          "language_counts": {
+            "en": 128,
+            "id": 22
+          },
+          "coverage": {
+            "queries_with_figure": 7,
+            "queries_with_transcript": 13,
+            "queries_with_en_content": 15,
+            "queries_with_id_content": 9,
+            "n_queries": 15
+          }
+        },
+        "id_queries": {
+          "per_query": [
+            {
+              "query_id": "q01",
+              "query": "Bagaimana mekanisme attention bekerja pada Transformer?",
+              "modalities": {
+                "text": 3,
+                "transcript": 5,
+                "figure": 2
+              },
+              "languages": {
+                "en": 7,
+                "id": 3
+              },
+              "items": [
+                "text:2406.07887_empirical_mamba#results#129",
+                "transcript:Ib5Wum2SRhY@953.1",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/1706.03762_attention/page3_fig1.png",
+                "transcript:yuvtlMfo3_Y@1869.2",
+                "transcript:RQowiOF_FvQ@3760.4",
+                "transcript:Ib5Wum2SRhY@4348.7",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:9dSkvxS2EB0@54.6",
+                "text:2405.21060_mamba2#results#1",
+                "text:2404.16112_mamba360#results#133"
+              ]
+            },
+            {
+              "query_id": "q02",
+              "query": "Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#32",
+                "text:2404.16112_mamba360#results#135",
+                "text:2404.16112_mamba360#results#131",
+                "text:2312.00752_mamba#results#128",
+                "text:2404.16112_mamba360#results#134",
+                "text:2404.16112_mamba360#method#67",
+                "text:2404.16112_mamba360#method#80",
+                "text:2404.16112_mamba360#method#81"
+              ]
+            },
+            {
+              "query_id": "q03",
+              "query": "Jelaskan diagram arsitektur model Transformer",
+              "modalities": {
+                "figure": 2,
+                "transcript": 6,
+                "text": 2
+              },
+              "languages": {
+                "en": 5,
+                "id": 5
+              },
+              "items": [
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/1706.03762_attention/page3_fig1.png",
+                "transcript:knTc-NQSjKA@490.9",
+                "transcript:Ib5Wum2SRhY@893.3",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:Ib5Wum2SRhY@953.1",
+                "text:2406.07887_empirical_mamba#results#129",
+                "text:1706.03762_attention#method#10",
+                "transcript:Ib5Wum2SRhY@450.1",
+                "transcript:Ib5Wum2SRhY@4064.7",
+                "transcript:yuvtlMfo3_Y@1869.2"
+              ]
+            },
+            {
+              "query_id": "q04",
+              "query": "Bagaimana word embedding dipelajari dalam word2vec?",
+              "modalities": {
+                "transcript": 9,
+                "text": 1
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "transcript:viZrOnJclY0@638.0",
+                "transcript:viZrOnJclY0@866.9",
+                "transcript:RQowiOF_FvQ@1813.1",
+                "transcript:viZrOnJclY0@773.9",
+                "transcript:RQowiOF_FvQ@2084.4",
+                "transcript:eMlx5fFNoYc@397.0",
+                "text:1512.03385_resnet#method#15",
+                "transcript:zdBCbz7pmkY@1603.2",
+                "transcript:RQowiOF_FvQ@2072.4",
+                "transcript:viZrOnJclY0@675.1"
+              ]
+            },
+            {
+              "query_id": "q05",
+              "query": "Apa perbedaan antara CBOW dan skip-gram?",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1810.04805_bert#results#118",
+                "text:2404.16112_mamba360#method#90",
+                "text:2404.16112_mamba360#method#88",
+                "text:2312.00752_mamba#results#124",
+                "text:2404.16112_mamba360#method#93",
+                "text:2312.00752_mamba#results#121",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#method#80",
+                "text:2404.16112_mamba360#method#94"
+              ]
+            },
+            {
+              "query_id": "q06",
+              "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
+              "modalities": {
+                "transcript": 10
+              },
+              "languages": {
+                "id": 4,
+                "en": 6
+              },
+              "items": [
+                "transcript:O-tfsQPI3RE@3020.0",
+                "transcript:O-tfsQPI3RE@779.6",
+                "transcript:RQowiOF_FvQ@257.3",
+                "transcript:RQowiOF_FvQ@80.8",
+                "transcript:RQowiOF_FvQ@3941.1",
+                "transcript:RQowiOF_FvQ@3513.6",
+                "transcript:RQowiOF_FvQ@3501.6",
+                "transcript:RQowiOF_FvQ@566.8",
+                "transcript:zdBCbz7pmkY@0.0",
+                "transcript:O-tfsQPI3RE@3151.7"
+              ]
+            },
+            {
+              "query_id": "q07",
+              "query": "Mengapa residual connection membantu melatih jaringan yang sangat dalam?",
+              "modalities": {
+                "figure": 1,
+                "text": 2,
+                "transcript": 7
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "text:1512.03385_resnet#method#4",
+                "transcript:RQowiOF_FvQ@1217.1",
+                "transcript:ANyxBVxmdZ0@163.3",
+                "transcript:RQowiOF_FvQ@935.9",
+                "transcript:ANyxBVxmdZ0@3151.1",
+                "text:1301.3781_word2vec#method#27",
+                "transcript:RQowiOF_FvQ@1291.3",
+                "transcript:RQowiOF_FvQ@3286.2",
+                "transcript:RQowiOF_FvQ@257.3"
+              ]
+            },
+            {
+              "query_id": "q08",
+              "query": "Bagaimana BERT dilatih dengan masked language modeling?",
+              "modalities": {
+                "text": 9,
+                "transcript": 1
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1810.04805_bert#results#118",
+                "text:1810.04805_bert#results#7",
+                "text:1810.04805_bert#results#132",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#33",
+                "text:2312.00752_mamba#results#124",
+                "text:2405.21060_mamba2#conclusion#16",
+                "text:2404.16112_mamba360#method#80",
+                "transcript:knTc-NQSjKA@766.9"
+              ]
+            },
+            {
+              "query_id": "q09",
+              "query": "Bagaimana BERT dapat digunakan untuk analisis sentimen?",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:1810.04805_bert#results#7",
+                "text:1810.04805_bert#results#118",
+                "text:1810.04805_bert#results#132",
+                "text:2404.16112_mamba360#method#81",
+                "text:2404.16112_mamba360#method#80",
+                "text:2404.16112_mamba360#method#32",
+                "text:2404.16112_mamba360#results#122",
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#method#73",
+                "text:2404.16112_mamba360#method#67"
+              ]
+            },
+            {
+              "query_id": "q10",
+              "query": "Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?",
+              "modalities": {
+                "text": 8,
+                "transcript": 2
+              },
+              "languages": {
+                "en": 9,
+                "id": 1
+              },
+              "items": [
+                "text:2404.16112_mamba360#method#31",
+                "text:2404.16112_mamba360#results#122",
+                "transcript:RQowiOF_FvQ@1863.6",
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#method#90",
+                "text:2404.16112_mamba360#method#93",
+                "text:2404.16112_mamba360#method#94",
+                "transcript:yuvtlMfo3_Y@3247.6",
+                "text:2312.00752_mamba#results#124",
+                "text:2312.00752_mamba#results#128"
+              ]
+            },
+            {
+              "query_id": "q11",
+              "query": "Bagaimana Mamba menangani dependensi jarak jauh?",
+              "modalities": {
+                "figure": 2,
+                "text": 8
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page10_fig1.png",
+                "text:2312.00752_mamba#results#124",
+                "text:2404.16112_mamba360#method#80",
+                "text:1810.04805_bert#results#118",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2403.19887_jamba/page13_fig1.png",
+                "text:2404.16112_mamba360#method#81",
+                "text:2312.00752_mamba#results#121",
+                "text:2404.16112_mamba360#method#73",
+                "text:2404.16112_mamba360#results#249",
+                "text:2404.16112_mamba360#method#72"
+              ]
+            },
+            {
+              "query_id": "q12",
+              "query": "Bandingkan biaya komputasi antara attention dan model state space",
+              "modalities": {
+                "transcript": 5,
+                "text": 5
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "transcript:RQowiOF_FvQ@3286.2",
+                "transcript:RQowiOF_FvQ@1813.1",
+                "text:2404.16112_mamba360#results#176",
+                "transcript:RQowiOF_FvQ@2303.8",
+                "text:2404.16112_mamba360#results#31",
+                "text:2404.16112_mamba360#results#122",
+                "text:2405.21060_mamba2#method#67",
+                "transcript:RQowiOF_FvQ@2108.6",
+                "transcript:knTc-NQSjKA@2711.7",
+                "text:2405.21060_mamba2#results#69"
+              ]
+            },
+            {
+              "query_id": "q13",
+              "query": "Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:2312.00752_mamba#results#124",
+                "text:1810.04805_bert#conclusion#0",
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#results#135",
+                "text:2404.16112_mamba360#results#122",
+                "text:1810.04805_bert#results#118",
+                "text:2404.16112_mamba360#method#67",
+                "text:2404.16112_mamba360#results#134",
+                "text:2404.16112_mamba360#method#32",
+                "text:2404.16112_mamba360#method#81"
+              ]
+            },
+            {
+              "query_id": "q14",
+              "query": "Apa arti rumus scaled dot-product attention?",
+              "modalities": {
+                "text": 10
+              },
+              "languages": {
+                "en": 10
+              },
+              "items": [
+                "text:2404.16112_mamba360#results#122",
+                "text:1810.04805_bert#results#118",
+                "text:2312.00752_mamba#results#128",
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#method#32",
+                "text:2405.21060_mamba2#conclusion#17",
+                "text:2404.16112_mamba360#results#135",
+                "text:2404.16112_mamba360#results#134",
+                "text:2404.16112_mamba360#method#67",
+                "text:2312.00752_mamba#results#124"
+              ]
+            },
+            {
+              "query_id": "q15",
+              "query": "Bagaimana cara kerja transfer learning dengan model yang sudah dilatih sebelumnya?",
+              "modalities": {
+                "text": 6,
+                "figure": 1,
+                "transcript": 3
+              },
+              "languages": {
+                "en": 8,
+                "id": 2
+              },
+              "items": [
+                "text:1810.04805_bert#conclusion#0",
+                "figure:/Users/lubangashaban/Desktop/Crosslingual_Scholar_Search/data/figures/2404.16112_mamba360/page4_fig1.jpeg",
+                "transcript:RQowiOF_FvQ@3286.2",
+                "text:2404.16112_mamba360#results#122",
+                "text:2406.07887_empirical_mamba#results#20",
+                "transcript:Ib5Wum2SRhY@924.2",
+                "text:2404.16112_mamba360#method#31",
+                "transcript:Ib5Wum2SRhY@5458.4",
+                "text:2404.16112_mamba360#method#33",
+                "text:2404.16112_mamba360#method#32"
+              ]
+            }
+          ],
+          "modality_counts": {
+            "text": 94,
+            "figure": 8,
+            "transcript": 48
+          },
+          "language_counts": {
+            "en": 134,
+            "id": 16
+          },
+          "coverage": {
+            "queries_with_figure": 5,
+            "queries_with_transcript": 9,
+            "queries_with_en_content": 15,
+            "queries_with_id_content": 6,
+            "n_queries": 15
+          }
+        },
+        "en_id_consistency": {
+          "mean_jaccard": 0.505,
+          "mean_overlap_at_k": 0.64,
+          "per_query_jaccard": {
+            "q01": 0.667,
+            "q02": 0.333,
+            "q03": 0.818,
+            "q04": 0.667,
+            "q05": 0.667,
+            "q06": 0.429,
+            "q07": 0.429,
+            "q08": 0.538,
+            "q09": 0.667,
+            "q10": 0.111,
+            "q11": 0.176,
+            "q12": 0.538,
+            "q13": 0.176,
+            "q14": 0.538,
+            "q15": 0.818
+          }
+        }
+      }
+    }
+  }
+}

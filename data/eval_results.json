@@ -370,9 +370,9 @@
           "n_queries": 15
         },
         "latency_s": {
-          "mean": 0.0206,
-          "min": 0.0125,
-          "max": 0.0341
+          "mean": 0.0227,
+          "min": 0.0146,
+          "max": 0.042
         }
       },
       "id_queries": {
@@ -401,7 +401,7 @@
           },
           {
             "query_id": "q02",
-            "query": "Masalah apa yang diselesaikan self-attention dibandingkan jaringan rekuren?",
+            "query": "Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?",
             "modalities": {
               "transcript": 10
             },
@@ -412,13 +412,13 @@
               "transcript:bjTM02jXgvE@3822.76",
               "transcript:Ib5Wum2SRhY@1879.44",
               "transcript:YtmOw515BRQ@338.27",
-              "transcript:ITc9C9-Y9uY@839.76",
-              "transcript:Ib5Wum2SRhY@785.199",
-              "transcript:O-tfsQPI3RE@534.6",
-              "transcript:zdBCbz7pmkY@1395.82",
-              "transcript:Ib5Wum2SRhY@1851.12",
               "transcript:zdBCbz7pmkY@2505.28",
-              "transcript:Ib5Wum2SRhY@1778.919"
+              "transcript:Ib5Wum2SRhY@1778.919",
+              "transcript:Ib5Wum2SRhY@1851.12",
+              "transcript:Ib5Wum2SRhY@211.239",
+              "transcript:O-tfsQPI3RE@534.6",
+              "transcript:Ib5Wum2SRhY@785.199",
+              "transcript:ITc9C9-Y9uY@839.76"
             ]
           },
           {
@@ -491,25 +491,25 @@
           },
           {
             "query_id": "q06",
-            "query": "Bagaimana convolutional neural network mengekstraksi fitur dari citra?",
+            "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
             "modalities": {
               "transcript": 10
             },
             "languages": {
-              "id": 9,
-              "en": 1
+              "en": 3,
+              "id": 7
             },
             "items": [
+              "transcript:RQowiOF_FvQ@17.039",
               "transcript:O-tfsQPI3RE@490.4",
               "transcript:yuvtlMfo3_Y@79.88",
               "transcript:O-tfsQPI3RE@3130.28",
               "transcript:O-tfsQPI3RE@2031.84",
-              "transcript:RQowiOF_FvQ@17.039",
+              "transcript:ANyxBVxmdZ0@1220.49",
               "transcript:O-tfsQPI3RE@50.199",
-              "transcript:bjTM02jXgvE@2244.84",
-              "transcript:zdBCbz7pmkY@0.0",
-              "transcript:bjTM02jXgvE@1411.82",
-              "transcript:O-tfsQPI3RE@3020.0"
+              "transcript:ITc9C9-Y9uY@1.13",
+              "transcript:ANyxBVxmdZ0@376.81",
+              "transcript:bjTM02jXgvE@1411.82"
             ]
           },
           {
@@ -580,7 +580,7 @@
           },
           {
             "query_id": "q10",
-            "query": "Apa keterbatasan jaringan LSTM untuk sekuens yang panjang?",
+            "query": "Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?",
             "modalities": {
               "transcript": 10
             },
@@ -588,16 +588,16 @@
               "id": 10
             },
             "items": [
-              "transcript:Ib5Wum2SRhY@1778.919",
               "transcript:zdBCbz7pmkY@1395.82",
+              "transcript:Ib5Wum2SRhY@1778.919",
               "transcript:ITc9C9-Y9uY@839.76",
               "transcript:O-tfsQPI3RE@1037.64",
-              "transcript:YtmOw515BRQ@338.27",
-              "transcript:Ib5Wum2SRhY@5603.92",
               "transcript:Ib5Wum2SRhY@4898.639",
+              "transcript:YtmOw515BRQ@338.27",
               "transcript:Ib5Wum2SRhY@822.519",
-              "transcript:O-tfsQPI3RE@1319.919",
-              "transcript:Ib5Wum2SRhY@1584.159"
+              "transcript:Ib5Wum2SRhY@4127.319",
+              "transcript:yuvtlMfo3_Y@1959.159",
+              "transcript:YtmOw515BRQ@771.269"
             ]
           },
           {
@@ -624,7 +624,7 @@
           },
           {
             "query_id": "q12",
-            "query": "Bandingkan biaya komputasi attention dan model state space",
+            "query": "Bandingkan biaya komputasi antara attention dan model state space",
             "modalities": {
               "transcript": 10
             },
@@ -633,20 +633,20 @@
             },
             "items": [
               "transcript:Ib5Wum2SRhY@4612.8",
-              "transcript:zdBCbz7pmkY@4039.06",
               "transcript:yuvtlMfo3_Y@4225.56",
-              "transcript:Ib5Wum2SRhY@1851.12",
-              "transcript:zdBCbz7pmkY@109.17",
-              "transcript:bjTM02jXgvE@429.99",
-              "transcript:O-tfsQPI3RE@1037.64",
               "transcript:yuvtlMfo3_Y@3319.799",
-              "transcript:yuvtlMfo3_Y@1959.159",
-              "transcript:O-tfsQPI3RE@1663.76"
+              "transcript:zdBCbz7pmkY@4039.06",
+              "transcript:Ib5Wum2SRhY@1851.12",
+              "transcript:Ib5Wum2SRhY@822.519",
+              "transcript:Ib5Wum2SRhY@515.0",
+              "transcript:Ib5Wum2SRhY@4977.32",
+              "transcript:Ib5Wum2SRhY@339.52",
+              "transcript:zdBCbz7pmkY@109.17"
             ]
           },
           {
             "query_id": "q13",
-            "query": "Tunjukkan kurva loss pelatihan untuk model bahasa",
+            "query": "Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam",
             "modalities": {
               "transcript": 10
             },
@@ -657,13 +657,13 @@
               "transcript:yuvtlMfo3_Y@3319.799",
               "transcript:yuvtlMfo3_Y@4225.56",
               "transcript:O-tfsQPI3RE@1319.919",
-              "transcript:zdBCbz7pmkY@1395.82",
-              "transcript:Ib5Wum2SRhY@4977.32",
               "transcript:zdBCbz7pmkY@109.17",
+              "transcript:zdBCbz7pmkY@1395.82",
               "transcript:YtmOw515BRQ@358.16",
-              "transcript:Ib5Wum2SRhY@339.52",
+              "transcript:Ib5Wum2SRhY@4977.32",
+              "transcript:yuvtlMfo3_Y@4699.12",
               "transcript:yuvtlMfo3_Y@3874.52",
-              "transcript:yuvtlMfo3_Y@4699.12"
+              "transcript:Ib5Wum2SRhY@339.52"
             ]
           },
           {
@@ -720,8 +720,8 @@
           "transcript": 139
         },
         "language_counts": {
-          "en": 14,
-          "id": 136
+          "en": 16,
+          "id": 134
         },
         "coverage": {
           "queries_with_figure": 0,
@@ -731,21 +731,21 @@
           "n_queries": 15
         },
         "latency_s": {
-          "mean": 0.0222,
-          "min": 0.0138,
-          "max": 0.029
+          "mean": 0.0225,
+          "min": 0.0151,
+          "max": 0.0327
         }
       },
       "en_id_consistency": {
-        "mean_jaccard": 0.015,
-        "mean_overlap_at_k": 0.027,
+        "mean_jaccard": 0.019,
+        "mean_overlap_at_k": 0.033,
         "per_query_jaccard": {
           "q01": 0.0,
           "q02": 0.0,
           "q03": 0.0,
           "q04": 0.053,
           "q05": 0.0,
-          "q06": 0.0,
+          "q06": 0.053,
           "q07": 0.0,
           "q08": 0.0,
           "q09": 0.0,
@@ -1124,9 +1124,9 @@
           "n_queries": 15
         },
         "latency_s": {
-          "mean": 0.0394,
-          "min": 0.0079,
-          "max": 0.1152
+          "mean": 0.0143,
+          "min": 0.0098,
+          "max": 0.0226
         }
       },
       "id_queries": {
@@ -1155,7 +1155,7 @@
           },
           {
             "query_id": "q02",
-            "query": "Masalah apa yang diselesaikan self-attention dibandingkan jaringan rekuren?",
+            "query": "Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?",
             "modalities": {
               "transcript": 10
             },
@@ -1164,15 +1164,15 @@
             },
             "items": [
               "transcript:O-tfsQPI3RE@2949.4",
-              "transcript:O-tfsQPI3RE@923.0",
               "transcript:bjTM02jXgvE@567.0",
+              "transcript:O-tfsQPI3RE@923.0",
               "transcript:O-tfsQPI3RE@3213.6",
               "transcript:Ib5Wum2SRhY@2843.0",
               "transcript:bjTM02jXgvE@2244.8",
-              "transcript:O-tfsQPI3RE@155.4",
+              "transcript:O-tfsQPI3RE@2687.1",
+              "transcript:O-tfsQPI3RE@2996.1",
               "transcript:O-tfsQPI3RE@50.2",
-              "transcript:O-tfsQPI3RE@2975.7",
-              "transcript:O-tfsQPI3RE@2996.1"
+              "transcript:O-tfsQPI3RE@155.4"
             ]
           },
           {
@@ -1246,7 +1246,7 @@
           },
           {
             "query_id": "q06",
-            "query": "Bagaimana convolutional neural network mengekstraksi fitur dari citra?",
+            "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
             "modalities": {
               "transcript": 10
             },
@@ -1258,12 +1258,12 @@
               "transcript:O-tfsQPI3RE@779.6",
               "transcript:zdBCbz7pmkY@0.0",
               "transcript:O-tfsQPI3RE@3151.7",
-              "transcript:O-tfsQPI3RE@3059.8",
               "transcript:O-tfsQPI3RE@50.2",
               "transcript:O-tfsQPI3RE@3213.6",
               "transcript:O-tfsQPI3RE@3130.3",
               "transcript:O-tfsQPI3RE@490.4",
-              "transcript:O-tfsQPI3RE@1776.1"
+              "transcript:O-tfsQPI3RE@28.8",
+              "transcript:O-tfsQPI3RE@2975.7"
             ]
           },
           {
@@ -1336,7 +1336,7 @@
           },
           {
             "query_id": "q10",
-            "query": "Apa keterbatasan jaringan LSTM untuk sekuens yang panjang?",
+            "query": "Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?",
             "modalities": {
               "transcript": 10
             },
@@ -1345,15 +1345,15 @@
             },
             "items": [
               "transcript:yuvtlMfo3_Y@3247.6",
-              "transcript:zdBCbz7pmkY@3561.3",
               "transcript:yuvtlMfo3_Y@4351.3",
-              "transcript:Ib5Wum2SRhY@243.3",
+              "transcript:zdBCbz7pmkY@3561.3",
               "transcript:O-tfsQPI3RE@923.0",
               "transcript:O-tfsQPI3RE@2949.4",
+              "transcript:Ib5Wum2SRhY@243.3",
               "transcript:bjTM02jXgvE@2395.8",
+              "transcript:O-tfsQPI3RE@863.9",
               "transcript:O-tfsQPI3RE@3191.8",
-              "transcript:zdBCbz7pmkY@4560.2",
-              "transcript:yuvtlMfo3_Y@2807.4"
+              "transcript:yuvtlMfo3_Y@3029.8"
             ]
           },
           {
@@ -1382,7 +1382,7 @@
           },
           {
             "query_id": "q12",
-            "query": "Bandingkan biaya komputasi attention dan model state space",
+            "query": "Bandingkan biaya komputasi antara attention dan model state space",
             "modalities": {
               "transcript": 9,
               "text": 1
@@ -1392,21 +1392,21 @@
               "en": 2
             },
             "items": [
-              "transcript:zdBCbz7pmkY@4910.2",
-              "transcript:zdBCbz7pmkY@1603.2",
               "transcript:zdBCbz7pmkY@0.0",
+              "transcript:zdBCbz7pmkY@1603.2",
+              "transcript:zdBCbz7pmkY@4910.2",
               "transcript:yuvtlMfo3_Y@3247.6",
+              "text:2404.16112_mamba360#results#176",
               "transcript:bjTM02jXgvE@3695.2",
-              "text:2404.16112_mamba360#results#122",
-              "transcript:c4krGYzu4DI@1068.9",
+              "transcript:bjTM02jXgvE@1621.2",
+              "transcript:bjTM02jXgvE@622.5",
               "transcript:yuvtlMfo3_Y@3029.8",
-              "transcript:RQowiOF_FvQ@3286.2",
-              "transcript:bjTM02jXgvE@3151.7"
+              "transcript:RQowiOF_FvQ@3286.2"
             ]
           },
           {
             "query_id": "q13",
-            "query": "Tunjukkan kurva loss pelatihan untuk model bahasa",
+            "query": "Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam",
             "modalities": {
               "transcript": 10
             },
@@ -1414,16 +1414,16 @@
               "id": 10
             },
             "items": [
-              "transcript:yuvtlMfo3_Y@1061.2",
               "transcript:Ib5Wum2SRhY@5237.3",
+              "transcript:yuvtlMfo3_Y@1061.2",
               "transcript:c4krGYzu4DI@65.8",
               "transcript:c4krGYzu4DI@1275.7",
-              "transcript:yuvtlMfo3_Y@1959.2",
-              "transcript:Ib5Wum2SRhY@1829.1",
-              "transcript:Ib5Wum2SRhY@2697.4",
               "transcript:yuvtlMfo3_Y@4538.6",
-              "transcript:Ib5Wum2SRhY@5299.6",
-              "transcript:yuvtlMfo3_Y@3319.8"
+              "transcript:yuvtlMfo3_Y@1351.7",
+              "transcript:yuvtlMfo3_Y@998.1",
+              "transcript:Ib5Wum2SRhY@2697.4",
+              "transcript:yuvtlMfo3_Y@1959.2",
+              "transcript:Ib5Wum2SRhY@1829.1"
             ]
           },
           {
@@ -1489,21 +1489,21 @@
           "n_queries": 15
         },
         "latency_s": {
-          "mean": 0.0122,
-          "min": 0.0082,
-          "max": 0.0252
+          "mean": 0.0135,
+          "min": 0.0096,
+          "max": 0.0229
         }
       },
       "en_id_consistency": {
-        "mean_jaccard": 0.468,
-        "mean_overlap_at_k": 0.587,
+        "mean_jaccard": 0.474,
+        "mean_overlap_at_k": 0.593,
         "per_query_jaccard": {
           "q01": 1.0,
           "q02": 0.429,
           "q03": 0.429,
           "q04": 0.818,
           "q05": 0.538,
-          "q06": 0.333,
+          "q06": 0.429,
           "q07": 0.429,
           "q08": 0.429,
           "q09": 0.667,
@@ -1892,9 +1892,9 @@
         "n_queries": 15
       },
       "latency_s": {
-        "mean": 0.0042,
-        "min": 0.0027,
-        "max": 0.0074
+        "mean": 0.0041,
+        "min": 0.0026,
+        "max": 0.0075
       }
     },
     "id_queries": {
@@ -1923,7 +1923,7 @@
         },
         {
           "query_id": "q02",
-          "query": "Masalah apa yang diselesaikan self-attention dibandingkan jaringan rekuren?",
+          "query": "Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?",
           "modalities": {
             "transcript": 10
           },
@@ -1931,16 +1931,16 @@
             "id": 10
           },
           "items": [
-            "transcript:O-tfsQPI3RE@1865.639",
-            "transcript:O-tfsQPI3RE@490.4",
-            "transcript:O-tfsQPI3RE@2949.359",
-            "transcript:O-tfsQPI3RE@597.519",
-            "transcript:c4krGYzu4DI@354.81",
+            "transcript:Ib5Wum2SRhY@339.52",
             "transcript:Ib5Wum2SRhY@2573.319",
-            "transcript:Ib5Wum2SRhY@275.08",
-            "transcript:c4krGYzu4DI@1160.33",
-            "transcript:O-tfsQPI3RE@28.76",
-            "transcript:bjTM02jXgvE@4338.969"
+            "transcript:O-tfsQPI3RE@50.199",
+            "transcript:O-tfsQPI3RE@779.6",
+            "transcript:zdBCbz7pmkY@3839.03",
+            "transcript:c4krGYzu4DI@354.81",
+            "transcript:O-tfsQPI3RE@2757.8",
+            "transcript:c4krGYzu4DI@91.969",
+            "transcript:O-tfsQPI3RE@228.64",
+            "transcript:O-tfsQPI3RE@28.76"
           ]
         },
         {
@@ -2014,14 +2014,14 @@
         },
         {
           "query_id": "q06",
-          "query": "Bagaimana convolutional neural network mengekstraksi fitur dari citra?",
+          "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
           "modalities": {
             "transcript": 9,
             "text": 1
           },
           "languages": {
-            "id": 6,
-            "en": 4
+            "id": 7,
+            "en": 3
           },
           "items": [
             "transcript:zdBCbz7pmkY@3463.63",
@@ -2032,8 +2032,8 @@
             "transcript:zdBCbz7pmkY@2822.3",
             "transcript:zdBCbz7pmkY@4802.0",
             "transcript:ANyxBVxmdZ0@1205.91",
-            "text:1409.1556_vgg#method#12",
-            "transcript:ANyxBVxmdZ0@2622.48"
+            "transcript:bjTM02jXgvE@3317.98",
+            "text:1409.1556_vgg#method#12"
           ]
         },
         {
@@ -2107,7 +2107,7 @@
         },
         {
           "query_id": "q10",
-          "query": "Apa keterbatasan jaringan LSTM untuk sekuens yang panjang?",
+          "query": "Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?",
           "modalities": {
             "transcript": 10
           },
@@ -2115,16 +2115,16 @@
             "id": 10
           },
           "items": [
+            "transcript:yuvtlMfo3_Y@2603.28",
             "transcript:yuvtlMfo3_Y@2672.92",
+            "transcript:yuvtlMfo3_Y@1837.519",
+            "transcript:Ib5Wum2SRhY@243.319",
             "transcript:yuvtlMfo3_Y@3247.64",
-            "transcript:yuvtlMfo3_Y@3166.559",
-            "transcript:bjTM02jXgvE@76.99",
-            "transcript:yuvtlMfo3_Y@3072.599",
-            "transcript:O-tfsQPI3RE@204.64",
-            "transcript:Ib5Wum2SRhY@4707.56",
-            "transcript:Ib5Wum2SRhY@1441.96",
-            "transcript:yuvtlMfo3_Y@3279.0",
-            "transcript:O-tfsQPI3RE@1299.12"
+            "transcript:yuvtlMfo3_Y@3599.319",
+            "transcript:c4krGYzu4DI@32.95",
+            "transcript:yuvtlMfo3_Y@1277.2",
+            "transcript:yuvtlMfo3_Y@3136.16",
+            "transcript:O-tfsQPI3RE@490.4"
           ]
         },
         {
@@ -2151,31 +2151,31 @@
         },
         {
           "query_id": "q12",
-          "query": "Bandingkan biaya komputasi attention dan model state space",
+          "query": "Bandingkan biaya komputasi antara attention dan model state space",
           "modalities": {
-            "text": 9,
-            "transcript": 1
+            "text": 7,
+            "transcript": 3
           },
           "languages": {
-            "en": 9,
-            "id": 1
+            "en": 7,
+            "id": 3
           },
           "items": [
             "text:2405.21060_mamba2#conclusion#5",
             "text:2405.21060_mamba2#results#6",
             "text:2405.21060_mamba2#results#104",
+            "transcript:bjTM02jXgvE@2032.94",
+            "transcript:Ib5Wum2SRhY@1343.799",
             "transcript:YtmOw515BRQ@171.0",
             "text:2405.21060_mamba2#results#43",
             "text:2405.21060_mamba2#results#294",
             "text:2404.16112_mamba360#results#30",
-            "text:2404.16112_mamba360#results#47",
-            "text:2405.21060_mamba2#results#69",
-            "text:2404.16112_mamba360#results#113"
+            "text:2404.16112_mamba360#results#47"
           ]
         },
         {
           "query_id": "q13",
-          "query": "Tunjukkan kurva loss pelatihan untuk model bahasa",
+          "query": "Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam",
           "modalities": {
             "transcript": 10
           },
@@ -2183,16 +2183,16 @@
             "id": 10
           },
           "items": [
-            "transcript:yuvtlMfo3_Y@3631.4",
             "transcript:c4krGYzu4DI@384.479",
-            "transcript:yuvtlMfo3_Y@3029.799",
-            "transcript:yuvtlMfo3_Y@2930.28",
             "transcript:zdBCbz7pmkY@3272.35",
-            "transcript:Ib5Wum2SRhY@5400.32",
             "transcript:zdBCbz7pmkY@4675.6",
-            "transcript:bjTM02jXgvE@868.309",
-            "transcript:bjTM02jXgvE@900.03",
-            "transcript:zdBCbz7pmkY@187.14"
+            "transcript:yuvtlMfo3_Y@3029.799",
+            "transcript:Ib5Wum2SRhY@3649.559",
+            "transcript:yuvtlMfo3_Y@647.92",
+            "transcript:zdBCbz7pmkY@3223.08",
+            "transcript:bjTM02jXgvE@541.95",
+            "transcript:yuvtlMfo3_Y@2930.28",
+            "transcript:bjTM02jXgvE@868.309"
           ]
         },
         {
@@ -2245,13 +2245,13 @@
       ],
       "total_items": 150,
       "modality_counts": {
-        "text": 20,
+        "text": 18,
         "figure": 2,
-        "transcript": 128
+        "transcript": 130
       },
       "language_counts": {
-        "en": 28,
-        "id": 122
+        "en": 25,
+        "id": 125
       },
       "coverage": {
         "queries_with_figure": 1,
@@ -2261,7 +2261,7 @@
         "n_queries": 15
       },
       "latency_s": {
-        "mean": 0.003,
+        "mean": 0.0031,
         "min": 0.0024,
         "max": 0.0044
       }
