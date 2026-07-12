@@ -1,0 +1,423 @@
+[0.0s] In the last chapter, you and I started to step
+[2.0s] through the internal workings of a transformer.
+[4.6s] This is one of the key pieces of technology inside large language models,
+[7.9s] and a lot of other tools in the modern wave of AI.
+[11.0s] It first hit the scene in a now-famous 2017 paper called Attention is All You Need,
+[15.5s] and in this chapter you and I will dig into what this attention mechanism is,
+[19.8s] visualizing how it processes data.
+[26.1s] As a quick recap, here's the important context I want you to have in mind.
+[30.0s] The goal of the model that you and I are studying is to
+[33.0s] take in a piece of text and predict what word comes next.
+[36.9s] The input text is broken up into little pieces that we call tokens,
+[40.3s] and these are very often words or pieces of words,
+[43.0s] but just to make the examples in this video easier for you and me to think about,
+[47.2s] let's simplify by pretending that tokens are always just words.
+[51.5s] The first step in a transformer is to associate each token
+[54.5s] with a high-dimensional vector, what we call its embedding.
+[57.7s] The most important idea I want you to have in mind is how directions in this
+[62.0s] high-dimensional space of all possible embeddings can correspond with semantic meaning.
+[67.7s] In the last chapter we saw an example for how direction can correspond to gender,
+[71.7s] in the sense that adding a certain step in this space can take you from the
+[75.5s] embedding of a masculine noun to the embedding of the corresponding feminine noun.
+[80.2s] That's just one example you could imagine how many other directions in this
+[83.6s] high-dimensional space could correspond to numerous other aspects of a word's meaning.
+[88.8s] The aim of a transformer is to progressively adjust these embeddings
+[92.5s] so that they don't merely encode an individual word,
+[95.4s] but instead they bake in some much, much richer contextual meaning.
+[100.1s] I should say up front that a lot of people find the attention mechanism,
+[103.7s] this key piece in a transformer, very confusing,
+[106.0s] so don't worry if it takes some time for things to sink in.
+[109.4s] I think that before we dive into the computational details and all
+[112.7s] the matrix multiplications, it's worth thinking about a couple
+[115.8s] examples for the kind of behavior that we want attention to enable.
+[120.1s] Consider the phrases American shrew mole, one mole of carbon dioxide,
+[124.3s] and take a biopsy of the mole.
+[126.7s] You and I know that the word mole has different meanings in each one of these,
+[130.0s] based on the context.
+[131.4s] But after the first step of a transformer, the one that breaks up the text
+[135.1s] and associates each token with a vector, the vector that's associated with
+[138.8s] mole would be the same in all of these cases,
+[141.2s] because this initial token embedding is effectively a lookup table with no
+[144.9s] reference to the context.
+[146.6s] It's only in the next step of the transformer that the surrounding
+[150.0s] embeddings have the chance to pass information into this one.
+[153.8s] The picture you might have in mind is that there are multiple distinct directions in
+[158.3s] this embedding space encoding the multiple distinct meanings of the word mole,
+[162.5s] and that a well-trained attention block calculates what you need to add to the generic
+[167.1s] embedding to move it to one of these specific directions, as a function of the context.
+[173.3s] To take another example, consider the embedding of the word tower.
+[177.1s] This is presumably some very generic, non-specific direction in the space,
+[181.1s] associated with lots of other large, tall nouns.
+[184.0s] If this word was immediately preceded by Eiffel,
+[186.6s] you could imagine wanting the mechanism to update this vector so that
+[190.3s] it points in a direction that more specifically encodes the Eiffel tower,
+[194.3s] maybe correlated with vectors associated with Paris and France and things made of steel.
+[199.9s] If it was also preceded by the word miniature,
+[202.2s] then the vector should be updated even further,
+[204.6s] so that it no longer correlates with large, tall things.
+[209.5s] More generally than just refining the meaning of a word,
+[212.3s] the attention block allows the model to move information encoded in
+[215.7s] one embedding to that of another, potentially ones that are quite far away,
+[219.5s] and potentially with information that's much richer than just a single word.
+[223.3s] What we saw in the last chapter was how after all of the vectors flow through the
+[227.9s] network, including many different attention blocks,
+[230.9s] the computation you perform to produce a prediction of the next token is entirely a
+[235.7s] function of the last vector in the sequence.
+[239.1s] Imagine, for example, that the text you input is most of an entire mystery novel,
+[243.4s] all the way up to a point near the end, which reads, therefore the murderer was.
+[248.4s] If the model is going to accurately predict the next word,
+[251.5s] that final vector in the sequence, which began its life simply embedding the word was,
+[256.0s] will have to have been updated by all of the attention blocks to represent much,
+[260.3s] much more than any individual word, somehow encoding all of the information
+[264.3s] from the full context window that's relevant to predicting the next word.
+[269.5s] To step through the computations, though, let's take a much simpler example.
+[273.0s] Imagine that the input includes the phrase, a
+[275.4s] fluffy blue creature roamed the verdant forest.
+[278.5s] And for the moment, suppose that the only type of update that we care about
+[282.6s] is having the adjectives adjust the meanings of their corresponding nouns.
+[287.0s] What I'm about to describe is what we would call a single head of attention,
+[290.7s] and later we will see how the attention block consists of many different heads run in
+[294.9s] parallel.
+[296.1s] Again, the initial embedding for each word is some high dimensional vector
+[299.8s] that only encodes the meaning of that particular word with no context.
+[304.0s] Actually, that's not quite true.
+[305.4s] They also encode the position of the word.
+[308.0s] There's a lot more to say about the specific way that positions are encoded,
+[311.6s] but right now, all you need to know is that the entries of this vector are
+[315.2s] enough to tell you both what the word is and where it exists in the context.
+[319.5s] Let's go ahead and denote these embeddings with the letter e.
+[322.4s] The goal is to have a series of computations produce a new refined
+[326.1s] set of embeddings where, for example, those corresponding to the
+[329.6s] nouns have ingested the meaning from their corresponding adjectives.
+[333.9s] And playing the deep learning game, we want most of the computations
+[337.1s] involved to look like matrix-vector products,
+[339.3s] where the matrices are full of tuneable weights,
+[341.7s] things that the model will learn based on data.
+[344.7s] To be clear, I'm making up this example of adjectives updating nouns just to
+[348.4s] illustrate the type of behavior that you could imagine an attention head doing.
+[352.9s] As with so much deep learning, the true behavior is much harder to parse because it's
+[357.0s] based on tweaking and tuning a huge number of parameters to minimize some cost function.
+[361.7s] It's just that as we step through all of different matrices filled with parameters
+[365.6s] that are involved in this process, I think it's really helpful to have an imagined
+[369.5s] example of something that it could be doing to help keep it all more concrete.
+[374.1s] For the first step of this process, you might imagine each noun, like creature,
+[378.2s] asking the question, hey, are there any adjectives sitting in front of me?
+[382.2s] And for the words fluffy and blue, to each be able to answer,
+[385.4s] yeah, I'm an adjective and I'm in that position.
+[389.0s] That question is somehow encoded as yet another vector,
+[392.3s] another list of numbers, which we call the query for this word.
+[397.0s] This query vector though has a much smaller dimension than the embedding vector, say 128.
+[402.9s] Computing this query looks like taking a certain matrix,
+[406.3s] which I'll label wq, and multiplying it by the embedding.
+[411.0s] Compressing things a bit, let's write that query vector as q,
+[414.2s] and then anytime you see me put a matrix next to an arrow like this one,
+[418.0s] it's meant to represent that multiplying this matrix by the vector at the arrow's start
+[422.6s] gives you the vector at the arrow's end.
+[425.9s] In this case, you multiply this matrix by all of the embeddings in the context,
+[430.2s] producing one query vector for each token.
+[433.7s] The entries of this matrix are parameters of the model,
+[436.4s] which means the true behavior is learned from data, and in practice,
+[439.7s] what this matrix does in a particular attention head is challenging to parse.
+[443.9s] But for our sake, imagining an example that we might hope that it would learn,
+[447.9s] we'll suppose that this query matrix maps the embeddings of nouns to
+[451.4s] certain directions in this smaller query space that somehow encodes
+[454.9s] the notion of looking for adjectives in preceding positions.
+[458.8s] As to what it does to other embeddings, who knows?
+[461.7s] Maybe it simultaneously tries to accomplish some other goal with those.
+[464.5s] Right now, we're laser focused on the nouns.
+[467.3s] At the same time, associated with this is a second matrix called the key matrix,
+[471.6s] which you also multiply by every one of the embeddings.
+[475.3s] This produces a second sequence of vectors that we call the keys.
+[479.4s] Conceptually, you want to think of the keys as potentially answering the queries.
+[483.8s] This key matrix is also full of tuneable parameters, and just like the query matrix,
+[488.0s] it maps the embedding vectors to that same smaller dimensional space.
+[492.2s] You think of the keys as matching the queries whenever they closely align with each other.
+[497.5s] In our example, you would imagine that the key matrix maps the adjectives like fluffy and
+[502.2s] blue to vectors that are closely aligned with the query produced by the word creature.
+[507.2s] To measure how well each key matches each query,
+[510.1s] you compute a dot product between each possible key-query pair.
+[514.5s] I like to visualize a grid full of a bunch of dots,
+[517.1s] where the bigger dots correspond to the larger dot products,
+[520.2s] the places where the keys and queries align.
+[523.3s] For our adjective noun example, that would look a little more like this,
+[527.5s] where if the keys produced by fluffy and blue really do align closely with the query
+[532.4s] produced by creature, then the dot products in these two spots would be some large
+[537.3s] positive numbers.
+[539.1s] In the lingo, machine learning people would say that this means the
+[542.3s] embeddings of fluffy and blue attend to the embedding of creature.
+[546.0s] By contrast to the dot product between the key for some other
+[549.5s] word like the and the query for creature would be some small
+[552.9s] or negative value that reflects that are unrelated to each other.
+[557.7s] So we have this grid of values that can be any real number from
+[561.3s] negative infinity to infinity, giving us a score for how relevant
+[565.1s] each word is to updating the meaning of every other word.
+[569.2s] The way we're about to use these scores is to take a certain
+[572.5s] weighted sum along each column, weighted by the relevance.
+[576.5s] So instead of having values range from negative infinity to infinity,
+[580.2s] what we want is for the numbers in these columns to be between 0 and 1,
+[584.0s] and for each column to add up to 1, as if they were a probability distribution.
+[589.3s] If you're coming in from the last chapter, you know what we need to do then.
+[592.6s] We compute a softmax along each one of these columns to normalize the values.
+[600.1s] In our picture, after you apply softmax to all of the columns,
+[603.2s] we'll fill in the grid with these normalized values.
+[606.8s] At this point you're safe to think about each column as giving weights according
+[610.7s] to how relevant the word on the left is to the corresponding value at the top.
+[615.1s] We call this grid an attention pattern.
+[618.1s] Now if you look at the original transformer paper,
+[620.2s] there's a really compact way that they write this all down.
+[623.9s] Here the variables q and k represent the full arrays of query
+[627.4s] and key vectors respectively, those little vectors you get by
+[631.0s] multiplying the embeddings by the query and the key matrices.
+[635.2s] This expression up in the numerator is a really compact way to represent
+[639.1s] the grid of all possible dot products between pairs of keys and queries.
+[644.0s] A small technical detail that I didn't mention is that for numerical stability,
+[648.0s] it happens to be helpful to divide all of these values by the
+[651.2s] square root of the dimension in that key query space.
+[654.5s] Then this softmax that's wrapped around the full expression
+[657.8s] is meant to be understood to apply column by column.
+[661.6s] As to that v term, we'll talk about it in just a second.
+[665.0s] Before that, there's one other technical detail that so far I've skipped.
+[669.0s] During the training process, when you run this model on a given text example,
+[673.0s] and all of the weights are slightly adjusted and tuned to either reward or punish it
+[677.4s] based on how high a probability it assigns to the true next word in the passage,
+[681.5s] it turns out to make the whole training process a lot more efficient if you
+[685.4s] simultaneously have it predict every possible next token following each initial
+[689.6s] subsequence of tokens in this passage.
+[691.9s] For example, with the phrase that we've been focusing on,
+[694.9s] it might also be predicting what words follow creature and what words follow the.
+[699.9s] This is really nice, because it means what would otherwise
+[702.8s] be a single training example effectively acts as many.
+[706.1s] For the purposes of our attention pattern, it means that you never
+[709.4s] want to allow later words to influence earlier words,
+[712.2s] since otherwise they could kind of give away the answer for what comes next.
+[716.6s] What this means is that we want all of these spots here,
+[719.6s] the ones representing later tokens influencing earlier ones,
+[722.8s] to somehow be forced to be zero.
+[725.9s] The simplest thing you might think to do is to set them equal to zero,
+[728.7s] but if you did that the columns wouldn't add up to one anymore,
+[731.3s] they wouldn't be normalized.
+[733.1s] So instead, a common way to do this is that before applying softmax,
+[736.4s] you set all of those entries to be negative infinity.
+[739.7s] If you do that, then after applying softmax, all of those get turned into zero,
+[743.6s] but the columns stay normalized.
+[746.0s] This process is called masking.
+[747.5s] There are versions of attention where you don't apply it, but in our GPT example,
+[751.3s] even though this is more relevant during the training phase than it would be,
+[754.9s] say, running it as a chatbot or something like that,
+[757.4s] you do always apply this masking to prevent later tokens from influencing earlier ones.
+[762.5s] Another fact that's worth reflecting on about this attention
+[765.8s] pattern is how its size is equal to the square of the context size.
+[769.9s] So this is why context size can be a really huge bottleneck for large language models,
+[774.0s] and scaling it up is non-trivial.
+[776.3s] As you imagine, motivated by a desire for bigger and bigger context windows,
+[780.1s] recent years have seen some variations to the attention mechanism aimed at making
+[784.1s] context more scalable, but right here, you and I are staying focused on the basics.
+[790.6s] Okay, great, computing this pattern lets the model
+[792.9s] deduce which words are relevant to which other words.
+[796.0s] Now you need to actually update the embeddings,
+[798.5s] allowing words to pass information to whichever other words they're relevant to.
+[802.8s] For example, you want the embedding of Fluffy to somehow cause a change
+[806.8s] to Creature that moves it to a different part of this 12,000-dimensional
+[810.8s] embedding space that more specifically encodes a Fluffy creature.
+[815.5s] What I'm going to do here is first show you the most straightforward
+[818.3s] way that you could do this, though there's a slight way that
+[820.9s] this gets modified in the context of multi-headed attention.
+[824.1s] This most straightforward way would be to use a third matrix,
+[827.1s] what we call the value matrix, which you multiply by the embedding of that first word,
+[831.4s] for example Fluffy.
+[833.3s] The result of this is what you would call a value vector,
+[835.9s] and this is something that you add to the embedding of the second word,
+[839.2s] in this case something you add to the embedding of Creature.
+[842.6s] So this value vector lives in the same very high-dimensional space as the embeddings.
+[847.5s] When you multiply this value matrix by the embedding of a word,
+[850.8s] you might think of it as saying, if this word is relevant to adjusting the meaning of
+[855.3s] something else, what exactly should be added to the embedding of that something else
+[859.8s] in order to reflect this?
+[862.1s] Looking back in our diagram, let's set aside all of the keys and the queries,
+[866.0s] since after you compute the attention pattern you're done with those,
+[869.4s] then you're going to take this value matrix and multiply it by every
+[872.9s] one of those embeddings to produce a sequence of value vectors.
+[877.1s] You might think of these value vectors as being
+[879.1s] kind of associated with the corresponding keys.
+[882.3s] For each column in this diagram, you multiply each of the
+[885.8s] value vectors by the corresponding weight in that column.
+[890.1s] For example here, under the embedding of Creature,
+[892.8s] you would be adding large proportions of the value vectors for Fluffy and Blue,
+[897.1s] while all of the other value vectors get zeroed out, or at least nearly zeroed out.
+[902.1s] And then finally, the way to actually update the embedding associated with this column,
+[906.8s] previously encoding some context-free meaning of Creature,
+[909.9s] you add together all of these rescaled values in the column,
+[913.1s] producing a change that you want to add, that I'll label delta-e,
+[916.7s] and then you add that to the original embedding.
+[919.7s] Hopefully what results is a more refined vector encoding the more
+[923.1s] contextually rich meaning, like that of a fluffy blue creature.
+[927.4s] And of course you don't just do this to one embedding,
+[930.2s] you apply the same weighted sum across all of the columns in this picture,
+[934.0s] producing a sequence of changes, adding all of those changes to the corresponding
+[938.3s] embeddings, produces a full sequence of more refined embeddings popping out
+[942.2s] of the attention block.
+[944.9s] Zooming out, this whole process is what you would describe as a single head of attention.
+[949.6s] As I've described things so far, this process is parameterized by three distinct
+[954.2s] matrices, all filled with tunable parameters, the key, the query, and the value.
+[959.5s] I want to take a moment to continue what we started in the last chapter,
+[962.9s] with the scorekeeping where we count up the total number of model parameters using the
+[967.1s] numbers from GPT-3.
+[969.3s] These key and query matrices each have 12,288 columns, matching the embedding dimension,
+[975.0s] and 128 rows, matching the dimension of that smaller key query space.
+[980.3s] This gives us an additional 1.5 million or so parameters for each one.
+[984.9s] If you look at that value matrix by contrast, the way I've described things so
+[990.1s] far would suggest that it's a square matrix that has 12,288 columns and 12,288 rows,
+[995.9s] since both its inputs and outputs live in this very large embedding space.
+[1001.5s] If true, that would mean about 150 million added parameters.
+[1005.7s] And to be clear, you could do that.
+[1007.4s] You could devote orders of magnitude more parameters
+[1009.8s] to the value map than to the key and query.
+[1012.1s] But in practice, it is much more efficient if instead you make
+[1015.0s] it so that the number of parameters devoted to this value map
+[1017.9s] is the same as the number devoted to the key and the query.
+[1021.5s] This is especially relevant in the setting of
+[1023.3s] running multiple attention heads in parallel.
+[1026.2s] The way this looks is that the value map is factored as a product of two smaller matrices.
+[1031.2s] Conceptually, I would still encourage you to think about the overall linear map,
+[1035.3s] one with inputs and outputs, both in this larger embedding space,
+[1038.8s] for example taking the embedding of blue to this blueness direction that you would
+[1043.1s] add to nouns.
+[1047.0s] The first matrix on the right here has a smaller number of rows,
+[1050.3s] typically the same size as the key-query space
+[1053.1s] What this means is you can think of it as mapping the
+[1055.7s] large embedding vectors down to a much smaller space.
+[1059.0s] This is not the conventional naming, but I'm going to call this the value down matrix.
+[1063.4s] The second matrix maps from this smaller space back up to the embedding space,
+[1067.4s] producing the vectors that you use to make the actual updates.
+[1071.0s] I'm going to call this one the value up matrix, which again is not conventional.
+[1075.2s] The way that you would see this written in most papers looks a little different.
+[1078.4s] I'll talk about it in a minute.
+[1079.7s] In my opinion, it tends to make things a little more conceptually confusing.
+[1083.3s] To throw in linear algebra jargon here, what we're basically doing is
+[1086.8s] constraining the overall value map to be a low rank transformation.
+[1091.4s] Turning back to the parameter count, all four of these matrices have the same size,
+[1096.1s] and adding them all up we get about 6.3 million parameters for one attention head.
+[1102.0s] As a quick side note, to be a little more accurate,
+[1104.2s] everything described so far is what people would call a self-attention head,
+[1107.4s] to distinguish it from a variation that comes up in other models that's
+[1110.5s] called cross-attention.
+[1112.3s] This isn't relevant to our GPT example, but if you're curious,
+[1115.7s] cross-attention involves models that process two distinct types of data,
+[1119.8s] like text in one language and text in another language that's part of an
+[1123.8s] ongoing generation of a translation, or maybe audio input of speech and an
+[1128.0s] ongoing transcription.
+[1130.4s] A cross-attention head looks almost identical.
+[1133.0s] The only difference is that the key and query maps act on different data sets.
+[1137.8s] In a model doing translation, for example, the keys might come from one language,
+[1142.1s] while the queries come from another, and the attention pattern could describe
+[1146.1s] which words from one language correspond to which words in another.
+[1150.3s] And in this setting there would typically be no masking,
+[1152.9s] since there's not really any notion of later tokens affecting earlier ones.
+[1157.2s] Staying focused on self-attention though, if you understood everything so far,
+[1160.8s] and if you were to stop here, you would come away with the essence of what attention
+[1164.7s] really is.
+[1165.8s] All that's really left to us is to lay out the sense
+[1168.7s] in which you do this many many different times.
+[1172.1s] In our central example we focused on adjectives updating nouns,
+[1175.1s] but of course there are lots of different ways that context can influence the
+[1178.9s] meaning of a word.
+[1180.4s] If the words they crashed the preceded the word car,
+[1183.2s] it has implications for the shape and structure of that car.
+[1187.2s] And a lot of associations might be less grammatical.
+[1189.8s] If the word wizard is anywhere in the same passage as Harry,
+[1192.9s] it suggests that this might be referring to Harry Potter,
+[1195.9s] whereas if instead the words Queen, Sussex, and William were in that passage,
+[1200.0s] then perhaps the embedding of Harry should instead be updated to refer to the prince.
+[1205.0s] For every different type of contextual updating that you might imagine,
+[1208.5s] the parameters of these key and query matrices would be different to
+[1211.9s] capture the different attention patterns, and the parameters of our
+[1215.3s] value map would be different based on what should be added to the embeddings.
+[1220.0s] And again, in practice the true behavior of these maps is much more
+[1223.1s] difficult to interpret, where the weights are set to do whatever the
+[1226.3s] model needs them to do to best accomplish its goal of predicting the next token.
+[1231.4s] As I said before, everything we described is a single head of attention,
+[1235.2s] and a full attention block inside a transformer consists of what's
+[1238.7s] called multi-headed attention, where you run a lot of these operations in parallel,
+[1243.1s] each with its own distinct key query and value maps.
+[1247.4s] GPT-3 for example uses 96 attention heads inside each block.
+[1252.0s] Considering that each one is already a bit confusing,
+[1254.5s] it's certainly a lot to hold in your head.
+[1256.8s] Just to spell it all out very explicitly, this means you have 96 distinct
+[1261.1s] key and query matrices producing 96 distinct attention patterns.
+[1265.4s] Then each head has its own distinct value matrices
+[1268.9s] used to produce 96 sequences of value vectors.
+[1272.5s] These are all added together using the corresponding attention patterns as weights.
+[1277.5s] What this means is that for each position in the context, each token,
+[1281.4s] every one of these heads produces a proposed change to be added to the embedding in
+[1286.2s] that position.
+[1287.7s] So what you do is you sum together all of those proposed changes, one for each head,
+[1292.0s] and you add the result to the original embedding of that position.
+[1296.7s] This entire sum here would be one slice of what's outputted from this multi-headed
+[1301.7s] attention block, a single one of those refined embeddings that pops out the other end
+[1307.0s] of it.
+[1308.3s] Again, this is a lot to think about, so don't
+[1310.2s] worry at all if it takes some time to sink in.
+[1312.4s] The overall idea is that by running many distinct heads in parallel,
+[1316.3s] you're giving the model the capacity to learn many distinct ways that context
+[1320.8s] changes meaning.
+[1323.7s] Pulling up our running tally for parameter count with 96 heads,
+[1327.3s] each including its own variation of these four matrices,
+[1330.5s] each block of multi-headed attention ends up with around 600 million parameters.
+[1336.4s] There's one added slightly annoying thing that I should really
+[1339.0s] mention for any of you who go on to read more about transformers.
+[1342.1s] You remember how I said that the value map is factored out into these two
+[1345.6s] distinct matrices, which I labeled as the value down and the value up matrices.
+[1350.0s] The way that I framed things would suggest that you see this pair of matrices
+[1354.2s] inside each attention head, and you could absolutely implement it this way.
+[1358.6s] That would be a valid design.
+[1360.3s] But the way that you see this written in papers and the way
+[1362.6s] that it's implemented in practice looks a little different.
+[1365.3s] All of these value up matrices for each head appear stapled together in one giant matrix
+[1370.8s] that we call the output matrix, associated with the entire multi-headed attention block.
+[1376.8s] And when you see people refer to the value matrix for a given attention head,
+[1380.6s] they're typically only referring to this first step,
+[1383.2s] the one that I was labeling as the value down projection into the smaller space.
+[1388.3s] For the curious among you, I've left an on-screen note about it.
+[1391.3s] It's one of those details that runs the risk of distracting
+[1393.6s] from the main conceptual points, but I do want to call it out
+[1396.0s] just so that you know if you read about this in other sources.
+[1399.2s] Setting aside all the technical nuances, in the preview from the last chapter we saw how
+[1403.7s] data flowing through a transformer doesn't just flow through a single attention block.
+[1408.6s] For one thing, it also goes through these other operations called multi-layer perceptrons.
+[1413.1s] We'll talk more about those in the next chapter.
+[1415.2s] And then it repeatedly goes through many many copies of both of these operations.
+[1420.0s] What this means is that after a given word imbibes some of its context,
+[1423.9s] there are many more chances for this more nuanced embedding
+[1427.2s] to be influenced by its more nuanced surroundings.
+[1430.9s] The further down the network you go, with each embedding taking in more and more
+[1434.9s] meaning from all the other embeddings, which themselves are getting more and more
+[1439.1s] nuanced, the hope is that there's the capacity to encode higher level and more
+[1443.0s] abstract ideas about a given input beyond just descriptors and grammatical structure.
+[1447.9s] Things like sentiment and tone and whether it's a poem and what underlying
+[1451.7s] scientific truths are relevant to the piece and things like that.
+[1456.7s] Turning back one more time to our scorekeeping, GPT-3 includes 96 distinct layers,
+[1462.0s] so the total number of key query and value parameters is multiplied by another 96,
+[1467.3s] which brings the total sum to just under 58 billion distinct parameters
+[1472.0s] devoted to all of the attention heads.
+[1475.0s] That is a lot to be sure, but it's only about a third
+[1478.0s] of the 175 billion that are in the network in total.
+[1481.5s] So even though attention gets all of the attention,
+[1484.1s] the majority of parameters come from the blocks sitting in between these steps.
+[1488.6s] In the next chapter, you and I will talk more about those
+[1491.0s] other blocks and also a lot more about the training process.
+[1494.1s] A big part of the story for the success of the attention mechanism is not so much any
+[1498.8s] specific kind of behaviour that it enables, but the fact that it's extremely
+[1503.0s] parallelizable, meaning that you can run a huge number of computations in a short time
+[1507.7s] using GPUs.
+[1509.5s] Given that one of the big lessons about deep learning in the last decade or two has
+[1513.3s] been that scale alone seems to give huge qualitative improvements in model performance,
+[1517.4s] there's a huge advantage to parallelizable architectures that let you do this.
+[1522.0s] If you want to learn more about this stuff, I've left lots of links in the description.
+[1525.9s] In particular, anything produced by Andrej Karpathy or Chris Ola tend to be pure gold.
+[1530.6s] In this video, I wanted to just jump into attention in its current form,
+[1533.7s] but if you're curious about more of the history for how we got here
+[1536.7s] and how you might reinvent this idea for yourself,
+[1538.9s] my friend Vivek just put up a couple videos giving a lot more of that motivation.
+[1543.1s] Also, Britt Cruz from the channel The Art of the Problem has a
+[1545.8s] really nice video about the history of large language models.
+[1565.0s] Thank you.

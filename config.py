@@ -108,8 +108,22 @@ PAPER_METADATA = {
 # Lecture videos: language-tagged. Indonesian entries are added after
 # transcript availability is verified (see docs/corpus_candidates.md).
 LECTURE_METADATA = {
-    # English lectures (carried over from the original corpus; transcripts cached)
+    # English lectures (first three carried over from the original corpus)
     "9dSkvxS2EB0": {"title": "Mamba paper review", "language": "en"},
     "7jlZlSxZZ1g": {"title": "Mamba vs Transformer comparison", "language": "en"},
     "uazVw7ImZiQ": {"title": "Selective state space models explained", "language": "en"},
+    "eMlx5fFNoYc": {"title": "Attention in transformers, step-by-step (3Blue1Brown)", "language": "en"},
+    "RQowiOF_FvQ": {"title": "Stanford CS231N Lecture 8: Attention and Transformers", "language": "en"},
+    "viZrOnJclY0": {"title": "Word Embedding and Word2Vec, Clearly Explained (StatQuest)", "language": "en"},
+    "ANyxBVxmdZ0": {"title": "Michigan Lecture 7: Convolutional Networks", "language": "en"},
+    "knTc-NQSjKA": {"title": "Stanford CS224N: BERT and pretraining", "language": "en"},
+    # Indonesian lectures (auto-generated captions; disclosed in the paper)
+    "bjTM02jXgvE": {"title": "Deep Learning Ep. 10: Attention and Transformers (Risman Adnan)", "language": "id"},
+    "Ib5Wum2SRhY": {"title": "Dasar-dasar attention; sekilas Transformer (Moch Arif Bijaksana)", "language": "id"},
+    "zdBCbz7pmkY": {"title": "Deep Learning Ep. 6: Word Embedding (Risman Adnan)", "language": "id"},
+    "YtmOw515BRQ": {"title": "Apa itu Word2vec? Word Vector untuk NLP (JCOp)", "language": "id"},
+    "yuvtlMfo3_Y": {"title": "Deep Learning: RNN, LSTM, dan GRU (Telkom University)", "language": "id"},
+    "ITc9C9-Y9uY": {"title": "Convolutional Neural Network (Rahmadya Trias)", "language": "id"},
+    "c4krGYzu4DI": {"title": "Model transformer BERT untuk analisa sentimen (Novanto Yudistira)", "language": "id"},
+    "O-tfsQPI3RE": {"title": "Neural Networks untuk Pemula: Soft Computing (Kuliah Informatika)", "language": "id"},
 }

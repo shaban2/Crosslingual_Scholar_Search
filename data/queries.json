@@ -1,0 +1,20 @@
+{
+  "_note": "Bilingual query pairs. Indonesian drafted by the author and to be reviewed by a native speaker before the final run.",
+  "queries": [
+    {"id": "q01", "topic": "transformer", "en": "How does the attention mechanism work in a Transformer?", "id_": "Bagaimana mekanisme attention bekerja pada Transformer?"},
+    {"id": "q02", "topic": "transformer", "en": "What problem does self-attention solve compared to recurrent networks?", "id_": "Masalah apa yang diselesaikan self-attention dibandingkan jaringan rekuren?"},
+    {"id": "q03", "topic": "transformer", "en": "Explain the architecture diagram of the Transformer model", "id_": "Jelaskan diagram arsitektur model Transformer"},
+    {"id": "q04", "topic": "word2vec", "en": "How are word embeddings learned in word2vec?", "id_": "Bagaimana word embedding dipelajari dalam word2vec?"},
+    {"id": "q05", "topic": "word2vec", "en": "What is the difference between CBOW and skip-gram?", "id_": "Apa perbedaan antara CBOW dan skip-gram?"},
+    {"id": "q06", "topic": "cnn", "en": "How do convolutional neural networks extract features from images?", "id_": "Bagaimana convolutional neural network mengekstraksi fitur dari citra?"},
+    {"id": "q07", "topic": "cnn", "en": "Why do residual connections help train very deep networks?", "id_": "Mengapa residual connection membantu melatih jaringan yang sangat dalam?"},
+    {"id": "q08", "topic": "bert", "en": "How is BERT pre-trained with masked language modeling?", "id_": "Bagaimana BERT dilatih dengan masked language modeling?"},
+    {"id": "q09", "topic": "bert", "en": "How can BERT be used for sentiment analysis?", "id_": "Bagaimana BERT dapat digunakan untuk analisis sentimen?"},
+    {"id": "q10", "topic": "rnn", "en": "What are the limitations of LSTM networks for long sequences?", "id_": "Apa keterbatasan jaringan LSTM untuk sekuens yang panjang?"},
+    {"id": "q11", "topic": "mamba", "en": "How does Mamba handle long-range dependencies?", "id_": "Bagaimana Mamba menangani dependensi jarak jauh?"},
+    {"id": "q12", "topic": "mamba", "en": "Compare the computational cost of attention and state space models", "id_": "Bandingkan biaya komputasi attention dan model state space"},
+    {"id": "q13", "topic": "training", "en": "Show training loss curves for deep language models", "id_": "Tunjukkan kurva loss pelatihan untuk model bahasa"},
+    {"id": "q14", "topic": "transformer", "en": "What does the scaled dot-product attention formula mean?", "id_": "Apa arti rumus scaled dot-product attention?"},
+    {"id": "q15", "topic": "transfer", "en": "How does transfer learning work with pretrained models?", "id_": "Bagaimana cara kerja transfer learning dengan model yang sudah dilatih sebelumnya?"}
+  ]
+}

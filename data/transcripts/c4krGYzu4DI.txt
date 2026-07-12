@@ -1,0 +1,498 @@
+[0.2s] Hai assalamualaikum warahmatullahi
+[1.9s] wabarakatuh Kami dari kelompok 4 saya
+[7.4s] harus titahmu silahken dewe dan disini
+[10.4s] saya bersama Mas Ananta Yulian Sukma
+[13.3s] Dewa dan Mas kuncahyo Setyo Nugroho kami
+[16.7s] disini membawakan topik yaitu
+[19.2s] bertransfer model for sentiment analysis
+[21.9s] on Google Play Store App aplikasi review
+[30.3s] Hai ah Pada dasarnya
+[33.0s] Hai komunikasi adalah hal yang sangat
+[34.8s] penting
+[36.6s] di dalam
+[38.8s] Hai kehidupan sosial Apalagi kita
+[41.0s] sebagai makhluk hidup
+[44.6s] Hai gentlement Tunya kita banyak
+[47.6s] menemukan informasi yang ada pada dunia
+[51.6s] di media sosial website ataupun Aplikasi
+[55.4s] apa yang sering kita gunakan yang
+[59.7s] menggunakan bahasa natural
+[63.6s] Hai isi enggak isu yang muncul dalam
+[65.8s] pengolahan bahasa adalah bahasa bahasa
+[68.2s] yang ambigu atau bahasa bahasa kita
+[70.2s] sehari-hari yang tentunya tidak dapat
+[73.7s] dimengerti oleh komputer
+[77.3s] Hai disini kami menggunakan NLP yaitu
+[81.2s] natural lengket-lengket Processing
+[84.4s] ini merupakan salah satu cabang ilmu yg
+[86.8s] yang berfokus pada pengolahan bahasa
+[89.1s] natural bahasa natural yaitu bahasa yang
+[92.0s] secara umum digunakan oleh manusia dalam
+[95.1s] berkomunikasi satu sama lain
+[97.7s] Hai bahasa yang diterima oleh komputer
+[99.5s] butuh diproses untuk dipahami terlebih
+[102.1s] dahulu supaya maksud dari user bisa
+[105.2s] dipahami dengan baik oleh komputer NLP
+[109.0s] sendiri mempunyai
+[111.4s] Hai terapan terapan yaitu machine
+[113.6s] translation information retrieval
+[116.7s] sentiment analysis information
+[119.0s] Extraction question answering nah disini
+[121.9s] kami menggunakan sentimen analisis
+[123.8s] sentimen analisis yaitu
+[127.2s] Hai untuk mengetahui mengetahui
+[129.6s] emosional perasaan kepribadian manusia
+[134.5s] dalam topik tertentu dalam peneliti
+[138.1s] penelitian lainnya juga sentimen
+[141.8s] analisis ini sudah banyak digunakan
+[143.5s] dalam topik pariwisata keuangan media
+[147.6s] sosial dan lain-lain
+[151.7s] Hai nah dalam topik kita ini kami
+[154.9s] mendapatkan problem statement yaitu yang
+[158.4s] pertama review menggunakan berisi review
+[162.2s] pengguna berisi informasi yang dapat
+[164.3s] menangkap dan menggambarkan kebutuhan
+[166.8s] pengguna termasuk preferensi pengguna
+[169.5s] yang kedua belum pernah dilakukannya
+[172.8s] pengujian model Bird pada data review
+[175.2s] pengguna Google Playstore menggunakan
+[179.0s] bahasa Indonesia
+[184.4s] Hai kemudian proposal pemakainya disini
+[188.4s] kita menggunakan sequins the sequences
+[191.2s] model 2014 yang kedua Transformers mode
+[196.5s] 2017 dan yang ketiga Bird pretending of
+[200.6s] Deep dedicated di directed by Direction
+[204.6s] baby reaction Al transformator lengas
+[207.4s] understanding yang keempat Bekasi tektur
+[211.1s] yang kelima Indo anu
+[217.1s] Hai nah kemudian ini akan
+[220.0s] Hai prosesnya pertama kita mengambil
+[222.6s] data dari Google Play Store kemudian
+[226.5s] kita scripping
+[229.9s] Hai dan mendapatkan
+[232.5s] Hai dataset review Google Play kemudian
+[235.6s] dilakukan text Processing Setelah itu
+[239.3s] dilakukan review score to sentimen Dari
+[242.8s] review for Stone review score the
+[245.4s] sentiment kita membagi data menjadi tiga
+[248.0s] yaitu testing Set training sama
+[250.3s] validation
+[253.2s] Hai semuanya yang dilakukan Saint tuning
+[255.1s] model ini hanya dari data training dan
+[258.2s] validasi kemudian dilakukan
+[263.8s] Hai model prediction on testing save dan
+[267.9s] testing satin denda testing saat ini
+[270.3s] tidak mengaku tidak dilakukan Sentinel
+[273.5s] model dia langsung
+[275.6s] Hai dilakukan model pada setting model
+[278.1s] prediction on testing set dari fans dari
+[282.5s] data dari setelah melakukan Sentinel
+[285.8s] model ini kemudian dilakukan training
+[290.1s] menggunakan indoboard kemudian mendapat
+[293.4s] mendapatkan modal dari Thailand dan
+[295.3s] Insight nya
+[298.3s] Hai keluar negatif Netral atau positif
+[301.0s] Setelah itu kami juga mereview data yang
+[306.7s] tidak ditraining sama sekali data mentah
+[310.1s] dari Google Play Store untuk mendapatkan
+[313.3s] Insight negatif Netral atau positif
+[318.1s] Hai Oke selanjutnya MetroTV review akan
+[321.2s] dibawakan oleh Mas Ananta
+[327.4s] Oh ya saya akan melanjutkan Oke
+[331.5s] presentasi tentang metode overview
+[335.4s] Hai yang pertama kita bisa melihat dari
+[339.9s] model yang kita gunakan yang berbasis
+[343.4s] dari transformer transformer pertama
+[345.8s] kali dikenalkan pada tahun 2017 pada
+[349.8s] paper attention is old unit nah transfer
+[354.8s] ini memiliki kelebihan yang cocok untuk
+[357.7s] paralelistis paralelisasi model ini
+[360.8s] mampu menghasilkan skor yang lebih baik
+[363.0s] pada tugas-tugas tertentu dibandingkan
+[367.2s] dengan Google natural Sorry Google
+[371.1s] neutral machine translation kemudian
+[373.8s] cara kerja dari model transfer ini dapat
+[377.1s] kita analogikan seperti yang bisa
+[381.0s] dilihat yaitu aplikasi untuk Translate
+[384.5s] translate bahasa dari satu bahasa ke
+[387.5s] bahasa lainnya
+[389.5s] Hai gimana kita menginputkan sebuah
+[391.6s] kalimat dengan bahasa tertentu yang
+[394.1s] kemudian basah tersebut akan kita olah
+[396.9s] menjadi bahasa lainnya menggunakan model
+[400.0s] transfer tersebut kemudian di dalam
+[403.4s] model transfer itu sendiri terdapat
+[406.0s] encoder Android dan decoder yang
+[408.6s] berfungsi untuk mengolah input and kita
+[412.4s] dan mengeluarkan output karlita komponen
+[417.3s] dari encoder sendiri sebenarnya
+[420.2s] didalamnya terdapat enam tumbuk encoder
+[427.4s] [Musik]
+[429.2s] 6 tumbuhan country tersebut kita
+[431.4s] dapatkan dari attention is all unit yang
+[434.9s] didalamnya dijelaskan bahwa pada
+[438.5s] komponen coding terdapat 667 encoder
+[442.1s] demikian juga dengan komponen decoder
+[445.1s] yang didalamnya juga terdapat enam
+[448.4s] tumpuk decoder
+[449.5s] hai hai
+[450.6s] hai hai
+[453.0s] Oh Iyan kita masuk ke Bird sendiri
+[457.0s] adalah bidirectional encoder
+[459.0s] representation from Transformers pertama
+[462.1s] kali dikenalkan pada tahun 2018 inovasi
+[465.4s] yang dapat kita lihat dari peta adalah
+[467.8s] representasi kata2 arah atau by
+[471.0s] directional ini menjadi sebuah terobosan
+[476.2s] baru dari model-model sebelumnya karena
+[479.0s] pada model Open eigrp representasi dari
+[485.2s] kata tersebut hanya kita lihat dari
+[488.2s] urutan kata kiri-ke-kanan satu arah
+[491.0s] Kemudian dari model elmo kita bisa
+[494.3s] melihat kalau representasi katanya itu
+[498.3s] dari kanan ke kiri dan ketegangan atau
+[500.9s] metode campuran
+[504.2s] Hai kemudian Framework ada dua tahapan
+[509.7s] yang pertama free training dan fine
+[511.8s] tuning karena keterbatasan data aset
+[515.6s] yang kita miliki maka pada penelitian
+[517.8s] ini kita menggunakan ventolin saja
+[522.7s] I heart dalam tahapan whitening ada
+[526.4s] transfer learning atau kata lain dari
+[528.5s] fine-tuning yaitu transferring adalah
+[531.0s] kemampuan mentransfer pengetahuan dari
+[533.5s] model yang sudah dilatih kemudian
+[536.5s] transfer pengetahuan tersebut nonton
+[538.8s] yang kita transfer tersebut kita
+[542.2s] aplikasikan pada kondisi baru yang
+[544.8s] sesuai dengan problem-problem tertentu
+[548.7s] pada tahap ini kita masuk ke tahap
+[554.0s] reprocessing pada data kita komedi yang
+[559.4s] diawali dengan tokenization tokenization
+[562.5s] adalah bacaan kalimat menjadi
+[565.8s] token-token tertentu kemudian token
+[568.5s] tersebut dipetakan ke indeks pada
+[570.5s] kosakata kosakata ataupun Azhar
+[572.3s] contohnya adalah pada kalimat Saya
+[574.7s] kuliah di Fikom percaya tokennya kita
+[577.5s] bisa berkata kemudian kita berikan
+[581.5s] tokeneed
+[582.6s] hai hai
+[584.3s] Hai kemudian a bright sendiri memiliki
+[588.2s] format tertentu yang harus kita ikuti
+[590.4s] yang pertama menambahkan spesial token
+[594.4s] di awal dan akhir pada setiap kalimat
+[596.3s] kemudian menambahkan wedding dan
+[598.5s] memotong semua kalimat sehingga memiliki
+[601.5s] panjang yang sama atau konstan kemudian
+[604.5s] membedakan token redding dengan
+[606.3s] attention match
+[607.9s] a pada B sentence lengket dan attention
+[612.5s] Mask kalimat pada dataset jelas memiliki
+[615.5s] panjang kalimat yang bervariasi Oleh
+[618.5s] karena itu bet memiliki dua batasan yang
+[620.9s] harus kita ikuti yang pertama semua
+[623.1s] kalimat itu harus memiliki panjang sama
+[626.0s] Hai itu kita bisa dapat
+[628.4s] Hai dapat melakukan petting atau transit
+[630.7s] pada setiap kalimat tersebut sehingga
+[633.3s] kalimat yang kita oleh nantinya akan
+[636.0s] memiliki panjang yang sama kemudian
+[638.0s] panjang maksimal dari kalimat yang mampu
+[641.0s] diolah betah 512 token
+[645.4s] Hai Rasti spesial token kepada
+[650.2s] kalimat-kalimat yang kita akan Olla kita
+[653.8s] memproses pada setiap akhir kalimat kita
+[656.2s] menambahkan token save Kemudian pada
+[660.4s] awal kalimat ditambahkan token cls
+[667.4s] Hai Dian spesial token yang berikutnya
+[669.7s] adalah untuk menambah menyamakan panjang
+[674.9s] kalimat kita menambahkan token fade pada
+[680.1s] kalimat-kalimat yang tokennya masih
+[684.4s] kosong sehingga semuanya nanti yang akan
+[687.5s] diproses memiliki panjang kalimat yang
+[689.5s] sama
+[691.2s] Hai kemudian arsitektur dari tersendiri
+[695.2s] berbisa itu memiliki jumlah Transformers
+[698.2s] blog sebanyak 12 Hayden size-nya to the
+[701.6s] 768 kemudian jumlah Tension haknya 12
+[706.7s] vocab yang bisa diolah sekitar 30.000
+[709.7s] token kemudian total parameter bisa
+[712.3s] sampai 110000000 parameter dengan
+[715.8s] menggunakan teks berbahasa Inggris
+[717.5s] kemudian verslag jumlah Tengah
+[721.7s] Transformers bloknya terdapat 24 blog
+[725.3s] kemudian hidden cesnya 768 jumlah atensi
+[730.0s] net-nya ada 16 kemudian vokebulery
+[734.6s] sekitar 30.000 token terparah m yang
+[738.8s] bisa di olah terdapat 340000000 dan
+[744.6s] menggunakan bahasa Inggris juga kemudian
+[748.5s] ada birthday multilingual
+[751.2s] Hai yang jumlah transfer blognya 12
+[754.3s] identitasnya 768 jumlah desain head
+[758.1s] sebanyak 12 vocab yang bisa diolah
+[761.0s] sekitar 110.000 token kemudian parameter
+[765.4s] 110000000 dan mampu mengolah 104 bahasa
+[770.5s] kemudian yang terakhir ada original
+[772.9s] Transformers jumlah transfer bloknya 6
+[776.3s] kemudian hydance esnya 512 dan jumlah
+[780.5s] tersendatnya 8 berikutnya akan
+[784.5s] dijelaskan oleh rekan saya dari
+[788.4s] Hai pada eksperimental set up a
+[793.9s] Hai baik selanjutnya saya akan
+[796.2s] menjelaskan tentang proses eksperimen
+[801.4s] wadah kelompok kami
+[804.1s] hai hai
+[805.6s] Hai moh
+[807.9s] Hai jadi environment yang kami gunakan
+[810.0s] Kami menggunakan Google kolep
+[813.4s] sesuai dengan spesifikasi komputer
+[815.4s] menggunakan GPU Tesla v100e seks M2
+[821.0s] dengan memori 16 giga lalu kami
+[824.6s] menggunakan RAM sebanyak
+[829.2s] Hai kami menggunakan bahasa Paiton
+[832.1s] dengan bantuan library-library lebar
+[836.0s] yang utama adalah Dewi touch lalu yang
+[839.7s] kedua adalah Transformers
+[844.4s] halo halo berikutnya dataset yang kami
+[847.0s] gunakan seperti yang sudah dijelaskan
+[849.1s] pada Framework Kami menggunakan data
+[852.6s] sheet yang kami ambil dari Google Play
+[856.9s] Store dari situ suku Playstore
+[859.3s] menggunakan metode screening kami
+[864.0s] mengambil 10 aplikasi berdasarkan
+[867.9s] artikel 10 aplikasi paling top di dunia
+[873.8s] dengan pengguna terbanyak Jono sampai
+[878.2s] Oktober lalu data yang kami kumpulkan
+[881.2s] sebanyak 10854 data review berbahasa
+[886.8s] Indonesia
+[890.3s] ini tanggal berikutnya adalah kami
+[892.6s] mengubah sentimen score atau review
+[896.1s] score menjadi sentimen jadi kalau
+[898.7s] dilihat pada Google Play Store ulasan
+[903.0s] itu ada bintang satu sampai bintang 5 di
+[905.9s] sini kami mengubahnya menjadi sentimen
+[909.0s] Hai bintang 1 dan 2 kami Ubah menjadi
+[912.7s] sentimen negatif lalu bintang 3 Kami
+[916.2s] Ubah menjadi seniman Netral lalu bintang
+[919.7s] 4 dan 5 kami Ubah menjadi sentimen
+[922.4s] positif
+[924.9s] Hai langkah berikutnya adalah basic
+[926.9s] diskotek Processing jadi teksturnya
+[929.9s] single lamp ratapan awal terhadap teks
+[932.7s] untuk tujuannya mempersiapkan teks
+[935.1s] mendata yang lebih baik lebih bersih
+[938.1s] sehingga akan baik ketika diolah
+[940.9s] selanjutnya kita tahu bahwa pada bahasa
+[945.0s] manusia terlebih bahasa Indonesia itu
+[947.8s] pengguna memiliki preferensi bahasa yang
+[951.1s] berbeda-beda sehingga di sini kita perlu
+[953.7s] samakan dulu langkah text Processing
+[956.9s] yang kami lakukan pertama adalah nomor
+[958.6s] casing yaitu merubah bentuk semua
+[962.0s] kalimat menjadi huruf kecil lalu kami
+[966.5s] menghapus url error
+[968.7s] Hai yang berikutnya adalah menghapus
+[970.5s] nama aplikasi dari dari sebuah aplikasi
+[973.1s] yang telah kami ambil kami hapus semua
+[976.8s] nama aplikasinya sehingga tidak noise
+[978.6s] datanya yang terakhir adalah menghapus
+[981.6s] kata-kata yang memiliki frekuensi
+[983.2s] kemunculan lebih besar sama dengan 5000
+[986.2s] dan kurang dari sama dengan satu pada
+[989.6s] seluruh dokumen ulasan
+[993.5s] halo halo berikutnya kami memecah data
+[996.7s] menjadi tiga set yaitu training casting
+[1001.6s] dan validation data training ini ada
+[1004.5s] data yang digunakan untuk merenung model
+[1006.9s] kita yang akan kita gunakan
+[1009.4s] hai lalu data testing ledekan untuk
+[1011.9s] testimonial jadi sebagai simulasi
+[1014.5s] penggunaan modal yang telah kita lewati
+[1017.1s] sebelumnya lalu the cavalier sini
+[1020.3s] digunakan untuk proses baik hati model
+[1023.4s] dan mencegah forfaiting jadi ketika data
+[1026.8s] diinputkan ke sistem untuk menghitung
+[1029.3s] luas function tanpa melakukan update
+[1032.3s] BIOS dan bobotnya jadi setiap iPod atau
+[1035.5s] iPhone iterasi training konfigurasi
+[1038.5s] dilakukan berurutan dan di Ketika nanti
+[1041.0s] kita fine-tuning model bernya dengan
+[1043.6s] menggunakan training testing eh training
+[1047.8s] dan Federation set Jadi jika nilai Lost
+[1052.3s] function dari proses validasi naik maka
+[1055.1s] akan dimodelkan diberhentikan
+[1057.3s] nggak
+[1062.5s] halo halo berikutnya eh eh
+[1066.6s] Hai kami menggunakan facelift model jadi
+[1068.9s] tujuannya kita akan meng-cover atau
+[1072.0s] membandingkan model mesin learning yang
+[1074.9s] berbasis statistik dan menggunakan di
+[1078.8s] perning karena bet adalah berbasis
+[1081.5s] Transformers yang tadi sore Jelaskan dan
+[1083.6s] Transformers itu berbasis pada jaringan
+[1086.2s] syaraf tiruan dimana itu termasuk
+[1089.2s] deepening disini kami akan membandingkan
+[1091.3s] model machine learning berbasis
+[1094.3s] matematika Jadi kami menggunakan lima
+[1097.5s] model kspms nebrazz decision Tree
+[1103.0s] renderforest jadi pada tabel ini kita
+[1106.2s] bisa melihat bahwa
+[1109.0s] Hai hampir seluruh model miliki Reni
+[1112.2s] akurasi yang tinggi jadi spm93 disentri
+[1116.6s] diare forest 90% pada TNI akurasinya
+[1120.1s] sedangkan pada testing akurasi akurasi
+[1125.5s] yang paling baik dimiliki oleh SGM yaitu
+[1128.0s] sebesar 57 persen ini akan menjadi
+[1131.5s] patokan kita nanti ketika akhir
+[1133.1s] menggunakan model board
+[1137.1s] halo halo seperti yang tadi saya
+[1139.7s] jelaskan pada metode bet ada dua tahapan
+[1143.3s] pada board yang pertama adalah free
+[1146.6s] training dan kedua fentony returning
+[1149.5s] pada
+[1152.0s] al-qur'an ini kita menggunakan File
+[1154.3s] tuning karena data yang kita miliki
+[1156.8s] terbatas dan model boat harus dilatih
+[1160.3s] pada data yang sangat besar kita
+[1162.4s] menggunakan Optimizer Adam ini sesuai
+[1165.7s] paper yang di yang kami baca jadi
+[1169.9s] default di sarankan gunakan optimis
+[1174.2s] ragam dan batasnya 32 jadi adalah
+[1178.4s] batasnya adalah jumlah sampel data yang
+[1180.5s] disebarkan ke jaringan ke atau kenyel
+[1183.9s] networknya jadi contohnya jika kita
+[1185.8s] mempunyai satu dataset dan basket adalah
+[1188.4s] lima maka model akan menggunakan lima
+[1191.3s] sampel data pertama dari 100 data yang
+[1194.7s] kita miliki lalu kita sebarkan pada
+[1197.7s] jaringan syaraf tiruan nya sampai
+[1200.1s] selesai semua
+[1201.7s] halo halo learning.doc kita mengambil
+[1205.3s] 10pangkat
+[1207.5s] Hai repotnya kita mengambil 10
+[1211.8s] Hai aluveen tuning bet dengan 10 repot
+[1215.0s] kita menggunakan dua Twitter model yang
+[1219.7s] telah disediakan yang pertama adalah
+[1221.2s] berbisni lingual ini sudah tersedia
+[1224.0s] semua seperti ada yang Jelaskan pada
+[1229.7s] sebelumnya berbasis multilingual ini
+[1233.8s] memiliki 104 bahasa yang dapat digunakan
+[1236.8s] Jadi pertama kali dikenalkan pada tahun
+[1239.3s] 2018 lalu berikutnya Kami menggunakan
+[1243.4s] fine-tuning atau Fitri model dari induk
+[1246.3s] betina obat ini model baru baru
+[1248.9s] dikenalkan tahun 2020 oleh tim peneliti
+[1251.8s] dari go-jek
+[1254.4s] Hai bisa dilihat nanti modelnya bisa
+[1256.2s] dilihat di situs aging face lalu ini
+[1258.7s] adalah ke riwayat pelatihannya yang kiri
+[1265.5s] adalah menggunakan betis multilingual
+[1269.3s] lalu yang karena adalah indoboard bisa
+[1273.4s] kita lihat bahwa dari kedua model ini
+[1275.7s] sangat tipis sekali perbedaannya
+[1278.9s] hai hai
+[1282.3s] hai maaf
+[1283.7s] yo yo
+[1294.1s] halo halo eh ini adalah hasil evaluasi
+[1298.9s] model yang kiri betis multilingual pada
+[1303.4s] testing akurasinya kita mendapatkan
+[1306.7s] akurasi sebesar 50% lalu pada indukbet
+[1311.6s] pada testing akurasi kita mendapatkan
+[1314.3s] 50%
+[1317.9s] Hai Nah debutnya kita testing model pada
+[1321.3s] data baru jadi disini kami mengambil dua
+[1325.0s] contoh review yang review yang belum
+[1329.1s] pernah kami lihat sebelumnya jadi ini
+[1330.7s] menggunakan review aplikasi yang berbeda
+[1333.6s] jadi pada yang atas bata yang pertama
+[1336.7s] itu kita bisa melihat dia memberikan
+[1340.6s] rating satu pada ulasannya dan ketika
+[1344.7s] dimasukkan ke model berjangkit lah kita
+[1347.7s] fine-tuning model menyatakan bahwa dia
+[1350.7s] agak termasuk sentimen negatif Halo
+[1354.3s] berikutnya yang bawah jadi ini dia
+[1357.7s] menggunaan memberikan ulas tentang apa
+[1361.5s] ulasan dengan bintang 5
+[1365.2s] Hai jadi kalau kita lihat bahasanya ini
+[1368.5s] secara manusia ya itu sebenarnya negatif
+[1373.0s] jadi negatif tetapi ketika dibaca lagi
+[1377.5s] itu sebagai positif jadi aplikasi ini
+[1379.6s] jelek tapi bohong hayo Aplikasi ini
+[1382.3s] sangat bagus untuk mendownload aplikasi
+[1384.9s] atau file sangat cepat jadi kalau kita
+[1388.3s] lihat sekilas memang negatif ternyata
+[1392.8s] sentimen positif kan model bet yang
+[1395.6s] telah kita latih sebelumnya menyatakan
+[1398.0s] bahwa sentimen ulasan ini adalah Netral
+[1401.0s] atau
+[1402.4s] hai hai
+[1403.9s] hai lalu kita coba eh melihat prediksi
+[1408.1s] pada testing set yang telah kita bagi
+[1412.1s] sebelumnya jadi saya ambil satu contoh
+[1414.9s] mau bayar harus pakai kartu kredit kan
+[1417.5s] tidak tidak boleh Bagaimana pakai potong
+[1420.3s] pulsa aja punya m ini karena datanya
+[1423.9s] sudah kita preprocessing jadinya datanya
+[1426.6s] akan seperti ini ya Jadi ya terus
+[1431.6s] sentimen negatif dan pada kanan
+[1434.1s] grafiknya betul memprediksi bahwa
+[1437.8s] sentimen inilah sentimen negatif Global
+[1440.3s] tasnya
+[1441.8s] halo halo suami sudah menyediakan demo
+[1445.5s] aplikasi dapat dilihat pada link berikut
+[1453.5s] hai lalu kesimpulan yang bisa kami
+[1456.3s] dapatkan yang pertama adalah relay cross
+[1459.3s] yang kecil pada fine-tuning dan testing
+[1461.5s] dapat disebabkan karena pembagian
+[1463.1s] sentimen pada dataset yang tidak
+[1465.7s] memperhatikan respon kalimat jadi
+[1467.9s] seperti yang sudah selesai jelaskan tadi
+[1470.4s] di awal Eh pada pembagian dataset
+[1474.5s] Awalnya kami hanya membagi sentimen
+[1477.1s] berdasarkan ulasannya padahal
+[1479.4s] kenyataannya ulasan dengan bintang 1 dan
+[1483.9s] 2 belum tentu memiliki sentimen negatif
+[1485.8s] dan sebaliknya ulasan dengan benang 5/4
+[1489.9s] 3 pun belum tentu memiliki sentimen
+[1492.4s] positif hal yang kedua meskipun kedua
+[1496.9s] beton Kodel baik-baik multilingual dan
+[1499.3s] Indobet telah dilatih pada data yang
+[1501.0s] besar yang tidak dilihat pada bapernya
+[1503.2s] kedua Twitter model ini Belumlah
+[1505.8s] daripada data-data review aplikasi jadi
+[1509.1s] karena step bahasa itu memiliki
+[1512.4s] pendekatan yang berbeda
+[1513.5s] di kalau indobatt itu dilatih
+[1516.1s] menggunakan korpus Wikipedia lalu
+[1519.2s] Twitter dan berita tentunya kalau kita
+[1521.6s] lihat eh bahasa Wikipedia dan bahasa
+[1525.8s] berita itu lebih formal sedangkan bahasa
+[1529.5s] pada dataset lebih Slank atau bahasa
+[1532.1s] gaul sedangkan berhenti lingual ini
+[1535.0s] dilatih menggunakan Kotu Wikipedia nah
+[1538.1s] sedangkan pada masalah ini kita
+[1541.4s] menggunakan dataset review aplikasi
+[1543.9s] tentunya akan berbeda juga pendekatannya
+[1546.1s] lalu yang ketiga meskipun beberapa kali
+[1550.4s] dicoba kami model telah berhasil
+[1553.2s] prediksi sentimen dari teks review mudah
+[1555.0s] diberikan jadi meskipun casting
+[1557.8s] akurasinya sangat kecil ya tadi luas 50%
+[1560.7s] tapi beberapa gerobak kami menunjukkan
+[1563.7s] bahwa model telah berhasil
+[1565.8s] mengklasifikasi sentimen dengan betul
+[1568.3s] lalu saran-saran pada pelitian
+[1571.6s] berikutnya adalah a
+[1573.6s] cara menggunakan printer model yang
+[1575.8s] memang dikhususkan digunakan pada review
+[1579.0s] aplikasi sehingga dibutuhkan dataset
+[1582.6s] yang sangat besar ini bisa dapat gunakan
+[1584.6s] Breath Kian selanjutnya
+[1588.1s] Hai terima kasih eh demikian presentasi
+[1591.7s] dari kelompok 4 kami mohon maaf apabila
+[1594.4s] ada kekurangan dan kesalahan kata yang
+[1596.5s] kami sampaikan kami akhiri
+[1598.3s] wassalamu'alaikum warahmatullahi
+[1599.8s] wabarakatuh
+[1602.0s] hai hai

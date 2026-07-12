@@ -1,0 +1,2045 @@
+[4.9s] All right, welcome back everyone to
+[6.7s] lecture 8. Uh, today we're going to talk
+[8.4s] about attention and transformers. And I
+[10.2s] think this is a this is a really fun
+[11.4s] one. So, as a quick recap, last time we
+[14.3s] were talking about recurrent neural
+[15.4s] networks and recurrent neural networks
+[17.0s] were this new kind of neural network
+[18.4s] architecture meant for processing
+[19.7s] sequences. And in particular, we saw how
+[21.7s] neural networks by by processing
+[23.4s] sequences let us attack a whole new
+[25.3s] different kinds of problems than we than
+[26.8s] we could with convolutional networks uh
+[28.5s] before. So in particular usually we had
+[31.3s] been thinking about these onetoone
+[32.6s] problems where you input one thing like
+[34.7s] an image and then output one thing like
+[36.9s] a classification for what's in that
+[38.3s] image. But once you have the ability to
+[40.0s] move beyond images and move towards
+[41.9s] sequences of data it let us tackle a lot
+[44.0s] of new kinds of problems like one to
+[45.8s] many problems image captioning maybe we
+[47.8s] want to input an image output a textual
+[49.4s] description of that image which is going
+[50.9s] to be a sequence of words. Um maybe many
+[53.0s] to one where we do input a sequence of
+[55.0s] frames and output a classification for
+[57.0s] those frames. um and a bunch of other
+[59.0s] problems along this vein. Um so now
+[60.9s] we're seeing that moving be moving into
+[62.3s] these more um sophisticated neural
+[64.2s] network architectures um both is sort of
+[66.3s] more interesting architecturally but
+[67.9s] also lets us tackle new problems than we
+[69.8s] could with um with kind of more
+[71.4s] traditional feed forward neural
+[72.7s] networks. So today we're going to build
+[75.0s] on that and talk about two new things in
+[77.1s] today's lecture. Um the first thing is
+[79.0s] going to be attention which is going to
+[80.8s] be a brand new neural network primitive
+[82.6s] that fundamentally operates on sets of
+[85.0s] vectors. And then the second thing we're
+[86.7s] going to talk about is the transformer.
+[88.5s] And the transformer is a different
+[90.2s] neural network architecture that has
+[91.9s] self attention at its core. Um, and this
+[95.0s] and the spoiler alert is that
+[96.6s] transformers are basically the
+[98.2s] architecture that we use for almost all
+[99.9s] problems in deep learning today. So any
+[102.2s] of the largest applications that you're
+[103.8s] seeing out there in the wild today,
+[105.4s] whether it's classifying images,
+[107.3s] generating images, generating text,
+[109.6s] classifying text, working with audio,
+[111.6s] basically any kind of large neural
+[113.3s] network today, um that is large,
+[115.2s] state-of-the-art, trained in a lot of
+[116.6s] data, um deployed by a big company,
+[118.9s] almost all of them are going to be
+[120.1s] transformers today. Um so that's really
+[122.5s] exciting that we get to get you up to
+[124.2s] speed on the latest and greatest
+[125.5s] architectures that people are using now.
+[128.6s] Um, but even though transformers are
+[130.5s] this sort of state-of-the-art
+[131.6s] architecture that everyone is using for
+[133.1s] everything today, they have kind of they
+[134.9s] have a relatively long history. Um, and
+[137.0s] they initially like it's kind of
+[139.0s] interesting watching these fields
+[140.1s] develop because looking back on it when
+[142.1s] the moment that Transformers came out,
+[143.6s] it feels like it ought to have been this
+[144.9s] big moment, this big thing when there
+[146.5s] was a big sea change, this new
+[147.7s] architecture, this new thing. But it
+[149.5s] actually didn't feel that way because
+[151.0s] even though there was one moment where
+[152.7s] the transformer architecture was born,
+[154.9s] um these ideas around self attention,
+[157.1s] around using attention in various ways,
+[159.4s] those had actually been around in the
+[160.6s] field for several years at that time.
+[162.3s] And in particular, these ideas around
+[164.2s] attention, self attention, they actually
+[166.2s] developed out of recurrent neural
+[167.8s] networks. So we're going to start there
+[169.1s] to talk about and motivate these
+[170.6s] problems. So this is going to be a
+[172.2s] little bit mirroring the historical
+[173.4s] development of these ideas.
+[175.8s] So for that reason um we're actually
+[177.6s] going to in order to introduce
+[179.0s] transformers we're actually going to
+[180.3s] roll back and recap a little bit about
+[182.1s] this idea of recurrent neural networks
+[183.6s] that we saw in the last lecture. So as a
+[185.8s] motivating problem um let's think about
+[187.8s] this sequence to sequence problem of
+[190.0s] translation. So we want to input one
+[191.9s] sequence which is going to be a sequence
+[193.6s] of words in English. Then we want to
+[195.5s] output another sequence which is going
+[197.2s] to be a sequence of words in a different
+[198.6s] language Italian. Right? And because you
+[201.1s] and we can't make assumptions that
+[202.5s] there's any correspondence between those
+[204.1s] words. Right? The the number of words in
+[206.1s] the English sentence might be different
+[207.7s] from the number of words in the Italian
+[209.2s] sentence and the order of those words
+[210.7s] might be totally different. So this is a
+[212.3s] perfect application of the kind of
+[213.5s] sequence processing algorithms that we
+[215.3s] uh sequence processing architectures
+[216.9s] that we saw in recurrent neural
+[218.2s] networks. Um and indeed this idea of
+[220.5s] processing these uh sequencetosequence
+[222.6s] problems with recurrent neural networks.
+[224.4s] This goes all the way back to 2014 um
+[226.6s] even even a bit earlier than that. But
+[228.5s] people had been processing sequences
+[230.0s] with recurrent neural networks for more
+[231.9s] than a decade more than a decade at this
+[233.9s] point. So the basic architecture for
+[236.2s] processing sequence sequence to sequence
+[238.2s] problems with recurrent neural networks
+[239.9s] is that typically you'll start with one
+[241.5s] encoder. Your encoder is a recurrent
+[243.4s] neural network. Um the recurrent neural
+[245.4s] network recall is this function that
+[246.9s] gets applied recursively um on two
+[249.1s] inputs. One is your xt your input at the
+[251.8s] current time step and the other is your
+[253.4s] ht minus one which is your hidden state
+[255.5s] at the previous time step. and your
+[257.3s] recurrent neural network unit will then
+[258.7s] spit out a next hidden unit, a next
+[261.2s] hidden state at the next time step. And
+[263.4s] then we can apply that same recurrent
+[265.3s] neural network unit over in time um to
+[267.8s] process a sequence of a of potentially
+[269.9s] variable length. So in this case, we're
+[272.0s] using a recurrent neural network encoder
+[274.0s] that inputs the input sequence in
+[275.8s] English. Um input sequence, you know,
+[277.7s] you you got to use relatively short
+[279.3s] sentences um to fit on slides and still
+[281.2s] have all the boxes show up. So we're
+[282.7s] using a kind of short, silly sentence,
+[284.6s] uh we see the sky. Um, and this, you
+[287.0s] know, each word in that sentence gets
+[288.8s] processed but via one tick of the
+[290.6s] recurrent neural network. And now, and
+[293.5s] then we're going to the idea of this
+[294.7s] encoder neural recurrent neural network
+[296.5s] is it wants to process all of the words
+[298.2s] in in the input sequence and somehow
+[300.2s] summarize the content of that input
+[301.8s] sentence so that we can translate it
+[303.8s] into a different into our output target
+[305.9s] language. So the the the more the more
+[309.0s] concrete way that this happens is that
+[310.7s] after processing all the words in the
+[312.5s] input in the input sequence, we're going
+[314.6s] to summarize the the entire content of
+[317.0s] that input sequence into a single vector
+[319.2s] called the context vector. Um and
+[321.5s] there's a there's a couple different
+[322.6s] ways that people would typically do
+[323.8s] these in recurren recurrent neural
+[325.4s] networks. I don't think the details are
+[326.7s] too interesting. So as a you can just
+[328.9s] think that that context vector is
+[330.2s] basically the last hidden state of the
+[332.0s] of the encoder recurrent neural network.
+[334.1s] Um and now the idea is that because you
+[335.8s] know this this these because of the
+[337.3s] recurrent structure of our recurrent
+[338.6s] neural networks the last hidden state
+[340.5s] sort of incorporates information of the
+[342.2s] entire input sequence. So we can think
+[344.0s] of that last hidden state as summarizing
+[346.2s] or encoding all of the information in
+[348.1s] the entire input sequence. Um so then
+[350.7s] that that is one vector that is going to
+[352.6s] kind of summarize that entire input
+[354.2s] sequence to do whatever we want with it.
+[356.4s] Um and in this case what we want to do
+[358.2s] with it is translate that input sequence
+[360.6s] into an output sequence in a different
+[362.1s] language. So to do that we're going to
+[363.9s] use a second recurrent neural network
+[365.5s] called the decoder. Um which usually has
+[368.1s] the same architecture but potentially
+[369.7s] different a different weight matrix
+[371.1s] different set of learned parameters. Um
+[372.9s] and this decoder GU is going to be a
+[375.1s] different recurrent neural network with
+[376.6s] different different learnable weights u
+[378.3s] but has the same basic idea. Um now this
+[381.4s] a recurrent neural network unit is going
+[383.3s] to take three inputs at every time step.
+[385.4s] It's going to take um yt minus one which
+[387.7s] is the token and the output sequence at
+[389.8s] the previous time step. It's going to
+[391.3s] take ST minus one, which is the previous
+[394.2s] hidden state in the output sequence, and
+[396.3s] C, which is that context vector summariz
+[398.3s] summarizing the entire input sequence.
+[400.3s] Um, and then we kind of unroll that
+[401.8s] output sequence just as we saw in the
+[403.6s] last lecture and and produce words one
+[405.8s] at a time in the output sequence. And I
+[407.8s] don't speak Italian, so I'm not going to
+[409.1s] try to I'm not going to try to pronounce
+[410.5s] these, but um there's some Italian words
+[412.9s] on the screen that you can see. And I'm
+[415.6s] assuming that that indeed translates to
+[418.5s] we see the sky. Um hopefully that's
+[421.4s] correct, right? But the idea is we're
+[423.0s] going to like tick this recurrent neural
+[424.2s] network one tick at a time. It's going
+[425.7s] to output words one at a time. And this
+[427.6s] is basically a summary of what we saw
+[429.3s] last lecture. So this should this should
+[431.2s] basically not be too surprising in light
+[433.1s] of the previous lecture.
+[435.4s] But there's a potential problem here,
+[437.0s] right? And that's the there's a
+[438.6s] communication bottleneck here between
+[440.6s] the input sequence and the output
+[442.9s] sequence, right? The only way in which
+[445.1s] the input sequence is communicating with
+[446.9s] the output sequence is via that context
+[449.0s] vector C. Um, and that C is going to be
+[451.2s] a fixed length vector, right? Because
+[452.9s] the size of that vector is fixed when we
+[455.0s] set the size of our recurrent neural
+[456.5s] network. Um, and maybe that's fine,
+[458.6s] right? So C might be a fixed length
+[460.1s] vector of like 128 floats, 1024 floats,
+[463.9s] but the size of that input vector is not
+[466.0s] going to change as our input and output
+[467.8s] sequence sizes grow or shrink. And
+[469.5s] that's a potential problem, right? So if
+[471.5s] we're doing short sequences like we see
+[473.5s] the sky, maybe it seems pretty plausible
+[475.4s] that we can summarize everything we need
+[477.0s] to know about that sequence in that
+[478.7s] fixed vector of 12 the 1024 floats. But
+[482.0s] what if we're not trying to translate
+[483.4s] four words? What if we're trying to
+[485.0s] translate a whole paragraph or a whole
+[487.0s] book or like an entire corpus of data?
+[490.1s] um then in that case we're going to run
+[491.4s] into a bottleneck where at some point as
+[493.5s] we scale that input sequence it's just
+[495.6s] not going to be sensible for to ask the
+[497.8s] network to summarize the entire input
+[499.8s] sequence into a into a single fixed
+[502.0s] length vector. So that's going to be a
+[503.7s] problem.
+[505.2s] So the solution here is actually let's
+[508.6s] not bottleneck the network through a
+[510.5s] fixed through one fixed length vector.
+[513.6s] Instead let's change the architecture of
+[515.8s] our recurrent neural network.
+[517.1s] Intuitively, what we want to do is not
+[519.3s] force a bottleneck between a in a fixed
+[521.2s] length vector between the input and the
+[522.5s] output. Instead, as we process the
+[525.0s] output sequence, we're going to give the
+[526.6s] model the ability to look back at the
+[528.5s] input sequence. And now, every time it
+[530.7s] produces an output vector, we want to
+[532.6s] give the network the opportunity to look
+[534.6s] back at the entire input sequence. And
+[536.6s] if we do this, there's going to be no
+[538.0s] bottleneck. It will scale to much longer
+[539.7s] sequences. And hopefully, the the model
+[541.4s] architecture will work much better. So
+[543.4s] that's the motivating idea that led to
+[545.6s] attention and transformers and all this
+[547.4s] great stuff that we see today. It all
+[549.0s] came like you know one way of telling
+[550.6s] the story is that it all came from
+[552.0s] trying to solve this bottleneck problem
+[553.4s] in recurrent neural networks. So let's
+[556.1s] see um how we can actually implement
+[558.0s] this intuition and endow our recurrent
+[560.2s] neural network with the ability to look
+[561.6s] back at the input sequence on every time
+[563.4s] step. So here we're going to you know
+[565.4s] start with the same thing. Um our
+[566.8s] encoder neural network is going to
+[568.2s] remain the same. No changes there. we
+[570.2s] still need to set some initial hidden
+[572.0s] state for the output sequence. Um and so
+[575.7s] we need to set some initial um decoder
+[577.8s] state s0 in some way. But now once we
+[580.7s] have that decoder hidden state, what
+[582.4s] we're going to do is look back at the
+[584.4s] input sequence. So the way that we're
+[586.2s] going to do that is by computing some
+[588.3s] alignment scores by comparing that that
+[591.4s] basically compute um a scalar value a
+[593.8s] scalar value for each step in the input
+[596.3s] sequence that says how much does that
+[598.7s] initial decoder state s0 how much does
+[601.2s] that decoder state match each token of
+[603.9s] the input sequence. So in this case
+[605.7s] there were four tokens in the input
+[607.2s] sequence. So we want to compute four
+[608.8s] alignment scores each of which is just a
+[610.7s] single number um that says how how what
+[613.0s] is the similarity between the input to
+[615.7s] the the input sequence the token of the
+[617.5s] input sequence and this initial um this
+[620.1s] initial uh this initial decoder state as
+[622.2s] zero. Now there's a there's a lot of
+[624.2s] ways that we could implement alignment
+[625.6s] scores but um a simple way is just use a
+[627.8s] simple linear layer that we're calling f
+[629.4s] subat. And so that linear layer is going
+[631.8s] to input is going to concatenate the
+[633.9s] decoder hidden state s um with one of
+[636.2s] the encoder hidden states H concatenate
+[638.4s] those two into a vector and then um
+[640.2s] apply a linear transform that squashes
+[642.3s] that down into a scaler. Um and that's
+[643.9s] just a linear operator that can be put
+[645.4s] into a computational graph and learned
+[647.1s] jointly via gradient descent just in the
+[649.1s] way that we learn all other parameters
+[650.3s] of a network. Um so now at this point
+[652.5s] we've got sort of this scalar alignment
+[654.3s] score um for each se for each step in
+[656.7s] the input sequence. And now we want to
+[658.9s] apply a softmax function. Right? These
+[660.7s] scaler alignment scores are totally
+[662.2s] unbounded. They're arbitrary val they're
+[664.1s] arbitrary real values from minus
+[665.5s] infinity to infinity. We want to put
+[667.3s] some um some structure on this to
+[669.2s] prevent things from blowing up. So one
+[671.0s] way that we do this is apply a softmax
+[672.6s] function. So we've got four scalar
+[674.6s] values um telling us the alignment of
+[676.6s] that decoder hidden state which each
+[678.6s] with each of the encoder hidden states.
+[680.3s] Um now we apply a softmax over those
+[682.2s] four values to give us a distribution
+[684.7s] over those four over those four values.
+[687.3s] So remember the softmax function that we
+[689.0s] saw a few lectures ago is going to take
+[691.0s] a vector of arbitrary scores and convert
+[693.4s] it into a probability distribution which
+[695.2s] means it'll have the property that each
+[697.0s] entry in the output softmax
+[698.8s] probabilities will be between 0 and one
+[701.0s] and they will sum to one. So we can
+[703.6s] think of so whenever we have whenever we
+[705.3s] run a vector through a softmax we can
+[707.2s] think of the thing we get out as a
+[709.2s] probability distribution rather a
+[710.8s] discrete probability distribution over
+[712.7s] those input scores. So in this case, so
+[715.0s] in this so at this point after we take
+[716.9s] those alignment scores and run them
+[718.5s] through a softmax, what we what we've
+[720.5s] essentially done is predicted a
+[722.6s] distribution over the input tokens um
+[725.2s] given that decoder hidden state. So now
+[728.3s] what we want to do is take that
+[729.7s] distribution over over the input tokens
+[732.3s] and use them to compute a vector um
+[735.2s] summarizing the information in the
+[737.3s] encoder. So the way that we do that is
+[739.4s] we take our attention scores which
+[741.7s] recall are these uh these numbers a a11
+[745.3s] a12 a13 a14 they're all between 0 and 1.
+[748.2s] They sum to one. We're going to take a
+[749.8s] linear combination now of the encoder
+[751.9s] hidden states h1 h2 h3 h4. Um and take a
+[755.4s] linear combination of those encoder
+[757.3s] hidden states weighted by our attention
+[759.5s] scores. Um and this will give us a new a
+[762.2s] context vector that we're calling c1
+[764.1s] here in purple. um which is going to
+[766.1s] summarize the information in the encoder
+[768.1s] sequence um in in some way that's
+[770.6s] modulated by that by those by those
+[772.4s] attention weights. Um and now at this
+[775.0s] point right so then this this C1 is
+[776.9s] basically some linear combination of the
+[779.0s] input encoder states H1 to H4 things
+[782.0s] look basically the same as they did in
+[783.7s] the non-attention case. So we we have
+[785.7s] our context vector um we concatenate it
+[787.8s] with our in with our first token of the
+[789.6s] output sequence y0 pass that to our
+[792.0s] recurrent unit um to get both to get um
+[794.9s] to get our uh next hidden state of the
+[797.9s] decoder recurrent neural network as well
+[799.9s] as the first output token from the
+[801.8s] decoder recurrent neural network. Um so
+[804.4s] basically the structure of that decoder
+[807.0s] RNN did not really change. Um all we did
+[809.7s] is rather than set we've computed the
+[811.8s] context vector in a different way using
+[813.4s] this attention linear combination
+[815.1s] mechanism.
+[817.0s] But now crucially um right so the
+[819.4s] intuition here is that this context
+[821.2s] vector basically attends or looks at
+[823.8s] different parts of the input sequence
+[825.7s] that is modulated by whatever the output
+[828.2s] RNN wants to look at at this moment in
+[830.2s] time. Um so for example you know part of
+[833.1s] the input you know as uh part of the
+[836.5s] input sequence has this token these
+[838.4s] these two words we see. So then in
+[840.6s] trying to produce that one word in
+[842.3s] Italian that corresponds to we see the
+[845.1s] network probably wants to go back and
+[846.5s] look at those two words in the input
+[848.3s] sequence in order to know what output
+[850.2s] word to produce. So we might expect we
+[853.7s] we might want to have some we might
+[855.0s] expect that intuitively when trying to
+[857.1s] produce the word um vendo um then the
+[861.4s] network will want to look back at the
+[863.1s] words we see and put higher attention
+[865.0s] weights on those and it doesn't really
+[866.7s] care about the sky because those words
+[869.3s] are not necessary for producing that
+[871.1s] vendamo output. Um and that's the kind
+[873.8s] of intuition we're giving the network
+[875.2s] the ability to look back at the relevant
+[876.8s] parts of the input sequence for the word
+[878.6s] that it's trying to predict at this
+[879.8s] moment in time.
+[881.8s] Um and the other thing to keep in mind
+[883.8s] is that this is all differentiable. Um
+[885.7s] we don't need to supervise the network.
+[887.4s] We don't need to tell it which words in
+[889.2s] the input sequence were required for
+[891.0s] each word in the output. Instead, this
+[892.9s] is just a big computational graph
+[894.4s] composed of differentiable operations.
+[896.2s] Um this all of this will can be learned
+[898.0s] end to end via gradient descent. So at
+[900.1s] the end of the day, we're still going to
+[901.1s] have this, you know, cross entropy
+[902.6s] softmax loss where the network is trying
+[904.6s] to predict the tokens of the output
+[906.1s] sequence. And in the process of trying
+[908.4s] to predict the right tokens in the
+[910.1s] output sequence, it's going to learn for
+[912.2s] itself how to attend to different parts
+[914.5s] of the input sequence. So that's that's
+[916.9s] really critical, right? If we have to go
+[918.3s] in and supervise and tell the network
+[920.0s] the alignment between the two, it would
+[921.8s] be very difficult to get training data
+[923.2s] for this kind of thing. The question is
+[925.0s] how do we initialize the decoder? Uh
+[926.9s] we're actually using the word you got to
+[928.5s] be careful we're using the word
+[929.4s] initialize a little bit overloaded here.
+[931.6s] So one question is the decoder is itself
+[933.9s] a neural network that has weights. When
+[935.9s] we start training that network we need
+[937.4s] to initialize those weights in some way.
+[939.4s] So then we will typically initialize the
+[941.0s] weights of the decoder randomly and then
+[943.4s] optimize them via gradient descent just
+[945.0s] as we do with any other neural network
+[946.5s] weights. Um but there's a second notion
+[948.6s] of initialize which is that when the
+[950.8s] network is processing a sequence um
+[953.3s] whether whatever its current value of
+[955.0s] the weights are we need some way to set
+[956.8s] that initial hidden state at the time we
+[959.0s] start processing an output sequence. Um
+[961.4s] and in that case we need some rule or
+[963.8s] some some some way to set that initial
+[966.2s] hidden state of the decoder output
+[968.1s] sequence. Um there's a couple different
+[969.6s] mechanisms for this. Um sometimes you
+[971.6s] might initialize it as the hidden the
+[974.3s] last hidden state of the encoder is one
+[976.0s] thing you'll sometimes do. You might
+[977.4s] have a linear transform that um projects
+[980.2s] has some learned projection from the
+[981.8s] last decoder state to the first from the
+[983.8s] last encoder state to the first decoder
+[985.5s] state. Um or sometimes will people even
+[988.0s] initialize the first hidden state of the
+[990.4s] decoder to be all zeros. Um any of those
+[992.6s] will work as long as you train the
+[994.1s] network to expect that kind of input. So
+[996.5s] the question is negations and exors
+[998.0s] would this cause a problem? Maybe this
+[999.6s] is this is a this is a hard problem but
+[1001.2s] then you need a lot of data a lot of
+[1002.4s] flops to try to hope the network can
+[1004.2s] disentangle this. Um but basically
+[1006.2s] recurrent unit takes three things as
+[1008.3s] input. It take in the decoder right it
+[1010.8s] takes the previous hidden state the
+[1012.3s] previous decoder hidden state it takes
+[1014.2s] the current context vector and it takes
+[1016.0s] the current um token in the output
+[1018.3s] sequence and then from that we produce
+[1020.6s] the next hidden state and then from the
+[1022.4s] next hidden state then we go and predict
+[1023.9s] the output token. So that's actually the
+[1025.8s] same setup as in the non-attention case.
+[1028.5s] I guess there there's an implicit
+[1029.8s] connection from there's a there's a
+[1031.2s] connection from S0 to S1 that we're not
+[1033.1s] drawing. So there there should have been
+[1034.8s] another arrow from S0 to S1. I think I
+[1037.6s] just dropped the S0 arrow. So sorry
+[1039.5s] about that. Well, we're basically
+[1041.4s] letting the network decide for itself to
+[1043.4s] look back at any part of the in input
+[1045.1s] sequence that it thinks might be
+[1046.5s] relevant for the task at hand. Um so but
+[1049.0s] the reason why we think that this
+[1050.5s] mechanism is plausible and might be
+[1052.5s] helpful for the network is because we
+[1054.5s] know that you know in a language task
+[1056.2s] there often is some kind of
+[1057.3s] correspondence between words in the
+[1059.2s] output and words in the input and we
+[1061.0s] want to let the network kind of look
+[1062.6s] back and pick out which are the relevant
+[1064.5s] bits of the input for producing this bit
+[1066.2s] of the output. But again we're not
+[1067.9s] directly supervising it. We're not
+[1069.4s] telling it how to use these attention
+[1070.9s] scores. But the intuition is that we
+[1072.9s] think that's a plausible thing that it
+[1074.6s] might choose to do given this mechanism.
+[1077.0s] Okay. So that's that's sort of like one
+[1079.0s] tick of the output. Um, and now
+[1081.0s] basically we do it again. We do this
+[1083.0s] whole process again for every time we
+[1084.8s] tick the decoder RNN, right? Remember
+[1087.0s] the problem we were trying to solve is
+[1088.4s] that previously the decoder was
+[1090.0s] bottlenecking through a single vector.
+[1091.5s] Um, now we're going to compute instead
+[1093.5s] of bottlenecking through a single
+[1094.6s] vector, we're going to repeat this whole
+[1096.2s] process again and compute a new context
+[1098.2s] vector for the second time step of the
+[1099.8s] decoder and go let it go back and look
+[1101.8s] at the whole input sequence yet again.
+[1103.9s] So now um basically given our S1 which
+[1107.3s] is our computed first hit like hidden
+[1109.9s] state in the decoder we're going to go
+[1111.8s] back you take S1 go back and compute
+[1114.9s] comparison and and use our attention uh
+[1117.2s] mechanism to compute similarity scores
+[1119.5s] between S1 and all of the hidden states
+[1121.9s] in the encoder. Um that will compute our
+[1123.9s] similarity scores using that exact same
+[1126.4s] fat that same linear projection that we
+[1128.5s] used at the first time step. um compute
+[1130.6s] these alignment scores again, cram them
+[1132.7s] through softmax to get a a new
+[1134.5s] distribution over the input sequence for
+[1136.5s] the second decoder time step and now
+[1138.5s] compute a new linear combination of the
+[1140.6s] encoder hidden states now weighted by
+[1142.8s] this new distribution that we computed
+[1145.2s] at the second time step. Um and this sec
+[1147.3s] this this will basically give us a new
+[1148.8s] context vector um C2
+[1152.7s] that now is a different summarization of
+[1155.3s] the input sequence that's now computed
+[1157.4s] as a new linear combination of the input
+[1159.4s] encoder hidden states and then we then
+[1162.4s] the whole thing kind of iterates right
+[1164.0s] we have a new context vector we use that
+[1165.9s] to run another tick of our decoder RNN
+[1168.8s] unit that will now now does include that
+[1171.2s] that mysterious missing arrow that
+[1172.9s] wasn't there on the previous time step.
+[1174.6s] So then given our new context vector,
+[1177.1s] given the next token of the output
+[1178.9s] sequence and given the S1 hidden state
+[1181.2s] of the decoder, we compute a new decoder
+[1184.1s] state S2 and then from that compute
+[1186.1s] another token of the output sequence. Um
+[1189.0s] and again remember you know in this case
+[1191.3s] it's producing ill which maybe is the
+[1194.1s] according to the slide. I hope that's
+[1195.8s] true. Um, and then you know in this case
+[1198.5s] there's maybe a one to one
+[1199.6s] correspondence between the word the the
+[1201.3s] network is trying to produce for this
+[1202.5s] sequence and one of the words in the
+[1203.9s] output and one of the words in the
+[1205.3s] input. So we might expect that the
+[1207.4s] network should put relatively high
+[1208.9s] attention weight on just one of the
+[1210.9s] words in the input sequence and
+[1212.2s] relatively low attention weight on all
+[1214.0s] the other words in the input sequence.
+[1215.7s] But again, we don't supervise this. The
+[1217.1s] network is deciding for itself how to
+[1218.7s] make use of this mechanism all driven by
+[1220.7s] gradient descent on our training task.
+[1222.9s] Um, and this whole thing is going to
+[1224.6s] we're just going to repeat that whole
+[1225.8s] process for every tick of the decoder
+[1227.8s] RNN.
+[1229.4s] Um, so now this basically solves our
+[1231.5s] problem right there. We are no longer
+[1233.4s] bottlenecking the input sequence through
+[1235.1s] a single fixed length vector. Instead,
+[1236.9s] we have this new mechanism where at
+[1238.7s] every time step of the decoder, the
+[1240.6s] network looks back at the entire input
+[1242.4s] sequence, reummarizes the input sequence
+[1245.2s] um for the to generate a new context
+[1247.2s] vector on the fly for this one time step
+[1249.2s] of the decoder and then uses that to
+[1250.8s] produce the outputs. So this is a this
+[1252.7s] is a pretty cool mechanism and this is
+[1254.6s] called attention because the network is
+[1256.7s] attending or looking at different parts
+[1259.0s] of the input sequence um at every at
+[1261.4s] every moment in its output. So we talked
+[1264.1s] about these attention weights and we
+[1265.4s] said that they were driven that the
+[1267.0s] network was learning for itself how to
+[1269.0s] set these attention weights based on its
+[1270.9s] training data based on its training
+[1272.2s] task. Um and another really cool thing
+[1274.1s] about attention is it also gives us a
+[1276.2s] way to introspect and see what the
+[1278.4s] network is looking at as it's trying to
+[1280.0s] solve this problem. So we never told it
+[1282.7s] how the what what what what what the
+[1284.6s] what the alignment was between the input
+[1286.1s] sequence and the output sequence. But by
+[1287.9s] looking at the attention weights that
+[1289.5s] that the network predicts when trying to
+[1291.3s] solve this task, we get a sense of what
+[1293.3s] the network was looking at um while
+[1295.5s] trying to solve the problem. So that
+[1297.2s] gives us a way to interpret the
+[1298.7s] processing of the neural network in some
+[1300.3s] way. Um and so here's so one thing that
+[1302.9s] we can do is then go and look at in the
+[1305.2s] process of producing a particular of
+[1307.5s] processing a particular sequence what
+[1309.3s] were the attention weights that the
+[1311.0s] network predicted when trying to do this
+[1313.0s] task and we can visualize these in a
+[1315.0s] two-dimensional grid. So here we're
+[1317.2s] looking at an example of English to
+[1318.8s] French translation. Um and across the
+[1322.7s] and across the the top we have our input
+[1325.1s] sequence. The agreement on the European
+[1327.1s] economic area was signed in August 1992.
+[1329.8s] And then running down the rows is the
+[1332.5s] output sequence which is in French which
+[1334.5s] I will not attempt to pronounce. Um but
+[1337.1s] you can see that like basically through
+[1338.7s] this attention mechanism for every
+[1340.9s] remember the way this attention
+[1341.9s] mechanism worked is that each time the
+[1344.2s] network produced one of these words in
+[1345.8s] the output sequence it predicted a
+[1347.8s] probability distribution over the entire
+[1349.8s] input sequence. So we visualized that in
+[1352.6s] that first row. So if you look at the
+[1354.4s] first row of this matrix, we're
+[1355.8s] visualizing that predicted probability
+[1357.9s] distribution over the entire input
+[1359.9s] English sentence. And we see that when
+[1361.8s] trying to predict that first um word the
+[1364.6s] of the French sentence, then it puts a
+[1367.0s] lot of probability mass on the English
+[1369.0s] word 'the' and basically no probability
+[1371.3s] mass on any of the other words. Then
+[1373.4s] when predicting the second word of the
+[1374.7s] output sequence, remember it goes back
+[1376.3s] and predicts a new distribution over the
+[1378.2s] entire input sequence and that's going
+[1379.9s] to be the second row in this matrix. So
+[1382.0s] you can see that accord um I it puts a
+[1385.8s] lot of probability mass on agreement and
+[1387.9s] then no probability mass anywhere else.
+[1389.9s] So then that gives us some sense that
+[1391.8s] the network actually kind of did figure
+[1393.5s] out the alignment between the input
+[1395.4s] words and the output words when doing
+[1397.0s] this translation task. And there's some
+[1399.2s] interesting patterns here that here that
+[1400.6s] kind of pop up when we look when we see
+[1403.0s] diagonal structures in this attention
+[1404.8s] matrix. That means that there was a
+[1406.6s] onetoone correspondence between words in
+[1409.0s] order between the input sequence and the
+[1410.8s] output sequence. So in particular we see
+[1413.0s] that the agreement on the the first four
+[1415.5s] words of the input sequence correspond
+[1417.4s] to this diagonal structure um in the
+[1419.6s] attention matrix. So that means that the
+[1421.4s] network has decided for itself that
+[1423.4s] these first four words of the input
+[1425.2s] sequence sort of align or match up or
+[1427.8s] correspond to the first four words of
+[1429.7s] the input sequence. And the same thing
+[1431.4s] for the last um several words. So again,
+[1433.7s] we see this diagonal structure at the
+[1435.1s] end of the sequence, which means that
+[1436.8s] August 1992 or in August 1992 um
+[1440.3s] corresponds to these uh these last
+[1442.0s] couple words in the French sequence. And
+[1443.8s] again, there's this one:1 correspondence
+[1445.6s] between words in the output and words in
+[1447.6s] the input. But we see some other
+[1449.8s] interesting stuff in the middle here. So
+[1451.4s] in the middle, um we see European
+[1453.4s] economic area, but in the French, we see
+[1456.6s] words that look kind of like those in a
+[1458.6s] slightly different order. Good question.
+[1460.7s] How does it figure out the grammar?
+[1462.1s] That's the mystery of deep learning. But
+[1464.7s] like basically we told the we didn't
+[1466.2s] tell the network anything about grammar.
+[1467.8s] We told the network we supervised it
+[1469.4s] with a lot of input output pairs. We
+[1471.0s] told it here's an input sequence in
+[1472.9s] English. Here's an output sequence in
+[1474.5s] French. Here's a mechanism for
+[1476.2s] processing this and learn via gradient
+[1478.7s] descent to to like set the weights of
+[1481.2s] this architecture in order to in order
+[1483.4s] to produce this output from this input.
+[1485.4s] Um we'd never told it anything about
+[1486.9s] grammar. Um but it kind of because we as
+[1489.6s] human designers have this intuition that
+[1491.8s] maybe it makes sense that there ought to
+[1493.1s] be some correspondence between some of
+[1494.6s] the words. So we bake in a mechanism
+[1496.6s] that we think as human designers might
+[1499.0s] be helpful for solving this problem and
+[1500.7s] the network figures out for itself in
+[1502.5s] the process of doing the endto-end task
+[1504.2s] how to make use of that mechanism um to
+[1506.4s] solve the problem we set for it. And
+[1508.6s] it's pretty pretty amazing that it
+[1510.0s] works.
+[1512.3s] Um right but in this case you know it
+[1514.3s] kind of figured out some of the grammar
+[1515.5s] for itself. So it sees that you know we
+[1517.6s] see this nondagonal sort of backward
+[1519.4s] diagonal in the attention matrix here
+[1521.3s] and that means that the network figured
+[1522.7s] out for itself this um other this like
+[1525.1s] different word order between words in
+[1526.7s] English and words in French um or in the
+[1529.4s] middle you see there's a little there's
+[1530.7s] a little like 2x2 grid um kind of here
+[1533.4s] and that kind of corresponds to a
+[1535.0s] situation where there might not have
+[1536.4s] been a one to one correspondence between
+[1537.8s] the English words and the French words.
+[1539.4s] There might have been two French words
+[1540.7s] that corresponded to two English words
+[1542.3s] and they didn't perfectly disentangle
+[1544.2s] perfectly. I mean the network just all
+[1545.8s] figures out this for itself over the
+[1547.4s] process of training um on a lot of data
+[1549.3s] and putting a lot of compute through
+[1550.6s] this and that's pretty cool.
+[1553.4s] Okay, so there's actually uh so that
+[1555.4s] that's basic so and this actually was
+[1557.0s] the initial usage of attention in
+[1559.0s] machine learning. Um it actually came
+[1560.7s] from this from these machine translation
+[1562.6s] problems. Um so this was from a paper
+[1564.4s] back in uh back in 2015 uh neural
+[1567.4s] machine translation by joint by jointly
+[1569.5s] alerting to align and translate. Um, and
+[1572.1s] this paper actually just won the
+[1573.4s] runner-up test of time award at iclair
+[1575.5s] 2025. Uh, so that's pretty cool. A nice
+[1578.3s] nice uh, you know, this has been a
+[1580.2s] really impactful paper over time. Um,
+[1582.5s] but it turns out that there's actually a
+[1584.5s] more general idea here and a more
+[1586.3s] general operator hiding here. You know,
+[1588.2s] we approach this problem from the
+[1589.8s] perspective of trying to fix our
+[1591.8s] recurrent neural networks. But it turns
+[1593.6s] out the mechanism that we used to fix
+[1595.7s] the recurrent neural networks actually
+[1597.4s] is something general and interesting and
+[1599.5s] really powerful in its own right. So now
+[1601.8s] we want to try to pull that out, pull
+[1603.8s] out this idea of attention and divorce
+[1606.1s] the idea of attention from the recurrent
+[1608.5s] neural networks. And it turns out that
+[1610.3s] attention will be a very useful and
+[1612.5s] powerful computational primitive for
+[1614.3s] neural networks in its own right. even
+[1617.0s] even if then we can cut away the
+[1618.5s] recurrent neural network part and just
+[1620.4s] be left with attention as the core
+[1622.0s] primitive in our architecture and that's
+[1624.0s] kind of where we're what we're going
+[1625.0s] towards. So now what we want to do is
+[1627.7s] take this this idea of attention as we
+[1629.8s] saw it in recurrent neural networks and
+[1631.4s] try to generalize it and try to carve
+[1633.2s] out this independent operator that can
+[1635.2s] be used on its own. So let's think about
+[1637.5s] what this attention mechanism was doing.
+[1640.2s] Basically what this attention mechanism
+[1642.2s] did is there were a bunch of query
+[1644.2s] vectors. These are Well, maybe maybe it
+[1647.1s] makes sense to talk about these in the
+[1648.2s] other order. So, there's data vectors
+[1649.8s] which are like data that we want to
+[1651.4s] summarize. These are the the the the
+[1653.5s] encoder states of the encoder RNN. So,
+[1655.8s] we have this input sequence and we've
+[1657.6s] summarized that into a sequence of
+[1659.0s] vectors. Um, and the sequence of vectors
+[1660.8s] is sort of data that we think is
+[1662.2s] relevant for the problem that we're
+[1663.5s] trying to solve. Um, and now in the
+[1665.6s] process of trying to make use of that
+[1667.5s] data, we want to produce a bunch of
+[1669.4s] outputs. And for each output, we have a
+[1671.6s] query vector. A query vector is a vector
+[1674.0s] that we're trying to use to solve an out
+[1675.9s] to to produce some piece of output. Um,
+[1677.8s] and in this case, the query vectors are
+[1680.3s] the hidden states of the decoder RNN.
+[1683.3s] Um, and we have this this property that
+[1685.7s] for each query vector, we want to go
+[1687.8s] back look at the data vectors and
+[1689.8s] summarize the information in the data
+[1691.9s] vectors into a context vector. Um, for
+[1696.0s] each well, okay, from the purpose of
+[1698.2s] from the purpose of attention, this gets
+[1699.9s] a little bit weird. So the output of the
+[1702.1s] attention operator are the context
+[1703.9s] vectors that we just talked about for
+[1705.2s] the RNN. So if we're talk if we're
+[1707.0s] thinking about just what does that
+[1708.2s] attention operator do? The output of the
+[1710.5s] attention operator were the context
+[1712.5s] vectors that we feed into the RNN. So
+[1714.8s] then what is the attention operator
+[1716.4s] doing? The attention operator is taking
+[1718.2s] a query vector going back to the input
+[1720.6s] data vectors summarizing the data
+[1722.6s] vectors in some new way to produce an
+[1724.6s] output vector. Um and that's what the
+[1726.2s] attention operator is doing. Is that
+[1728.2s] does that is that does that kind of make
+[1729.5s] sense as a generalization of this
+[1731.1s] attention mechanism that we just saw?
+[1735.3s] >> Yeah. Yeah. I I'll repeat it again
+[1736.7s] because it's it's tricky. There's a lot
+[1737.8s] of stuff flying around here. A lot of
+[1739.0s] boxes and we're changing the words that
+[1740.3s] we're using to define the the define the
+[1742.0s] boxes. So I get it. There's a lot
+[1743.1s] happening. Um so what the attention
+[1745.2s] operator is doing is there's a bunch of
+[1747.0s] data vectors which are the encoder
+[1748.6s] hidden states. Um then for then we have
+[1750.7s] a bunch of query vectors which are the p
+[1753.7s] the things we're trying to produce
+[1754.9s] output for. Now, in the process of
+[1756.7s] processing a query vector, we're going
+[1758.7s] to go back to the data vectors,
+[1760.3s] summarize the data vectors in a new
+[1762.6s] custom way for each query vector, and
+[1765.4s] that will produce um an output vector,
+[1767.9s] which is the context to be fed into the
+[1770.1s] next tick of the RNN. Right? So, our
+[1772.2s] query vectors are these guys in green.
+[1774.1s] For each query vector, we go back to the
+[1775.8s] data vectors, summarize the data
+[1777.3s] vectors, and then produce a new output
+[1779.2s] vector, which is one of the contexts
+[1781.0s] that we then feed into the the rest of
+[1782.8s] the network. So um you know this is kind
+[1785.1s] of tricky because we're trying to like
+[1786.4s] go into this architecture and like cut
+[1788.2s] carefully cut out the attention part and
+[1790.5s] cut it out from the RNN. Um so then
+[1793.2s] we're going to try to like walk through
+[1794.7s] this again from the perspective of just
+[1796.6s] the attention operator. So from the
+[1798.7s] perspective of just the attention
+[1800.2s] operator we're going to start with just
+[1801.9s] one query vector at first um which is
+[1804.2s] you know one of the one of the states in
+[1806.0s] our RNN. We also have a bunch of data
+[1808.1s] vectors which are the encoder hidden
+[1810.3s] states in the RNN. Now the computation
+[1813.1s] that we want to perform is first compute
+[1815.3s] similarities between that query vector
+[1817.5s] and all of the data vectors. This is the
+[1819.2s] exact same thing that we just saw just
+[1820.5s] sort of written in a different way. So
+[1822.0s] we use this fat function to compute
+[1824.2s] these similarity scores um from our to
+[1827.2s] to to compute similarities between each
+[1829.6s] data vector and our one query vector.
+[1832.2s] Then once we have those similarities,
+[1833.8s] we're going to squash them through
+[1835.0s] through a softmax to get attention
+[1836.6s] weights. And this will be a distribution
+[1838.2s] over the data vectors that has been
+[1839.9s] computed on the fly for this one query
+[1841.9s] vector.
+[1843.5s] Then we want to do is produce an output
+[1845.4s] vector. And out this output vector is a
+[1847.7s] linear combination of our data vectors
+[1850.2s] where those linear combination weights
+[1852.1s] are the attention scores that we just
+[1853.6s] computed. So this is the output of the
+[1855.7s] attention layer. And then in the context
+[1857.8s] of the larger RNN that we saw, the
+[1859.7s] output of the attention layer or the
+[1861.4s] attention operator will become an input
+[1863.6s] to the next tick of the decoder RNN. But
+[1866.3s] we're trying to deprecate the RNN. So we
+[1868.1s] don't want to talk about that. We just
+[1869.1s] want to talk about the attention and
+[1870.3s] focus on the computation happening
+[1871.8s] inside the attention layer. So like so
+[1875.1s] this is basically the operator that we
+[1876.8s] saw in the RNN, right? We had this one
+[1879.7s] like we we did this process over and
+[1881.4s] over again of taking a query vector
+[1883.1s] using it to compute similarity scores
+[1885.0s] getting attention weights getting an
+[1886.5s] output vector. Then we got a new query
+[1888.2s] vector. Where did that query vector come
+[1889.6s] from? Attention operator doesn't care.
+[1891.5s] Get a new query vector. Go back
+[1893.1s] summarize the data vectors get a new
+[1894.8s] output vector. Um and that's that's the
+[1896.6s] core of the attention operator. So now
+[1898.6s] let's try to generalize this and make it
+[1900.2s] a even more powerful computational
+[1902.0s] primitive. Yeah. So in principle this um
+[1904.6s] this fat doesn't have to be it could be
+[1907.4s] any function. It could be any function
+[1908.5s] of two vectors that outputs a scaler um
+[1910.5s] in principle but in practice we're
+[1912.2s] actually going to make it simpler in in
+[1913.6s] a couple slides. But in principle yeah
+[1916.2s] you could just slot in any any function
+[1917.6s] that you wanted there.
+[1920.6s] Okay. So the first generalization that
+[1922.2s] we're going to do is actually um the
+[1924.2s] opposite of what you just suggested and
+[1925.9s] make that similarity function simpler.
+[1927.9s] So we said in principle it can be any
+[1929.9s] function that takes two vectors and
+[1931.3s] gives a similarity score. What's the
+[1933.2s] simplest possible function that inputs
+[1935.0s] two vectors and gives us a scalar
+[1936.6s] similarity score? It's a dot product. So
+[1939.3s] we want to try to make things uh simpler
+[1941.4s] and also generalize at the same time.
+[1943.3s] And it turns out that a dot productduct
+[1944.6s] is is good enough of a similarity score
+[1946.5s] to be used for this purpose. So the
+[1948.3s] first thing we're going to do is um
+[1950.1s] actually just only use dot products to
+[1951.8s] compute similarity.
+[1953.9s] Um but it turns out there's a slight
+[1955.9s] problem with dotproducts. So and this
+[1958.6s] one's kind of subtle because there's a
+[1959.9s] weird interaction between the dot
+[1961.2s] product and the softmax. Um and that has
+[1963.7s] to do with what happens when the when
+[1966.3s] the dimension of those vectors scales up
+[1967.8s] or down. Right? So if you have a like
+[1971.1s] the motivating example is that if you
+[1973.0s] scale the dimension of that vector, say
+[1975.2s] we had a constant vector of all ones of
+[1977.3s] like dimension 10 versus a constant
+[1979.5s] vector of all ones of dimension 100,
+[1982.0s] then as we go to the to the higher
+[1983.9s] dimensional vector, then when we compute
+[1986.0s] the sum inside that softmax, then we're
+[1988.5s] going to be dividing by a larger number.
+[1990.3s] So we'll end up with more squashed
+[1992.0s] probability scores as we go to higher
+[1994.2s] dimensional vectors. Um that can lead to
+[1996.1s] vanishing gradients as we just saw in
+[1997.8s] the previous lecture. and prevent
+[1999.2s] learning of this whole thing. So as kind
+[2001.4s] of a slight hack to prevent that um and
+[2004.5s] make this architecture more generally
+[2006.3s] more generalizably scalable up and down
+[2008.5s] to different dimension vectors um what
+[2010.6s] we're going to do is actually not use
+[2012.0s] the pure dot productduct but scale the
+[2014.1s] dotproduct down by the square root of
+[2016.2s] the dimension of those vectors that
+[2017.7s] we're looking at. Um and this is just a
+[2019.6s] way to prevent vanishing gradients and
+[2021.3s] give nicer gradient flow through the
+[2022.8s] softmax for a wider range of dimensions
+[2025.1s] of vectors. Um, and this turns out to be
+[2027.0s] very important because as we make these
+[2029.0s] networks bigger and bigger and bigger
+[2030.4s] over time, we want to get higher
+[2032.0s] dimensional vectors because that gives
+[2033.2s] us more compute, more capacity. So we
+[2035.2s] always want to think about how our
+[2036.5s] architectures will scale as we make the
+[2038.8s] parts of those architectures get bigger
+[2040.3s] and bigger and bigger. So this um this
+[2043.2s] this scale dotproduct is actually really
+[2044.8s] important for preventing vanishing
+[2046.2s] gradients here. Yeah. Question was we're
+[2048.4s] limited to data and query vectors of the
+[2049.8s] same size, but we'll actually fix that.
+[2052.7s] So uh our first generalization was to
+[2054.5s] use actually scaled dotproduct
+[2056.0s] similarity as our as our similarity
+[2057.8s] measure. Um so now you know if we go
+[2060.4s] back and look at the shapes of these
+[2061.5s] things we have one query vector of
+[2063.2s] dimension dq. We have data vectors of
+[2065.3s] dimension nx by dq as well because it's
+[2067.6s] a dot productduct they need to match. Um
+[2070.3s] but there's actually a next generaliz
+[2072.4s] generalization that we're going to do is
+[2074.3s] have multiple query vectors right like
+[2076.7s] maybe we don't want to process just one
+[2078.5s] query vector at a time. We want to have
+[2080.2s] the ability to process a whole set of
+[2082.1s] query vectors all at once. Um, and this
+[2084.4s] kind of happens in the RNN. You know, we
+[2085.8s] did end up with a bunch of query
+[2087.0s] vectors. Um, and it's useful for the
+[2088.6s] attention operator to be able to process
+[2090.5s] not one query vector at a time, but
+[2092.4s] basically process a set of query vectors
+[2094.6s] all in parallel and perform the exact
+[2096.7s] same computation in parallel for a whole
+[2099.0s] set of query vectors. So in this case,
+[2101.2s] we've now generalized it to have n. So q
+[2103.5s] is now a matrix of shape nq by dq. So we
+[2106.6s] have n q query vectors. Each of those
+[2108.6s] query vectors has dimension dq. We have
+[2111.0s] our data vectors is a matrix of size nx
+[2113.5s] by dq. And now uh this now the the
+[2116.6s] computation changes a little bit because
+[2118.6s] now want when we compute these alignment
+[2120.6s] scores when we when we compute these
+[2122.3s] similarities basically we want to
+[2124.0s] compute all pairs of similarities
+[2126.2s] between all of the input data vectors
+[2129.4s] and all of the input query vectors. And
+[2131.7s] that sim and each one of those
+[2133.0s] similarities is a dotproduct. So well
+[2135.3s] scaled dotproduct. So what's a very
+[2137.4s] efficient and easy and natural way for
+[2139.4s] us to compute dotproducts between two
+[2141.5s] sets of input vectors? That turns out
+[2143.7s] exactly to be a matrix multiply, right?
+[2145.7s] Cuz remember when you do a matrix
+[2146.8s] multiply, each entry in the output
+[2148.9s] matrix is the inner product of one of
+[2150.6s] the columns of one of your matrices and
+[2152.2s] the rows of your other matrix. And
+[2153.8s] that's what uh so then each entry in the
+[2155.6s] output of a matrix multiply is exactly
+[2157.8s] the dotproduct between the rows and the
+[2159.5s] columns in the output. So this by
+[2161.9s] computing a matrix multiply between our
+[2164.8s] um query vectors Q and our data vectors
+[2167.4s] X and you need to get a transpose in
+[2168.9s] there to make the rows and columns match
+[2170.5s] up in the right way. Um this basically
+[2172.2s] gives us you know lets us compute all
+[2173.9s] the scale all the similarities between
+[2175.8s] all the data vectors and all the query
+[2177.7s] vectors um all in one simple matrix
+[2180.2s] multiply.
+[2181.8s] Um now we still need to compute these
+[2183.4s] attention weights. Remember the
+[2184.7s] attention weights we want to compute for
+[2186.7s] each query vector we want to compute a
+[2188.6s] distribution over the data vectors.
+[2190.4s] Well, we already have these. Now, our
+[2192.2s] similarity scores are not just a single
+[2193.8s] vector of scores. They're now a matrix
+[2195.7s] of scores giving all the similarities.
+[2197.6s] But we still want to compute a
+[2199.0s] distribution over the data vectors for
+[2201.4s] each query vector independently. So, now
+[2203.4s] we need to comput the softmax over just
+[2205.0s] one of the axes of that um of that
+[2207.4s] matrix of similarity scores. So, this is
+[2209.5s] basically the exact same computation
+[2210.7s] that we just saw. We're just doing it in
+[2212.5s] parallel for a set of query vectors all
+[2214.3s] at once. Um now, we need to compute the
+[2217.0s] output vectors. And remember the output
+[2218.9s] vectors were going to be a um weighted
+[2222.6s] combination of the in of the data
+[2224.7s] vectors where those weights are the
+[2227.4s] values in the softmax. And it turns out
+[2229.8s] that this is also something that matrix
+[2231.5s] multiply does. Um another way to think
+[2233.6s] about matrix multiply is that when you
+[2235.4s] take a matrix multiply of two matrices,
+[2237.9s] a different way to view a matrix
+[2239.3s] multiply is that it takes a linear
+[2241.2s] combination of oh man, am I going to get
+[2243.2s] the rows and the columns in the right
+[2244.4s] way? But I think you get the the linear
+[2246.4s] combination of the columns of one of
+[2248.0s] your input matrices um weighted by the
+[2251.0s] values in the other input matrix. So
+[2253.2s] this is another interpretation of matrix
+[2255.1s] multiplication. So then if you kind of
+[2257.4s] work through the indices and draw some
+[2258.9s] little pictures for yourself to to prove
+[2260.6s] to yourself what's going on. It also
+[2262.3s] turns out that you know in order to
+[2264.8s] compute me now what we want to do is
+[2266.8s] compute many linear combinations of the
+[2269.0s] data vectors where each linear
+[2270.6s] combination will be given by the
+[2272.2s] probabilities in one of the rows of the
+[2274.5s] attention matrix. Um so we can compute
+[2276.7s] all of these all at once with another
+[2278.2s] matrix multiply between um the attention
+[2281.1s] matrix A and the data vectors X. And
+[2283.5s] again you need to get the transposes in
+[2285.3s] the right order to make this work out.
+[2287.1s] But basically, this is the exact same
+[2288.4s] operation that we just saw, but we're
+[2290.0s] now doing it for a set of query vectors
+[2291.8s] all at once. And it turns out that we
+[2293.6s] can do it all at once with just a couple
+[2295.7s] matrix multiplies. There's a next way
+[2298.6s] that we'll generalize this is notice
+[2300.6s] that in this equation, the the data
+[2303.8s] vectors X are actually entering in two
+[2306.0s] different places in this computation. Um
+[2308.2s] the first place that we're using the
+[2309.8s] data vectors X is to compute
+[2311.6s] similarities with the query vectors in
+[2313.8s] this uh similarities computation. So in
+[2316.4s] that in that notion what we're trying to
+[2318.1s] do is say oh for hey data vector how
+[2320.5s] much do you line up with each query
+[2321.7s] vector as measured by an inner product
+[2323.6s] but then we're also using the data
+[2325.2s] vectors again to compute the output
+[2327.0s] vectors. So we're we're re we're the
+[2329.1s] output vectors are now a linear
+[2330.4s] combination of the data vectors weighted
+[2332.6s] by our attention weights. Um and it
+[2334.9s] maybe seems a little bit weird to reuse
+[2337.0s] the data vectors in those two different
+[2338.7s] contexts. So now what we want to do is
+[2341.5s] um separate those two usages of the data
+[2343.8s] vectors um and let the network sort of
+[2346.9s] figure out for itself two different ways
+[2349.3s] to use the data vectors in those two
+[2351.2s] contexts.
+[2352.8s] So to do that we'll introduce this idea
+[2354.9s] of keys and queries. So now what we're
+[2357.5s] going to do is you know we had a set of
+[2359.6s] data vectors but what we're going to do
+[2361.4s] is for each data vector we're going to
+[2363.4s] project each data vector into two
+[2365.5s] vectors. One is a key vector one is a
+[2368.1s] value vector. Um, and the idea of the
+[2370.6s] key vectors are the key vectors are
+[2372.9s] going to be compared with the query
+[2374.3s] vectors to compute the alignment scores
+[2376.3s] and the value vectors are what we're
+[2378.3s] going to compute linear combinations of
+[2380.5s] in order to compute the output from the
+[2382.2s] layer. Um, and this also by so then the
+[2385.3s] way that we implement this is we add two
+[2387.5s] learnable weight matrices, the key
+[2389.1s] matrix and the value matrix which are
+[2391.0s] going to be um linear projections that
+[2393.3s] project the input that project the data
+[2395.4s] vectors into key vectors and value
+[2397.4s] vectors. So now the data vectors are we
+[2400.0s] have remember we have n data vectors
+[2401.5s] each of dimension dx. So now the key
+[2403.8s] matrix projects is a is a linear
+[2406.0s] transformation that projects from dx
+[2408.2s] into dq right because we know that we're
+[2410.7s] going to compare the key vectors with
+[2412.3s] the query vectors. So they need to have
+[2413.8s] the same dimension as the query vectors.
+[2415.5s] Um so that will project each so then
+[2417.6s] applying matrix multiply of k= x wk will
+[2421.8s] project each data vector into a key
+[2424.0s] vector of dimension dq. Then we'll
+[2426.2s] separately have another weight matrix
+[2428.4s] that projects from dx to dv which is the
+[2431.6s] dimension of the value vectors which in
+[2433.8s] principle could be different than the
+[2435.5s] query vector dimension. Um and then
+[2437.3s] we'll separately project each each data
+[2439.7s] vector into a value vector again with a
+[2442.1s] matrix multiply operator here. Um and
+[2444.8s] the intuition here is that it's kind of
+[2446.7s] like in a search engine like you want to
+[2448.9s] separate what you're looking for from
+[2450.6s] the answer you want in response to that
+[2452.4s] query, right? So like you go to Google
+[2454.6s] or these days chatgpt and you type in
+[2457.0s] like what is the best school in the
+[2458.4s] world that's your query and then the
+[2460.5s] value you get that's the that's the
+[2462.2s] query that needs to be combined with the
+[2463.5s] keys in the back end but then the value
+[2465.4s] the data you want to get back from that
+[2466.9s] query is actually different from the
+[2468.6s] query you typed in right so we want to
+[2470.5s] separate this idea of like you put your
+[2472.8s] query in what is the best school in the
+[2474.4s] world that query needs to go match on
+[2476.3s] all the different strings in the on the
+[2478.4s] internet and then the value you want to
+[2479.9s] get back from that query is Stanford
+[2481.8s] which is a different value come which is
+[2483.8s] a different value which is different
+[2485.0s] from the query that you put in. So
+[2486.5s] that's kind of the intuition another
+[2487.9s] intuition between separating the keys
+[2489.8s] and the queries and the values in this
+[2491.4s] way. The query is what I'm looking for.
+[2494.0s] The key is you know in the back end we
+[2496.3s] have some record of all the data back
+[2498.1s] there in the data vectors but um when we
+[2501.3s] query we want to match up against part
+[2503.1s] of the potentially just part of the data
+[2504.8s] vector and then the thing we want to get
+[2506.7s] back from the data vector is the value.
+[2508.9s] So we're separating the usage of the
+[2510.6s] data vectors into those two different
+[2512.2s] notions of keys and values. Then we can
+[2515.5s] visualize this in a different way. So
+[2517.6s] now we're we're we're finally throwing
+[2519.5s] away the RNN and we're looking at
+[2520.8s] attention just as an operator on its
+[2522.6s] own. So we can step through this
+[2524.2s] operation again. We've got our query
+[2525.7s] vectors coming in. We've got our data
+[2527.3s] vectors coming in. Now what we're going
+[2529.2s] to do is from the data vectors, we're
+[2531.2s] going to project each data vector into a
+[2533.2s] key and a value. Um then we're going to
+[2536.0s] compare each key with each query to get
+[2539.2s] our um similarity scores. Right? So this
+[2541.8s] is a similarity. This is a matrix of
+[2543.3s] scalers giving the similarities between
+[2545.4s] each key and each query. Then once we
+[2548.1s] have this matrix of similarity scores,
+[2550.2s] we want to compute um a distribution
+[2552.5s] over each qu a distribution over the
+[2554.6s] data vectors for each query. So that
+[2557.0s] means we need to run softmax over this
+[2559.7s] uh matrix of alignment scores um or we
+[2562.2s] compute the softmax over each row. Then
+[2565.0s] what we do is we want to take rewe the
+[2568.6s] value vectors by the attention scores in
+[2571.4s] the softmax. Oh actually no sorry we
+[2574.0s] want each we want a each column to be we
+[2576.2s] want each column to be a distribution.
+[2578.2s] uh right because each we want for each
+[2580.8s] query a distribution over the keys which
+[2582.8s] means we want softmax over the columns
+[2584.6s] right because we want it to be aligned
+[2585.8s] to the columns. So then what we do is
+[2588.3s] you know we've got this query one we've
+[2590.3s] prod we've predicted this distribution
+[2592.2s] over all of the keys um from this
+[2594.9s] computation. Then we're going to take a
+[2596.5s] linear combination of the values
+[2598.2s] weighted by these attention weights and
+[2600.2s] comput a linear combination of the value
+[2601.8s] vectors to produce our first output
+[2603.4s] vector y1. And then the same thing
+[2605.5s] happens over here. Our second query got
+[2607.5s] compared with all the keys. We computed
+[2609.3s] a distribution over those alignment
+[2610.9s] scores to get a distribution over the
+[2612.6s] keys for the second query which then get
+[2615.0s] linearly combine. Then we use those to
+[2617.0s] linear linearly combine the values to
+[2619.7s] produce our output vector. So now this
+[2621.5s] is now the attention operator sort of
+[2623.5s] standing on its own um divorced from the
+[2625.5s] recurrent neural network. The question
+[2627.4s] is how do you divide the data vector
+[2628.6s] into keys and values? The beautiful part
+[2630.4s] is we don't have to say we don't have to
+[2632.2s] say how just as we just give the neural
+[2634.5s] network the capacity to split it by by
+[2636.9s] to split it by itself by giving it this
+[2639.8s] mechanism to project separately into
+[2641.8s] keys and values but just but we're not
+[2644.0s] going to tell it how to do it. Um these
+[2645.7s] are just going to be the the key matrix
+[2647.0s] and the value matrix are just going to
+[2648.3s] be learnable parameters of the model
+[2649.8s] that will be learned via gradient
+[2651.1s] descent along with everything else. So
+[2653.2s] just as we did not tell it how to align
+[2655.5s] the English and the French sentences all
+[2657.2s] of that was sort of learned via gradient
+[2658.6s] descent. the model will learn for itself
+[2661.0s] how to separately project into keys and
+[2663.0s] values in a way that's sensible for the
+[2665.0s] problem for that's helpful for the
+[2666.3s] problem it's trying to solve. So that
+[2668.2s] the keys and values you might think of
+[2669.4s] it as some kind of filter right so the
+[2671.0s] data vector might have a lot of stuff in
+[2672.6s] there but for the task at hand we might
+[2674.5s] want to filter the data vector in
+[2675.8s] various ways and only try to match our
+[2677.6s] queries against part of it and we only
+[2679.2s] care about retrieving information of a
+[2680.7s] different part of it. So you could think
+[2681.9s] of those as yeah filtering you know the
+[2683.8s] information in the data vector in two
+[2685.4s] different ways.
+[2687.9s] Okay, so this is this is basically our
+[2689.6s] attention operator. And now like there's
+[2691.7s] no RNN here. This is just a neural
+[2693.7s] network layer that you could have
+[2695.0s] standing on its own, right? It receives
+[2697.2s] two inputs, the query vectors and the
+[2699.0s] data vectors. It has two weights of
+[2700.8s] learnable parameters which are the key
+[2702.2s] matrix and the value matrix. Um it
+[2704.1s] inputs two two sets two sequences of
+[2706.2s] vectors, outputs a sequence of vectors.
+[2708.2s] So this is a neural network layer in its
+[2710.0s] own right that you could start to plug
+[2711.8s] into your neural network architectures
+[2713.2s] in various places. This is sometimes
+[2715.6s] called a cross attention layer because
+[2717.8s] it has two sets of inputs coming in,
+[2720.1s] right? The idea is we have both data
+[2721.9s] vectors and query vectors. They're
+[2723.8s] potentially coming from two different
+[2725.0s] sources. Um, and this is sometimes
+[2727.0s] useful, right? So that I have a set of
+[2729.0s] queries. For each query, I want to go
+[2731.0s] and summarize information from my data
+[2732.9s] which is potentially different or a
+[2734.8s] different number or totally different
+[2735.9s] from my query vectors. Um, so this is
+[2737.8s] this is sometimes called a cross
+[2739.2s] attention layer because we're
+[2740.6s] crossending between two different sets
+[2742.7s] of things.
+[2744.5s] Um, but there's another version of this
+[2746.3s] that happens maybe even more commonly is
+[2748.8s] a self attention layer. So here what
+[2751.4s] we're going to do is we only have one
+[2753.4s] set of things. We only have one sequence
+[2755.1s] of inputs. We we have one set of
+[2757.2s] vectors, one sequence of vectors that
+[2758.9s] we're processing. Um, and then so now we
+[2761.0s] we no longer have this separation
+[2762.4s] between data vectors and query vectors.
+[2764.3s] We just have one set of input vectors
+[2766.7s] that we would like to process. So in a
+[2768.7s] self attention layer um we're going to
+[2771.0s] have one we're going to have a set of
+[2772.2s] input vectors and we're going to produce
+[2774.0s] a set of output vectors. So we want to
+[2776.0s] input a set of vectors X output a set of
+[2778.6s] vectors Y that are the same number as
+[2780.6s] the input vectors. But now the mechanism
+[2782.6s] of this is basically the same attention
+[2784.6s] mechanism that we just saw. Um but now
+[2787.0s] rather than projecting but we then we're
+[2788.6s] still going to use this notion of
+[2789.6s] filtering but now rather than projecting
+[2791.5s] our data vectors into keys and queries
+[2793.8s] as we previously did. Now, what we're
+[2795.5s] going to do is take each one of our
+[2797.0s] input vectors and project it to three
+[2799.3s] different things. Um, from each of our
+[2801.4s] input vectors, we're going to project it
+[2803.4s] to a query, to a key, and to a value.
+[2806.1s] Um, and so the the the equations change
+[2808.3s] just a little bit. Um, and but the
+[2810.2s] picture over here doesn't actually
+[2811.7s] change very much for each of our input
+[2813.7s] vectors. We separately project it to a
+[2815.8s] query, to a key, and to a value. Um, and
+[2818.8s] now we have, you know, the exact same
+[2820.8s] computation. Now we've got queries,
+[2822.5s] we've got keys, we've got values. From
+[2824.2s] the perspective of everything happening
+[2825.6s] up here, it's all the same. It just h it
+[2827.8s] just so happened that we computed the
+[2830.2s] keys and the queries and the values all
+[2832.2s] from different linear projections of
+[2834.3s] those same input vectors, but all the
+[2836.2s] computation otherwise shared. Yeah.
+[2838.9s] Question is how do you where what are D
+[2840.6s] in and D out? How are they sized? Um so
+[2842.6s] these are going to be architectural
+[2843.8s] hyperparameters of the layer, right?
+[2845.6s] Like just when we have a learnable
+[2847.0s] linear layer in a model, a linear layer
+[2849.3s] basically projects from a Din to a D
+[2851.0s] out. Those are going to be architectural
+[2852.5s] hyperparameters of the layer. Um same
+[2854.3s] thing with a self attention layer. The D
+[2855.8s] in and the D out are going to be
+[2857.0s] architectural hyperparameters of the
+[2858.6s] layer. Um and in principle they could be
+[2860.8s] different, right? There's enough there's
+[2863.0s] enough flexibility in this architecture
+[2864.6s] so that in principle D in D in and D out
+[2867.4s] could be different. Although I don't
+[2869.2s] think I've almost ever seen that. In
+[2870.9s] practice they're like almost always the
+[2872.5s] same. So I've been like a little bit
+[2874.0s] extra general in the notation here.
+[2878.0s] Okay. So I I don't know that we
+[2879.4s] necessarily need to walk through this.
+[2880.7s] Oh actually there is one important
+[2881.9s] thing. Right. So I said that um we are
+[2884.1s] separately projecting the inputs into
+[2885.9s] queries, keys and values. Um so that
+[2888.0s] happens via three matrix multiplies with
+[2890.1s] our three learnable weight matrices. Now
+[2892.2s] we have three learnable weight matrices.
+[2893.8s] One for keys, one for values, one for
+[2895.4s] queries. Um and we separately project
+[2897.6s] the the input vectors X into keys,
+[2900.2s] queries and values. Um but in practice
+[2902.7s] um we can actually typically compute
+[2904.3s] just one matrix multiply all at once for
+[2906.2s] those because it's typically more
+[2907.7s] efficient on hardware to do fewer large
+[2910.0s] matrix multiplies than it is to do more
+[2912.4s] smaller matrix multiplies. So a pretty
+[2914.3s] common trick in practice is to fuse is
+[2916.4s] to sort of concatenate these three matri
+[2918.3s] matrices along the dimensions and
+[2920.5s] compute all of these keys queries and
+[2922.2s] values for all the input vectors all at
+[2923.8s] once with one big matrix multiply. If
+[2926.5s] you've read transformers before, they
+[2928.2s] sometimes separate between encoder and
+[2930.2s] decoder transformers or encoder decoder
+[2932.6s] attention. So in that case like this
+[2934.4s] does this is this would be the decoder
+[2936.0s] only attention. Um if you've read
+[2937.5s] transformer papers before um and which
+[2939.7s] corresponds to the decoder
+[2942.4s] of the RNN initial example at beginning
+[2944.2s] of class um but like this mechanism is
+[2947.1s] actually just the most gen is like the
+[2948.7s] most commonly used flavor of attention
+[2950.2s] nowadays is this sort of so-called
+[2951.8s] decoder only attention. So we are we are
+[2954.6s] quite divorcing ourselves away from the
+[2956.0s] RNN now. Right? So this flavor of it
+[2958.2s] doesn't really make sense to be used in
+[2960.0s] the RNN that we saw at the beginning of
+[2961.5s] class. Right? So we basically been like
+[2963.5s] doing a little bit of a slight of hand
+[2964.8s] here where we introduced this
+[2966.3s] architecture for the purpose of RNN in
+[2968.5s] this very concrete case of machine
+[2970.0s] translation sequence to sequence. But
+[2972.1s] we've now generalized it to become a
+[2973.9s] totally different operator that can be
+[2975.4s] used all on its own. And in this
+[2977.2s] particular generalization into self
+[2978.6s] attention, it actually no longer can be
+[2980.3s] used in that decoder in the RNN. Um but
+[2982.9s] it's a very useful primitive that gets
+[2984.5s] used in a lot of other places. It turns
+[2985.9s] out the question is what's the benefit
+[2988.2s] or difference between the self attention
+[2989.8s] versus the cross attention. Um they
+[2991.2s] would get used in different contexts. So
+[2993.1s] in a in some situations you naturally
+[2995.4s] have two dis different kinds of data
+[2997.4s] that you want to compare which we saw
+[2999.3s] for example in the machine translation
+[3000.7s] setting we have an input sentence we
+[3002.4s] have an output sentence. We believe that
+[3004.1s] there there's some natural structure in
+[3005.5s] the problem that there's two different
+[3007.0s] sets of things that we want to compare.
+[3008.7s] Um that also might happen in say image
+[3010.6s] captioning right say we have an input
+[3012.4s] image we want to produce an output
+[3013.9s] sentence there's two different kinds of
+[3015.6s] things we want to compare pieces of the
+[3017.4s] image and tokens in the words that we're
+[3019.2s] generating so for some problems there's
+[3021.0s] just this natural structure where you
+[3022.7s] have two different kinds of things
+[3024.2s] floating around but for other problems
+[3026.4s] there aren't two kinds of things there's
+[3028.1s] just one thing um so say you're doing
+[3029.9s] image classification then there's only
+[3031.7s] an image we just want to process the
+[3033.0s] image so in that case we just want to
+[3034.6s] compare parts of the image with itself
+[3036.3s] and that's where you use a self
+[3037.4s] attention layer So they just get used in
+[3039.3s] different for different kinds of
+[3040.2s] problems.
+[3041.9s] Um but we want to but crucially we want
+[3043.6s] to reuse basically the same machinery
+[3045.6s] and the same uh computational primitives
+[3047.9s] to you to be used in those different
+[3049.5s] kinds of problems and that's very that's
+[3050.8s] really beneficial. There's a couple
+[3053.0s] interesting things about attention that
+[3055.0s] I want to get through. So one is like
+[3057.1s] let's consider what happens if you
+[3058.3s] permit permute the inputs right we had a
+[3060.7s] set of input vectors. What happens if
+[3062.0s] you shuffle them and process them in a
+[3063.4s] different order? Now actually a lot of
+[3065.4s] interesting stuff happens. So the keys,
+[3067.4s] the queries, and the values will all end
+[3069.3s] up the same, right? Because they are
+[3071.0s] computed as linear projections of the
+[3072.5s] input. So we'll end up getting the same
+[3074.5s] keys, queries, and values. They'll just
+[3076.1s] be in a different order, shuffled in the
+[3077.6s] same way that the inputs were. Um, and
+[3079.5s] now because our similarity scores were
+[3081.0s] just dotproducts, we'll also end up with
+[3082.7s] the same similarity scores, just again
+[3084.6s] kind of shuffled in accordance with the
+[3085.9s] way we shuffled input. Um, same thing
+[3087.8s] with the softmax. Softmax doesn't
+[3089.6s] actually care about the order of its
+[3091.0s] inputs. So it's the softmax is now
+[3093.0s] operating on the same vector, but
+[3094.2s] shuffled. So um each column of our
+[3096.5s] attention weights will end up the same
+[3097.9s] as they did before just shuffled. And
+[3099.9s] then same thing with linear
+[3101.0s] combinations. So our output val our
+[3103.1s] outputs y will actually still be the
+[3105.0s] same outputs as we said before. They'll
+[3106.8s] just all be shuffled. So that that means
+[3108.7s] that there's a really interesting
+[3109.8s] structure here um called permutation
+[3112.6s] equariance. Remember we saw we we saw
+[3114.6s] this a couple lectures ago with with um
+[3116.1s] with with convolution. Now we see a
+[3118.4s] different equariance property of these
+[3120.2s] uh self attention layers which is that
+[3122.5s] if we shuffle the inputs then the
+[3124.4s] outputs we get the same outputs just
+[3126.1s] shuffled in the same way that the inputs
+[3128.2s] were shuffled. And this kind of means in
+[3130.8s] this case that self attention doesn't
+[3133.3s] actually care about the order of the
+[3135.2s] inputs. If we change the order of the
+[3136.8s] inputs we'll get the same outputs just
+[3138.5s] shuffled in the same way. That the
+[3140.1s] computation of the layer does not depend
+[3141.8s] on the order in which we present the
+[3143.3s] inputs. So that means that we can think
+[3145.4s] of self attention actually not as
+[3147.4s] operating on sequences of vectors. They
+[3149.8s] happen to be packed into into an ordered
+[3151.6s] sequence of a matrix. But we really
+[3153.4s] think of it instead as operating on an
+[3155.1s] unordered set of vectors because the the
+[3157.5s] the the the outputs that we get don't
+[3159.9s] actually depend on what order we've
+[3161.6s] packed those vectors into our input
+[3163.2s] matrix. So we really think about this as
+[3165.5s] a kind of different neural network
+[3166.8s] primitive that fundamentally operates on
+[3168.8s] sets of vectors rather than sequences of
+[3170.6s] vectors. But this is sometimes a
+[3172.6s] problem. Sometimes it is useful to tell
+[3174.3s] the neural network what the order of the
+[3175.8s] se what the order of the entries is. So
+[3177.8s] as a quick fix to that, we'll sometimes
+[3179.5s] concatenate an additional piece of data
+[3181.6s] onto each of the input vectors called a
+[3183.7s] positional embedding. That is basically
+[3185.5s] some some piece of data that tells the
+[3187.4s] neural network this one's at index one,
+[3189.1s] this one's at index two, this one's at
+[3190.3s] index 3, blah blah blah blah blah. And
+[3191.8s] there's a bunch of different mechanisms
+[3193.0s] for that. The question is, is it going
+[3196.3s] to train to the same result? Um the
+[3198.9s] training, I'm not really talking about
+[3200.1s] the training here. I'm talking about if
+[3201.5s] you fix the weight matrices and just
+[3203.2s] consider the computation of the layer
+[3205.2s] then if I were to shuffle the inputs
+[3207.1s] then I receive the same outputs but
+[3209.4s] they'll be shuffled in the same way that
+[3210.9s] the inputs were shuffled. So like the
+[3212.7s] the the the question of what vectors do
+[3215.0s] I compute at the output does not depend
+[3217.0s] on the on the on the vectors on the
+[3219.6s] order of the vectors in the input but
+[3221.1s] the order of the vectors I get from the
+[3222.6s] output does depend on the order that
+[3224.2s] they were presented in the input. So
+[3226.2s] there's another couple tricks we can do
+[3227.6s] with self attention, but I'll go through
+[3229.0s] these a little bit faster. Um, so
+[3231.3s] sometimes, you know, in in a full self
+[3233.1s] attention layer, we allowed every piece
+[3235.1s] of the input to look at every other
+[3236.9s] piece of the input. But for some
+[3238.6s] problems, we might want to impose some
+[3240.6s] structure on this computation and say
+[3242.6s] that certain pieces of the input are
+[3244.2s] only allowed to look at certain other
+[3245.6s] pieces of the input rather than looking
+[3247.1s] at rather than everything being allowed
+[3248.5s] to look at everything. And we can
+[3250.0s] implement this via a notion called
+[3251.7s] masked self attention. So what we're
+[3253.6s] going to do is after we compute these um
+[3255.8s] these alignment scores E, we're going to
+[3257.6s] go in and override the alignment scores
+[3259.5s] with negative infinities in places where
+[3261.2s] we want to block the attention. Um and
+[3263.0s] now if you have a negative infinity in
+[3264.7s] your alignment scores, then after you do
+[3266.5s] a softmax, it's going to end up as a
+[3268.0s] zero if you walk through the softmax
+[3269.5s] computation. Um so that means that if
+[3271.3s] there's a zero if there's whenever
+[3272.5s] there's a negative infinity in the
+[3273.6s] alignment scores we end up with a zero
+[3275.9s] in the softmax in in the scores after
+[3277.6s] the softmax which means that that output
+[3279.4s] y will not depend on the value vector
+[3281.7s] computed at that index. So this is a
+[3283.8s] mechanism to let us control which inputs
+[3286.2s] are allowed to interact with each other
+[3287.5s] in the process of the computation. Um
+[3290.5s] and we might want to do this now for
+[3291.8s] language modeling right because now
+[3293.8s] we've generalized this operator to the
+[3295.4s] point where we don't need an RNN at all.
+[3297.3s] We can just use this in the for the same
+[3299.2s] problem that we used to use an RNN for.
+[3301.4s] So now we can use it to process sequence
+[3303.3s] of words like attention is very and then
+[3306.3s] output is very cool. So then in this
+[3308.7s] case we're doing the same language
+[3310.4s] modeling task that we saw last lecture
+[3312.0s] with RNN's but we can now do just do it
+[3314.0s] natively with this self attention block.
+[3316.0s] But in this case we want to make the
+[3318.1s] first output is only depend on the first
+[3320.3s] word. The second output vary only
+[3322.2s] allowed to look depend on the first two
+[3323.8s] words. We don't want to let that let the
+[3325.4s] network look ahead in the sequence and
+[3326.8s] cheat. So here is where we would use
+[3328.8s] masking.
+[3330.7s] Um another thing that we'll sometimes do
+[3332.2s] with self attention is called
+[3333.4s] multi-headed self attention where you
+[3335.4s] run n copies like h separate independent
+[3338.3s] copies of self attention in parallel.
+[3340.6s] Why do you want to do this? Because it's
+[3341.9s] more computation, it's more flops, it's
+[3343.6s] more parameters. Deep learning we always
+[3345.0s] want more and bigger. Um and this is
+[3346.7s] another way that you can make this
+[3347.9s] network that make this this layer more
+[3350.0s] and bigger and more powerful. So what
+[3351.9s] we're going to do is take our inputs X,
+[3354.0s] route them to H independent copies of
+[3356.6s] separate self attention layers. Those
+[3358.4s] will each produce their own outputs Y
+[3360.4s] which will then stack up um along the
+[3362.7s] output and then fuse the and then have
+[3365.0s] another linear projection at the output
+[3367.2s] to kind of fuse the output data from
+[3368.9s] each of the independent self attention
+[3370.4s] layers. Um and now in this case uh this
+[3373.7s] is called multi-headed self attention.
+[3376.1s] Um and this is basically the format that
+[3378.1s] we always see in practice. So this is
+[3380.3s] like whenever you see self- attention
+[3381.9s] used these days, it's almost always this
+[3384.0s] multi-headed self- attention version.
+[3387.4s] Um, and in practice, um, it turns out
+[3389.8s] that you can compute this all with
+[3391.4s] matrix multiplies as well. So you don't
+[3393.2s] have to like run a for loop. Um, you can
+[3395.3s] compute each of these H copies of self
+[3397.4s] attention all in parallel if you're
+[3399.4s] clever and use batched matrix multiplies
+[3401.2s] all in the right places. Um, so in in in
+[3403.8s] fact this whole self attention operator
+[3406.0s] seems like a lot of stuff going on, but
+[3407.8s] it's really basically just four matrix
+[3409.4s] multiplies. We have one matrix multiply
+[3411.9s] where we take our inputs and project
+[3413.7s] them to queries, keys, and values. Um,
+[3416.2s] we have another matrix multiply where we
+[3418.2s] compute Qase similarity. For each Q, we
+[3420.6s] compute the similarity against all the
+[3422.3s] all the K's. And that's one big batched
+[3424.3s] matrix multiply. Now in the multi-headed
+[3426.2s] case um we have another one called
+[3428.4s] V-weing where we want to take linear
+[3430.1s] combinations of all the values weighted
+[3431.9s] by the softmax entries and that can be
+[3434.5s] done in another big batched matrix
+[3436.1s] multiply and then finally we have an
+[3437.9s] output projection to mix information
+[3439.9s] across our different self our different
+[3441.7s] heads of our self attention. So even
+[3443.6s] though there's a lot of equations
+[3444.6s] there's a lot of vectors flying around
+[3446.2s] this whole self attention operator is
+[3448.0s] basically just four big batched matrix
+[3450.0s] multiplies. Um, and that's great because
+[3452.1s] matrix multipliers are a really
+[3454.2s] scalable, powerful primitive that we can
+[3456.4s] distribute, we can optimize um, and we
+[3458.6s] can make this thing highly parallel,
+[3460.1s] highly parallel, highly scalable, highly
+[3462.1s] uh, highly efficient. Yeah. Question is
+[3464.4s] that the x1, x2, x3, they're exactly the
+[3466.1s] same. Um, but just but um, yeah, but
+[3469.6s] we're just going to like have separate
+[3471.3s] cop like basically separate copies of
+[3473.4s] the self attention layer. They're all
+[3475.0s] they will all be random. They all have
+[3476.4s] different weights critically and those
+[3478.2s] weights will be initialized randomly
+[3480.3s] different at initialization. So they
+[3481.8s] will end up learning to process them in
+[3483.4s] slightly different ways. So this is just
+[3484.9s] a way to give extra capacity to the
+[3486.7s] layer. Oh yeah, the only thing different
+[3489.0s] between the different heads is the
+[3490.0s] weights. So we'll the architecture is
+[3491.6s] exactly the same. The computation is
+[3493.0s] exactly the same, but they'll have
+[3494.4s] different weights and those weights will
+[3495.6s] be diff will be initialized to different
+[3497.2s] things at initialization. Um but other
+[3499.0s] than that it's all exactly the same.
+[3501.6s] Okay, there's some stuff there that we
+[3503.1s] can skip. But now basically we've gotten
+[3504.9s] to one really interesting place where we
+[3507.0s] have basically three different ways to
+[3508.7s] process sequences that we've seen in
+[3510.2s] this class. The first is recurrent
+[3511.9s] neural networks. We saw that recurrent
+[3513.6s] neural networks basically operate on 1D
+[3515.7s] ordered sequences. Um and they're
+[3517.7s] they're really cool. They're really
+[3519.0s] powerful. People like them for a long
+[3520.5s] time, but they're fundamentally not very
+[3522.2s] parallelizable because of this
+[3523.9s] concurrent structure where each hidden
+[3525.8s] state depends on the previous hidden
+[3527.6s] state. Then they're just a fundamentally
+[3529.4s] sequential algorithm. there's no way to
+[3531.3s] parallelize this across the sequence.
+[3533.2s] Um, and that makes them very difficult
+[3534.6s] to scale, very difficult to make very
+[3536.3s] big. Um, another primitive that we've
+[3538.6s] seen is convolution. And convolution
+[3540.7s] basically operates on multi-dimensional
+[3542.5s] grids. Um, we've seen it in
+[3544.0s] two-dimensional grids in the case of
+[3545.4s] images. You can also run them on 1D
+[3547.1s] grids, 3D grids, 4D grids. And
+[3549.1s] convolution basically is something that
+[3551.1s] mixes information locally in
+[3553.0s] n-dimensional grids. Um, this is great.
+[3555.5s] is very parallelizable because by this
+[3558.0s] notion of sliding a kernel around a
+[3559.8s] grid, each position that we might want
+[3561.6s] to place the kernel can in principle be
+[3563.5s] computed in parallel. So this is a very
+[3565.4s] parallelizable primitive. Um but um it
+[3568.2s] has a hard time building up large
+[3569.7s] receptive fields. If we want to if we
+[3571.8s] want to summarize an entire very long
+[3573.8s] input sequence or an entire very large
+[3575.9s] image with convolution, we either need
+[3577.7s] to have very large convolutional kernels
+[3579.5s] or stack up many many many convolutional
+[3581.7s] layers. So that still introduces some
+[3583.6s] fundamental sequentiality in the way
+[3585.5s] that we need to process large pieces of
+[3587.2s] data. And now self attention basically
+[3590.1s] is a separate kind of primitive that
+[3592.0s] operates on sets of vectors. Um it sort
+[3594.8s] of naturally generalizes to long
+[3596.5s] sequences. There are no bottlenecks in
+[3598.1s] the way that there are in in in
+[3599.5s] recurrent neural networks. There's also
+[3601.3s] no necessity of stacking up many many
+[3603.3s] layers of them to pro to to let all the
+[3605.2s] vectors look at each other. In one layer
+[3607.3s] of self attention, every vector looks at
+[3609.1s] every other vector. So with just one
+[3611.0s] layer you can summarize you can do a lot
+[3613.0s] of computation um and it's also highly
+[3615.3s] paralyzable as we saw the whole
+[3616.9s] operation is just four big matrix
+[3618.3s] multiplies and matrix multiplies are a
+[3620.4s] great primitive that we can distribute
+[3622.0s] we can run on GPUs we can run in very
+[3624.3s] scalable distributed ways um the only
+[3626.7s] downside of attention is that it's
+[3628.8s] expensive it ends up having n squ
+[3630.8s] compute for a sequence of length n um
+[3632.9s] and n squ or later n o n memory for a
+[3635.7s] sequence of of of length n and if your n
+[3638.2s] ends up being like 100,000 million 10
+[3640.4s] million n squared becomes very expensive
+[3642.8s] but you can solve that by buying more
+[3644.7s] GPUs. Um so that's that's basically the
+[3646.9s] solution that people have have come up
+[3648.3s] with here. So basically attention has
+[3650.6s] become this super awesome primitive that
+[3653.0s] is super powerful for processing very
+[3655.5s] arbitrary pieces of data and you might
+[3658.0s] be wondering which of these you should
+[3659.4s] use. Attention attention is all you
+[3661.5s] need. It turns out that of the three you
+[3663.8s] can get a long way using only attention.
+[3666.4s] Yeah the question is is paralyzable.
+[3668.2s] What's the advantage of that? Um the
+[3669.8s] advantage of that is that in the history
+[3671.8s] of computing um it it get it gets hard
+[3674.5s] to make processors faster, right? We've
+[3676.5s] sort of run up against this limit as a
+[3678.1s] fundamental limit in hardware that it's
+[3679.9s] become very difficult to make individual
+[3681.7s] processes faster. But what we can do
+[3683.8s] very easily is get a lot of processors,
+[3686.2s] right? So we so the way that we've able
+[3689.2s] to marshall more computation over the
+[3691.4s] last two decades is finding algorithms
+[3693.7s] that do not require running on one
+[3695.9s] really fast processor. But instead if we
+[3698.1s] can have an algorithm that can make use
+[3699.5s] of 10 processors or a 100 processors or
+[3702.2s] a thousand processors or a million
+[3703.8s] processors. I want to blanket the entire
+[3706.2s] Stanford campus with processors and have
+[3707.8s] all of them working together in concert
+[3709.4s] to process this big thing. If we can
+[3711.3s] find algorithms that do that, that's how
+[3713.0s] we can scale up and get really big
+[3714.5s] powerful computations. Um, so the
+[3716.3s] benefit of parallelizability is that if
+[3718.3s] you have algorithms that can trivially
+[3720.4s] make use of more and more and more
+[3722.2s] processors in parallel, then we can
+[3724.0s] scale up those algorithms without having
+[3725.7s] to wait for individual processors to
+[3727.3s] become faster, which they may never
+[3728.7s] will. Yeah. Is there a trade-off with
+[3730.9s] the n squ? I I think the n squed is
+[3732.4s] actually a good thing. Um, so it it see
+[3734.6s] it seems bad. You're taught in computer
+[3736.2s] science that higher parameters inside
+[3738.2s] that n that that those is bad. But in
+[3740.7s] the case of neural networks for compute
+[3742.6s] it could actually be a good thing
+[3744.0s] because more compute means the network
+[3745.9s] is doing more computation. It has more
+[3747.8s] ability to think more ability to
+[3749.6s] process. So actually the more compute
+[3751.7s] the network does on the input sequence
+[3753.3s] actually maybe the better answer it
+[3754.6s] could get it could arrive to. So it
+[3756.5s] means that you know it's more expensive
+[3758.1s] but that's not necessarily a bad thing.
+[3760.4s] So basically the transformer is now a
+[3762.1s] neural network architecture that puts
+[3764.2s] self attention at the core of
+[3765.5s] everything. So our input is going to be
+[3767.3s] a set of vectors X. Um then we're going
+[3769.7s] to run all those vectors through self
+[3771.3s] attention. Um which is as we just said
+[3773.2s] this amazing primitive that lets all the
+[3774.6s] vectors talk to each other. Um after
+[3776.6s] that we'll wrap that self attention in a
+[3778.7s] residual connection for all the same
+[3780.3s] reasons that we wanted to use residual
+[3782.0s] connections in ResNets just a couple
+[3783.5s] lectures ago. Um then we will take the
+[3786.6s] output of that residual connection pass
+[3788.5s] it through a layer normalization because
+[3790.1s] as we saw in ResNets and in CNN's adding
+[3792.4s] normalization inside your architectures
+[3794.2s] makes them train more stably. Um then um
+[3797.8s] but then now there's something
+[3798.8s] interesting because the self attention
+[3800.3s] basically what it does is compares all
+[3802.2s] the vectors with each other. Um and
+[3803.8s] that's a very useful primitive that's a
+[3805.4s] very powerful thing to do. But we also
+[3807.3s] want to give this network the ability to
+[3809.2s] perform processing on vectors
+[3811.0s] independently one one by one. So then
+[3813.4s] there's a second primitive inside the
+[3815.0s] transformer which is the multi-layer
+[3816.7s] perceptron MLP or also called FFN. But
+[3819.4s] basically this is a little two-layer
+[3820.8s] neural network that operates independent
+[3822.6s] that is run independently on each one of
+[3824.6s] our vectors inside. So then this kind of
+[3827.2s] works in concert with the self attention
+[3828.9s] where self attention lets all the
+[3830.3s] vectors talk to each other and compare
+[3831.8s] with each other and the FFN or MLP um
+[3834.3s] lets us perform computation on each
+[3836.2s] vector independently.
+[3838.3s] Um we'll also wrap the MLP in a residual
+[3840.5s] connection put a layer normalization and
+[3842.8s] put a box around the whole thing and
+[3844.1s] call it a neural network block. So this
+[3846.2s] is our um transformer block and a
+[3848.6s] transformer is just a sequence of
+[3850.0s] transformer blocks. Um and these things
+[3852.6s] have gotten much much bigger over time.
+[3854.6s] Um the architectures haven't changed too
+[3856.4s] much since 2017 when this is introduced.
+[3858.9s] Um the original transformer was
+[3860.4s] something like 12 blocks, 200 million
+[3862.6s] parameters. And now we're people are
+[3864.2s] training transformers with up with
+[3866.4s] hundreds of blocks and trillions of
+[3868.5s] parameters. So this same architecture
+[3870.4s] has scaled across many orders of
+[3871.8s] magnitude in compute and size and
+[3873.4s] parameters over the past eight years. Um
+[3876.5s] they can be used both for language
+[3877.8s] modeling as we sort of already seen. Um
+[3879.8s] they also can be used for for for for
+[3882.4s] images. And here the application is
+[3884.2s] fairly straightforward. Given an image
+[3886.2s] we basically divide the image up into
+[3887.7s] patches project each of those patches
+[3889.9s] separately into a vector. Those vectors
+[3892.7s] then get passed as inputs to our
+[3894.3s] transformer. um and then the output
+[3896.6s] gives us one output from the transformer
+[3899.1s] for every patch in the input. Now if you
+[3901.4s] want to do something like a
+[3902.2s] classification score uh do a
+[3904.1s] classification problem then you do a
+[3905.5s] pooling operation on all the vectors
+[3907.4s] coming out of the transformer and have a
+[3909.0s] linear layer that predicts your class
+[3910.2s] scores. So that's then this same
+[3913.2s] architecture of a transformer can be
+[3915.1s] applied both to a language and to images
+[3918.5s] and to a lot of other things as well.
+[3920.6s] Um, I mentioned there have been a couple
+[3922.3s] minor tweaks to transformers since they
+[3924.1s] were first introduced, but we're running
+[3925.7s] out of time, so I'll just leave those as
+[3927.4s] extra reading. So, kind of the summary
+[3929.5s] of where we get to at the end of this
+[3931.0s] lecture is basically two things that I
+[3933.4s] promised at the beginning. One is that
+[3935.4s] we introduced attention, which is this
+[3937.4s] new primitive that lets us operate on
+[3939.6s] sets of vectors. It's highly
+[3941.1s] paralyzable. It's basically just a
+[3942.9s] couple matrix multiplies. So, it's
+[3944.6s] highly scalable, highly paralyzable,
+[3946.5s] highly flexible. It can be applied in a
+[3948.2s] lot of different situations. Um and the
+[3950.0s] transformer which is now a neural
+[3951.5s] network architecture that uses self
+[3953.3s] attention as its main computational
+[3955.5s] primitive. Um and the transformer is
+[3957.8s] basically the neural network
+[3959.0s] architecture that every every
+[3960.7s] application in deep learning is using
+[3962.2s] these days. So that's super powerful,
+[3964.4s] super interesting, super exciting. Um
+[3966.7s] they've been transformers have been with
+[3968.3s] us for like 8 years now and I don't see
+[3970.2s] them really dying anytime soon. So
+[3972.4s] that's that's pretty pretty exciting. So
+[3974.9s] that's that's basically it for today's
+[3976.3s] lecture. Um and then next time we'll
+[3978.2s] come back and talk about some new tasks
+[3980.3s] uh detection, segmentation,
+[3981.6s] visualization and see how we can use
+[3983.4s] these architectures to do new cool
+[3985.0s] things.

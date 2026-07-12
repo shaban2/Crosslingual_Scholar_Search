@@ -1,32 +1,39 @@
+"""Cross-lingual retrieval evaluation.
+
+Runs every (encoder x query language) combination over the same bilingual
+corpus and measures, per cell:
+  - modality distribution of retrieved items (text / figure / transcript)
+  - content-language distribution of retrieved items (en / id)
+  - coverage (queries returning >=1 figure, >=1 transcript, >=1 id item)
+  - EN<->ID consistency: for each query pair, overlap between the results of
+    the English query and its Indonesian translation. A language-fair system
+    returns (near-)identical lists for both; the shortfall is the language gap.
+  - mean retrieval latency after warm-up
+
+Also runs a BM25 lexical baseline over all textual content. Results are
+written to data/eval_results.json; every number in the paper comes from there.
+"""
+
 import json
 import time
 from collections import Counter
 
 from rank_bm25 import BM25Okapi
 
-from config import DATA_DIR, FIGURES_TOP_K, TOP_K
+from config import DATA_DIR, ENCODERS, TOP_K
 from pipeline.retrieval import load_index, search
 
+QUERIES_PATH = DATA_DIR / "queries.json"
 RESULTS_PATH = DATA_DIR / "eval_results.json"
 
-TEST_QUERIES = [
-    "Mamba model architecture diagram with selective scan mechanism",
-    "Compare attention mechanisms in Mamba vs Transformer",
-    "Hybrid architecture combining Mamba and attention layers",
-    "Performance comparison of Mamba and Transformer on long sequences",
-    "State space model formulation and discretization",
-    "Training loss curves and convergence of SSM models",
-    "Model scaling laws for Mamba vs Transformer",
-    "Hardware-efficient implementation of selective scan",
-    "Jamba architecture and its components",
-    "Results of Mamba on language modeling benchmarks",
-    "How does Mamba handle long-range dependencies",
-    "Comparison of recurrent and convolutional representations in SSMs",
-]
+
+def load_queries() -> list[dict]:
+    with open(QUERIES_PATH) as f:
+        data = json.load(f)
+    return data["queries"]
 
 
 def item_key(meta: dict) -> str:
-    """Stable identifier for a retrieved item, shared across retrieval systems."""
     modality = meta.get("modality")
     if modality == "figure":
         return f"figure:{meta.get('image_path')}"
@@ -39,33 +46,10 @@ def item_text(meta: dict) -> str:
     return meta.get("text") or meta.get("caption") or ""
 
 
-def unified_search(query: str) -> list[dict]:
-    return search(query, k=TOP_K)
-
-
-def dense_text_only_search(query: str) -> list[dict]:
-    return search(query, k=TOP_K, modality="text")
-
-
-def dual_pass_search(query: str) -> list[dict]:
-    """Unified search plus a dedicated figure pass, deduplicated by image path.
-    Mirrors the retrieval used for synthesis in main.py."""
-    figure_results = search(query, k=FIGURES_TOP_K, modality="figure")
-    mixed_results = search(query, k=TOP_K)
-    figure_paths = {r["metadata"].get("image_path") for r in figure_results}
-    merged = list(figure_results)
-    for r in mixed_results:
-        m = r["metadata"]
-        if m.get("modality") == "figure" and m.get("image_path") in figure_paths:
-            continue
-        merged.append(r)
-    return merged
-
-
 class BM25AllText:
-    """BM25 baseline over every textual representation in the corpus:
-    paper text chunks, figure captions, and transcript segments. This is the
-    fair text-only comparison, since captions and transcripts are text."""
+    """Lexical baseline over every textual representation, both languages.
+    Cross-lingual retrieval via BM25 works only through shared tokens
+    (loanwords, code-switched English terms in Indonesian lectures)."""
 
     def __init__(self, metadata: list[dict]):
         self.items = [m for m in metadata if item_text(m).strip()]
@@ -78,52 +62,51 @@ class BM25AllText:
         return [{"score": float(scores[i]), "metadata": self.items[i]} for i in ranked]
 
 
-def run_config(retrieve_fn) -> dict:
+def run_cell(queries: list[dict], lang_field: str, retrieve_fn) -> dict:
     per_query = []
-    breakdown = Counter()
-    caption_sources = Counter()
-    coverage = {"figure": 0, "transcript": 0, "all_three": 0}
-    for q in TEST_QUERIES:
+    modality_counts = Counter()
+    language_counts = Counter()
+    coverage = Counter()
+    latencies = []
+    for q in queries:
+        query_text = q[lang_field]
         start = time.perf_counter()
-        results = retrieve_fn(q)
-        elapsed = time.perf_counter() - start
+        results = retrieve_fn(query_text)
+        latencies.append(time.perf_counter() - start)
 
-        counts = Counter(r["metadata"].get("modality") for r in results)
-        breakdown.update(counts)
-        for r in results:
-            if r["metadata"].get("modality") == "figure":
-                caption_sources[r["metadata"].get("caption_source", "unknown")] += 1
-        if counts.get("figure", 0) > 0:
+        mods = Counter(r["metadata"].get("modality") for r in results)
+        langs = Counter(r["metadata"].get("language") for r in results)
+        modality_counts.update(mods)
+        language_counts.update(langs)
+        if mods.get("figure", 0) > 0:
             coverage["figure"] += 1
-        if counts.get("transcript", 0) > 0:
+        if mods.get("transcript", 0) > 0:
             coverage["transcript"] += 1
-        if all(counts.get(m, 0) > 0 for m in ("text", "figure", "transcript")):
-            coverage["all_three"] += 1
+        if langs.get("id", 0) > 0:
+            coverage["id_content"] += 1
+        if langs.get("en", 0) > 0:
+            coverage["en_content"] += 1
 
         per_query.append({
-            "query": q,
-            "text": counts.get("text", 0),
-            "figure": counts.get("figure", 0),
-            "transcript": counts.get("transcript", 0),
-            "latency_s": round(elapsed, 4),
+            "query_id": q["id"],
+            "query": query_text,
+            "modalities": dict(mods),
+            "languages": dict(langs),
             "items": [item_key(r["metadata"]) for r in results],
         })
 
-    total = sum(breakdown.values())
-    n = len(TEST_QUERIES)
-    latencies = [pq["latency_s"] for pq in per_query]
+    total = sum(modality_counts.values())
+    n = len(queries)
     return {
         "per_query": per_query,
         "total_items": total,
-        "breakdown": {m: breakdown.get(m, 0) for m in ("text", "figure", "transcript")},
-        "breakdown_pct": {
-            m: round(breakdown.get(m, 0) / total * 100, 1) for m in ("text", "figure", "transcript")
-        },
-        "figure_caption_sources": dict(caption_sources),
+        "modality_counts": {m: modality_counts.get(m, 0) for m in ("text", "figure", "transcript")},
+        "language_counts": {l: language_counts.get(l, 0) for l in ("en", "id")},
         "coverage": {
             "queries_with_figure": coverage["figure"],
             "queries_with_transcript": coverage["transcript"],
-            "queries_with_all_three": coverage["all_three"],
+            "queries_with_en_content": coverage["en_content"],
+            "queries_with_id_content": coverage["id_content"],
             "n_queries": n,
         },
         "latency_s": {
@@ -134,79 +117,81 @@ def run_config(retrieve_fn) -> dict:
     }
 
 
-def print_config(name: str, stats: dict):
+def en_id_consistency(cell_en: dict, cell_id: dict) -> dict:
+    """Overlap between each EN query's results and its ID twin's results.
+    Reported as mean Jaccard and mean overlap@K across query pairs."""
+    jaccards, overlaps = [], []
+    id_by_query = {pq["query_id"]: pq for pq in cell_id["per_query"]}
+    for pq_en in cell_en["per_query"]:
+        pq_id = id_by_query[pq_en["query_id"]]
+        a, b = set(pq_en["items"]), set(pq_id["items"])
+        inter = len(a & b)
+        union = len(a | b)
+        jaccards.append(inter / union if union else 0.0)
+        overlaps.append(inter / max(len(a), 1))
+    n = len(jaccards)
+    return {
+        "mean_jaccard": round(sum(jaccards) / n, 3),
+        "mean_overlap_at_k": round(sum(overlaps) / n, 3),
+        "per_query_jaccard": {
+            pq["query_id"]: round(j, 3)
+            for pq, j in zip(cell_en["per_query"], jaccards)
+        },
+    }
+
+
+def print_cell(name: str, stats: dict):
     n = stats["coverage"]["n_queries"]
-    print(f"\n{'=' * 95}\nCONFIG: {name}\n{'=' * 95}")
-    print(f"{'Query':<70} {'Text':>5} {'Figs':>5} {'Trans':>6}")
-    for pq in stats["per_query"]:
-        short_q = pq["query"][:68] + ".." if len(pq["query"]) > 68 else pq["query"]
-        print(f"{short_q:<70} {pq['text']:>5} {pq['figure']:>5} {pq['transcript']:>6}")
-    b, p = stats["breakdown"], stats["breakdown_pct"]
-    print(f"\nItems: {stats['total_items']} total | "
-          f"text {b['text']} ({p['text']}%) | "
-          f"figure {b['figure']} ({p['figure']}%) | "
-          f"transcript {b['transcript']} ({p['transcript']}%)")
-    if stats["figure_caption_sources"]:
-        srcs = ", ".join(f"{k}: {v}" for k, v in sorted(stats["figure_caption_sources"].items()))
-        print(f"Figure caption sources: {srcs}")
-    c = stats["coverage"]
-    print(f"Coverage: >=1 figure {c['queries_with_figure']}/{n} | "
-          f">=1 transcript {c['queries_with_transcript']}/{n} | "
-          f"all three {c['queries_with_all_three']}/{n}")
-    lat = stats["latency_s"]
-    print(f"Latency (s): mean {lat['mean']} | min {lat['min']} | max {lat['max']}")
+    m, l, c = stats["modality_counts"], stats["language_counts"], stats["coverage"]
+    print(f"\n== {name} ==")
+    print(f"  modalities: text {m['text']} | figure {m['figure']} | transcript {m['transcript']}"
+          f"   languages: en {l['en']} | id {l['id']}")
+    print(f"  coverage: fig {c['queries_with_figure']}/{n} | trans {c['queries_with_transcript']}/{n}"
+          f" | en-content {c['queries_with_en_content']}/{n} | id-content {c['queries_with_id_content']}/{n}")
+    print(f"  latency mean {stats['latency_s']['mean']}s")
 
 
 def evaluate():
-    _, metadata = load_index()
-    corpus_counts = Counter(m.get("modality") for m in metadata)
-    corpus_caption_sources = Counter(
-        m.get("caption_source", "unknown") for m in metadata if m.get("modality") == "figure"
-    )
+    queries = load_queries()
+    results = {"top_k": TOP_K, "n_queries": len(queries), "encoders": {}}
+
+    for encoder in sorted(ENCODERS):
+        _, metadata = load_index(encoder)
+        corpus = Counter((m.get("modality"), m.get("language")) for m in metadata)
+        results.setdefault("corpus", {str(k): v for k, v in sorted(corpus.items())})
+
+        search(queries[0]["en"], k=1, encoder=encoder)  # warm-up
+
+        cell_en = run_cell(queries, "en", lambda q, e=encoder: search(q, k=TOP_K, encoder=e))
+        cell_id = run_cell(queries, "id_", lambda q, e=encoder: search(q, k=TOP_K, encoder=e))
+        consistency = en_id_consistency(cell_en, cell_id)
+
+        results["encoders"][encoder] = {
+            "en_queries": cell_en,
+            "id_queries": cell_id,
+            "en_id_consistency": consistency,
+        }
+        print_cell(f"{encoder} / EN queries", cell_en)
+        print_cell(f"{encoder} / ID queries", cell_id)
+        print(f"  EN<->ID consistency: Jaccard {consistency['mean_jaccard']}"
+              f" | overlap@{TOP_K} {consistency['mean_overlap_at_k']}")
+
+    # BM25 baseline over the corpus (encoder-independent; use clip's metadata)
+    _, metadata = load_index("clip")
     bm25 = BM25AllText(metadata)
-
-    # Warm up the embedding model and index cache so latencies reflect
-    # steady-state retrieval, not model loading.
-    search(TEST_QUERIES[0], k=1)
-
-    configs = {
-        "unified": run_config(unified_search),
-        "dual_pass": run_config(dual_pass_search),
-        "dense_text_only": run_config(dense_text_only_search),
-        "bm25_all_text": run_config(bm25.search),
+    bm_en = run_cell(queries, "en", bm25.search)
+    bm_id = run_cell(queries, "id_", bm25.search)
+    results["bm25"] = {
+        "en_queries": bm_en,
+        "id_queries": bm_id,
+        "en_id_consistency": en_id_consistency(bm_en, bm_id),
     }
+    print_cell("bm25 / EN queries", bm_en)
+    print_cell("bm25 / ID queries", bm_id)
+    print(f"  EN<->ID consistency: Jaccard {results['bm25']['en_id_consistency']['mean_jaccard']}")
 
-    print(f"Corpus: {dict(corpus_counts)} | figure caption sources: {dict(corpus_caption_sources)}")
-    for name, stats in configs.items():
-        print_config(name, stats)
-
-    # Overlap between the full system and the BM25 text-only baseline:
-    # which retrieved items are unique to each system?
-    dual_items = {i for pq in configs["dual_pass"]["per_query"] for i in pq["items"]}
-    bm25_items = {i for pq in configs["bm25_all_text"]["per_query"] for i in pq["items"]}
-    comparison = {
-        "dual_pass_unique_items": len(dual_items - bm25_items),
-        "bm25_unique_items": len(bm25_items - dual_items),
-        "shared_items": len(dual_items & bm25_items),
-    }
-    print(f"\n{'=' * 95}\nOVERLAP: dual_pass vs bm25_all_text (unique items across all queries)")
-    print(f"  dual_pass only: {comparison['dual_pass_unique_items']} | "
-          f"bm25 only: {comparison['bm25_unique_items']} | "
-          f"shared: {comparison['shared_items']}")
-
-    results = {
-        "top_k": TOP_K,
-        "figures_top_k": FIGURES_TOP_K,
-        "n_queries": len(TEST_QUERIES),
-        "corpus": {
-            "modality_counts": dict(corpus_counts),
-            "figure_caption_sources": dict(corpus_caption_sources),
-        },
-        "configs": configs,
-        "dual_pass_vs_bm25_overlap": comparison,
-    }
     with open(RESULTS_PATH, "w") as f:
-        json.dump(results, f, indent=2)
+        json.dump(results, f, ensure_ascii=False, indent=2)
     print(f"\nFull results written to {RESULTS_PATH}")
 
 

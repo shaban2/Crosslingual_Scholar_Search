@@ -1,0 +1,110 @@
+{
+  "clip": {
+    "en_queries": {
+      "text_en": {
+        "mean": 0.7135,
+        "std": 0.0748,
+        "max": 0.9047,
+        "n_items": 2720
+      },
+      "figure_en": {
+        "mean": 0.5559,
+        "std": 0.0437,
+        "max": 0.6773,
+        "n_items": 67
+      },
+      "transcript_en": {
+        "mean": 0.7606,
+        "std": 0.0491,
+        "max": 0.9402,
+        "n_items": 1146
+      },
+      "transcript_id": {
+        "mean": 0.7182,
+        "std": 0.0509,
+        "max": 0.8925,
+        "n_items": 955
+      }
+    },
+    "id_queries": {
+      "text_en": {
+        "mean": 0.6503,
+        "std": 0.0731,
+        "max": 0.8751,
+        "n_items": 2720
+      },
+      "figure_en": {
+        "mean": 0.4992,
+        "std": 0.0415,
+        "max": 0.6231,
+        "n_items": 67
+      },
+      "transcript_en": {
+        "mean": 0.7043,
+        "std": 0.0507,
+        "max": 0.8929,
+        "n_items": 1146
+      },
+      "transcript_id": {
+        "mean": 0.8121,
+        "std": 0.0531,
+        "max": 0.9431,
+        "n_items": 955
+      }
+    }
+  },
+  "mclip": {
+    "en_queries": {
+      "text_en": {
+        "mean": 0.8351,
+        "std": 0.0333,
+        "max": 0.9306,
+        "n_items": 2720
+      },
+      "figure_en": {
+        "mean": 0.6147,
+        "std": 0.0341,
+        "max": 0.7364,
+        "n_items": 67
+      },
+      "transcript_en": {
+        "mean": 0.8596,
+        "std": 0.0236,
+        "max": 0.941,
+        "n_items": 1146
+      },
+      "transcript_id": {
+        "mean": 0.8796,
+        "std": 0.0232,
+        "max": 0.9531,
+        "n_items": 955
+      }
+    },
+    "id_queries": {
+      "text_en": {
+        "mean": 0.8424,
+        "std": 0.0348,
+        "max": 0.9462,
+        "n_items": 2720
+      },
+      "figure_en": {
+        "mean": 0.6155,
+        "std": 0.0322,
+        "max": 0.7431,
+        "n_items": 67
+      },
+      "transcript_en": {
+        "mean": 0.8773,
+        "std": 0.0264,
+        "max": 0.956,
+        "n_items": 1146
+      },
+      "transcript_id": {
+        "mean": 0.8988,
+        "std": 0.0269,
+        "max": 0.969,
+        "n_items": 955
+      }
+    }
+  }
+}

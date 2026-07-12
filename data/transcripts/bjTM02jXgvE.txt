@@ -1,0 +1,1457 @@
+[0.0s] Ya
+[1.4s] udah farisman oke Enggak kerasa kita
+[5.5s] udah di minggu ke-10 ya untuk
+[9.3s] dibling jadi Hei Wah mudah-mudahan ini
+[14.3s] bisa kita ini terus terus
+[16.6s] hari ini kita akan belajar tentang
+[21.2s] attention dan
+[23.2s] Transformers
+[25.1s] eh
+[26.8s] jadi kalau sekarang masuk ke PPS without
+[29.9s] terus ngelihat any case installnya image
+[32.6s] classification
+[37.4s] kalian lihat VIP ini Vision Transformers
+[41.9s] Oke kalau lihat di NLP Juga misalnya
+[46.2s] lanjut model
+[51.6s] pasti ada bet
+[54.6s] begitu bidirectional akan Summer Day
+[60.0s] Oh ini
+[62.5s] significant change
+[64.8s] setelah kita pelajari conclusion neural
+[67.9s] net a modern konsumsi neural net
+[71.6s] sekarang itu udah ada aspek attention
+[74.3s] dan Transformers nih begitupun waktu
+[77.0s] kita pelajari Aren lscm jeru sekuens to
+[81.7s] sequin gaya encoder decoder architecture
+[84.7s] yang minggu lalu a modern architecture
+[88.4s] nya sekarang ada Transformer nya
+[91.6s] sementara Transformers itu adalah
+[94.2s] sebenarnya multihead attention save
+[96.8s] attention Oke jadi penting banget untuk
+[99.7s] bisa ngikutin tipe learning itu penting
+[103.1s] banget untuk Kita paham
+[106.6s] prinsip-prinsip fundamental dari
+[108.6s] attention dan Transformers karena kalau
+[111.2s] nggak akan sulit untuk mengikuti
+[113.7s] perkembangan di perning
+[115.8s] karena arsitektur ini yang sekarang lagi
+[118.5s] ah
+[120.0s] Hai menjadi state-of-the-art gitu ya
+[122.7s] Soalnya ini kita akan fokus belajar
+[125.2s] konsep-konsep utama prinsip-prinsip
+[128.3s] utama dari
+[129.8s] fans sedang Transformers Oke kita akan
+[133.4s] ikutin buku d2l Story lainnya kita akan
+[136.5s] ikutin disitu ya Jadi kita akan lihat
+[139.0s] dari awal sesuai dengan Chapter 11 yang
+[142.9s] ada di D2 file tapi di dalam materi kita
+[146.4s] ini
+[147.6s] ditebak er ke-10 itu saya kasih ada
+[151.7s] slide dari ada bius
+[154.9s] Profesor Alex Maula ada slide dari
+[158.2s] Profesor kecuali dari Stanford ide ada
+[161.2s] beberapa materi disini nah cuman kita
+[164.3s] tidak akan mampu untuk bahas semua
+[166.6s] materi dalam satu pertemuan jadi saya
+[168.8s] pilih salah satu yang paling sesuai
+[171.4s] dengan
+[172.9s] d2l kita akan pakai dari Profesor Alex
+[177.3s] mula punya materi
+[180.0s] Hai Keh
+[182.3s] Oh ini materinya ini memang waktu dia
+[187.4s] bikin buku diapakai untuk ngajarin nya
+[191.0s] jadi saya pakai storyline dari Alex mula
+[195.3s] spek kita bisa ngikutin Apa itu
+[198.1s] attention Apa itu Transformers seperti
+[201.4s] halnya waktu belajar CNN kita tidak akan
+[204.9s] menghafal detail dari architecture cuman
+[208.9s] kalau kalian dapat quote CNN seperti
+[212.1s] resnet dan snap ataupun vignette dan
+[216.4s] lain-lain kalian harus balik ke materi
+[219.2s] untuk ngelihat apa konsep-konsep yang
+[221.1s] diterapin dalam arsitektur tersebut
+[223.7s] supaya bisa paham hotnya di perning itu
+[227.9s] enggak pernah kitabil cordnya dari awal
+[230.3s] kita pakai quote yang sudah jadi karena
+[234.0s] butuh beberapa PXD untuk nyampe ke situ
+[238.0s] tapi kalau kita mau cara menggunakan
+[240.9s] hotspot yang Eva label arsitektur yang
+[243.2s] available kita harus ngerti
+[244.6s] konsep-konsepnya agar supaya kita bisa
+[247.5s] Om atoning atau kita bisa training data
+[251.7s] kita sendiri oke
+[254.2s] so attention itu Barry natural kalau
+[258.1s] kalian lihat kita punya Vision system
+[262.7s] kalau saya melihat sesuatu di depan saya
+[266.3s] itu tidak mungkin fokus saya itu di
+[271.0s] semua tempat
+[272.7s] misalnya saya punya
+[275.1s] kertas ataupun kalian bisa lihat
+[277.4s] sekeliling Kalian
+[278.8s] pasti ada attention Vallen yang fokus ke
+[282.2s] satu tempat nggak mungkin fokusnya sama
+[284.6s] ya sekarang kalian ada di depan laptop
+[287.1s] ya fokusnya pasti Sam tapi kalau
+[289.8s] misalnya di depan kita nih ada kertas
+[292.1s] tumpukan kertas dan kopi tentu sekitar
+[294.9s] misalnya merasa lagi pengen ngopi ya
+[298.5s] maka kita akan berpengaruh terhadap
+[302.1s] attention kita mempengaruhi attention
+[304.6s] kita
+[305.6s] misalnya depan saya tetap sama kopi
+[308.1s] pagi-pagi begini ya sayang laptop yg
+[309.9s] Pasti karena saya punya kehendak
+[313.2s] itu sangat dipengaruhi sangat
+[316.9s] mempengaruhi attention saya oke
+[319.7s] nah kita bisa chainz attention kita bisa
+[323.4s] berubah-ubah Tension kita gede tapi
+[326.2s] sebenarnya kemampuan itu tidak ada di
+[329.5s] neural network sebelumnya Oke ada di
+[332.7s] Manusia ada di animal contoh misalnya
+[335.7s] kayak misalnya ada kita taburin beras di
+[339.4s] depan rumah terus ada anak ayam ya
+[343.7s] mereka itu punya sensor untuk
+[347.2s] attention Yaitu fokus ke makanannya gitu
+[350.7s] jadi dia akan
+[352.7s] sensornya itu akan selalu mencari
+[354.9s] makanan memang intelijen dari ayam kan
+[358.3s] memang cuma dibuat seperti viet Hai Jadi
+[361.0s] mereka cuma mau nyari sesuatu yang
+[363.9s] memang dia fokus Kitir nah di mesin
+[367.5s] learning pun seperti ini
+[369.4s] Apakah kita bisa buat machine-learning
+[371.9s] pertamanya oral netsure kita itu punya
+[374.0s] attention dan apakah attention nya itu
+[376.9s] bisa kita kontrol dengan parameter atau
+[379.5s] hanya nonparametrik oke itu yang
+[383.6s] dipegang membuat semua modal di perning
+[387.7s] sekarang jadi lebih powerfull itu karena
+[391.6s] adanya Tension Oke bagaimana kita model
+[394.2s] attention
+[395.7s] Ceritanya panjang sejak 50 tahun
+[398.3s] terakhir tapi kita ambil cerita dari Oh
+[401.9s] Profesor Alex mulai jadi dia bilang gini
+[405.2s] attention manusia itu sebenarnya
+[408.6s] eh sudah verifying the bau kita punya
+[411.8s] attention tapi ada ada beberapa jenis
+[415.2s] attention Maka kalau dari biologi kita
+[418.8s] lihat dari aspek Oh gitu udah dipelajari
+[421.4s] tahun 1800-an oleh William James Oke
+[426.2s] dibilang ada
+[430.0s] nonpolitis sional attention atau q&q itu
+[434.0s] isyarat ya ya Anggaplah Q itu attention
+[437.4s] the bahasa Inggrisnya itu kisito bahasa
+[441.3s] Indonesianya isyarat ya sound Solid snow
+[445.9s] attention atau cute dan politisi kenal
+[450.3s] q-beh volitional ini ada yang kehendak
+[454.2s] ya ini artinya kehendak ya Misalnya
+[457.7s] kalau yang nonpolitis final itu artinya
+[460.5s] saya berdasarkan apa ya Eh sesuatu yang
+[464.9s] menarik itu konspirasi tiap yang memang
+[467.9s] menarik perhatian gitu ya tapi ada juga
+[471.0s] yang
+[472.0s] political yang memang berdasarkan
+[473.9s] kehendak kita Nah ini bisa saya
+[476.3s] translate bahwa harusnya ada yang
+[478.6s] parametrik ada non parametrik kalau
+[482.2s] parametrik kan saya kasih parameter
+[484.1s] sesuai kehendak eh beton non parametrik
+[487.4s] yaitu memang bergantung Thailand see ya
+[490.2s] Atau dia punya conspicuity Oke jadi
+[494.7s] memang berdasarkan memang objek yaitu
+[496.8s] menarik tiba-tiba kita langsung lihat
+[498.9s] itu Er aha atau memang berdasarkan
+[503.9s] kehendak yang kita yang kasih parameter
+[506.6s] eh Nah ide ini sudah ada di biologi tapi
+[512.6s] tidak ada di neural network sampai
+[514.6s] sekitar tahun 2018 jadi ini Barry new
+[518.6s] idea di neural network tapi di biologi
+[522.2s] itu sudah ada bahwa memang binatang
+[525.0s] manusia itu punya kemampuan parametrik
+[528.7s] dan nonparametrik
+[530.1s] attention atau dalam bahasa biologinya
+[533.8s] disebut nonpolitis channel
+[536.7s] q&a susu dan politisi work cium lahir
+[542.0s] dalam bahasa matematiknya kita bilang
+[543.8s] paramed nonparametrik defense studies
+[547.0s] the background
+[548.9s] SOHC bagaimana dia model itu
+[552.8s] kita udah tahu bahwa ada attention itu
+[555.8s] ada dua jenis badai yang
+[557.5s] nonpolitis kenal ama yang volitional oke
+[561.0s] terus bagaimana Secara matematik kita
+[564.7s] bisa memodelkan stensil itu ke dalam
+[567.0s] neural Network itu yang orang pelajarin
+[569.8s] Ah mungkin sejak
+[572.1s] 2015-2014 sampai akhirnya ada satu paper
+[576.3s] yang terkenal sekali judulnya adalah
+[579.2s] attention What is what you next oke nah
+[583.3s] apa yang dipelopori dalam.ppt menarik
+[585.8s] itu bahwa dia modelnya seperti ini
+[589.6s] Anggaplah
+[591.4s] kita ada sensor input ya input yang
+[594.6s] masuk ke kita ya sensor mungkin dari
+[597.7s] mata kita Oke dari clingak kita
+[600.9s] Anggaplah kita itu mesin
+[603.0s] ada input masuk kita anggap dia itu
+[606.3s] value dan kemampuan yang dibilang atensi
+[609.9s] dia model sebagai ada suatu attention
+[613.2s] pooling oke yang dikasih Kiss Kiss nya
+[617.9s] itu non polisional artinya apa ya memang
+[622.5s] datang dari eksperimen kita bukan dari
+[625.1s] kehendak atau intension kita ya tapi
+[630.0s] saya juga bisa model yang polisional
+[633.0s] pakai query jadi dia bilang
+[636.5s] sebenarnya model matematik yang cocok
+[639.4s] untuk attention itu adalah value kiss
+[643.1s] Square
+[645.3s] value to untuk input data kita misalnya
+[648.6s] dari sensor input dan kirinya itu dari
+[653.2s] non-fungsional
+[654.3s] juz-juz ya screenshot tersebut juz dan
+[659.3s] yang puyer nah itu yang polisional
+[662.1s] juz ya
+[665.0s] so kalau digambarkan secara skematik
+[668.4s] seperti ini
+[670.6s] jadi ada kiss ada query ada attention
+[675.0s] pooling kayak mekanisme kayak mesin
+[677.0s] bensin pulih dan attention polling ini
+[680.1s] yang bisa
+[681.1s] membuat Bayes atau membuat gimana fokus
+[684.6s] kita dan dia bisa berubah-ubah karena
+[687.8s] kadang yang paling bawah nanti dari
+[690.0s] attention pooling baru dikasih output
+[692.0s] keluar jadi output keluar jadi idenya
+[696.1s] sederhana banget
+[697.5s] contoh kayak mungkin kalau kalian sering
+[700.4s] ke bekerja dengan database
+[702.9s] idenya itu adalah ya Ada value dalam
+[706.2s] database oke Ada
+[709.1s] kisi-kisinya itu mungkin kayak ah nama
+[713.2s] nama kolomnya gitu ya dan ada query Oke
+[717.5s] dengan query kalau sayap query saya bisa
+[722.4s] spesifik pilih fokus ke satu area ya Dan
+[727.5s] kalau secara psikis ya yaitu kayak Kalau
+[731.5s] didatabase mungkin kalian bisa pakai
+[733.4s] analogi seperti itu karena memang
+[734.6s] deketin bahwa memang ada kinnaman nama
+[737.9s] kolomnya Namun kita tahu
+[740.0s] oke so attention polling di sini tuh
+[743.5s] kayak database engine yang kamu bisa
+[745.4s] query kamu bisa kasih dan dia udah tahu
+[749.0s] kynya dari datanya sehingga saya bisa
+[751.3s] mengontrol area attention saya di dalam
+[754.5s] value atau di dalam
+[756.8s] sensor input oke so walaupun terkesan
+[761.9s] sederhana tapi ini yang modern nice
+[764.8s] deeplearning4j ari ini ya Dan kalau
+[768.9s] kalian tidak tahu ATM saya dan
+[771.5s] Transformers susah banget untuk
+[773.5s] mengikuti state-of-the-art yang ada di
+[776.0s] paper With God Heh
+[778.6s] zodiak as Icon sederhana di sini
+[781.8s] visualization of attention jadi dia
+[784.5s] bikin cuman a dari konsep atlet
+[787.9s] attention pulling Ki Dalil dan query ya
+[791.4s] bikin contoh sederhana add teman untuk
+[794.7s] heat map kiri jadi yang dianut angka apa
+[799.7s] grafik yang sebelah kanan ini itu
+[802.6s] menunjukkan level of attention Oke dan
+[806.2s] ini bisa dia implement cara seperti ini
+[809.0s] dari data-data kiss dan query gitu ya
+[812.2s] Dia bisa implement Ini sederhana dengan
+[815.8s] konsep
+[818.2s] attention Mekanisme seperti ini
+[820.9s] nanti kodenya bisa kalian coba coba kita
+[824.7s] lanjut ke lihat lebih detail di dalam
+[827.7s] attention poli
+[830.3s] tuh ide besar attention pooling itu juga
+[835.6s] Ah sebenarnya sudah di pos oleh Hai
+[840.3s] ilmuwan yang namanya
+[844.1s] Watson nadaraya ya Jadi ini ilmuan besar
+[849.4s] pada saatnya tahun 1964 namanya joffre
+[853.8s] Watson sama Elis bar nadaraya nah
+[857.9s] idenya attention pulang itu dari mereka
+[860.5s] Bayangkanlah tahun 1964 mereka waktu
+[864.1s] bikin Ide ini mungkin tidak membuat
+[866.3s] neural Network atau tidak buat di
+[868.3s] perning tapi apa yang mereka lakukan
+[872.1s] ternyata bisa Canggih learning secara
+[874.7s] sangat signifikan
+[877.4s] atau idenya begini kalau saya punya
+[880.8s] regression problem Saya punya data titik
+[883.4s] data tuh yang warna biru ya
+[886.7s] regression problem itu kan cari suatu
+[889.5s] kurva yang jarak antara titik-titik data
+[894.6s] ke kurva tersebut paling minimum oke nah
+[900.0s] Hai kita udah belajar menulis Quare
+[902.4s] sebelumnya ya bahwa saya jumlah in nih
+[905.6s] total datae Total jarak bintang
+[909.0s] titik-titik data ini ke suatu kurva
+[911.6s] hipotesis bisa linier bisa kuadrat titik
+[914.9s] atau polinomial Setelah itu saya
+[917.0s] minimize kalian udah pelajaran itu Bahwa
+[919.5s] untuk minimalis pakai Garden design
+[922.6s] itu deh kita pelajari di
+[924.8s] pertemuan-pertemuan awal tapi Watson
+[928.8s] arena bilang saya punya cara yang
+[930.9s] berbeda untuk soft problem ini Devil
+[933.6s] caranya gimana
+[935.9s] Anggaplah Kalau saya bilang saya punya
+[938.0s] data dan label y ya saya mau estimate
+[942.1s] label y pada satu posisi X tertentu
+[945.5s] cara paling bodoh Katanya kita rata-rata
+[949.6s] in aja semua nilai y misalnya jumlah
+[952.4s] datanya m saya jumlah in semua yee
+[956.2s] sebagi m itu dapat yang garis
+[960.0s] Nah apa nih Warna hijau ya Nah tapi di
+[965.9s] kandang besi ya paling bego ini udah
+[969.1s] begini nih bahwa data yang biru Saya
+[971.4s] dekati dengan garis rata-rata yang warna
+[974.7s] hijau gitu ya Nah cuma dia bilang
+[978.0s] meskipun intim Desa dia tapi kita bisa
+[981.5s] kita bisa perbaiki model ini bagaimana
+[985.3s] kalau misalnya di persamaan yang di atas
+[988.4s] itu saya kasih web dari label jadi kayak
+[992.6s] setiap titik data y x y X1 x2 x3 sampai
+[997.9s] yang warna biru titik-titik ini saya
+[1000.9s] kasih satu waiting di depannya idenya
+[1003.7s] sangat sederhana Oke
+[1006.6s] Alfa x koma
+[1010.4s] aksi-aksinya akan kita ketahui pasangan
+[1012.8s] data ya
+[1014.0s] fyi Nah x-nya ini saya dia bilang kayak
+[1018.0s] query lokal saya Saudi angka
+[1022.0s] 0,001 itu x-nya saya bisa pakai bagi
+[1026.2s] query tune ya
+[1029.4s] soal Vanya ini adalah fungsi yang nanti
+[1033.0s] kita bisa pilih fungsinya tapi yang
+[1035.4s] menarik di idenya Watson nadaraya itu
+[1038.9s] bahwa ada y sebagai value ada aksi
+[1043.4s] sebagai klien kita udah ketahui dan ada
+[1046.8s] X sebagai fire
+[1049.6s] konsep value kick where ini mereka
+[1052.6s] usulkan 1964 dan ini yang menjadi basis
+[1055.3s] dari attention karena Model ini bisa
+[1058.7s] kita terapkan didalam new Network baik
+[1062.0s] itu conclusion neural Network atau lscm
+[1065.4s] atau jeru
+[1067.0s] dan itu yang menjadi sekarang
+[1070.0s] Transformers Vision Transformers
+[1072.9s] anything yang kalian lihat di modern di
+[1076.3s] perning saat ini Oke setelah saya
+[1079.2s] waiting saya enggak tahu Avail tapi saya
+[1082.4s] bisa pilih ini function kan ada yang
+[1085.0s] parametrik ada yang non parametrik
+[1087.3s] contoh misalnya gaussian misalnya
+[1089.3s] Bagaimana kalau saya bilang alfanya itu
+[1091.4s] gaussian aja Eh nah saya buat kalau
+[1096.3s] fungsi gaussian ya saya buat bahwa dia
+[1099.1s] ada fungsi kenalkah Oke nanti dibagi
+[1102.3s] jumlahnya gini dan saya bisa pilih
+[1104.4s] gaussian function itunya Nah dengan
+[1107.1s] begitu dia bisa buat garis hijau tadi
+[1112.1s] itu lebih dinamis untuk naveed data Oke
+[1117.4s] karena saya bebas memilih fungsi Kernel
+[1120.9s] NK disini disebutnya alfatog air
+[1124.8s] dia bisa milih fungsi Kernel sepertiga
+[1127.6s] usia sehingga saya bisa Fit data itu
+[1130.4s] dengan lebih baik oke iya ini tidak
+[1134.7s] menggunakan
+[1136.5s] gradient di Selly Square atau
+[1140.0s] Pagaden di-share
+[1142.6s] sementara kalau kita ngomong mau gajian
+[1147.4s] isn't itu kan saya asumsikan ada fungsi
+[1150.7s] hipotesis saya setelah itu saya jumlah
+[1153.4s] in residual atau jarak titik data ke
+[1156.5s] hipotesis percaya minimize total cost
+[1159.4s] atau Los
+[1160.9s] kalau ini dia pakai white regression
+[1163.9s] bahwa saya pilih fungsi Kernel Nah
+[1166.7s] kernelnya itu bisa parametrik
+[1168.5s] nonparametrik dancefit dengan data oke
+[1171.8s] nah Ini udah 55 tahun mungkin 60 tahun
+[1176.1s] mereka mikirnya dan ini udah lama idenya
+[1179.5s] tapi sangat konsisten dan sangat-sangat
+[1182.1s] simple bahwa
+[1185.0s] ternyata algoritma ini kalau saya kasih
+[1187.4s] banyak Data dia bisa Fit data-datanya
+[1190.3s] dan sangat simple bisa tanpa editional
+[1194.3s] parameter dia cuman butuh query di mana
+[1197.6s] posisinya dan bisa parametrik ya Nanti
+[1201.3s] kalau saya pilih fungsi Kernel yang ada
+[1203.2s] parameternya juga bisa Oke jadi dia
+[1206.0s] sangat simple tapi juga fleksibel oke
+[1208.9s] nah di perning itu butuh mekanisme ini
+[1213.3s] dan Pras pada saat itu
+[1215.9s] mereka implement ini Akhirnya sampai
+[1219.2s] sekarang kita pakai IDP learning varian
+[1221.7s] yang namanya Transformers itu kita pakai
+[1225.4s] waiting function ya jadi dia pakai dak
+[1230.3s] dibanding cuma everything pooling dia
+[1232.5s] pakai white sunset di dalam Transformers
+[1235.5s] Oke kita lihat lebih jauh Apa itu wuling
+[1239.9s] balik kesini
+[1242.2s] so What's on nada Rayan am
+[1246.5s] implementation sample ya itu dikasih di
+[1249.5s] section 11
+[1250.9s] 2qe titip dia implement regression model
+[1254.8s] nya berdasarkan nadaraya-watson Kernel
+[1257.5s] regres oke nah
+[1260.0s] Indah atau sintetik dia bikin fungsi
+[1262.2s] kayak gini ya
+[1264.1s] Anggaplah fungsinya kita kasih noise
+[1266.5s] epsilon di belakangnya supaya
+[1270.2s] lebih sulit lah untuk di Fit itu ya Nah
+[1274.5s] setelah itu dia implement
+[1276.5s] ini kelasnya untuk implement fungsi
+[1280.8s] datanya perdata persiapannya setelah itu
+[1284.4s] dia pakai
+[1289.3s] ini kalau yang dambe cm Eh
+[1294.0s] ini yang warna ungu ya bye itu dia pakai
+[1299.4s] nonparametrik attention pooling pakai
+[1302.0s] gini modelnya tadi kalender lihat
+[1304.0s] dislike dari nadaraya ya dengan Kaito
+[1307.9s] adalah Kernel Oke atau persamaan
+[1311.1s] 12112 tiga saya bisa tulis lebih simpel
+[1313.7s] di 11 24
+[1315.4s] Ingat jangan intimidated by the
+[1319.1s] mathematics kita nggak ada opsi selain
+[1321.6s] matematika sebagai bahasa universal
+[1324.4s] setelah itu dia pakai lotion karena eh
+[1328.0s] naga Ocean kernelnya dimasukin kedalam
+[1330.5s] persamaan 11 24 dia dapat fungsi yang
+[1334.1s] lebih sederhana kayak softlens Oke dia
+[1337.3s] dapat fungsi ini cuman kalau fungsi ini
+[1340.1s] saya pakai yang sebelum softmax ini
+[1341.9s] nantinya enggak jadi kayak probability
+[1344.9s] distribution jadi dia pakai soft Max
+[1347.3s] supaya jadi distribusi Eh udah dia bisa
+[1351.2s] cek di jalan nah ini tadi yang non
+[1355.2s] parametrik Kenapa kita sebut
+[1357.4s] nonparametrik karena fungsinya ini coba
+[1360.3s] liatin ini cuman butuh Alfa
+[1365.5s] xxi2 Naufan ini enggak ada parameter
+[1368.1s] tambahannya lihat yang 12 11 26 itu cuma
+[1372.8s] xxi2 ada white parameter tambahan nah
+[1376.5s] tapi kalau saya pilih fungsi yang pakai
+[1379.7s] parang usai juga bisa lakukan itu
+[1382.3s] misalnya saya pakai fungsi
+[1385.2s] 1127 ada nilainya akhirnya apa attention
+[1389.6s] pooling saya bisa saya kontrol
+[1391.9s] karakteristiknya karakteristiknya pakai
+[1394.4s] parameter woi heh itu namanya parametrik
+[1398.0s] attention polling Oke Nah setelah itu
+[1400.8s] dia Divine the model biar Fit ternyata
+[1404.4s] bisa eh
+[1406.8s] bakso
+[1408.7s] nadaraya-watson Kernel regation contoh
+[1411.8s] nyata bahwa kita bisa menggunakan File
+[1415.2s] Yuki query ke dalam a machine learning
+[1419.2s] Ya ini contoh paling sederhana bahwa dia
+[1423.1s] pakai untuk regresi ingat semua
+[1425.6s] contoh-contoh kita di awal soal
+[1427.4s] machine-learning dan neural Network
+[1428.9s] pakai regresi Tapi selama ini kita pakai
+[1432.1s] lisquare Oke kita minimizing residual
+[1435.5s] tapi ini agak berbeda gitu ya sore
+[1438.2s] Tension polling dari nah saya website
+[1440.8s] jurnal inilah yang menjadi ide besar
+[1443.1s] dari etc Transformers Network yang akan
+[1446.1s] yang sekarang modernisasi neural Network
+[1449.9s] atau tipe learning Oke
+[1452.6s] so
+[1454.7s] selain attention ah polling coba
+[1459.6s] pikirkan yang fungsi gaussian tadi yang
+[1461.7s] kita pakai itu kita anggap sebagai
+[1463.2s] attention score in function yang kita
+[1465.4s] bisa pilih-pilih kita bisa pilih yang
+[1467.4s] ada parameter tambahan dia menjadi
+[1470.0s] parametrik attention polling atau yang
+[1473.5s] tidak ada parameter Pak tambahan dia
+[1475.5s] menjadi
+[1476.9s] nonparametrik attention polling Iya nah
+[1480.5s] supaya gaussian yaitu jadi formal saya
+[1484.0s] bilang itu sebagai attention scoring
+[1486.6s] function yang kita bisa pilih Oke dan
+[1489.8s] jadi gambar yang tadi yang ada value
+[1492.8s] sensore input ada cheese ya yang untuk
+[1497.7s] nonpolitis channel dan yang query yang
+[1501.4s] politisi Onal Oke kita tambahin satu
+[1505.0s] mekanisme di tengah supaya ada fungsi
+[1507.3s] yang kita sebut attention scoring
+[1510.0s] function nanti keluarannya supaya jadi
+[1512.8s] probability saya kasih softmax
+[1515.9s] soft Max kalau kalian belum ngetik Coba
+[1518.9s] cari softlens itu merubah nilai-nilai
+[1521.4s] yang belum ternormalisasi menjadi
+[1524.3s] probability bisa pakai softlens setelah
+[1527.8s] itu baru masuk attention white
+[1530.5s] akhirnya model attention bisa kita
+[1534.0s] masukkan formalisasi kan untuk ini
+[1537.6s] Factor sebenarnya sehingga saya bisa
+[1540.0s] tempelan keenion allnetwork Oke formal
+[1543.7s] matematikanya seperti ini ada beberapa
+[1545.8s] Operation yang penting kayak softlens ya
+[1549.3s] ini untuk merubah supaya di jadi
+[1551.6s] probability oke
+[1554.2s] terus ada aditif attention bawa
+[1557.0s] attention itu bisa jumlah-jumlah kan
+[1558.9s] Karena memang dia Hai seperti option
+[1561.8s] seperti operator eh video Frater saya
+[1564.5s] bisa lakukan berkali-kali
+[1566.2s] Eh sama ada skill.com dekat Tension
+[1570.3s] bahwa saya bisa perform a
+[1575.2s] competition seperti dot product terhadap
+[1578.0s] attention jadi dia bisa jadi bagian
+[1582.6s] jadi dengan sifat-sifat ini dia bisa
+[1586.0s] untuk diintegrasikan kedalam jual
+[1589.5s] netbook karena kita bisa ada konsep
+[1593.2s] attention soorin function ya dan cermin
+[1596.0s] scoring function yang Alfa saya bisa
+[1598.6s] anggap keluarannya sebagai attention
+[1600.9s] white parameter dan saya bisa tempel in
+[1603.7s] any new Network Based at ketek eh salah
+[1608.6s] satu bukti bahwa dia bisa dilakukan itu
+[1610.5s] adalah aditif attention dia bisa perform
+[1612.9s] dot product attention dan lain-lain Dede
+[1616.1s] just like me Factor oke oke Hai So kita
+[1621.2s] bisa compute output attention polling
+[1623.4s] sebagai weighted average value jadi dari
+[1626.2s] outputnya si attention itu bisa kita
+[1628.5s] anggap sebagai widespread feeling atau
+[1631.0s] probability ya dengan pemilihan scoring
+[1635.1s] function yang berbeda-beda Oke dan ini
+[1638.8s] memungkinkan kita untuk menempelkannya
+[1641.7s] ke dalam your Network
+[1645.0s] Ide ini sudah dilakukan sebelumnya tahun
+[1648.9s] 2017 ada orang bikin
+[1651.6s] tips-tips
+[1653.4s] fz0 ini kalau ada kayak gini kamu cuman
+[1657.0s] fotocopy paste ini ke Google nanti dapat
+[1659.9s] paper aslinya bahwa dia punya deepworld
+[1662.9s] Network untuk ada set X gitu ya Dan dia
+[1667.8s] pakai function attention nya mirip kayak
+[1671.3s] gini
+[1672.6s] eh ingat
+[1675.3s] bahwa semua fungsi nih bisa saya
+[1679.0s] dekomposisi Hai menjadi fungsi
+[1682.6s] kecil-kecil yang sejumlah in ini waktu
+[1686.2s] kalian belajar matematik diawal lehernya
+[1689.2s] pernah denger
+[1692.1s] function transformation bahwa saya punya
+[1695.2s] fungsi f itu saya bisa pecah menjadi
+[1700.4s] komposisi dari beberapa fungsi eh contoh
+[1704.4s] di Fast Food transform
+[1706.7s] Oke so Ide ini dipakai oleh
+[1711.5s] Zaher untuk ngedit Take out lahir di
+[1715.3s] dalam data Oke bahwa dengan mempelajari
+[1720.2s] bahwa suatu fungsi bisa dekomposisi dia
+[1723.3s] bilang bahwa harusnya suatu fungsi girl
+[1726.2s] Network itu terdiri dari yang normal
+[1729.1s] tambah-tambah anomali dan get disini
+[1732.2s] bentuk fungsinya ini kayak weri
+[1735.5s] gyyu Hei ini tahun 2017
+[1740.0s] Hai sebelum mereka performa live
+[1743.4s] attention oke terus 2018
+[1747.0s] ada yang bikin dipset tadi kita ngotot
+[1750.7s] layer diteken ini pakai attention tapi
+[1755.2s] dia pakai multi-instance learning
+[1757.7s] namanya ilse tomjek and welding jadi
+[1761.1s] Disini dari fungsinya Zahir dibilang
+[1765.0s] Gimana kalau saya kasih white score
+[1767.2s] function di sini
+[1769.0s] oke ternyata jalan Oke dengan begitu dia
+[1773.5s] bisa identify set ya yang konten hanya
+[1777.7s] digit 9
+[1779.5s] Oke Gaby Saput attention ke angka 9
+[1784.0s] naikkan
+[1785.9s] dan untuk misalnya di breast Cancer dia
+[1789.5s] bisa Put attention ke Windows El nucleo
+[1792.3s] ama cancel
+[1794.3s] Oke jadi dengan attention dia perform
+[1797.7s] dikonsumsi neural net ya Put gitu dia
+[1801.2s] bisa segmentasi cancel
+[1804.4s] dan dia bisa puth attention white untuk
+[1808.0s] fokus ke area segmen tertentu
+[1812.0s] ini contoh penggunaannya di medical
+[1816.5s] Bagaimana dengan NLP ada prepare tahun
+[1820.2s] 2013 Bahkan mikolov dia pakai MB two to
+[1826.2s] five metode pelajari sebelumnya tapi dia
+[1829.5s] pakai bentuk yang seperti retention gede
+[1833.3s] komposisi fungsinya sehingga dia bisa
+[1836.6s] lakukan
+[1838.8s] What the nya lebih baik terus untuk
+[1842.3s] dokumen ada uang uang atau dia ubah yang
+[1845.3s] punya yang sebelumnya yang sederhana
+[1847.5s] seperti ini dia tambahin lagi scoring
+[1850.3s] waiting function uang e-toll tahun 2016
+[1855.0s] Oke
+[1856.5s] Jang e-toll tahun 2017 ialah untuk NLP
+[1862.2s] Oke
+[1864.3s] ternyata karena dia berbisa berbentuk
+[1867.5s] kayak operator maka attention itu bisa
+[1870.4s] saya buat hirarki
+[1872.9s] ya jadi saya bisa buat misalnya word
+[1876.2s] level centet level embedding level gitu
+[1878.8s] ya dengan menggunakan jeru dan dia bisa
+[1882.5s] in the great attention nya ke dalam
+[1885.2s] jeruk secara hirarki
+[1888.5s] banyak bagi application nya ada yang
+[1890.9s] bikin dygraf ya dan lain-lain tapi
+[1893.8s] konsepnya sederhana
+[1896.0s] Watson nada Rayan ya bahwa kalau saya
+[1899.9s] punya sensor input atau Factor saya bisa
+[1904.5s] menit focus attention saya menggunakan
+[1912.5s] indowin99 kalau saya mau implement
+[1914.8s] pooling ke dalam neural Network itu
+[1917.0s] pakai function dekomposisi ya hai tapi
+[1920.6s] kalau saya bilang attention pooling saya
+[1923.8s] implement konsep dari Watson ada rayon
+[1927.3s] dengan
+[1929.3s] menambahkan fungsi Kernel atau nanti
+[1931.9s] disebut attention scoring function kita
+[1935.0s] tulis Alfa disitu yang ada query ya yang
+[1939.0s] bisa kita Adlin dengan konteks
+[1941.8s] Oke dan attention function Biasanya kita
+[1946.2s] normalized itu pakai softlens nantinya
+[1950.7s] Nah itu idenya
+[1953.8s] Keh
+[1956.7s] SOHC orang pertama yang membuat
+[1960.0s] attention masuk ke rekaren warnet itu
+[1964.5s] namanya Mbah Danau attention ada
+[1967.8s] papernya tahun 2014 di apropos ya ini
+[1971.9s] ingat kita akan mempelajarinya secara
+[1974.7s] konseptual secara prinsip ya kalau
+[1978.2s] kalian merasa matematiknya 20 kalian
+[1980.8s] dalam in Silahkan di buku ini udah
+[1982.6s] detail gitu ya Tapi saya lebih fokus
+[1984.8s] gimana Membuat kalian tidak
+[1987.5s] terintimidasi sama matematik bau
+[1989.5s] matematik is just formal Season of the
+[1992.3s] concert
+[1993.7s] percaya zaman tematiknya intinya gitu
+[1998.2s] Asok kita udah belajar bahwa saya bisa
+[2000.9s] menyusun rnn menjadi encoder decoder Oke
+[2004.5s] ini biasanya dipakai untuk kasus machine
+[2007.4s] translation atau di NLP banyak Nah kalau
+[2010.8s] saya mau putar Tension layer Oke ke
+[2013.6s] dalam encoder decoder baik itu lscm atau
+[2018.6s] itu Jarwo Gimana saya masukinnya
+[2021.5s] nah menurut sih Mbah Danau dia bilang ya
+[2026.3s] Put sebagai layer-layer pertengahan
+[2029.6s] transisi antara encoder medicode
+[2032.9s] jadi dari rekaren leher yang
+[2035.5s] berulang-ulang ya ingatin ikan
+[2037.4s] berulang-ulang kalau di RS RSCM dan biar
+[2041.7s] dia pot ditengah attention Oke attention
+[2046.3s] itu kan kivell yuk were in jadi dia
+[2049.1s] menit supaya kivell ig-nya bisa jadi
+[2051.7s] Beijing antara encoder dan decoder
+[2055.1s] hehehe
+[2057.6s] jadi dia Divine decoder ya dengan
+[2061.7s] attention dan enkoder juga dengan
+[2064.3s] Effendi Tengah
+[2065.9s] lagi nih dikasih contoh sederhana
+[2068.6s] bagaimana itu implement di dalam River
+[2071.1s] net ternyata bisa diprint
+[2074.3s] eh Nanti kalian bisa cek ya Jadi kalau
+[2078.8s] ada token yang masuk ke eremit source
+[2082.6s] token
+[2083.9s] sama ada target token ya Oke ini kan
+[2088.3s] problem yang kita lihat Minggu lalu Line
+[2090.1s] or saya bisa Put encoder decoder kefir
+[2093.5s] dan potensial lahir di tengah itu ide
+[2095.9s] besar dan dia kasih tunjuk ini masih
+[2097.8s] bisa di trade in
+[2100.0s] settingnya
+[2101.8s] Nah itu besar lainnya yang disebut
+[2105.3s] multihead attention ini yang nantinya
+[2107.8s] jadi Transformer
+[2109.6s] ada orang pinter dari Stanford namanya
+[2112.3s] vaswani tahun 2017 dia bilang kalau
+[2115.5s] memang kita bisa bikin apa
+[2118.9s] bah Danau attention dan attention itu
+[2122.7s] bisa melaluinya dianggap sebagai neural
+[2125.4s] Network layer yang bisa kita tambahkan
+[2128.3s] atau jumlahkan atau bisa kita perform
+[2130.5s] Operation On Top tip Oke karena
+[2133.9s] keluarannya attention itu kan saya
+[2135.5s] probability softlens yang tadi kita
+[2137.3s] bahas Ya dibilang
+[2140.0s] saya harusnya bisa punya cara untuk
+[2143.2s] Menggabungkan beberapa tenses Oke anggap
+[2147.1s] misalnya saya punya FC fully connected
+[2150.0s] player bisa MLP NLP apa multilayer
+[2154.0s] perceptron atau speedboat neural Network
+[2156.0s] maka dia bilang
+[2158.4s] saya bisa anggap Jokowi regivell itu
+[2161.6s] sebagai pulih connect ke layer FC gede
+[2165.5s] dan jadi attention layer dan saya bisa
+[2168.6s] concatenation atasnya bisa gabung gabung
+[2171.0s] kan Nah ini juga besar lain nih bahwa
+[2174.7s] ternyata saya bisa menganggap attention
+[2178.2s] itu seperti komponen di dalam yang
+[2181.9s] dibentuk oleh neural Network juga ya
+[2184.7s] yang bisa saya gabung gabung kan saya
+[2187.5s] komposisikan sehingga membentuk
+[2190.2s] multihead attention yang nanti saya akan
+[2192.5s] competition Oke so saya gabungkan di
+[2196.5s] atas dicongkel
+[2198.0s] ya pemutih attention dimana attention
+[2202.3s] attention ini digabungkan Oke dan secara
+[2206.6s] linear ditransformasi dia buktikan bahwa
+[2209.9s] a bisa kita implement itu ini contoh
+[2213.4s] implementasi Oke jadi kalau saya punya
+[2216.6s] beberapa attention pulih ya saya ada
+[2220.3s] bungkan dengan multihead attention kefir
+[2223.8s] itu ide besar yang diusulkan oleh
+[2226.7s] vatvani di papernya yang berjudul
+[2229.9s] attention is all you need
+[2233.4s] so
+[2235.2s] ide besar lain sebelum Transformers
+[2238.0s] diciptakan itu adalah self attention dan
+[2241.2s] posisional encoding waktu kita masukkan
+[2244.8s] attention ke dalam neural Network ya
+[2247.6s] mungkin kira-kira
+[2253.4s] analoginya ya bahwa di dalam jurnal
+[2256.7s] Nature saya saya tambahin satu lagi ya
+[2259.1s] saya punya satu leher tambahan seperti
+[2262.1s] halnya dikonsumsi neural net itu kan ada
+[2264.9s] layer conclusion adalah ya activation
+[2267.9s] ada layer Abbas normalization gitu ya
+[2271.6s] Nah bayangkan bahwa attention itu itu
+[2275.4s] bisa saya ember berdiri Edison lahir di
+[2279.1s] dalam
+[2280.3s] kata2 Network Oke tapi lele ini cukup
+[2284.1s] berbeda karena dia punya kemampuan
+[2286.3s] seafood Tension bahwa di leher itu dia
+[2288.7s] bisa Seventeen sini dia tidak terpisah
+[2292.7s] Oke
+[2293.9s] so kira-kira gambarannya seperti gambar
+[2297.1s] 11 61 ini bahwa saya bisa bikin leher
+[2301.2s] yang self retention Oke bahwa di
+[2304.0s] dalamnya itu ada query value dan kiss
+[2308.4s] dan itu tidak ada di leher CNN dan ern
+[2311.8s] sebelumnya Kalau divisualisasikan
+[2313.9s] kira-kira bentuknya sel fans-nya itu
+[2315.9s] kayak gini bahwa saya bisa dari X5 bisa
+[2320.1s] Seventeen ke area tertentu sementara rnn
+[2324.0s] Semuanya sama webnya
+[2326.2s] CNN pun begitu eh
+[2329.5s] so
+[2331.1s] karena dia harus masuk clear neural
+[2334.3s] Network kita butuh posisional encoding
+[2336.5s] untuk menentukan dia di mana gitu ya Nah
+[2338.8s] ini juga ide besar diusulkan oleh
+[2341.0s] vaswani tadi bahwa saya bisa encode ya
+[2345.3s] attention layer supaya bisa nyambung
+[2348.7s] dengan layer yang lain oke Ada yang ada
+[2352.7s] satu setnya ada yang absolut posisional
+[2356.3s] information ada yang relatif posisi
+[2359.1s] nanti information semuanya ada rumusnya
+[2361.8s] Yang clear ya jangan dihafalin
+[2364.9s] tapi secara konseptual kalian harus
+[2368.1s] mikir bahwa
+[2369.4s] attention itu bisa jadi self attention
+[2372.0s] Oke dan bisa ditempelkan ke dalam neural
+[2375.8s] Network karena dia punya posisional
+[2377.5s] encoding baik yang absolut maupun yang
+[2379.7s] relatif bajaj itu sama ringan detailnya
+[2382.9s] kalian bisa lihat SMK
+[2386.2s] balik ke materi kita juga ah jadi karena
+[2391.3s] dia set bisa self retention dan dia
+[2393.4s] busnya punya fitur-fitur seperti neural
+[2395.8s] Network layer maka banyak yang melakukan
+[2398.3s] iterative pooling banyak beri yang
+[2400.5s] dipublish tentang ini misalnya saya
+[2403.4s] punya gambar sebelah kiri
+[2405.9s] fast attention layer ingat attention
+[2409.1s] saya bisa food.di many layers di neural
+[2411.3s] Network jadi kalau hasil peserta izinnya
+[2414.3s] dia bisa melihat spesifik misalnya cuman
+[2417.2s] area
+[2418.4s] eh basket anjing dan ujungnya sepeda di
+[2423.0s] second layer dia bisa bikin Fokusnya ke
+[2425.4s] basket yang ada anjingnya
+[2426.9s] eh begitupun di
+[2430.3s] ksystem di NLP dia bisa fokus misalnya
+[2434.4s] saya punya statement join to the kitchen
+[2437.5s] return to the kitchen Jo pick up the
+[2440.0s] move your travel video-video flat demit
+[2443.0s] Where is the milk dengan iterative
+[2445.7s] pooling dia bisa tahu RSUD minum teh
+[2451.0s] Ah ini tahun 2015 mirip konsepnya dia
+[2454.9s] implement seperti ini jadi
+[2457.9s] bagaimanapun implementasi nah
+[2461.0s] attention itu pasti ada value kick
+[2464.2s] wearing tapi detail implementasi itu
+[2467.2s] sangat architecture dependen jadi nggak
+[2469.7s] perlu dihafalin
+[2470.9s] dan pada saat kalian lihat model kayak
+[2473.6s] gini biasanya kita nyari source code
+[2476.3s] dari arsitekturnya dan kita harus bisa
+[2478.1s] identify dimana dia implement query di
+[2480.8s] manajemen kitchen feeling
+[2484.6s] jangan dihafalin Oke
+[2490.1s] Kuncen encer pooling dan Interaction
+[2493.1s] juga diteliti oleh yang e-toll Oke dia
+[2497.2s] gabungkan CNN dan lscm
+[2500.3s] tetap pakai konsep attention yaitu ada
+[2503.2s] give linkware
+[2507.8s] ini contoh hasilnya jadi misalnya ada
+[2510.6s] satu gambar ya dia bisa fokus ke kosnya
+[2515.4s] atau ke ke area-area tertentu seperti
+[2520.0s] Hai
+[2523.1s] tohid kreatif attention means dari
+[2525.9s] pooling attention pooling saya bisa
+[2527.8s] lakukan beberapa kali ya update internal
+[2531.3s] step dari fashion attention Jadi mungkin
+[2533.7s] kalau digambarkan secara matematik
+[2535.6s] ininya dia bisa tepos.wap jadi
+[2537.9s] berkali-kali dia lakukan attention di
+[2540.2s] dalam neural Network dan ternyata itu
+[2542.6s] bisa membuat pre-trained tournya bisa
+[2546.0s] mengidentifikasi beberapa area tertentu
+[2548.9s] di dalam dataset eh
+[2553.7s] tuh ah
+[2557.1s] Mbak tuh materi kita
+[2561.6s] setelah kita tahu ada self attention
+[2564.5s] bahwa self retention bisa dianggap
+[2566.3s] sebagai layer dan lain-lain Nah kita
+[2568.6s] masuk ke topik ujung dari kurs hari ini
+[2572.0s] Trans Formers Oke waktu belajar
+[2575.8s] Transformers
+[2577.2s] harus tahu dulu attention itu apa harus
+[2580.6s] tahu dulu apa itu
+[2582.2s] ovuli ngeten scoring polling dan
+[2584.9s] lain-lain sampai ke multihead attention
+[2587.7s] dan seventyone Nah kalau kita sebut
+[2591.0s] Transformers itu adalah architecture
+[2593.3s] pulpen architecture yang menggunakan
+[2597.6s] multihead attention dan self attention
+[2600.4s] eh di dalam arsitekturnya itu kalau
+[2602.7s] lihat di sini
+[2604.9s] Transformers kita itu ada multihead
+[2607.4s] attention Oke
+[2609.6s] di dalamnya itu pasti ada banyak ke
+[2612.0s] Tension ya tapi multihead di konkret di
+[2615.5s] atasnya terus ada editional
+[2617.9s] normalization nah ada poin wife
+[2621.5s] feedforwardnet work jadi komponennya itu
+[2625.1s] ada multihead attention ada eh nama yang
+[2628.6s] biru ini
+[2630.8s] posisi unwise feedforwardnet work ffn
+[2635.1s] Oke dia the position with Seven ada mute
+[2639.4s] Tension The Mask multihead attention
+[2642.1s] yang Dimas
+[2643.9s] arsitektur ini pasti lama mereka nyari
+[2647.1s] nya ya Jadi ini jadi beesline karena ini
+[2651.8s] ada perkalian Nia itu bisa berkali-kali
+[2654.4s] ditambahin sehingga jumlah parameternya
+[2657.4s] itu bisa banyak sekali ada lanjut model
+[2660.6s] yang mudah 175 billion parameternya
+[2663.1s] karena menggunakan Transformers atau
+[2666.2s] bersih ya
+[2668.3s] nah ah
+[2671.3s] arsitektur ini banyak Netter setiap kali
+[2674.1s] kalian baca paper kalau ada
+[2676.9s] kata Transformers pasti dia mengikuti
+[2681.1s] paradigma arsitektur ini bahwa dari
+[2684.0s] source Oke
+[2685.7s] encoder decoder
+[2687.4s] itu biar pasang posisional encoding
+[2690.7s] supaya multihead atensinya bisa masuk
+[2693.1s] lah itu ada position white ya dia kasih
+[2696.8s] Ed and normal Sis
+[2698.6s] begitupun Bila ya decoder nya ya pakai
+[2701.6s] posisional encode baru ada Mas multi at
+[2705.2s] head Tension dan seterusnya oke nah jadi
+[2709.7s] Transformer awalnya ditemukan untuk
+[2712.1s] encoder decoder
+[2713.7s] Which is adanya di NLP tapi
+[2719.5s] ternyata ada yang bikin juga untuk yang
+[2722.5s] konstitusi neural Network yang untuk
+[2724.6s] koma computer Vision yang disebut
+[2726.6s] Transformers untuk Vision atau Vision
+[2729.8s] Transformers tapi ini yang untuk NLP
+[2732.7s] banyak contohnya kalian nanti harus
+[2736.0s] check-out ini
+[2738.1s] reproduksi chordnya ya untuk mixer
+[2741.1s] kalian ngerti gambar yang ingin ini
+[2743.9s] penting
+[2745.0s] next adalah Vision Transformers
+[2749.2s] jadi bukan cuma di NLP tapi juga ada di
+[2754.0s] computer Vision yang tadinya kita pakai
+[2756.7s] konvensional net
+[2758.5s] ah tugas konvolusi neural net kan
+[2761.4s] sebenarnya dari image
+[2763.4s] ekstrak features baru masuk ke fully
+[2766.1s] connected player oke
+[2768.6s] nah bisa enggak Transformers melakukan
+[2771.9s] itu menggantikan seneng ya
+[2777.0s] caranya adalah division Transformers
+[2780.0s] aktif teksturnya Ada papernya Nanti
+[2781.7s] kalian bisa lihat papernya do sukses Ki
+[2784.0s] yang tahun 2021 ya tapi dari image Que
+[2789.6s] tu dia pecah-pecah imagenya anggap ini
+[2793.4s] sebagai
+[2794.5s] input atau source yang masuk kedalam
+[2798.4s] encoder decoder eh
+[2801.2s] Nah Tapi karena kita mau lakukan
+[2803.5s] klasifikasi aja dia bilang ya ini enggak
+[2806.9s] butuh encoder gifsa cuman butuh satu Le
+[2809.1s] Raja encoder nih jadi dia pakai
+[2811.5s] posisional embedding setelah itu
+[2813.9s] dijadikan page embedding baru masuk ke
+[2816.9s] normal session layer baru dia multihead
+[2819.3s] attention session layer baru multilayer
+[2821.8s] perceptron
+[2822.9s] keluarannya akan jadi representation
+[2825.2s] dari rap fashion India normalisasi lagi
+[2828.5s] baru masuk ke multilayer perceptron
+[2830.5s] ternyata bisa dan bisa mengalahkan
+[2833.9s] convolutional neural Network untuk
+[2838.0s] banyak sekali model-model yang tadinya
+[2840.8s] state-of-the-art nya adalah konklusi
+[2842.8s] neural net dan familinya
+[2845.2s] sekarang sudah di diserap oleh is VIP
+[2849.1s] atau kita sebutnya closing
+[2852.2s] Transformers disingkat VIP ya Jadi kalau
+[2855.4s] kalian lihat di sini computer Vision
+[2859.4s] TV ID
+[2861.3s] Keh setiap haddaqah tavip yaitu Vision
+[2865.2s] Transformers vemmy object detection
+[2868.0s] VIP oke
+[2878.0s] oke oke Hai lihat yang classification
+[2882.2s] ada VIP Test with
+[2885.5s] a
+[2887.8s] ya Udah menang dibanding konklusi neural
+[2890.8s] Network di bawah bawahnya nih
+[2893.6s] eh so kalau ada pepper yang bilang dia
+[2897.7s] pakai keep me instead dia implement
+[2902.4s] fisheye Transformers untuk computer
+[2904.8s] Vision dan kira-kira begini bentuk
+[2907.4s] secara Hai level ini bisa jadi MLP nya
+[2911.4s] dia enggak pakai MLP biasa dia ubah
+[2914.0s] tetapi kira-kira seperti ini bahwa dari
+[2916.5s] image itu akan ada Pets embedding dan
+[2919.2s] posisi nol embedding
+[2921.2s] normalisasi model Tension terus dan
+[2924.0s] seterusnya ke atas Eh ini ada contoh
+[2926.4s] untuk implementasinya
+[2929.0s] dan ternyata juga Transformers itu medis
+[2934.0s] rap lanjut model
+[2936.1s] sebelumnya kita sudah belajar lanjut
+[2938.3s] model di pertemuan ke-7 10 kita pakai
+[2941.2s] Elmo pakai lscm diarusi Glenn Stevens
+[2945.0s] learning ya ternyata setelah kita
+[2948.9s] temukan Transformers
+[2951.4s] ah kita bisa train
+[2954.8s] Pak kita sebutnya Bird Ya betul itu
+[2958.9s] bidirectional ya
+[2961.8s] bidirectional encoder representation for
+[2965.0s] Transformers jadi dia udah
+[2968.7s] encoder nya dia udah
+[2971.4s] ngeprint jadi each player encoder adalah
+[2975.5s] encoder sebelah kiri ada leher decoder
+[2978.9s] sebelah kanan eh coba bayangkan kalau
+[2981.6s] encoder nya sudah sayap repaint dengan
+[2984.1s] data yang hiper yang banyak sekali
+[2987.5s] sehingga saya bisa bentuk Eni encoder
+[2992.6s] decoder architecture dengan friends
+[2994.8s] karena saya udah punya sebelah kirinya
+[2997.2s] encoder nya
+[2998.8s] dan di Akhirnya saya bisa desain sendiri
+[3001.3s] itu ah dengan freetrend Bird itu
+[3005.8s] mereduksi banyak sekali tas dalam NLP
+[3008.6s] sehingga saya bisa
+[3010.4s] perform banyak NLP atas dengan lebih
+[3013.6s] mudah contoh misalnya untuk sentimen
+[3015.9s] analisis Oke saya masukin ke sini terus
+[3019.2s] ada Transformer Lego the set tinggal
+[3021.3s] pake pulpen Hitler untuk lakukan
+[3023.7s] klasifikasi Oke
+[3026.1s] jadi dengan preprint Bird ah
+[3030.2s] itu tas-tas yang tadinya saya harus
+[3033.2s] lakukan manual itu ternyata bisa sangat
+[3036.6s] cepat dengan ini Oke bukan cuman di
+[3040.6s] sentimen analisis ini mempengaruhi semua
+[3044.1s] cast yang ada di NLP
+[3049.4s] Google juga bikin model seperti bernya
+[3053.3s] tapi dia sebutnya GPT ya sekarang udah
+[3056.7s] DPT 3 dan itu samamu tugas itu sebagai
+[3060.8s] Transformers Prime Transformers Oke sini
+[3065.2s] ada penjelasannya banyak oke kita
+[3067.9s] sekarang udah pakai freetrend ah lanjut
+[3072.3s] model Inside kita bikin dari awal Oke
+[3075.9s] Kenapa bisa begitu ya karena
+[3079.4s] dibanding kita print dari awal encoder
+[3082.3s] decoder kalau udah ada yang sudah
+[3084.5s] preferen itu mempercepat prosesnya Oke
+[3087.0s] untuk mesin translation untuk sentiment
+[3090.2s] analysis question subsistem bahkan
+[3092.8s] domain-specific seperti yang misalnya
+[3095.4s] dari medical record Saya pengen bikin
+[3097.6s] untuk bikin recommendation eh
+[3101.8s] so start awalnya problemnya dari
+[3104.8s] siklus-siklus ya dari badan au tadi kita
+[3107.6s] udah bahas tentang barau ya implement a
+[3110.6s] query kivell you di dalam asyik
+[3113.7s] constructicons layer Nah setelah itu
+[3115.9s] kita ternyata dia bisa self attention
+[3118.3s] Oke dan kita bisa menyusun nyusun Oke
+[3123.2s] [Musik]
+[3124.9s] multihead menjadi multihead attention
+[3127.8s] dan akhirnya jadi Transformer
+[3129.6s] banyak panjang ceritanya paper paper
+[3132.2s] sebelumnya yang implement seperti ini
+[3134.3s] ini disamb Raisa oleh Profesor Alex
+[3136.7s] mulai di sini oke kalian bisa lihat
+[3140.3s] for the sake of history Ya tapi kalau
+[3144.3s] kalian ada you Chase dan kalian lihat
+[3146.7s] kalian harus selalu cek di papers with
+[3149.9s] code yang mana yang paling
+[3151.7s] state-of-the-art setelah itu kalian
+[3154.4s] download lihat modelnya biasanya tidak
+[3157.7s] jauh-jauh dari VIP untuk computer Vision
+[3160.4s] dan betuntuk
+[3163.1s] NLP oke bet itu menjadi dasar dari
+[3167.3s] lanjut model besar yang sering kita bisa
+[3169.6s] enjoy ya seperti
+[3172.2s] ah di PT Tri ya yang dari Google
+[3177.2s] sekarang udah DPT free tapi berbayar
+[3180.0s] adanya tapi ada dari oppenheimer kayak
+[3182.6s] betul itu ada juga yang Open eh
+[3187.0s] jadi banyak penggunaannya setelah kita
+[3189.7s] temuin attention
+[3191.4s] Setelah itu kita Ternyata
+[3194.5s] kita bisa gabungin attention
+[3197.5s] dengan mood menjadi multihead attention
+[3200.3s] Oke
+[3201.4s] Setelah itu kita temukan arsitektur
+[3204.1s] encoder decoder dengan attention dengan
+[3207.7s] bidirectional Transformers yang kita
+[3211.0s] sebut bidirectional Transformers nah
+[3214.3s] kefir arsitekturnya seperti ini tadi
+[3216.8s] sudah kita bahas nya
+[3219.8s] dan banyak sekali penggunaannya ini
+[3222.3s] hanya snapshoot air tapi kalau kalian
+[3224.6s] lihat di paper without anything with
+[3226.8s] Donald dengan Deep learning
+[3228.9s] baik untuk NLP maupun computer Vision
+[3231.7s] pasti udah ada Transformers Eh ini
+[3234.5s] contohnya seks semantik segmentation
+[3236.6s] bahwa bagaimana
+[3240.0s] Slank Kita tahu ini adalah si atau danau
+[3243.0s] yang water Oke nanti setelah saya tahu
+[3245.8s] di atasnya saya bisa ptmsi untuk
+[3248.8s] perahunya lo saya bisa tahu bahwa ini
+[3250.4s] adalah laut atau danau ya
+[3253.9s] kalau saya bisa petenis dan bahwa itu
+[3256.8s] adalah Bos bahwa saya lihat dia pasti
+[3259.2s] punya layar jurusnya si oke nah Ini ada
+[3264.2s] yang bikin paper tentang multi head
+[3266.4s] attention untuk semantik segmentation
+[3268.9s] ini banyak sekali dipakai di
+[3271.2s] domain-specific misalnya kalau kita
+[3273.4s] bikin Oke Cancer detection ya semantik
+[3277.9s] cementation ini penting sekali bisa kita
+[3280.4s] harus membedakan area mana yang ada
+[3282.2s] Cancer nya tonggak
+[3285.0s] klasifiksi ya
+[3288.4s] juga dan terakhir inilah yang menjadi
+[3291.8s] basisnya Bird ya
+[3293.9s] bidirectional encoder representation
+[3296.6s] Transformers dia udah Leading t of the
+[3300.5s] out dari 11ml pitas jadi kalau kita
+[3303.8s] misalnya ada tas NLP saya sentimen
+[3306.7s] analisis
+[3308.4s] gene.pdf cat board atau teks
+[3311.6s] summarisation atau editing
+[3314.2s] sekarang semuanya pakai Bird ya karena
+[3318.0s] udah free oke so motivasinya Bird
+[3322.1s] dijelasin lagi di sini
+[3324.1s] dibandingkan dengan computer Vision
+[3326.1s] ingat di konflusin neural Net ada
+[3328.5s] features abstraction layer
+[3330.6s] oke yang berbentuk convolution leher
+[3336.2s] berkali-kali kita lakukan conclusion
+[3338.4s] untuk mengekstrak features with tapi di
+[3341.7s] NLP enggak ada oke nah di NLP itu kita
+[3345.6s] bisa pakai attention
+[3349.4s] sosok dia nabi dengan attention kita
+[3352.6s] bisa mendistrack model-model sebelumnya
+[3354.5s] untuk wedding kayak What the
+[3358.3s] sekarang udah Partij Kiki ya Jadi ini
+[3362.4s] juga pakai Transformers decoder GPT ini
+[3365.4s] punya Google ya
+[3367.2s] dia udah menang
+[3369.6s] 9nl pitas state-of-the-art
+[3373.8s] parameternya gede banget arsitekturnya
+[3376.3s] GPT mungkin seperti ini tetep ada kue
+[3379.7s] Ricky value ditraining di korpus yang
+[3383.4s] besar semua buku Wikipedia ya lihat
+[3386.9s] jumlah parameternya
+[3388.4s] udah 340 mil ini
+[3391.6s] besar banget ya Nah dengan lanjut model
+[3395.8s] di PT kita bisa perform banyak sekali
+[3398.8s] tas dengan cepet yang ini
+[3400.6s] contoh-contohnya ya
+[3402.3s] ya bisa complete the text dia bisa
+[3406.0s] prediksi apathex berikutnya banyak tas
+[3409.2s] yang bisa kita lakuin saya kayak next
+[3411.5s] sentence prediction ok
+[3415.1s] csoc
+[3416.7s] betul itu adalah architecture yang pake
+[3419.4s] Transformers ya jadi bidirectional
+[3421.8s] encoder dengan Transformers
+[3423.8s] arsitekturnya kita bahas ya
+[3427.0s] bisa dipakai misalnya untuk sentence
+[3429.8s] classification Eh kalau saya udah punya
+[3433.1s] bet yang Bride in the tinggal pasang di
+[3436.2s] atasnya kulit konektor Player untuk
+[3438.0s] bikin sentence classification saya bisa
+[3441.3s] pakai untuk name in Titi recognition ini
+[3443.9s] semua engine chatbot ini ya pakai ini
+[3446.3s] Netter ya kalau saya ada kayak sentence
+[3450.9s] saya masukkan dia bisa recognize apa
+[3455.0s] named NTT yang jadi perhatian kita itu
+[3458.3s] juga kita bisa pakai Betri trennbare ya
+[3462.3s] untuk melakukan er untuk chatbot kita
+[3467.3s] juga bisa pakai bet untuk kene
+[3471.4s] so right selanjut model gayabet dan GPT
+[3476.2s] menjadi sangat sangat penting di PT to
+[3478.9s] even bigger tahun 2019 ya lihat
+[3482.8s] parameternya udah 1,5 Berlin sekarang
+[3486.1s] udah 175 pilihan parameter dijepit istri
+[3489.9s] jadi dia udah konten semua possible a
+[3494.8s] probability pasangan kata di dalam GP3
+[3499.9s] eh belum ada bahasa Indonesia ke-6 dan
+[3504.7s] ada bahasa Indonesia nanti Oke so
+[3508.9s] kita sekarang ada di zaman dimana
+[3512.7s] freetrend lanjut model dan
+[3516.0s] yang di drive only Transformers menjadi
+[3519.3s] basis dari di premium jadi ini penting
+[3521.1s] banget
+[3522.2s] Transformers untuk Vision dan
+[3524.4s] Transformers untuk frame allegis model
+[3527.5s] yang ada di NLP
+[3529.0s] Oke
+[3530.8s] Ah ini bidang yang berkembang ya jadi
+[3535.0s] Mungkin kalian start belajar ini di
+[3539.1s] gp3a mungkin internet fifteen Years
+[3542.0s] mungkin udah gpdt five
+[3545.3s] dan
+[3546.9s] ceritanya berawal dari 1964 saat website
+[3552.4s] Dana darayan
+[3554.6s] memproporsikan greenmate pakai
+[3558.3s] white function yang jadi basis dari
+[3561.6s] attention Oke
+[3564.7s] alur ceritanya udah bagus banget di
+[3567.4s] Chapter 11 ini
+[3569.4s] serep kalian punya waktu untuk lihat
+[3571.9s] lagi dari awal ceritanya jangan
+[3574.3s] dihafalin kita nggak pernah bikin quote
+[3577.1s] dari awal kita selalu Reus architecture
+[3579.8s] sewaktu religious architecture kalau
+[3582.0s] kalian gak kenal istilah-istilahnya itu
+[3585.0s] nantinya kebingungan sendiri oke
+[3587.1s] stanband beberapa slide di sini ada
+[3589.5s] slide dari ah
+[3593.9s] Hai
+[3594.5s] lecetnya pefelie dari Stanford juga
+[3598.0s] bagus banget tapi dia sangat-sangat
+[3601.1s] computer Vision oriented cs231n
+[3605.1s] kalian bisa lihat sendiri nanti
+[3608.9s] dauwnload di Google Drive nya
+[3612.5s] dia kasih contoh dari NLP ya
+[3616.9s] dia gabungin juga dengan CNN jadi alur
+[3619.9s] ceritanya beda dia Darius Chase ya bukan
+[3622.7s] dari elemen Jadi bukan dari Batam map
+[3625.2s] tapi dari top-down dia jelasin bagaimana
+[3628.9s] mereka membuat
+[3631.4s] attention layer untuk kasus CNN Oke
+[3637.4s] nanti coba lihat aja materinya Harusnya
+[3640.7s] kalau kalian udah passing materi yang
+[3642.7s] dari d2l
+[3644.8s] semua materi-materi yang ada di sini
+[3648.2s] kalian bisa ikutin eh saya close sampai
+[3651.4s] sini livernya materinya udah ada disini
+[3653.9s] Hai Electro 10 dan kalau ada pertanyaan
+[3657.8s] silakan minggu depan kita udah masuk ke
+[3661.8s] generatif modelling
+[3665.2s] lah kan kalau ada yang mau bertanya
+[3669.2s] Bapak izin bertanya
+[3672.1s] Bapak berarti ini tuh attention dan
+[3675.4s] Transformers ini tuh apa untuk ekstraksi
+[3677.8s] fitur ya bapak kayak rnn CNN itu
+[3681.8s] ah kalau di Ernest mainkan leher
+[3686.8s] utamanya ada feature Extraction
+[3688.4s] Partition layer ya diulang-ulang sampai
+[3691.6s] kita dapat the most important features
+[3695.2s] analogi itu bisa kamu pake di NLP bahwa
+[3698.3s] dengan attention dan multihead attention
+[3700.6s] atau tersebut Transformers aja gitu ya
+[3703.6s] itu kita bisa susun-susun untuk
+[3706.8s] membentuk feature Extraction itu untuk
+[3709.1s] kasus NLP
+[3710.6s] jadi itu cuman analogi tadi bahwa
+[3713.9s] ah abis semua modern neural Network baik
+[3716.8s] computer Vision ataupun NLP kita
+[3719.4s] sekarang udah bisa
+[3721.0s] ah teachers Extraction yang tadinya
+[3724.6s] conclusion sekarang kita diserap dengan
+[3727.1s] Transformers Oke
+[3729.6s] jadi ya Ah
+[3732.7s] dislike yang tadi cinta lihat itu kan
+[3736.2s] nada yang komputer visual dan LP
+[3739.2s] sampingnya ya jadi sejarah garis
+[3742.6s] overview garis besarnya semua modern
+[3745.7s] architecture itu begitu kerjaan jadi dia
+[3748.4s] features extra baru dia lakukan tas
+[3751.7s] classification ataupun tas-tas lainnya
+[3754.1s] di atasnya nah awalnya di konflusin
+[3756.9s] neural network bisa kita lakukan di
+[3759.0s] energi yang bisa kita lakukan sekarang
+[3760.7s] dengan Transformers kita bisa lakukan di
+[3763.3s] NLP dan juga di computer Vision
+[3767.1s] jadi dengan Transformers the conclusion
+[3770.8s] layernya kita bisa ganti dengan tadi
+[3773.3s] kita udah jadi direktur tadi ada dari
+[3778.2s] image ya saya pecah-pecah heel magisnya
+[3781.4s] saya bikin posisional embedding sama
+[3784.9s] image embedding Setelah itu saya masukin
+[3786.8s] ke multilayer multihead Transformers
+[3790.0s] baru diujungnya ada polyphonic tetley
+[3792.5s] ternyata bisa nyenengin
+[3795.3s] Michael Pak Ndan menggantikan komposisi
+[3799.2s] nn justru dia
+[3801.5s] haiyyu
+[3803.5s] Om tercinta ada pertanyaan lagi bapak
+[3806.0s] tadi kan katanya dengan adanya attention
+[3808.4s] Transformers ini dipilih menjadi
+[3810.3s] powerful kayak gitu nabati power dan
+[3813.0s] tadi Bapak juga lihat melihatkan
+[3814.9s] state-of-the-art nya itu itu peringkat
+[3818.1s] atas atas kayak gitu enak tuh setiap
+[3819.9s] benang di mana sih pakai akurasi dalam
+[3822.8s] klasifikasi ataukah Seperti apa menang
+[3825.5s] powerful nya seperti apa menang di apa
+[3828.6s] konsep besar yang dibawa oleh si
+[3831.3s] attention dan attention itu bahwa dia
+[3834.7s] sangat ampe sangat natural ya bahwa
+[3837.4s] kalau saya melihat suatu benda
+[3840.0s] saya enggak melihat semua sebenarnya
+[3842.5s] fokus saya itu enggak sama disemua di
+[3845.2s] semua objek itu pasti ada yang saya put
+[3848.8s] you apa savetube attention
+[3852.7s] nah model-model di perning sebelumnya
+[3855.7s] itu semuanya sama
+[3858.6s] tegese enggak punya kontrol untuk fokus
+[3862.2s] atau Aten attention nah tentu saja akan
+[3866.3s] membawa akurasi lebih besar ya Kayak
+[3868.8s] misalnya kalau saya lakukan seks objek
+[3870.8s] segmentation di Image konsep bisa
+[3872.8s] attention pasti lebih bagus kita jadi
+[3876.7s] hasil segmentasinya Pasti Lebih bagus
+[3879.4s] atau kalau saya lakukan klasifikasi
+[3880.7s] Kalau saya besar punya Tension pasti
+[3883.1s] Barus Nah itu kita belajar dari biologis
+[3886.7s] bener nah tapi baru sejak adanya
+[3889.3s] attention dan Transformers ini baru kita
+[3892.1s] bisa merubah model asyik neural Network
+[3895.2s] kita
+[3896.8s] menjadi lebih modern yaitu dengan
+[3899.5s] attention gitu ya
+[3902.4s] arsitekturnya Kuwait berubah gitu kalau
+[3904.7s] kamu lihat ya Jadi kalau saya tanam
+[3906.7s] attention di dalam eh apa lscm ya itu
+[3911.6s] jadinya Bird kalau saya tanam attention
+[3914.3s] di dalam CNN yaitu jadinya Vision
+[3917.0s] Transformers VIP
+[3919.4s] Bahkan mereka udah reply sekarang yang
+[3921.9s] conclusion layarnya udah direplace kalau
+[3924.2s] display tadi kamu lihat sudah enggak ada
+[3927.2s] completion layernya
+[3932.1s] slime baik Bapak di sini nih ya image
+[3936.4s] saya potong-potong jadi vektorkah belum
+[3938.7s] mencoba komentar
+[3942.2s] ikutin aja nanti yang di d2l yaitu alur
+[3945.2s] ceritanya udah bagus sekali kok Iya nih
+[3949.2s] kalau pakai tnm gimana nih image ini
+[3951.1s] enggak saya pecah-pecah gini tapi saya
+[3953.1s] ekstra Hai layer per layer by confusion
+[3956.0s] layar kah
+[3957.0s] ya Oh kalau disini saya pecah-pecah
+[3960.0s] nimians eh
+[3962.0s] resep pakai posisional embedding PX
+[3964.6s] embedding supaya di jadi Factor naik
+[3966.6s] keatas resep pakai saya nggak pake
+[3969.8s] decoder atau encoder teh cuman pakai
+[3972.1s] multi head attention
+[3974.8s] Husada multilayer perceptron di ujung
+[3977.5s] untuk klasifikasi ternyata bisa enggak
+[3980.8s] ada leher conclusion di sini
+[3983.4s] Oke
+[3985.0s] jadi ternyata
+[3986.9s] Transformers yaitu cheese transform itu
+[3989.6s] kan sebenarnya multihead attention
+[3992.1s] itu bisa sayaphati jadi features
+[3994.6s] extracteur untuk computer Vision bukan
+[3997.2s] cuma di teks atau di energi
+[4000.1s] dan akhirnya menjadi Vision Transformers
+[4003.4s] atau fade sekarang langit banyak sekali
+[4006.9s] model-model CNN Udah kalah oleh Pein
+[4009.8s] kalau lihat di papers with kodya
+[4013.9s] Hai jadi perlu dipelajarin karena paper
+[4017.3s] paper di atas tahun 2020 itu udah VIP
+[4020.1s] atau bet bet Candi NLP Jadi Cinta Rasul
+[4024.5s] ajarin model ini bahkan saya ada satunya
+[4026.9s] Project hal turun VIP sama Bird di
+[4030.7s] mobile device
+[4033.3s] Wow penting pentingnya ini
+[4037.4s] dan lebih murah komputasinya multihead
+[4040.4s] retention itu mau
+[4043.3s] naik Bapak Terima kasih Pak Risman ya
+[4052.7s] tapi tidak berarti juga bahwa kita
+[4055.0s] ninggalin semua yang sebelum sebelum
+[4057.3s] attention dan Transformers ya karena
+[4059.2s] belum semua cache misalnya di NLP mereka
+[4062.7s] Bet sudah menang di 11 State of diatas
+[4066.7s] ya tapi tasnya masih banyak yang lain
+[4069.3s] yang masih belum ada yang ngerjain
+[4071.0s] dengan Transformers keles
+[4073.9s] yang the future of the planning Harusnya
+[4076.3s] sekarang itu ada di attention and
+[4079.0s] Transformers kita maigret arkitektura
+[4081.3s] chapter sebelumnya menggunakan
+[4083.6s] Transformers dan punya kapabilitas
+[4086.4s] athens
+[4094.8s] babak Jin banyak lagi lah kan Om kenapa
+[4098.7s] dia Tension dan Transformers ini dia
+[4101.0s] Menggunakan fungsi aktivasi software
+[4104.4s] karena diesel e-learning oral Network
+[4107.5s] itu kan kita asumsikan itu semuanya itu
+[4110.7s] merepresentasikan
+[4112.5s] probabilitas ya
+[4114.9s] ingat waktu kita belajar di perning di
+[4119.5s] awal yang
+[4121.8s] eh
+[4123.9s] nih di ujung layer ujung ini
+[4127.2s] itu keluarannya pasti kita anggap
+[4129.9s] probability er ya bahwa probabilitas dia
+[4134.7s] apa labelnya ini itu sekian jadi saya
+[4139.0s] pakai soft next untuk normalisasi supaya
+[4141.6s] input-input sebelumnya dealer sebelumnya
+[4144.1s] itu jadi probability
+[4148.6s] jadi kayak itu kayak normalisasi ke
+[4151.4s] profil supaya Oh hasilnya jadi
+[4153.9s] probability probably tekan maksimum satu
+[4156.1s] ya Ini punya nol minumnya nol dia pasang
+[4159.3s] shock Max
+[4160.8s] Iya attention nya bisa ngeluarin
+[4163.5s] probability
+[4165.4s] Baik bapak dapat dimengerti Terima kasih
+[4167.8s] Warisman ya
+[4170.8s] oke Wah ada lagi yang mananya
+[4176.6s] key in summer Kharisma silakan setengah
+[4180.7s] eh menurut Bapak kenapa kok belum ada
+[4185.6s] freetrend GPT three untuk bahasa
+[4188.2s] Indonesia Pak atau Apa hambatan
+[4190.8s] terbesarnya Pak ya
+[4193.9s] Hai
+[4195.3s] muslim dataset
+[4199.1s] Jadi sebenarnya GPT architecture kalau
+[4202.7s] kamu cari digigit hub atau berlinclix
+[4205.3s] model itu very Open
+[4208.4s] masalahnya parameternya aja jibi t2itter
+[4212.0s] Jupiter itu 175 billion yang
+[4215.2s] artinya dataset share sebesar sekali Nah
+[4219.1s] untuk bikin dataset Besar Bahasa
+[4220.8s] Indonesia Saya harus kerjasama mungkin
+[4223.6s] dengan semua public share yang punya
+[4226.3s] buku dan serius digitize
+[4229.4s] seharus call semua Wikipedia bahasa
+[4232.0s] Indonesia semua news eh
+[4236.1s] ah proses koling dan data preparation
+[4239.1s] nya aja mungkin teks biaya sekitar
+[4242.6s] ya coba hitung kalau misalnya ada
+[4245.0s] hundred engines work Honda
+[4247.9s] kalau satu engineer's harganya 40.000
+[4252.0s] Yes dollar Premier League mungkin kita
+[4255.1s] bicara investasi sekitar empat puluh
+[4257.7s] juta dollar
+[4260.2s] eh enggak empat juta dollar belum
+[4264.0s] termasuk kita punya investasi crowler
+[4266.6s] dan lain-lain untuk proses sintetik
+[4270.0s] nah biaya 4juta sampai 5000000 just
+[4274.0s] alright Nobody want to pay
+[4276.4s] karena besar
+[4279.3s] Nah mungkin itu sih kendalanya tapi
+[4282.1s] domain-specific yang saya menurut saya
+[4284.8s] menarik buat Edwin nih teh celup
+[4287.8s] misalnya knalpot Oh
+[4291.5s] semua diskusi
+[4293.8s] dokter di medical record Jadi satu
+[4299.1s] domain-specific langit model kan enggak
+[4301.6s] terlalu banyak kata-kata yang dipakai
+[4304.6s] dan kalau set internet sekarang misalnya
+[4309.7s] Oh help
+[4312.5s] lanjut mode ia
+[4315.6s] tampil mah harusnya Maaf lakukan itu eh
+[4320.8s] Microsoft klaim bahwa dilakukan lain
+[4324.8s] this model untuk Healthcare Services
+[4327.3s] ini lebih murah Karena mungkin
+[4330.0s] datasheetnya tidak sebesar the
+[4334.4s] baggies model yang umumnya jadi karena
+[4337.1s] lebih ini
+[4339.0s] Joe pensos juga ada medical Bird pisang
+[4344.3s] jadi cuman kata-kata di domain help oke
+[4350.6s] oke
+[4353.8s] tapi kalau yang besar itu saya yakin
+[4356.2s] masalah biaya sih kalau arsitektur
+[4359.1s] algorithm ya olmert itu
+[4362.5s] one misalnya
+[4364.9s] ada yang udah ngerti bertnya dan is
+[4368.2s] about how to collect enough datacard
+[4371.6s] yang udah diproses Hai ah dan diterima
+[4375.9s] dengan baik
+[4377.6s] tapi kalau Samoa sampai misalnya
+[4381.3s] sambungan claim I have Indonesia Medical
+[4385.1s] Bird frame
+[4387.2s] yaitu sesuatu yang bisa
+[4389.7s] di komersialisasi
+[4391.8s] persis kayak GP3 dengan kalau mau pakai
+[4396.0s] Google GP3 Bayar Kalau gaya pakaian
+[4399.6s] opening eye
+[4403.8s] biaya sih jawabannya untuk data present
+[4411.5s] Oke
+[4413.4s] siap Terima kasih Pak Risman ya nanti
+[4417.1s] ini area yang menarik untuk terus
+[4419.0s] dimonitor ya oh misalnya kayak gator
+[4422.4s] Throne tadi medbird gitu ya
+[4425.1s] domain-specific think of it because ini
+[4428.3s] akan menjadi aset kalau dibangun lebih
+[4430.3s] dulu Tapi kalau yang gede ya LED Google
+[4433.3s] ok Hai Mungkin orang yang punya milenial
+[4438.6s] studed gitu ya
+[4447.1s] oke so ini juga nanti kita akan setelah
+[4452.5s] attention ini kita masuknya tegangannya
+[4455.2s] tapi saya sangat menyarankan temen-temen
+[4458.1s] untuk
+[4459.0s] lanjut ke sini chapter 14 tapi ini lebih
+[4463.9s] kekasih us caption
+[4466.2s] ah materi pondasinya udah begitupun
+[4469.8s] dengan yang di chapter 15 lebih discuss
+[4472.2s] soal berlanjut model dan lemon
+[4475.4s] Netherlands posesif kita Minggu depan
+[4477.9s] pertemuan 11 12 13
+[4480.7s] kita udah masuk ke generatif atau social
+[4484.3s] network oke
+[4491.6s] oke oke
+[4493.9s] Slank You semuanya kalau begitu
+[4496.4s] sampai ketemu minggu depan di pengenalan
+[4499.6s] generatif model eh
+[4502.5s] lokasi guys Makasih semuanya izin pamit
+[4505.5s] ya

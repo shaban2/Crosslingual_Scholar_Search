@@ -1,0 +1,1827 @@
+[2.8s] Iya E saya coba akan menyampaikan dulu e
+[7.8s] minta tolong nanti
+[10.1s] pak kalau
+[13.0s] ada apa
+[14.7s] [Musik]
+[15.9s] E mungkin ada juga yang akan disampaikan
+[20.5s] kita sama-sama menyampaikan
+[23.1s] ini ya kita materi di pertemuan ini
+[27.6s] adalah
+[30.9s] kemudian
+[36.3s] Transformer dan
+[43.8s] transfer ya
+[46.0s] e ya kita mungkin mulai dari bahwa kita
+[52.0s] di yang neural P ya
+[56.4s] neural atau sebelum itu mungkin di TS
+[60.0s] mining eh
+[62.4s] NLP itu kita banyak menggunakan machine
+[66.1s] learning nah machine learning ini
+[68.6s] kemudahan sekarang kita menggunakan
+[70.5s] mineral base dan khususnya juga banyak
+[73.1s] yang Deep learning Nah untuk Deep
+[75.6s] learning itu kita mempunyai
+[79.2s] ee yang populer ya di samping
+[84.4s] ada juga Rintisan ada ada laine ada
+[88.1s] laine kemudian
+[91.2s] machine restri pman machine kita ada
+[95.2s] multiayer perseptron perseptron
+[98.0s] propagation nah kemudian multiayer
+[101.9s] perceptor itu sebagai sebagai standar
+[104.4s] salah satu
+[105.6s] standar Maksudnya yang dasarnya kemudian
+[109.8s] m perseptron itu ada
+[114.3s] diperbaiki atau disesuaikan kalau untuk
+[118.4s] di Teks itu ada adalah yang recurent
+[120.8s] recurent ne
+[122.2s] netw ada recurent ne Network di samping
+[125.5s] juga yang untuk image terutama new juga
+[129.5s] bisa ada confusal ne
+[132.2s] Network di prar ne Network ini adalah
+[136.2s] data data sequence terutama
+[139.1s] ya Di mana Di sini ada beberapa
+[143.9s] eh ada beberapa isu atau beberapa topik
+[147.4s] ya ada yang disebut dengan
+[150.8s] karena seens itu biasanya sangat Deep ya
+[154.0s] sangat
+[154.8s] Deep sangat Deep artinya karena hidennya
+[159.0s] banyak karena seensya panjang kemudian
+[161.8s] ini ada yang disebut
+[164.3s] denganishinging
+[166.0s] gradi vanishing
+[170.1s] gradi I vanishing Artinya lenyak
+[174.0s] bahwa informasinya itu yang Padahal kita
+[178.7s] mempunyai
+[180.5s] di yang berkaitan dengan ini adalah long
+[184.0s] distance long distance Dependency ya
+[187.2s] Long Distance
+[190.4s] Dependency distance Dependency itu kalau
+[193.0s] di TS itu bahwa yang pernah kita bahas
+[196.7s] di ngam kalau misalkan contohnya yang
+[202.4s] kita mempunyai komputer yang di lantai 5
+[207.9s] di sebuah gedung BL kemudian Crash Crash
+[211.2s] itu maksudnya komputer padah mengajunya
+[214.0s] ke depan Nah ini jadi permasalahan
+[217.4s] kemudian Mestinya Kita sudah bahas juga
+[220.6s] di rnn itu solusinya salah satunya atau
+[225.4s] sebelumnya vanishing sama yang satunya
+[228.0s] lagi adalah yang lenyap sama yang apa
+[233.6s] yangaking
+[235.6s] danishing dan exploding atau apa ya
+[238.6s] gradien
+[240.5s] Tapi yang bermasalah utama yanging nah
+[243.3s] kemudian eh solusinya adalah kita
+[246.2s] mempunyai memori dengan disebut dengan
+[249.8s] lstm tapi dengan adanya lstm ini tetap
+[253.9s] masih rnn ya masih tetap rnn artinya e
+[259.6s] di sini hanya nambah Katakanlah dalam
+[262.6s] tanda petik hanya nambah hanya nambah
+[264.7s] memor
+[267.1s] yang bisa mengatasi gradien dan Long
+[271.3s] Distance ini ya Meskipun tetap tidak
+[275.1s] sepenuhnya nah kemudian
+[278.7s] eh permasalahan yang berikutnya juga
+[281.5s] adalah sekuensnya itu sendiri
+[284.7s] ya sekensnya itu sendiri artinya sekens
+[287.7s] itu artinya dia serial YA
+[290.8s] serial serial prosesnya serial artinya
+[293.7s] tidak bisa
+[295.0s] Ee tidak bisa
+[297.6s] paralel sedangkan mesinnya sebenarnya
+[300.0s] bisa paralel nah kemudian e ada masalah
+[303.7s] yang sudah disebut-sebut juga yang
+[305.2s] terkait dengan ini adalah dengan adanya
+[307.9s] battlen
+[309.4s] Ya battlen karena ya karena di rnn eh
+[316.6s] khususnya contohnya di mesine
+[318.4s] translation ini ini ada
+[322.7s] encoder yang encoder itu ini adalah
+[326.9s] inputnya Nah di sini Yang dikumpulkan di
+[331.0s] summary-nya di sini ya di sumarynya di
+[333.9s] sini
+[335.3s] eh summary singkat di sini
+[339.5s] padahal apa informasinya mungkin ini
+[342.7s] panjang nah kemudian oleh karena itu
+[347.2s] perlu atau
+[349.4s] ada inovasi Apa yang disebut dengan
+[352.0s] memberi perhatian ya memberi memberi
+[355.6s] attention atau memberi perhatian kepada
+[359.8s] P ini apa
+[363.9s] kepada kepada bukan hanya yang terakhir
+[366.8s] saja yang dipakai Bu yang terakhir saja
+[370.1s] yang informasinya di sini tapi kita juga
+[372.3s] memberi perhatian di
+[375.0s] sini yang sebelum-sebelumnya nah eh
+[379.4s] untuk berkaitan dengan attention ini
+[381.4s] salah satu ininya kalau yang terkaitnya
+[384.7s] itu adalah dengan alignment ya alignment
+[389.8s] terutama kasus di sini adalah kasus
+[393.1s] eh yang Tension awal-awal itu kan ada di
+[396.4s] mesine translation ya Mine translation
+[399.2s] ada alignment alignment itu eh misalkan
+[402.7s] ada paralel corpus ya Parel corpus
+[406.2s] gimana palel corpus itu artinya ada dua
+[411.0s] bahasa Misalkan bahasa Inggris dan
+[413.8s] bahasa
+[416.1s] Indonesia ini adalah bahasa Inggrisnya
+[419.1s] ya ya ada bahasa Inggrisnya ini ada
+[421.4s] bahasa Indonesianya terjemahannya
+[423.4s] maksudnya kemudian kata Ini
+[425.6s] diterjemahkan menjadi kata apa kata ini
+[428.0s] mungkin diterjemahkan menjadi dua dan
+[429.7s] seterusnya ada eh alignment di mana
+[433.9s] alignment itu alignment itu dikerjakan
+[438.4s] di luar neural Network ini di luar
+[440.9s] neural Network di luar di di luar rnn
+[445.5s] misalkan Kalau misalkan di luar neur
+[447.4s] netw nah kemudian
+[450.1s] e ada yang berkaitan dengan attension
+[453.4s] itu adalah alignment nah
+[457.2s] kemudian salah satu yang utama Kemudian
+[460.2s] oleh karena
+[461.8s] itu
+[463.3s] ada ada kemudian ini adalah rnn itu
+[467.0s] adalah arsitektur ya arsitektur
+[471.1s] rnn kemudian oleh karena itu Ya udah
+[474.0s] enggak usah pakai Eh seens pakai aja
+[477.6s] arsitekturnya itu Transformer
+[481.5s] yang ini seperti judulnya
+[484.0s] eh hanya menggunakan attention aja tidak
+[487.2s] menggunakan
+[489.1s] eh recurrent ya tidak bukan recurrent ya
+[492.4s] jadi eh tidak
+[496.3s] recurrent tapi sama-sama di sini
+[498.7s] permasalahannya adalah sequence to
+[501.8s] sequence artinya inputnya itu sequens
+[505.4s] outputnya itu sequens bisa sequens
+[508.8s] ininya apa
+[510.4s] e seperti misalkan contohusnya misalkan
+[515.0s] adalah Maine transation meskipun juga
+[518.5s] yang lain-lain seperti
+[521.4s] misalkaning kemudian klasifikasi itu
+[524.9s] dapat dianggap juga sebagai meskipun
+[528.2s] keluarannya misalkan kalau
+[531.3s] ealkan klasifikasi
+[535.0s] inputnyanyaumi bagan
+[538.4s] dararaum ini juga sequens to
+[542.8s] sequens sequens to sequens juga eh
+[545.4s] Transformer tapi sequens to sequensnya
+[547.6s] itu tidak dengan secara serial seperti
+[552.4s] di sini serial di sini sekuensinya nanti
+[555.2s] akan kita lihat bahwa sekens-nya itu
+[558.9s] dengan di ini aja di ada posisinya bahwa
+[563.2s] misalkan ini adalah kata kata pertama
+[566.4s] kata kedua kata ketiga kata keempat
+[568.8s] tidak harus nunggu serial diproses kata
+[572.6s] pertama Dulu kata kedua dan seterusnya
+[574.8s] seperti ini diproses nunggu tapi
+[576.9s] menggunakan posisi saja posisi bawa ini
+[579.4s] posisi dasarnya ya diberi posisi satu
+[582.5s] posisi dua posisi 3 posisi EMP Oleh
+[585.6s] karena itu bisa dilakukan proses
+[588.8s] eh paralel meskipun ini juga sekuens
+[592.2s] juga kan ini sekuens juga karena namanya
+[595.9s] tek Ya kemudian ini menggunakan
+[598.7s] attention dan utamanya attention di sini
+[601.8s] nanti ada yang disebut dengan self
+[604.2s] attention utamanya paling penting itu
+[606.1s] adalah self attention self attention itu
+[609.4s] attention ke dirinya sendiri kalau di
+[612.9s] sini di Maine translation yang
+[615.4s] dipelajari itu kan eh dari sini dari
+[621.0s] encoder
+[623.5s] encoder ke
+[627.5s] decoder dekoder ya ya di sini adalah
+[631.5s] kalimat
+[633.2s] input-nya ini adalah kalimat output-nya
+[636.8s] decoder ini
+[639.0s] input ini outputnya misalkan bahasa
+[642.2s] Inggris input-nya diterjemahkan ke
+[644.5s] bahasa ee diterjemahkan ke bahasa
+[648.6s] ee Indonesia misalkan seperti itu Nah
+[654.5s] ee ya ini adalah encoder decoder seperti
+[658.5s] itu kemudian di Transformer juga encoder
+[662.3s] decoder juga tapi
+[665.2s] tidak tidak serial YA tidak serial ya
+[669.8s] seperti itu jadi
+[671.2s] e dengan konsep yang relatif sederhana
+[675.3s] kemudian dengan attention Oh maaf tadi
+[679.2s] saya mau ngomong sini kalau di sini
+[681.1s] attentionnya itu adalah dari sini dan ke
+[684.0s] sini attention memberi attention bahwa
+[686.9s] terjemahnya seperti misalkan saya di
+[689.7s] sini saya
+[691.5s] ee
+[693.1s] sedang ee belajar
+[697.0s] ee misalkan Informatika nah ini misalkan
+[701.2s] teranyakan I misalkan I am
+[706.2s] studying informatics Nah di sini kan
+[709.3s] attenstion-nya
+[710.5s] eh dari kata yang atau yang hidden yang
+[715.0s] pertama itu mau memberi attenstion ke
+[717.1s] ini attenstion itu maksudnya
+[719.8s] attention itu tadi kan hubungannya
+[722.6s] dengan alignment ya
+[726.4s] attention itu hubungannya kalau diine
+[729.6s] translation dan mungkin dengan yang lain
+[732.1s] juga alment nah kalau alignment itu kan
+[734.5s] di I itu dengan saya atau
+[738.7s] e kemudian M mungkin atau I Saya sedang
+[744.4s] ya kemudian studying mungkin sedang
+[747.5s] belajar kemudian informatics dengan
+[750.1s] Informatika nah ini eh attention itu
+[753.6s] dianggap juga seperti alignment tapi
+[755.5s] adalah yang soft ya soft
+[758.0s] alignment s alignment itu eh seperti
+[761.7s] yang digambarkan juga saya kira di video
+[764.6s] juga ada nah ini tidak satu ke satu tapi
+[768.3s] bisa
+[770.0s] ee dapat dikatakan satu ini bahasa
+[775.4s] Indonesia bahasa Inggris satu kata ini
+[779.9s] sat kata di sini I ini kesemuanya e ad
+[785.2s] lnya tapi ini misalkan banyak ini
+[788.3s] sedikit
+[789.4s] atauah seperti
+[793.6s] ya yang aslinya
+[799.9s] ituanya Nah itu kemudian transform
+[806.9s] [Musik]
+[808.1s] ituangkani attentionnya itu anya adalah
+[810.7s] yang self self attention self attention
+[813.9s] itu artinya bahwa di kalimat itu sendiri
+[816.7s] kata pertama kata kedua kata ketiga
+[819.0s] kataemp ini antara kata yang satu ini
+[822.5s] Ini hubungannya dengan yang mana ya E
+[825.3s] apa eh attensnya hubungan satu kata ini
+[828.8s] dengan kata mana yang lebih
+[830.9s] eh terkaitnya memberi perhatian KUA itu
+[834.8s] besar atau tidak tig besar atau tidak
+[837.7s] EMP besar Berapa besar kemudian dua ke
+[840.7s] yang lain semua tiga ke yang lain semua
+[843.3s] empat ke yang lain semua nah Intinya
+[845.8s] kalau Transformer itu adalah self
+[847.7s] attention Meskipun tidak semata-mata
+[850.2s] self attention Tapi ada tambahan lagi
+[853.0s] ada nanti ada ada yang lain ada
+[855.8s] multihead namanya supaya lebih efektif
+[859.9s] ya multihead attension kemudian juga
+[864.0s] memberi posisinya bukan 1 2 3 tapi
+[866.2s] dengan cara
+[867.3s] ee yang lain kemudian ada yang namanya
+[870.4s] ee dibypass kemudian ada juga yang
+[875.2s] namanya
+[876.4s] normalisasi kemudian juga e utamanya itu
+[879.8s] ya kemudian nanti menggunakan
+[882.9s] ee yang multilayer perseptron di yang
+[887.2s] atas atau fit forward di di setelah ini
+[891.3s] tapi tetap juga ini adalah encoder dan
+[893.3s] dekoder nah kemudian ini yang kedua itu
+[896.7s] adalah Transformer yaitu arsitektur
+[899.9s] jadi transform adalah arsitektur sebagai
+[902.6s] alternatif dari bukan multiayer
+[905.6s] perseptron bukan rnn atau CNN tapi
+[910.4s] sebagai
+[911.4s] eh Katakanlah arsitektur yang baru Nah
+[915.7s] kemudian e ada yang topik ketiga yang
+[919.1s] kita bahas di sini adalah transfer
+[924.2s] learning Nah transferning itu masih ada
+[927.0s] kaitannya dengan Trans former meskipun
+[930.2s] secara umum transfer learning itu adalah
+[932.6s] bagaimana mentransfer learning
+[934.9s] mentransfer eh knowledge itu ya
+[938.3s] mentransfer knowledge dari sebuah model
+[942.1s] ke
+[943.4s] eh model yang lain Katakanlah seperti
+[945.9s] itu atau dari sebuah ya knowledge yang
+[948.4s] sudah
+[949.2s] diproses learning kemudian ditransfer ke
+[953.1s] yang lain yang lebih sulit yang lebih
+[955.4s] jarang dan sulit misalkan begitu nah
+[958.2s] kemudian
+[959.7s] hubungannya dengan Transformer itu apa
+[962.1s] Nah kalau hubungan dengan Transformer
+[963.7s] kalau saat ini pada kenyataannya de
+[966.0s] facto transfer learning itu utamanya
+[969.3s] menggunakan Transformer atau transformer
+[971.6s] base ya Transformer base ini
+[974.6s] transferarning sekarang nah salah
+[977.2s] satunya ada salah satunya adalah yang
+[979.5s] terkenal misal apa disebut dengan gitu
+[982.4s] ya bagaimana mentransfer
+[984.9s] eh
+[986.6s] eh Knowledge transferning
+[990.5s] menggunakan Transformer base yang bisa
+[994.5s] menggunakan ada yang menggunakan
+[996.1s] encodernya saja atauodernya saja Nah
+[999.0s] kalau Berti itu menggunakan encodernya
+[1000.9s] saja nah secara garis besar adalah
+[1004.1s] seperti
+[1005.0s] itu yang kita pelajari dan
+[1009.0s] Ini dari rnn itu untuk materi kita
+[1015.4s] adalah T mining atau n tap untuk teks
+[1019.6s] itu rnn sangat memang yang naturalnya di
+[1023.2s] rnn untuk dining
+[1027.6s] Kemudian untuk Transformer itu juga
+[1030.8s] karena sequence to sequence kan gunanya
+[1033.4s] kan untuk sequence to sequence juga sama
+[1035.8s] seperti untuk ini juga apa rnn sehingga
+[1040.2s] Teks itu adalah sequens sequens ya
+[1043.3s] ininya inputnya ataupun juga kalau
+[1046.1s] sebagai input atau sebagai output yang
+[1047.8s] namanya t itu kan
+[1049.4s] ya sehingga kita apa
+[1052.8s] eh sangat perlu untuk mengetahui
+[1056.2s] Transformer dan kemudian transfer
+[1058.7s] learning seperti yang Transformer bas
+[1061.8s] ini seperti Bird ini juga ini eh karena
+[1066.4s] Transformer juga ini adalah sequence
+[1069.0s] sequence juga e menggunakan
+[1071.6s] transfer seperti itu nah kemudian kalau
+[1075.2s] di zaman sekarang ya kita perlu juga
+[1078.4s] banyak perlu transfer learning Karena
+[1081.0s] untuk tas tertentu untuk data tertentu
+[1084.2s] itu sudah banyak sehingga bisa membantu
+[1086.8s] kita mentransfer knowledge untuk
+[1090.4s] permasalahan yang lain permasalahan yang
+[1092.6s] kita Nah mungkin untuk pengantar seperti
+[1094.6s] itu kemudian sebelum kita membahas
+[1097.2s] secara detail Bagaimana attension
+[1100.4s] bagaimana
+[1102.0s] Transformer yang kedua transformat
+[1104.3s] kemudian yang ketiga adalah
+[1107.2s] transfering silakan mungkin ada
+[1110.3s] pertanyaan komentar
+[1112.7s] tambahanatul dan
+[1122.6s] semuanya mungkin dari sudah membuat
+[1126.0s] video presentasi itu kan banyak apa
+[1129.8s] banyak yang didapat dan juga mungkin
+[1131.4s] banyak
+[1134.3s] pertanyaan sebelum kita detail ke
+[1136.4s] attenstion leh detail ke transform
+[1139.2s] lebih jatkan transfer
+[1151.2s] lagi ya sedikit menambah sedikit
+[1155.3s] menambahkan ya mungkin
+[1159.6s] ee sudah banyak diungkap ya Pak Arif
+[1162.4s] sudah banyak menjelaskan dan
+[1164.2s] EE video dan materi selain video juga
+[1167.7s] sudah banyak sebenarnya ya Ini sed sekid
+[1171.0s] sekedar mengingatkan bahwa
+[1174.4s] ee ya di penjelasan lebih fokus di mesin
+[1178.6s] translation gitu ya kemudian mesinnya
+[1182.3s] berupa encoder encoder decoder di mana
+[1187.0s] ada bahan yang
+[1189.2s] ditranslate dan hasil translate-nya gitu
+[1192.7s] ya Nah ide ini
+[1195.3s] ee ada dari siapa
+[1200.0s] di Dimitri mah Danau bukan Mbah dano
+[1205.3s] kalau orang Jawa Mbah dano gitu
+[1207.5s] ya Mah Danu gitu
+[1210.2s] ya Iya cara ngingatnya gampanglah gitu
+[1214.0s] di satu paper jadi dia dia
+[1217.1s] dia menerbitkan satu paper dari dari
+[1220.7s] riset dia dan itulah awal mula konsep
+[1224.7s] Transformer Eh Transformer apa attention
+[1229.5s] di
+[1230.3s] mana
+[1233.3s] ee dia
+[1235.8s] mencoba menambahkan ya Ee Apa
+[1240.8s] itu jadi kalau kalau tadi proses dari
+[1245.4s] decoder dari encoder ke decoder itu
+[1248.4s] berjalan begitu saja gitu ya jadi dari
+[1251.3s] encoder jalan ke decoder keluar enoder
+[1254.3s] keluar ke decoder enoder keluar ke
+[1256.3s] dekoder gitu loh kemudian
+[1260.0s] dia coba untuk
+[1262.8s] ee
+[1265.2s] memberikan satu penekanan pada beberapa
+[1268.6s] bagian beberapa bagian bagian ini
+[1271.3s] diamati untuk
+[1273.4s] men-translate bagian ini gitu misalnya
+[1275.6s] ee beberapa bagian itu coba diamati
+[1279.2s] dalam arti kata nanti
+[1281.0s] ee dalam arti kata umumnya adalah hanya
+[1284.7s] diamati di di fokuskan pengamatan n ya
+[1288.8s] Jadi kalau tadinya berjalan saja gu
+[1291.6s] berjalan Oh saya transit kata-kata itu
+[1293.8s] TR gitu aja dari awal sampai akhir tek
+[1296.1s] tek tek tek dan tadi salah satu
+[1297.5s] problemnya adalah ketika kalimat itu
+[1299.8s] panjang banget gu maka dia ee akurasinya
+[1302.7s] terus menurun nah ee itu
+[1306.6s] coba dibagi beberapa part yang bisa
+[1309.8s] diamati walaupun nanti akhirnya ini
+[1312.6s] nanti berkait dengan namanya percobaan
+[1314.6s] ya eksperimen Dan harusnya S1 pun
+[1317.8s] harusnya sudah tahu apalagi anak S2
+[1319.7s] Bagaimana eksperimen itu dilakukan
+[1322.8s] nah dia Coba amati itu Dan dari situ dia
+[1327.8s] kaitkan dengan hasilnya nah secara
+[1330.5s] perhitungan adanya makanya adanya
+[1332.9s] perhitungan khusus untuk untuk
+[1335.6s] bagian-bagian yang diamati itu dengan
+[1337.5s] tadi kalau kalau melihat penjelasan yang
+[1340.5s] di yang sudah di dibahasa Indonesiakan
+[1343.8s] oleh Pak Arif misalnya kan bahwa ada ada
+[1347.6s] perkalian dot produk dia dikalikan
+[1351.0s] antara hasil dengan antara decoder
+[1353.3s] dengan encodernya ada dot produknya dan
+[1355.5s] dia menjadikan satu vektor tersendiri
+[1358.2s] dan nanti dikumpulkan menjadi satu
+[1360.0s] vektor kan hasil do produk kan skalar
+[1362.6s] skalar skalar jadi jadi vektor gitu
+[1366.4s] loh Itu kalau secara perhitungan begitu
+[1369.6s] secara secara natural natural eh
+[1374.4s] expression atau bahasa naturalnya kita
+[1377.2s] kita sampaikan bahwa ada
+[1379.1s] ada perhatian khusus di beberapa bagian
+[1381.9s] nah beberapa bagian nanti kan dibagi
+[1384.0s] dibagi lagi ya ada yang lokal attention
+[1386.9s] ada yang global attention gitu ya bahkan
+[1389.2s] ada yang H attention di mana dia hanya
+[1391.5s] satu bagian saja yang diamati kalau
+[1394.5s] lokal beberapa beberapa part diamati
+[1397.2s] kalau Global Berarti semua part diamati
+[1399.2s] sekaligus Nah itu itu konsep awalnya
+[1402.6s] nanti dari konsep awal
+[1404.5s] itu kita akan lebih mudahpras
+[1408.8s] perhitungan Oh perhitungannya ternyata
+[1410.4s] begini walaupun kalau sudah ke lihat
+[1413.4s] formula statistical formulanya sudah
+[1416.8s] mulai ya kita perlu perlu fokus lebihlah
+[1420.8s] gitu ya mungkin itu ee sedikit penegasan
+[1424.9s] saja dari saya ya tentang attention ini
+[1428.6s] manggak Pak Arif mungkin dilanjutkan
+[1431.6s] lagi Oh iya pak ya Makasih pak ee
+[1435.2s] Mungkin saya akan coba lanjutkan yang
+[1438.7s] menggunakan yang sama ini apa sebenarnya
+[1442.0s] ada beberapa yang menarik juga dari sour
+[1445.3s] yang lain tapi saya menggunakan materi
+[1447.4s] yang sama yang
+[1449.2s] EE digunakan
+[1451.8s] [Musik]
+[1452.9s] untuk untuk ini ya untuk eh presentasi
+[1457.5s] ya yait yang dari Stanford
+[1465.7s] [Musik]
+[1468.6s] saya akan
+[1473.2s] share bukan di sini aja
+[1503.4s] I ini menggunakan sama yang dari apa
+[1508.4s] dari Stanford ya yang awalnya dariine
+[1517.5s] Trans Dar dari mesin Trans kemudian eh
+[1521.7s] menggunakan se kemudian
+[1527.3s] attion
+[1534.5s] akilang I
+[1537.8s] eh mungkin di sini nah ini Apa yang
+[1541.7s] disebut dengan tadi alignment ya Ini ada
+[1545.6s] terkait alignment ini adalah bahasa dari
+[1549.6s] bahasa
+[1551.4s] e Inggris ke bahasa Prancis misalkan ini
+[1556.1s] di seperti ininya bisa satu satu bisa
+[1559.2s] digambarkan seperti ini lainnya Bisa
+[1561.5s] kompleks seperti ini
+[1563.9s] ya lainnya Bisa kompleks seperti ini
+[1567.0s] kemudian
+[1568.2s] ee apa ya bisa lainnya itu bisa Komplek
+[1573.5s] kemudian ini nanti kita pelajari di di
+[1577.6s] pertemuan tersendiri mineation baik itu
+[1580.7s] yang neural maupun yang bukan neural nah
+[1584.2s] kemudian kita masuk
+[1587.2s] ke e
+[1591.4s] Tension bagian
+[1594.0s] tiga iya oke di
+[1599.6s] sini ya
+[1601.9s] ini salah satu sebenarnya salah satu
+[1605.3s] bentuk memori juga ya seperti attention
+[1607.9s] seperti ini juga kalau di di resource
+[1611.8s] yang lain Sebenarnya ada bentuk-bentuk
+[1613.3s] yang lain yang tidak persis seperti
+[1615.8s] ini ya ini kita kita lihat ini adalah
+[1620.3s] contoh untuk mesine translation mesin
+[1623.6s] penerjemah di mana di sini adalah
+[1626.0s] menggunakan rnn ya Ada sequence to
+[1629.1s] sequence yang sequence to sequence
+[1632.3s] ininya apa arsitekturnya juga sequence
+[1635.3s] sequence ini menggunakan rnn kita
+[1638.4s] sekarang Nah di sini ada
+[1641.4s] encoder ada
+[1643.3s] decoder di mana encoder itu artinya
+[1646.4s] mengencode dihasilkan sebuah vektor ya
+[1650.3s] dialkan sebuah vektor di encode
+[1653.1s] source-nya yang tadinya mungkin panjang
+[1655.4s] misalkan itu dijadikan hanya sebuah aja
+[1659.0s] sebuah sebuah vektor Jadi kalau misalkan
+[1662.6s] e ini dapat dikatakan seperti
+[1664.3s] ringkasannya ini ringkasannya kan ini
+[1667.0s] ringkasannya dan pertama itu
+[1668.9s] ringkasannya kemudian itu adalah
+[1671.2s] ee
+[1673.0s] apa itu adalah juga UD yang panjang
+[1677.2s] seperti kalau kita ee dianalogikan kalau
+[1680.6s] mau menerjemahkan ya menerjemahkan dari
+[1682.4s] bahasa Prancis ke bahasa Inggris atau
+[1684.6s] dari bahasa Inggris misalkan ke bahasa
+[1686.2s] Indonesia di e apa di didengarkan
+[1691.3s] kemudian dulu di ini di dalam pikiran
+[1693.4s] itu eh kemudian setelah yang terakhir
+[1697.4s] ini sudah diingat-ingat kemudian
+[1699.0s] diterjemahkan artinya mungkin di sini
+[1700.5s] ada beberapa yang lupa gitu yang di di
+[1703.5s] depan-depan itu sudah lupa kata-katanya
+[1705.4s] itu apa yang mau diterjemahkan nah sama
+[1707.8s] seperti seperti ini juga dengan apa yang
+[1709.7s] disebut dengan finishing gradient ini ee
+[1713.2s] mungkin ada sebenarnya yang sudah
+[1714.5s] lupa-lupa kalau yang di depan gitu ya di
+[1717.2s] depan Nah sehingga hasilnya Jadi kurang
+[1721.0s] bagus tadi ada finishing yang kedua
+[1723.1s] prosennya Adah sequens harus nunggu
+[1725.4s] serial dari depan ke belakang ya nah
+[1730.4s] jadi informasinya di sini hanya di sini
+[1732.2s] sehingga terjadi battleeneck ya terjadi
+[1734.6s] battleeneck karena disimpan dalam satu
+[1737.2s] vektor saja ya yang tadinya ini adalah
+[1739.4s] vektor hiddennya Itu adalah sebuah
+[1741.0s] hidden itah vektor ya karena ini yang
+[1742.5s] bulat satu Bulat itu kan satu nilai satu
+[1744.4s] nilai satu nilai satu nilai di mana
+[1746.7s] sebuah kata itu
+[1748.7s] direpresentasikan ke dalam
+[1751.0s] vektor vektor vektor vektor vektor
+[1754.8s] vektornya apapun bentuknya tapi biasanya
+[1757.8s] itu adalah vektor Ba Itu eding ataupun
+[1759.8s] one hot vektor one hot ee vektor atau
+[1763.6s] yang lain
+[1764.4s] ee nah ini adalah salah satunya artinya
+[1768.2s] juga ada buttleet problem nah kemudian
+[1772.8s] mestinya akan lebih bagus demikian juga
+[1775.4s] kalau kita
+[1776.4s] menerjemahkan mau menerjemahkan ya kita
+[1778.9s] dengarin tapi tidak langs tidak Ditunggu
+[1782.8s] sampai lama baru ditjemahkan tapi kita
+[1785.8s] untuk beberapa beberapa kata kita
+[1789.3s] Terjemahkan jadi ada hubungan langsung
+[1792.7s] atau di sini Hubungan langsung beberapa
+[1795.3s] kata kita e terjemahkan kan atau kita
+[1798.6s] catat paling tidak kita catat kita catat
+[1801.1s] kita catat intinya tadi beberapa
+[1803.4s] beberapa kata awal itu apa kita catat
+[1805.4s] kita catat sebelum nanti kita akan
+[1807.8s] Terjemahkan ya Jadi kita perlu membereli
+[1812.2s] menggunakan connection ya connection ke
+[1815.0s] satu tempat ke di sini kasusnya encoder
+[1818.2s] ya encoder Nah di sini
+[1822.7s] kita apa di samping tadi menggunakan
+[1827.4s] yang informasi yang terakhir tetap
+[1829.1s] digunakan Ini digunakan Kan di sini
+[1831.0s] tetap digunakan untuk bahasa sumbernya
+[1834.2s] ini bahasa sumber yang mau diterjemahkan
+[1837.0s] ke bahasa targetnya di sini ini tetap
+[1840.4s] digunakan sebagai apa sebagai informasi
+[1843.4s] yang penting yang bagian akhir ini dari
+[1845.6s] proses serial itu tapi kita juga
+[1848.2s] mempunyai koneksi juga ke
+[1851.1s] semua yang ada di sini koneksinya Apa
+[1854.8s] yang disebut dengan koneksi atau ATT
+[1857.4s] yang attention itu adalah yang
+[1860.5s] EE kalau yang
+[1863.0s] secara dasarnya atau sederhananya adalah
+[1865.9s] yang mempunyai kesamaan kesamaan atau
+[1869.8s] lebih luasnya lagi lebih persisnya lagi
+[1873.0s] adalah ada yang keterkaitan ya jadi
+[1876.0s] attention itu dapat dikatakan juga ada
+[1878.2s] yang
+[1879.4s] ee apa yang keterkaitan keterkaitan ya
+[1884.5s] keterkaitan ee kalau yang yang dasarnya
+[1887.2s] itu sama
+[1888.6s] sama itu maksudnya sama
+[1890.5s] secara maknanya kemudian kalau
+[1892.9s] keterkaitan yang lebih luas lagi yang
+[1894.8s] perlu di nah kemudian salah satunya ini
+[1898.3s] menggunakan eh dot produk di mana Dot
+[1901.4s] produk itu pada intinya adalah ini
+[1904.3s] adalah cosin similarity ya cosin
+[1907.0s] similarity antara vektor ini dengan
+[1910.3s] vektor ini cosin simility ini yang
+[1912.8s] dasarnya nanti ada bukan hanya do produk
+[1915.5s] tapi ada yang multiikatif sama yang apa
+[1919.6s] eh penjumlahan dan pengalian ya kalau di
+[1923.1s] sini tidak ada bobotnya ini ada bobotnya
+[1926.0s] tinggal dikalikan aja vektor sini
+[1928.1s] parameternya kemudian di sini dikalikan
+[1931.1s] aja dengan yang di sini yang di vektor
+[1935.6s] di apa vektor di sebuah vektor di sini
+[1940.3s] di ee decoder dengan vektor-vektor semua
+[1944.0s] yang
+[1944.9s] di dienoder nah ini sebuah ini ini ke
+[1951.0s] semuanya ya yang decoder apa di decoder
+[1956.6s] ini kan ke semuanya ya ke semuanya baik
+[1959.6s] itu yang ke sini ke sini ke sini ke sini
+[1962.5s] semuanya Dengan cara bagaimana dengan
+[1965.4s] cara skor-skornya menggunakan e dot
+[1969.6s] produk dot produk itu artinya adalah
+[1972.7s] eh inti dari c similarity artinya
+[1976.6s] kesamaan antara vektor ini dengan
+[1978.4s] vektor-vektor yang hidden-hidden di
+[1981.6s] eh encoder ya
+[1985.0s] kemudian di sini skor itu dinormalkan
+[1989.2s] menggunakan
+[1991.0s] eh distribusi menggunakan softmax
+[1993.9s] sehingga di sini e totalnya adalah satu
+[1997.3s] jadi didistribusikan seperti itu ya ya
+[2001.0s] menggunakan softm supaya ada probability
+[2004.0s] distribution yang totalnya satu supaya
+[2006.9s] jadi normal gitu ya Nah kemudian hasil
+[2010.8s] dari ini hasil dari attention ke
+[2014.6s] masing-masing dari sebuah vektor di sini
+[2018.5s] ke vektor-vektor semua yang merah-merah
+[2020.5s] ini yang hidden dari
+[2022.0s] encoder
+[2023.6s] itu yang
+[2025.7s] masing-masingnya apa masing-masingnya
+[2029.0s] udah ada ininya distribusinya Ini nah
+[2032.6s] ini direpresentasikan menjadi sebuah
+[2034.5s] vektor ya sebuah vektor di sini
+[2036.7s] vektornya itu adalah eh w ya artinya di
+[2042.1s] sini
+[2043.1s] eh seperti misalkan ini yang bulat
+[2045.8s] pertama ini dikal ditambahkan dengan
+[2049.5s] Sini sini sini tapi Dikan dengan ini
+[2053.0s] Jadi ini kalikan Angka di sini ini
+[2056.2s] kalikan di sini ini kalikan di sini ini
+[2058.6s] kalikan di sini ditambahkan menjadi yang
+[2062.4s] yang paling atas yang kedua juga
+[2065.4s] ditambah-tambahkan di kan yang eh
+[2069.1s] bulatan yang kedua angka yang kedua
+[2071.1s] nilai yang kedua dan seterusnya tapi W
+[2073.2s] diwkan dengan
+[2074.7s] Eh bobotnya ini bobot itu maksudnya
+[2077.9s] adalah attention-nya seberapa besar ya
+[2080.9s] attentionnya seberapa besar jadi di sini
+[2083.7s] dapat dikatakan tadi adalah soft ya soft
+[2085.9s] alignment Mengapa soft alignment karena
+[2089.2s] di sini dialign ke semuanya kan dari
+[2092.0s] yang ini dialign ke semua yang merah ini
+[2095.8s] dialine ke semua yang merah ini tapi ada
+[2097.9s] yang tinggi di sini kita lihat ada yang
+[2100.2s] tinggi ada yang rendah itu adalah
+[2103.2s] ee namanya ee dapat dikatakan Sof
+[2107.1s] alignment ya ini adalah attention dari
+[2110.4s] eh untuk kasus ini dari decoder encoder
+[2114.7s] nah kemudian kalau yang aslinya yang
+[2118.1s] aslinya kita hanya menggunakan ini yang
+[2120.1s] terakhir untuk Kemudian untuk mulai
+[2122.4s] masuk diterjemahkan dari sebuah vektor
+[2126.1s] saja yang merupakan dapat dikatakan
+[2128.6s] ringkasan gitu ya
+[2130.6s] Eh kodenya encod-nya yang ringkasan ke
+[2134.3s] decoder nah ini ditambahkan dari
+[2136.5s] attention di sini attention di sini yang
+[2140.3s] eh
+[2141.9s] merupakan ini adalah ini adalah eh Wi
+[2146.4s] tadi tadi
+[2149.2s] Dari dari yang Hiden Hiden di enoder
+[2153.4s] yang di
+[2155.4s] denganensionornya ini Tension score atau
+[2158.3s] sudah didistribusikan menjadi attension
+[2160.2s] distribution menggunakan softm kemudian
+[2163.8s] eh yang dari sini ya kemudian ini di
+[2168.4s] untuk menggunakan prediksi prediksi yang
+[2170.9s] satu kata pertama tapi juga bukan hanya
+[2174.8s] dari sini saja tapi juga dari
+[2176.6s] attensionnya ditambahkan artinya
+[2178.5s] ditambahkan atau di concenate bisa di
+[2181.2s] concenate atau ditambahkan dalam hal ini
+[2183.8s] misalkan di conate conate itu artinya
+[2186.2s] kemudian vektornya jadi
+[2188.3s] panjang yang tadinya ini hanya empat ini
+[2191.1s] Empat misalkan bisa aja Misalkan menjadi
+[2193.1s] Del di sini tapi intinya adalah ada
+[2196.6s] informasi dari attention dan kemudian
+[2200.9s] berikutnya dan bisa juga attention itu
+[2203.4s] bisa dari sebenarnya antar dia sendiri
+[2206.1s] dari dari outputnya Tension ini kalau di
+[2209.2s] sini Dari dari decoder ke encoder
+[2213.8s] memberi memberi memberi attention ke
+[2216.4s] encoder tapi di sini bisa juga
+[2218.0s] sebenarnya Tension itu dari dia yang
+[2221.0s] sini ke sebelumnya ke sebelum-sebelumnya
+[2224.3s] gitu ya sebelumsebelumnya sesama dikoder
+[2228.1s] bisa juga seperti itu tapi yang di sini
+[2229.9s] yang kita eh bahas atau kita apa
+[2233.6s] diilustrasi sini hanya dari decoder dari
+[2236.9s] decoder ke encoder saja tidak tidak ada
+[2240.0s] yang sesama
+[2242.1s] decoder tapi intinya adalah Tension
+[2244.4s] seperti itu dan dicari lagi sampai
+[2247.8s] semuanya satu satu satu sampai di sini
+[2249.6s] contohnya ini attensionnya beda lagi
+[2252.4s] ininya bobot-bobotnya distribusinya tapi
+[2255.5s] tetap menggunakan
+[2257.4s] eh Dot produc Do produc karena di sini
+[2260.4s] kita menggunakan dot
+[2263.1s] produk prod sekali lagi itu artinya
+[2265.6s] adalah sebenarnya adalah
+[2268.6s] E apa similarity scornya ya jadi dari
+[2273.3s] dari vektor ke vektor di produkkan
+[2276.2s] menjadi skalar atau skor skornya itu
+[2279.0s] berupa
+[2280.5s] eh attention score yang itu dapat
+[2284.6s] dikatakan kalau di sini adalah kesamaan
+[2287.0s] kesamaan itu utamanya di sini adalah
+[2289.3s] kesamaan makna gu bukan kesamaan string
+[2292.4s] nah dan seterusnya seterusnya kemudian
+[2295.6s] dihasilkanlah di sini apa
+[2298.9s] em targetnya prediksi dari bahasa
+[2302.3s] targetnya untuk kasus mesin Trans ini
+[2305.7s] bahasa target
+[2307.7s] Nah di sini ada beberapa kita lihat dari
+[2312.4s] encoder tadi yang merah-merah itu ada
+[2315.2s] hidden S sampai hidden ke n sebanyak n
+[2318.2s] yang itu n itu bisa banyak ya n itu bisa
+[2321.6s] banyak artinya kata-kata misalkan satu
+[2325.1s] satu satu layer ini dapat layer berarti
+[2328.7s] layer layer layer Lay layer bisa banyak
+[2331.2s] banget
+[2332.6s] Kar sat misalkan sat layer
+[2335.9s] itu kata ya artinya Deep dan bisa sangat
+[2339.6s] Deep dengan sangat Deep artinya bisa eh
+[2343.0s] finishing gradinya sudah bisa beneran
+[2346.5s] problemnya Nah di sini yang hidden tadi
+[2349.7s] yang dioder yang merahmerah itu itu
+[2352.6s] masing-masingnya itu adalah nilainya
+[2354.8s] Keil angka-angka di komponen di
+[2358.5s] vektorvektor ini
+[2360.5s] adalah yang tingginya DII ataujang
+[2364.2s] vektornya hikian juga untuk
+[2368.2s] decoder itu eh nya juga H kalau kita
+[2371.1s] dilihat di sini kalau ini H1 sampai HN
+[2374.7s] di sini S ini S tapi s-nya itu per T1 T2
+[2380.2s] time time step 3 dan seterusnya Jadi per
+[2383.4s] t di sini S eh ST di mana karena kita
+[2388.1s] berangkatnya kan dari sebuah ST t-nya
+[2390.5s] misalkan 1 2 3 4 5 6 ini T6 S T6 ya T6
+[2396.0s] ke semuanya
+[2398.2s] nah kemudian e kita dapatkan skornya
+[2401.8s] tadi skor di mana skornya itu adalah
+[2404.4s] tadi adalah
+[2407.0s] dari dari t yang sama ya t yang sama ini
+[2411.6s] ditp karena dari vektor ke vektor perlu
+[2416.3s] prod Dar skalar ini skalar skalarar
+[2419.3s] skalar untuk sebuah t sebuah timeep
+[2423.0s] sebuah misalkan T6 di
+[2425.4s] sini nah ini adalah
+[2428.2s] eh apa yang
+[2431.6s] EE R juga kemudian banyaknya adalah
+[2434.7s] sebanyak n besar kemudian kita perlu
+[2438.4s] distribusikan supaya totalnya satu perlu
+[2442.2s] probability distribusi menggunakan softm
+[2445.0s] ya ya ini menggunakan softm jadi
+[2447.6s] distribusi nah kemudian di sini kita
+[2450.0s] menggunakan Distribusi
+[2452.5s] Distribusi Distribusi dari attenstion ya
+[2455.9s] Distribusi dari attenstion itu Tik lagi
+[2458.2s] di sini seperti ini distribusi dari
+[2460.1s] attention nah kemudian kita menggunakan
+[2463.2s] bobot apa
+[2465.0s] wited dengan ini adalah yang distribusi
+[2469.0s] eh yang Alfa itu distribusi eh attension
+[2473.6s] dengan ini adalah yang hidden H itu
+[2476.6s] adalah hiddennya hiddennya encoder ya
+[2480.4s] hiddennya encoder nah ini adalah
+[2482.4s] sehingga wited su ini adalah Wi su J
+[2485.6s] attention itu adalah wited su ya
+[2488.4s] kemudian dijumlahkan dijumlahkan itu
+[2490.6s] maksudnya yang tadi ini dijumlahkan
+[2492.7s] bahwa ini ee dikalikan dengan ini ini
+[2498.3s] angkanya yang apa E dikalikan dengan ini
+[2502.3s] di sini dikalikan dengan sini ini
+[2504.1s] dikalikan dengan sini dan seterusnya ini
+[2506.4s] dikalikan juga dengan yang sama danusnya
+[2509.0s] kemudian dium di sini dium di sini di
+[2512.4s] sini Di sin menjadi ini ini ini ini E
+[2517.5s] ini ada EMP panjangnya vektor ini juga
+[2520.5s] EMP ya jadi hasil akhirnya dari
+[2524.7s] e Tension itu adalah hasil-ashilnya itu
+[2530.2s] adalah satu vektor ya satu vektor ini
+[2533.4s] untuk masing-masing time step di sini
+[2536.6s] satu vektor satu vektor yang kemudian
+[2540.6s] ini yang ini dari ATT ya kemudian ini
+[2544.6s] dari yang masing-masing di sini di sini
+[2547.6s] yang ST kemudian di sini dari namanya
+[2550.8s] tadi
+[2551.9s] Eh Alf t nah kemudian yang hasil dari ST
+[2557.3s] dan Alfa ini kemudian digabungkan di
+[2559.4s] sini di sini digabungkan di sini ya
+[2561.9s] untuk menghasilkan Eh ini apa kata
+[2565.2s] keenam kata keenam dari bahasa target
+[2569.4s] bahasa Inggris ini apa di sini Nah ya
+[2573.3s] artinya dengan dibandingkan dengan rnn
+[2576.1s] yang standar ini
+[2577.7s] ditambah dengan attention ditambah
+[2580.2s] dengan Soft alment ya dengan adanya
+[2583.5s] attention itu secara
+[2585.7s] signifikan secara signifikan
+[2589.2s] itu memperbaiki performansi dari neural
+[2592.8s] Maine translation yang yang nanti
+[2596.2s] Insyaallah akan kita
+[2598.5s] pelajariation yang itu dengan
+[2604.1s] sebagai Maaf Pak putus ya pak sebentar
+[2616.3s] Pak putus
+[2656.0s] iya ya jadi di sini
+[2660.9s] ee Iya jadi secara signifikan
+[2664.4s] memperbaiki dari rnn
+[2667.3s] yang standar ke rnn yang ada tensionnya
+[2670.6s] ini eh signifikan
+[2674.4s] memperbaikinya kemudian memecahkan
+[2678.1s] permasalahan battlen ini dari decoder
+[2681.7s] langsung melihat ke
+[2685.5s] ke ke ke apa ke bahasa sumbernya juga ya
+[2691.7s] kemudian membantu
+[2693.8s] juga permasalahan
+[2697.4s] ya artinya yang long Dependency artinya
+[2701.1s] melihat yang kata-kata yang sebenarnya
+[2704.4s] sudah jauh ada di depan gitu ya di
+[2707.7s] awal-awal kalimat misalkan yang jauh
+[2710.6s] yang
+[2711.6s] jauh kemudian juga
+[2713.8s] Eh bisa juga memberikan ya menyediakan
+[2719.1s] interpretability jadi seperti
+[2721.5s] iniability bahwa antar
+[2724.5s] bahasa sumber bahasa get itu ternyata
+[2728.4s] hubungannya itu kata-katanya itu ada ini
+[2731.4s] adalah alignment ya jadi seperti tadi
+[2733.5s] almentnya itu ini menyediakan artinya
+[2737.1s] menyediakan softment ya artinya
+[2739.7s] menyediakan sment di mana misalkan eh
+[2743.2s] untuk menerjemahkan satu kata itu
+[2745.4s] fokusnya diodernya itu fokusnya di kata
+[2747.6s] mana kalau misalkan untuk kata il di
+[2751.3s] sini fokusnya di mana di sini m
+[2754.4s] DII Di fokusnya di man nah kemudian yang
+[2758.8s] alignment tadi soft alignment ini adalah
+[2761.5s] soft alignment yang attention ini ini
+[2765.3s] secara free secara free itu artinya
+[2768.3s] sambil jalan rnn-nya bukan proses rnn
+[2773.6s] karena kalau kita menggunakan rnn di
+[2775.6s] sini tidak ada alignment eh tidak ada
+[2778.6s] attention ini alignmentnya itu ada
+[2780.5s] proses tersendiri untuk mengal di sini
+[2783.0s] itu ada proses tersendiri Al dan pros
+[2787.0s] Lin ini mungkin di sini kalau otomatis
+[2789.6s] ini perlu belajar artinya perlu training
+[2792.1s] dan training itu artinya perlu
+[2793.5s] menyediakan orang paralel corpus yang
+[2796.0s] paralel bukanya paralel corpus tapi
+[2798.1s] menyediakan alignment untuk supaya kita
+[2801.2s] bisa melakukan proses eh learning
+[2803.8s] menggunakan alignment di sini nah kalau
+[2805.4s] di sini udah sekali jalan ya Sekali
+[2808.9s] Jalan makanya e apa judulnya di tulisan
+[2813.8s] yang awal-awal yang bad tadi ya Kalau
+[2816.2s] enggak salah itu adalah eh Translate and
+[2819.8s] align gitu langsung sekaligus Translate
+[2822.7s] sekaligus align tidak terpisah sehingga
+[2826.0s] for free di sini for free artinya sambil
+[2829.0s] jalan tidak perlu khusus yang khusus itu
+[2832.6s] bisa mahal gitu ya karena perlu data
+[2834.6s] training misalkan nah kemudian
+[2837.5s] e ya Ini karena kita tidak perlu
+[2841.2s] mengeksplisitkan melakukan proses
+[2843.0s] trainingment itu Ya kita tidak perlu
+[2846.2s] menyediakan data training ya karena
+[2849.3s] networknya itu sendiri Ner Network itu
+[2851.3s] sendiri yang belajar sendiri dengan
+[2853.8s] alignment dengan tadi itu dengan
+[2856.2s] attention nah
+[2859.7s] eh attention itu merupakan sebuah teknik
+[2862.6s] yang sebenarnya umum generik bukan hanya
+[2865.2s] spesifik untuk machine translation ya
+[2868.0s] bukan hanya spesifik untuk mesine
+[2869.6s] translation saja ya bukan hanya spesifik
+[2872.3s] untuk sequence to sequence model machine
+[2874.8s] translation saja tetapi merupakan kan
+[2878.2s] ee umum bisa digunakan secara umum bukan
+[2882.0s] hanya arsitektur sequence to sequence
+[2884.0s] dan bukan hanya untuk tas tas mesine
+[2887.4s] translation saja nah ini secara umum
+[2891.4s] definisinya adalah ada
+[2895.8s] sekumpulan vektor ya Yang ini mempunyai
+[2899.3s] values ya ini contohnya tadi yang
+[2901.9s] encoder encoder ya di encoder jadi
+[2906.0s] layer-layer encoder ya layar-layar di
+[2908.2s] encoder set of Vector values ini adalah
+[2911.0s] yang tadi yang merah-merah tadi
+[2913.4s] sehimpunan values values vektor dari
+[2916.4s] vektor vektor vektor vektor dan yang
+[2919.5s] namanya values di sini istilahnya jadi
+[2922.5s] ada kata kunci ini values kemudian ada
+[2925.6s] sebuah vektor yang tadi ada decoder
+[2928.4s] sebuah vektor yang disebut dengan query
+[2931.5s] di sini query nah kemudian eh memberi
+[2935.4s] attention di sini memberi attenstion
+[2938.2s] attenstion itu ad sebuah teknik yang
+[2941.2s] menghitung weed su ya Jadi intinya
+[2944.4s] adalah wied Wi artinya witnya itu adalah
+[2950.5s] Distribusi Distribusi attention tadi
+[2954.8s] dari values ini kan dari ini tadi kan
+[2957.3s] dari encoder di dari encoder kan tadi
+[2962.0s] ini adalah dari values ya tergantung
+[2965.9s] dari query nya tergantung dari Ee Kita
+[2969.0s] tadi di sini kan winya itu tergantung
+[2971.5s] dari masing-masing untuk yang layer
+[2974.7s] pertama time step pertama dari dari
+[2978.1s] decoder time step kedua dari decoder
+[2980.4s] jadi ada
+[2982.8s] eh ada kata kunci query dan kata kunci
+[2987.3s] atau komponen query dan komponen values
+[2990.2s] ada query dan ada values nanti kalau
+[2993.3s] dengkapin lagi Sebenarnya ada namanya
+[2995.5s] key ke itu sangat hubungannya dengan
+[2997.9s] value ya kalau kita kalau kita
+[3000.8s] mempelajari eh attention biasanya ada
+[3003.9s] tiga ini query values dan ke tapi
+[3006.3s] intinya menurut saya adalah query dan
+[3008.6s] values kemudian ke itu hubungannya
+[3010.3s] dengan yang namanya
+[3011.9s] values ya
+[3014.5s] e eh jadi dapat dikatakan query
+[3020.0s] itu attens ke value query ini query ya
+[3024.3s] di sini query tadi di sini query ya
+[3026.2s] inier
+[3027.6s] yang
+[3028.3s] di decoder ATT values values di sini
+[3032.8s] sebuah query di sini sebuah
+[3035.8s] query val di
+[3038.6s] sini di sini ya ya Sebagai contoh tadi
+[3043.8s] Sebagai contoh
+[3046.7s] untuk
+[3048.8s] rnn plus model plus ATT
+[3053.7s] model plus ATT itu eh setiap
+[3058.9s] decoder itu yang itu query-nya attend
+[3062.9s] semua encoder S state hidden state-nya
+[3065.9s] itu adalah values-nya jadi ada Sekali
+[3068.2s] lagi ada query dan ada values ya Nah
+[3073.4s] kemudian attension ini adalah general ya
+[3078.0s] teknik general general teknik ya bukan
+[3081.0s] spesifik teknik tapi general teknik ya
+[3084.2s] Yang intinya tadi ini adalah ya yang
+[3086.8s] tadi ada values satu set satu himpunan
+[3090.6s] values dan sebuah vektor query Tension
+[3095.4s] itu
+[3096.6s] adalah dari values yang tergantung dari
+[3100.7s] dependen dari query Yang tadi kita sudah
+[3103.0s] bahas nah kemudian kita secara intuisi
+[3106.8s] ini sebenarnya bisa seperti selective
+[3108.9s] query selective query itu seperti
+[3111.9s] misalkan summary ya summary seperti kita
+[3114.8s] summaration ya kita dokumen
+[3118.0s] summarization ya dokumen
+[3121.6s] summarization summarization dokumen
+[3123.8s] summarization itu tapi bukan hanya
+[3125.4s] sumary saja dokumennya tapi ada
+[3128.0s] query-nya misalkan ada sebut dokumen
+[3130.9s] tapi query-nya kita misalkan eh tentang
+[3134.3s] apa di sini misalkan query-nya itu
+[3136.9s] adalah tentang
+[3138.2s] eh misalkan dokumen paper Informatika
+[3141.5s] misalkan query-nya itu tentang mining
+[3144.2s] misalkan mining nah senya query-nya itu
+[3146.5s] itu berkaitan dengan
+[3147.8s] miningminging ya jadi secara intuitif
+[3150.2s] ini adalah selective query di mana
+[3153.1s] informasi itu adalah values ini
+[3155.0s] dokumennya itu values kemudian querynya
+[3157.3s] itu Fokusnya ke ini mining ada artikel
+[3162.5s] eh misalkan jurnal Inah values-nya
+[3167.1s] kemudian query-nya itu adalah
+[3169.8s] diumaryan diringkas tapi ringkasan itu
+[3172.8s] yang berkaitan dengan mining misalkan
+[3175.0s] ini mining itu adalah query-nya nah
+[3178.4s] kemudian ee itu intuisi yang kedua di
+[3181.4s] sini ee kemudian didapatkan ini apa
+[3187.0s] didapatkan tadi representasi dari
+[3189.3s] attension ini adalah
+[3192.2s] satu representasi yang ukurannya tetap
+[3196.5s] ya dari yang ukurannya bisa arbiterary
+[3201.0s] jadi values-nya itu kan yang tadi di
+[3204.0s] encoding diencoding bahasa
+[3207.2s] bahasa sumbernya ini kan bisa panjang
+[3210.2s] bisa Pendek kan bisa panjang bisa pendek
+[3212.8s] ininya yang bahasa sumbernya yang
+[3214.1s] encodingung kemudian nanti kan dibuat
+[3216.7s] sebuah vektor aja yang representasi dari
+[3220.0s] Eh attension ini Val Ya vales-nya itu
+[3223.9s] bisa panjangnya bervariasi kemudian
+[3227.2s] querynya satu nah kemudian dihasilkan
+[3229.6s] sebuah vektor vektornya vektor yang fix
+[3233.6s] yang vektor ini merepresentasikan
+[3236.6s] tadi merepresentasikan Eh
+[3240.5s] attention atas value dari aquery
+[3244.1s] itu Kemudian ada beberapa varian ya Ada
+[3247.4s] beberapa varian dari attention teknik
+[3250.0s] attention itu ada beberapa varian
+[3253.5s] [Musik]
+[3256.6s] apa di mana di sini tadi balik lagi ada
+[3259.8s] values ya values tadi yang hidden 1
+[3262.9s] hidden 2 hidden dan seterusnya di mana
+[3265.7s] hidden itu adalah Eh komponen-komponen
+[3268.0s] ini adalah vektor vktor vktor komponen
+[3270.3s] vektornya itu adalah RI yang panjangnya
+[3272.6s] adalah di1 dan sebuah
+[3275.6s] Eh ini adalah sebuah query S Tadi
+[3279.0s] seperti Misalkan contoh sebuah
+[3280.8s] hidden sebuah hidden di encoder eh
+[3284.0s] decoder yang di situ misal panjangnya
+[3286.5s] bisa D2 panjangnya bisa berbeda di sini
+[3290.4s] tadi Eh yang selalu dilakukan yang
+[3294.6s] meliputi apa saja dan yaitu membuat
+[3297.8s] skornya ya skornya seberapa skornya Nah
+[3301.2s] untuk membuat skornya ini tadi kita
+[3304.4s] menggunakan dot
+[3306.1s] produk do produk itu yang dapat
+[3309.1s] diinterpretasikan adalah itu adalah
+[3311.1s] kesamaan makna dengan dot produk yang E
+[3314.5s] itu tadit produk tapi ada beberapa
+[3317.6s] variasinya di sini menghasilkan skornya
+[3320.1s] itu bisa ada beberapa variasi bahwa Ee
+[3324.8s] Kita lihat lagi sekilas di sini ya di
+[3329.2s] sini bahwa ee waktu
+[3332.1s] ee di sini kita menghasilkan skor di
+[3335.0s] sini n skornya ini yang untuk attention
+[3338.1s] variasinya utamanya adalah di
+[3340.4s] sini Bagaimana menghasilkan skor DII
+[3343.2s] menghasilkan skor di sini nah kalau kita
+[3345.7s] lihat di sini ini kan salah satu yang
+[3349.1s] sederhana yaitu dengan produk di mana
+[3351.4s] produk itu eh perkalian produk antara
+[3355.2s] vektor dengan yang di mana di sini sudah
+[3358.3s] ada nilainya di sini tidak ada bobot ini
+[3361.6s] parameternya kalau di sini kan kita
+[3363.6s] lihat ada parameter-parameter bobot yang
+[3366.2s] diadjust diraining kan kalau di sini kan
+[3368.3s] enggak ada produk aja ini adalah yang
+[3371.4s] dasarnya kita lihat bahwa di sini
+[3376.4s] eh waktu proses pertama tahap pertama
+[3380.1s] yaitu menghasilkan attenstion score nah
+[3382.0s] di attension score ini ada beberapa cara
+[3384.7s] di sini kemudian Nah setelah didapatkan
+[3387.5s] skor skor skor untuk masing-masing
+[3389.3s] values tadi kita menghasilkan e
+[3393.0s] distribusi jadi ini suatu proses yang
+[3396.1s] sederhana ya Saya kira karena kita
+[3398.1s] dibuat saja distribusi menggunakan softm
+[3400.9s] nah kemudian setelah distribusi itu kita
+[3403.3s] hasilkan satu buah vektor yang E itu
+[3407.2s] adalah W ini di dari valu yang itu
+[3412.2s] merupakan adalah attension output ya
+[3414.5s] attension output atau kadang-kadang Kang
+[3416.4s] disebut dengan vektor konteks ya Jadi
+[3419.0s] kita balik lagi ke
+[3421.1s] sini kita balik lagi di sini ini adalah
+[3424.2s] vektor konteks ya yang output dari
+[3427.0s] attention attention output ini yang
+[3428.9s] dihasilkan hasil akhirnya adalah sebuah
+[3432.7s] eh vektor yang disebut
+[3435.6s] attention output atau eh disebut di sini
+[3439.7s] tadi ini
+[3442.1s] apa di sini disebut dengan konteks
+[3444.6s] vektor ya konteks vektor
+[3446.7s] nah kemudian variasi-variasinya tadi
+[3449.8s] kita prod menghasilkan skor Nah di sini
+[3453.2s] e bagaimana menghasilkan tadi yangwal
+[3457.3s] prod ya ini prod ya kita
+[3461.2s] dari e ini adalah query sebuah
+[3467.4s] vektor dari deoder ini yang
+[3475.1s] dierud E ini dengan asumsi bahwa
+[3479.0s] panjangnya di1 dan D2 sama antara s
+[3482.4s] dengan H itu
+[3483.7s] sama kemudian ini adalah versi yang tadi
+[3486.7s] itu kemudian yang varian yang lain
+[3490.2s] adalah
+[3491.2s] multiikatif artinya dikalikan di sini
+[3493.8s] ada ada w-nya ya di sini ada W ya di
+[3498.2s] sini ada W ya Di mana w-nya itu juga
+[3501.7s] bisa merupakan parameter atau dengan
+[3504.8s] aditif ya kalau aditif w-nya ada dua
+[3507.6s] w-nya di sini w-nya di sini ya w-nya ada
+[3511.7s] dua ya ketiga-tiganya baik itu produk
+[3515.5s] maupun multiplikatif maupun aditif itu
+[3518.8s] ya menghasilkan skoror menghasilkan e
+[3522.7s] menghasilkan e menghasilkan e scor
+[3525.7s] atttion yang dengan cara yang
+[3528.5s] berbeda-beda ya Di mana
+[3532.3s] e di sini Misalkan D3 ada D3 DII ini D3
+[3536.8s] yang dimensinya Dimensi 3 untuk
+[3540.4s] W1 kemudian W2
+[3544.6s] ee apa karena karena ada di D1 dan D2
+[3549.4s] Saya kira D1 dan D2 kemudian tengahnya
+[3551.6s] itu atau w-nya itu adalah D3 itu D3 itu
+[3555.2s] bisa adalah hper parameter yang
+[3557.4s] ditentukan hper parameter itu maksudnya
+[3559.5s] ditentukan oleh user sebelum proses
+[3562.5s] trainingnya itu Nah itu saya kira
+[3564.9s] seperti itu ee eh yang berkaitan dengan
+[3568.8s] attention untuk
+[3570.4s] summary-nya saya kira adalah ini di mana
+[3573.3s] attention itu merupakan salah satu cara
+[3575.6s] untuk fokus ya Fokus untuk bagian-bagian
+[3580.0s] tertentu jadi memberi attenion memberi
+[3583.2s] perhatian ke bagian-bagian tertentu tapi
+[3586.2s] soft ya soft
+[3587.8s] alignment dan ini memperbaiki
+[3590.7s] permasalahan se secara signifikan ya
+[3594.5s] Secara signifikan mungkin saya kira
+[3597.0s] seperti itu mungkin ada komentar
+[3599.2s] tambahan pertanyaan
+[3614.5s] silakan e Pak saya mau nanya yang di
+[3618.2s] soft alignment
+[3621.3s] eh soft alignment itu kan kalau misal
+[3625.6s] yang
+[3626.5s] biasa itu alignmentnya harus ditraining
+[3629.7s] sendiri ya Pak dari recnya kalau yang
+[3634.0s] attention itu menggunakan soft alignment
+[3639.8s] eh eh ada alignment sendiri tapi enggak
+[3643.6s] enggak dari trainingnya itu caranya
+[3645.7s] gimana pak Kalau mungkin kalau misalnya
+[3647.7s] dari yang
+[3649.6s] eh training sendiri itu kan misalnya
+[3654.9s] kata Eh ada one to many gitu loh Pak
+[3658.6s] kata kata dalam bahasa Inggris ya Bahasa
+[3661.4s] Prancisnya itu ada tiga tiga arti
+[3665.2s] mungkin juga ada frase-frasenya jadi
+[3667.4s] satu kata itu bisa ada dua kata dalam
+[3672.2s] bahasa lain Nah untuk yang yang training
+[3676.2s] dari di luar rnn itu mungkin bisa tapi
+[3680.0s] kalau yang di soft alignmentnya itu
+[3682.0s] caranya gimana ya Pak ya Saya kira itu
+[3685.2s] salah satu prinsip dasar yang sebenarnya
+[3688.3s] tadi cor cornya prinsipnya sment itu
+[3691.2s] maksudnya ini ya Iya ini kan ya ini kan
+[3694.5s] dihasilkan ini kan
+[3696.6s] eh attention score ini
+[3700.5s] ini maksudnya e acuannya itu kan dari
+[3703.4s] misalnya bahasa Prancis tuh
+[3705.0s] Il lah yang kata bahasa Inggrisnya itu
+[3709.5s] hihit me with eh itu munculnya makudnya
+[3713.5s] dari mana Dari acuan apa gu iya ya kita
+[3716.8s] waktu training kita punya paralel corpus
+[3719.2s] tapi paralel corpus yang tidak perlu di
+[3723.3s] online gitu paralel corpus Parel corpus
+[3726.0s] aja untuk men-raining machine
+[3727.6s] translation dalam kases ini kita kan
+[3729.5s] punya paralel corpus paralel corpus
+[3731.2s] bahasa Prancis dengan bahasa Inggris ini
+[3734.2s] di waktu training ini masuk ini ini ini
+[3737.8s] eh kan waktu training Kan itu ada
+[3741.4s] pasangannya pasangan antara eh input
+[3745.1s] dengan output pasangan itu maksudnya
+[3746.9s] parelpus di sini ini pasangan dengan ini
+[3750.0s] kalimat yang lain
+[3751.8s] eancis dan Inggris dan seterusnya tapi
+[3755.3s] tidak perlu kita melakukan di
+[3759.1s] secara di
+[3761.4s] luar Network ini apa RN ini karenaudah
+[3767.1s] di ini tapi kalau
+[3770.7s] yang yang di
+[3773.0s] [Musik]
+[3776.2s] nah ini kalau tidak ada Tension kita
+[3779.4s] tidak bisa melakukan yang seperti ininya
+[3782.7s] itu dilakukan secara di luar ini
+[3785.4s] dilakukan di luar neural Network kita
+[3788.0s] tadi baik itu menggunakan proses
+[3790.9s] training jadi ini kan paralelpus Ya ini
+[3793.6s] yang sebelah sini kiri dan kanan
+[3796.2s] paralelpus
+[3798.0s] terjemahannya terjemahannya ter ini tapi
+[3802.4s] katakat gak ada seperti kalauquranah
+[3805.8s] Quran yang ada terjemahannya Nah kita
+[3808.8s] tidak perlu menterjemahkan kata perkata
+[3811.0s] langsung terjemahan bahasa Arabnya satu
+[3812.9s] ayat bahasa Indonesia satu ayat itu
+[3816.2s] aja nah kemudian terjemahan kata
+[3820.1s] perkatanya dilakukan ee kalau di sini
+[3824.0s] Misalkan dengan di proses training lah
+[3826.4s] at dengan manual lah gitu tapi kalau
+[3828.9s] yang dikita di menggunakan ension itu
+[3832.6s] sudah otomatis kita dapatkan dengan ini
+[3838.3s] yang ini yang e distribution
+[3841.6s] distribution ini ini adalah jadi seperti
+[3843.9s] ini J Il ini yanginnya berarti ke sini
+[3847.6s] paling besar yang lain
+[3850.0s] keilu Gu Jadi tetap di sini ada paralel
+[3854.4s] corpus tetap ada parelpus karena namanya
+[3857.0s] juga kan ehine translation unuk training
+[3860.3s] perlu
+[3864.7s] paralelus Mungkin gitu ya mungkin jawab
+[3867.0s] pertanyaan atau enggak menjawab Pak ya
+[3870.7s] Jadi tetap perlu paralel corpus jadi ini
+[3873.7s] tidak sembarang ininya Maksudnya ya
+[3875.7s] kalau misalkan sembarang kalau tidak
+[3878.4s] paralel terjemahannya mungkin ya ini
+[3880.4s] jadi ngacau juga sih Agak engak benar
+[3881.9s] juga ininya ya apa
+[3883.8s] eh atau mungkin benar tapi maksudnya
+[3886.4s] jadi yang tidak seperti yang
+[3888.3s] diharapkanlah intinya apa distribrib
+[3904.2s] mungkin yang
+[3907.6s] lain kalau enggak ada mungkin sambil
+[3910.4s] kita diskusi nanti eh Mungkin saya akan
+[3912.8s] sekilas meneruskan ya Mung
+[3916.4s] Pak saya coba teruskan nanti kita dinya
+[3919.2s] di akhir ya Pak
+[3921.0s] ya Mak Pak
+[3923.4s] m ini adalah Trans ya Mak Transformers
+[3927.8s] secara sangat singkat ya namanya
+[3929.2s] Transformers ya ini adalah arsitektur
+[3932.4s] untuk yang bisa
+[3936.6s] memperbaiki rnn ya dengan ATT utamanya
+[3940.1s] ya di sini secara umumal seperti ini ini
+[3943.6s] adalah ada enoder
+[3945.9s] daner kemudian di sini ada yang
+[3949.3s] namanya eh tahunya
+[3952.8s] Ini ar datanya sequence to sequence tapi
+[3957.2s] prosesnya bukan sequence to sequence TII
+[3959.5s] datanya tetap sequence to sequence Iya
+[3962.3s] datanya bisa sequens Misalkan bahasa
+[3965.7s] sumber ke bahasa target tapi di sini
+[3968.9s] prosesnya tidak sequens sequens tidak
+[3971.0s] serial tidak serial di sini yaitu dengan
+[3973.8s] cara ada Posisinya itu di encode ada
+[3978.2s] posisinya posisi satu posisi dua posisi
+[3980.8s] tig dengan cara dia ada punya posisinya
+[3984.1s] jadi tahu bahwa
+[3986.5s] sebuah kata itu mendahului kata yang
+[3989.6s] lain seperti tadi misalkan nah ini
+[3992.1s] mendahului ini kemudian di selanjutnya
+[3995.0s] ini selanjutnya ini ini kan kalau di
+[3996.6s] sini memang dari sisi ee arsitekturnya
+[4000.1s] secara ini kan Mang seperti ini ya tapi
+[4002.8s] kalau di sini ini dengan di ini apa
+[4006.4s] dengan dinomerin lah intinya gitu
+[4008.3s] dinomerin dan nomernya Itu maksudnya
+[4010.7s] Kemudian vektornya untuk penomoran sama
+[4013.2s] vektor yang katanya dijadikan satu
+[4015.0s] terbih gitu ya Nah kemudian di sini ada
+[4017.8s] namanya self attention ya self attention
+[4020.7s] ya karena peramanya adalah self
+[4022.9s] attention tapi kemudian juga supaya
+[4025.0s] lebih efektif Apa ada yang disebut
+[4027.2s] dengan multihe attention ya kalau yang
+[4029.7s] tadi rnn tadi machine translation yang
+[4032.7s] rnn tadi kan dari decoder ke encoder
+[4035.3s] kalau ini dari dirinya sendiri self dari
+[4038.7s] satu kata di kalimat itu ke kata yang
+[4041.0s] lain ada memberi attention-nya Bagaimana
+[4043.8s] nah sebelum kita ke ehtion ada
+[4047.1s] tambahan-tambahan atau ini adalah
+[4049.1s] maksudnya multihe Ya kalau panahnya
+[4051.6s] berapa ini nah kemudian ini ada yang
+[4053.9s] namanya kalau yang pintas ini ini Eh
+[4057.2s] istilahnya ada
+[4058.6s] eh ya jalur pintasnya ya Ada Highway
+[4062.4s] atau apa jalur pintasnya yang ini supaya
+[4064.7s] informasinya masih ada nyambung Di sini
+[4066.5s] masih sebagian sebagian masuk sini
+[4068.5s] sebagian di sini ini teknik Umum bukan
+[4071.3s] khusus Transformer tapi secara umum
+[4073.3s] tidak ada hubungannya dengan atttion
+[4075.5s] tidak ada hubungannya dengan Transformer
+[4077.4s] tapi secara umum kemudian di sini ada
+[4079.7s] normalization juga normalization ini
+[4082.3s] juga umum supaya nilainya misalkan
+[4084.9s] antara 0 sampai 1 misalkan ini umum yang
+[4088.0s] di sini yang spesifik adalah yang
+[4089.5s] attension di sini nah kemudian
+[4092.1s] Diteruskan dengan eh Fit forward biasa
+[4095.4s] jadi seperti multiayer persept itu Fit
+[4098.4s] forward kemudian ini adalah Eh ini apa
+[4101.9s] encoder nah decodernya mirip-mirip
+[4104.6s] seperti itu ya
+[4106.6s] Eh apa mirip-mirip seperti itu ininya ya
+[4110.3s] mirip-mirip E dari encoder dengan deoder
+[4113.3s] nah ini eh self attention ya self
+[4116.0s] attention ini self attention ya Di mana
+[4120.2s] self attention ini Ini adalah sebuah
+[4123.1s] kalimat seperti itu ini kalimat yang
+[4125.6s] sama sebenarnya kan cuman ditulis ulang
+[4127.3s] di atasnya Cum atasnya jadi misalkan
+[4131.5s] kalimat kata di sini kata itu ke kata
+[4135.5s] yang lain kata yang lain kata yang lain
+[4138.2s] semua kata yang lain ini atensinya
+[4140.4s] seberapa besar Oh ternyata
+[4142.5s] eh l itu dengan cat itu lebih besar
+[4147.4s] daripada misalkan
+[4149.0s] nya itu dengan
+[4150.6s] the jadi menjilat itu dari cat bukan
+[4154.3s] dari
+[4156.2s] the tahunya Bagaimana tahunya dari
+[4158.8s] training
+[4163.2s] diainingya denganaining ini juga
+[4166.3s] kata kemudian e Lik itu dengan owner
+[4170.8s] jadi seperti cat ini mungkin contoh yang
+[4173.6s] bagus ya Maksudnya E contoh yang
+[4176.6s] berhasil ya Jadi ada kucing itu
+[4178.9s] e dia dan menjilati pemiliknya jadi di
+[4182.9s] sini menjilatinya itu
+[4185.2s] dengan hubungan yang paling besarnya
+[4188.6s] attensnya dengan cat kucing dan
+[4191.6s] pemiliknya seperti itu ya jadi seperti
+[4194.6s] Katakanlah mungkin ini ee predikat
+[4198.0s] kemudian ini adalah subjek dan ini
+[4200.8s] adalah objek dan lain-lain ada juga tapi
+[4203.6s] kecil seperti itu dan secara otomatis ya
+[4207.1s] bisa digambarkan juga seperti ini
+[4209.4s] misalkan it Ini adalah kata yang sama ya
+[4211.7s] ini dengan inkat yang sama cuma ditulis
+[4213.4s] ulang di sini nah add di sini ini ee
+[4217.1s] ternyata misalkan dekatnya dengan mana
+[4219.0s] ya apa it Ini kata ganti it itu siapa
+[4222.6s] apa atau siapa Oh ternyata it itah
+[4224.9s] animal
+[4226.0s] ya ya binatang itu tidak menyeberang
+[4230.3s] jalan karena dia terlalu lelah nah dia
+[4234.6s] ini siapa Nah ini
+[4238.0s] eh seperti ini adalah kerence ini ini
+[4241.4s] mengacu ke siapa ini ternyata bisa
+[4243.6s] sebagai k juga bahwa dia Misalkan dengan
+[4246.3s] ke animal yang paling besar di sini
+[4248.4s] kemudian hubungannya juga karena dia
+[4250.0s] terlalu lelah misalkan tapi utamanya
+[4252.5s] misalkan hubungannya ini adalah
+[4256.3s] G jadi iniah self
+[4259.7s] attention ya Eh intinya adalah seperti
+[4262.8s] itu sebenarnya untuk
+[4266.9s] Transformer jadi meskipun Bukan hanya
+[4269.7s] dia bukan hanya ATT saja tapi ada
+[4272.0s] beberapa yang lain tapi intinya adalah
+[4273.6s] eh
+[4276.0s] atttion kemudian dengan beberapa bukan
+[4278.5s] hanya
+[4279.7s] satu dengan
+[4282.4s] multikun di sini ada varian yang lain
+[4284.6s] lagi
+[4285.8s] bahwa kalau di output itu tetap kalau di
+[4289.5s] output itu kan serial sehingga dia hanya
+[4292.4s] bisa melihat attens itu sebelumnya saja
+[4294.9s] karena sesudahnya kan belum dimunculkan
+[4298.0s] belum diprediksi misalkan membuat
+[4300.5s] outputnya kan dari kiri ke kanan juga
+[4302.6s] kalau bahasa Inggris
+[4306.6s] bahasaes mungkin ada komentar
+[4308.8s] tambahantanyaan tentang Transformer
+[4315.8s] jadi kalau kita lihat papernya
+[4318.6s] Transformers itu kan juga papernya
+[4322.3s] relatif sederhana
+[4336.2s] ya tapi sangat ini sekali apa sangat
+[4339.0s] populer
+[4341.0s] sekali jadi Trans itu ad
+[4344.2s] arsitektur
+[4348.7s] itektur Jadi bukan rnn lagi ini sudah
+[4368.3s] Transformer ya kalau kita lihat sekilas
+[4376.6s] ya Ad yang dibutuhkan hanya saja ya yang
+[4380.5s] dibutuhkan hanya
+[4384.6s] sa ya Dib hanya sa jadi
+[4388.6s] tidak apa rnn t ada
+[4394.2s] serial Ya intinya seperti ini yang tadi
+[4399.2s] kemudigunakan iniah ini
+[4405.5s] yang saya kira
+[4407.1s] e antara sebenarnya antara dengan valu
+[4410.8s] itu kalau yang tadi di gambar kita yang
+[4414.0s] seperti ini ini
+[4416.5s] adalah ini adahy inial
+[4421.7s] Val itu adalah yang di sininya tadi kan
+[4425.7s] Kani e di sini ke sini adal e
+[4431.1s] ehnya
+[4432.8s] ya tapi kalau dibut yang utamanya adalah
+[4435.8s] query dan
+[4442.2s] valuesnya nah ini menggunakan do product
+[4445.2s] attention tapi
+[4447.1s] eh scale produc attention kemudian ini
+[4450.9s] beberapa ini meng v k dan Q
+[4456.4s] tadi silakan mungkin
+[4459.4s] adaar mungkin perlu dilore lagi untuk
+[4462.4s] dibuat
+[4464.0s] ininya dibuat presentasi yang
+[4467.7s] pasc mungkin kita teruskan sebentar
+[4470.8s] sebelum nanti kita ada diskusi yang ter
+[4474.4s] adalah transfer learning Ya ini tidak eh
+[4477.8s] secara proses yang lebih umum Sebenarnya
+[4479.9s] bukan hanya berkaitan attenstion dan ini
+[4483.2s] apa Transformer tapi di kenyataan
+[4486.7s] sekarang
+[4488.6s] Eh banyak menggunakan transferis dan
+[4491.6s] karena kita mata kuliahnya adalah bukan
+[4494.4s] mata kuliah di lening sehingga
+[4495.8s] dibahasnya ini sekilas-sekilas saja
+[4497.6s] sehingga supaya tidak menghabiskan
+[4500.1s] Minggunya sehingga ini dijadikan satu di
+[4503.4s] sini ya jadi di sini
+[4507.1s] untuk ini ya untuk transfer learning eh
+[4511.2s] bahasanya
+[4512.8s] adalah ini secara garis besar pengantar
+[4517.0s] kemudian
+[4518.7s] yang kondisi atau yang masuk akal untuk
+[4522.4s] transfer learning Seperti apa kemudian
+[4525.0s] mengapan transfer learning kemudian
+[4527.1s] salah satu transfer learning yang
+[4529.7s] sekarang populer salah satunya adalah
+[4532.1s] ini adalah transf Kemudian untuk bahasa
+[4534.2s] Indonesia atau ada indoberd ini
+[4536.9s] menggunakan Ind nlu yang sudah
+[4539.6s] disediakan juga datanya disediakan
+[4542.7s] cod-nya yang bisa menjadi tugas di mata
+[4546.1s] kuliah ini saya kira kemudian yang dekat
+[4549.6s] yang
+[4550.8s] denganarning apa disbut Mas learning
+[4553.4s] yaas learning
+[4555.8s] ada yang mengatakan ini bagian dari
+[4557.4s] transferarning tapi ada yang mengatakan
+[4559.2s] Bukan tapi e dalam kasus ini sebenarnya
+[4561.9s] kita
+[4564.8s] mengatakan ya jadi di sini di tradion
+[4570.1s] DII ada tas tas itu
+[4574.9s] misalkanas
+[4578.2s] misalkaning di
+[4580.6s] miskan masing-mas tas ini menggunakana
+[4583.7s] sendi sistemnya sendiri datanya sendiri
+[4587.1s] learning sistemnya sendiri datanya
+[4588.8s] sendirinya sendiri yang terpisah
+[4591.7s] independen satu dengan yang lain nah
+[4594.3s] kemudian ini menggunakan transfer
+[4596.6s] learning di sini ada
+[4598.7s] eh source-nya yang bisa digunakan
+[4601.5s] bersama kemudian ini adalah knowledge
+[4603.9s] yang kemudian ada yang targetnya yang di
+[4606.7s] sini yang targetnya ini digunakan
+[4610.4s] seperti di sini Misalkan dengan question
+[4612.8s] answering nah kemudian Eh ini
+[4615.8s] menggunakan tas yang lain ya target tas
+[4617.6s] yang lain seperti misalkan di sini
+[4620.0s] klasifikasi ini e hampir sama seperti
+[4623.1s] tadi ada eh tas yang domain a ini adalah
+[4627.8s] model a ini model b ini- bisa bersamanya
+[4632.6s] bersama atau sebenarnyanya ada yang eh
+[4636.8s] sebuahransfer ke yang lain nah ini
+[4640.1s] misalnyatohnya yang ini ada
+[4643.2s] satu networ Sin ini Enggak usah Ya ini
+[4646.5s] enggak usah dilihat dulu ini satu
+[4648.4s] Network di sini ini di trining kemudian
+[4651.5s] ini sudah ada work-nya artinya jadi
+[4654.3s] model kemudian misalkan inilah image
+[4657.2s] recognition image recognition itu
+[4659.7s] Misalkan contohnya mengenali image
+[4662.6s] kucing dengan image eh anjing yang
+[4665.7s] Mungin datanya sudah banyak gitu ya jadi
+[4668.0s] datanya sudah banyak sehingga eh
+[4670.4s] didapatkan model yang
+[4672.6s] eh akuransinya tinggi sini nah kemudian
+[4676.0s] kita mau ada radiologi diagnosis datanya
+[4679.2s] sedikit artinya misalnya data manusia di
+[4683.2s] situ bukan anjing bukan kucing tapi
+[4685.9s] manusia ya manusia nah itu kemudian kita
+[4689.9s] bisa transfering dari tas sat image
+[4692.2s] reognisnya anjing kucing tadi sama-sama
+[4694.6s] image ini juga image juga tapi manusia
+[4697.8s] radiologi Nah di sini yang tadi sudah di
+[4701.4s] eh learning sudah bagus data yang banyak
+[4704.4s] anjing kucing nah kemudian di sini
+[4707.6s] em dipotong di sini yang akhir-akhir
+[4711.6s] atau yang terakhir
+[4713.3s] layernya kemudian diganti dengan yang
+[4716.7s] untuk radiologi artinya di sini kan
+[4719.0s] Apakah anjing Apakah kucing Apakah apa
+[4721.0s] misalkan kalau di sini apakah ini
+[4723.2s] misalkan Apakah tulang apa ini tulang
+[4725.1s] apa Tulang apa misalkan gitu ya Nah
+[4727.3s] kemudian dipotong diganti di sini nah
+[4730.0s] kemudian contohnya layer terakhir aja
+[4732.2s] diganti kemudian dietraining
+[4735.2s] dengan data radiologi yang kita punya
+[4737.2s] tapi sedikit jadi data radiologi kita
+[4740.2s] punya juga data training berlabel tapi
+[4742.2s] sedikit e kemudian di trining beberapa
+[4746.2s] layer terakhir aja di sini bisa atau
+[4749.0s] semuanya juga bisa kalau data kita cukup
+[4751.7s] ya ditraining aja Dari sini Dari awal
+[4755.0s] tapi data kita sedikit ini enggak usah
+[4757.2s] dipakai dulu waktu waktu mau mengisi ini
+[4759.8s] robotnya Nah itu dengan ditrainingnya di
+[4762.2s] sini
+[4763.0s] saja Kemudian ada istilah pre training
+[4765.9s] artinya yang menggunakan data dan kcing
+[4768.1s] itu adalah preraaining kemudian setelah
+[4771.3s] dipotong dan digunakan data radiologi
+[4773.6s] istilahnya adalah fine tuning jadi ada
+[4775.4s] istilah preraining ada fine tuning nah
+[4779.7s] kemudian eh
+[4782.5s] apa logikanya Bagaimana Mengapa transfer
+[4785.8s] learning seperti itu bisa Mengapa data
+[4787.6s] anjing dan kucing itu bisa digunakan
+[4789.7s] untuk radiologi yang manusia karena
+[4792.8s] salah satunya logikanya n adalah ee
+[4796.2s] fitur low levelnya itu fitur-fitur di
+[4798.8s] awal di sini itu masih agak mirip-mirip
+[4801.4s] ya antara tas
+[4803.2s] tas apa tas image Processing dengan
+[4807.3s] misalkan radiologi tadi mirip-mirip
+[4809.1s] mirip-mirip itu Misalkan karena misal
+[4811.3s] misalkan ada bagian-bagian dari tubuh
+[4813.1s] meskipun antara orang dengan anjing
+[4815.3s] kucing misalkan gitu tapi masih
+[4816.8s] mendinglah masih masih masih mending
+[4819.6s] bukan bukan image Processing yang mobil
+[4823.3s] tapi misalkan anjing kucing nah kemudian
+[4825.7s] contoh yang lain ada di sini
+[4828.1s] eh bisa juga contohnya misalkan adalah
+[4831.4s] spe recognition dari audio ke teks atau
+[4834.8s] juga kemudian Eh ini adalah prrainingnya
+[4838.5s] yang banyak datanya kemudian dat yang
+[4840.3s] sedikit misalkan disebut dengan ini apa
+[4843.4s] Trigger detection atau apa yang mrigger
+[4847.0s] bisa sebuah kataer apa gitu ya Nah ini
+[4851.0s] yang untuk tas duanya target nya ini
+[4854.9s] bisa saja beberapa layer juga ya layer
+[4857.8s] juga tapi intinya di sini adalah lebih
+[4859.6s] sedikit dipotong diamputasi yang di sini
+[4862.9s] lebih sedikit daripada yang asinya di
+[4864.4s] sini
+[4866.3s] ya Ya kondisi apa yang cocok untuk
+[4870.8s] transfer learning Ya kalau tas 1 itu
+[4873.6s] bisa menghasilkan knowledge yang lebih
+[4876.1s] bagus artinya tas sat itu datanya jauh
+[4878.2s] lebih banyak daripada tas du ya tetapi
+[4881.8s] biasanya juga karena tas du itu datang
+[4883.9s] sedikit artinya biasanya tas du itu
+[4885.3s] lebih berharga seperti tadi misalkan tas
+[4887.8s] sat itu adalah image recognition anjing
+[4889.8s] kucing tas du itu adalah R radiology
+[4892.8s] detection di mana Di radiology detection
+[4895.6s] itu data berlabel punya tapi relatif
+[4898.6s] sedikit tapi itu lebih berharga dan kita
+[4901.6s] kalau mentraining hanya dengan tas dua
+[4903.9s] saja itu hasilnya jelek kemudian kita
+[4907.6s] mengambil informasi atau knowledge dari
+[4909.6s] tas 1 itu ternyata
+[4911.1s] membantu ternyata membantu dan kemudian
+[4914.8s] tentunya tas 1 dan tas 2 masih terkait
+[4916.8s] kalau misalkan tas du itu adalah
+[4918.6s] radiologi
+[4919.6s] eh tas 1 juga masih terkait yaitu image
+[4923.6s] Processing yang sama-sama makhluk hidup
+[4925.9s] misalkan sehingga low
+[4928.2s] levelesentationnya artinya yang apa
+[4931.6s] representasi fitur-fitur yang sebelah
+[4933.9s] kiri tadi itu masih dekat-dekat ya
+[4936.9s] misalkan ada tadi ada bagian-bagian
+[4939.2s] tubuh atau
+[4941.0s] sama-sama dan juga tentunya image dengan
+[4943.5s] image audio dengan audio ininya apa eh
+[4946.8s] permasalahannya ya Nah kemudian Mengapa
+[4950.4s] transfer learning di teks Mengapa Trans
+[4953.1s] di NLP karena di NLP tas itu beberapa
+[4957.2s] tas-tas di NLP machine translation
+[4959.9s] kwering
+[4961.6s] eh kemudian
+[4963.8s] misalkan sentimen analisis itu men-share
+[4967.8s] knowledge yang bersama tentang bahasa ee
+[4971.4s] representasi bahasa struktur bahasa itu
+[4974.6s] masih Eh ada common knowledge-nya ada
+[4977.3s] sama-sama knowledge yang comennya untuk
+[4981.5s] bahasa ya E kemudian Eh bisa
+[4985.4s] menginformasikan satu dengan yang lain
+[4987.0s] tas sat dengan tas du seperti misalkan
+[4989.5s] sintaksnya kemudian semantiknya ya
+[4992.8s] kemudian juga Karen anotasinya itu
+[4994.9s] Misalkan jarang untuk yang supervis
+[4998.6s] superv learning Ya ini eh sehingga ada
+[5002.0s] juga yang anotasinya lebih banyak
+[5003.4s] sehingga kita memanfaatkan anotasinya
+[5006.2s] lebih banyak dan kenyataannya secara
+[5009.2s] empiris transfer learning itu
+[5011.3s] menghasilkan State of the artnya jadi
+[5014.6s] dengan dibantu transfer learning itu Eh
+[5018.3s] supervise andl tas itu dari State of the
+[5021.3s] art mengalahkan yang traditional machine
+[5023.7s] learning seperti misalkan klasifikasi
+[5026.3s] information Extraction
+[5028.2s] atau Nah di sini untuk B ya salah satu
+[5032.8s] apa salah satu
+[5035.0s] yang di
+[5036.4s] e Trans yang populer ini pendekatannya
+[5040.6s] adalah seperti ini ini kalau yang
+[5042.7s] sebelumnya itu
+[5044.4s] menggunakan unal k ya jadi dari kiri ke
+[5048.1s] kanan bahasa Inggris dari kiri ke kanan
+[5051.1s] ya representasinya dari kiri ke kanan
+[5053.5s] kemudian kalau direal k ini
+[5056.3s] Eh kanan ke kiri ya Jadi bisa dia
+[5059.6s] melihat konteksnya dari kanan ke kiri
+[5062.8s] kemudian dia mengunakan itu apa yang
+[5065.7s] disebut dengan language model itu adalah
+[5068.7s] kalau sebelumnya Kalau kita pelajari itu
+[5070.6s] kan memprediksi kata seberikutnya kan
+[5073.6s] kalau di sini tidak seperti itu tapi
+[5075.9s] sebuah kalimat seperti ini misalkan
+[5077.6s] sebuah kalimat ini dibolonginnya yang di
+[5079.9s] sini di tengah tidak di akhirnya yang
+[5082.8s] titik-titik harus diisi itu di sini di
+[5084.9s] DII masker DII apa
+[5088.0s] ditutupin sehingga disuruh nebaknya ini
+[5091.0s] disuruhbaknya ini nebaknya ini artinya
+[5093.8s] kita bisa dari kiri dan kita bisa dari
+[5096.2s] kanan gu ini adalah namanya disebut
+[5098.9s] dengan Mask language model tapi Mask ini
+[5102.4s] yang di yang dihapus-hapus ini disuruhak
+[5105.6s] itu ee jangan terlalu sedikit ya
+[5108.3s] kalauang kalau terlalu sedikit Nanti
+[5110.5s] trainingnya terlalu susah gitu ya apa
+[5112.9s] komputasinya ekspensif tapi kalau
+[5115.6s] terlalu banyak itu konteksnya jadi
+[5117.4s] kurang karena ini di dihapus dihapus
+[5120.8s] disurun Lebak nanti konteks Ke Kiri Ke
+[5123.0s] kanannya kurang
+[5125.1s] Nah di sini tas S yang tadi transfer kan
+[5129.9s] dari tas pertama ke tas kedua ya Nah tas
+[5133.6s] yang diining itu next sent prediction ya
+[5137.8s] jadi di yang populer ini menggunakan
+[5141.6s] tasnya adalah bukan transation bukan Apa
+[5145.7s] next S prediction dengan next prediction
+[5149.1s] kita tidak perluel karena datanya sudah
+[5151.5s] ada kan ini tinggal misalkan ini adalah
+[5155.1s] eh Apa jadi
+[5158.5s] untuk melakukan proses learning hubungan
+[5161.4s] antar sentence ini memprediksi sentence
+[5164.3s] berikutnya saja sentence Apakah sentence
+[5166.4s] B ini Apakah benar merupakan apa
+[5171.4s] E selanjutnya dari sentence atau tidak
+[5174.3s] ya atau random sentence saja bukan
+[5176.9s] kelanjutannya seperti misalkan ini
+[5178.9s] sentence a ini sentence B ini kemudian
+[5182.5s] labelnya Apakah ini next sentence
+[5185.1s] beneran atau tidak dari corpus ini kan
+[5187.0s] sudah Gampang kalau beneran atau tidak
+[5189.4s] Ini kan gampang ini m laabel tidak usah
+[5191.5s] pakai manusia secara otomatis saja bisa
+[5194.6s] karena kita kan tahu dari corpus bahwa
+[5197.2s] ini kemudian dilanjutkan dengan ini ini
+[5200.1s] adalah lnya is next sentence tapi kalau
+[5202.8s] misalkan ini kemudian lanjutnya adalah
+[5206.2s] sebennya ini dari corpus kita ambil aja
+[5209.0s] random yang B lbelnya adalah not next
+[5211.9s] karena ini b-nya itu random bukan kata
+[5214.5s] bukan kalimat berikutnya sebenarnya yang
+[5216.6s] B itu dari berikutnya dari a nah ini
+[5219.9s] sehingga tas ini tas next sentence
+[5223.0s] prediction itu gampang
+[5226.0s] mendapatkannya dengan dengan data yang
+[5229.0s] sangat-sangat banyak bisa karena tidak
+[5231.1s] perlu manusia tidak perlu proses yang
+[5234.0s] rumit-rumit gampang nah
+[5237.3s] ee jadi ada dua tadi ada dua yang
+[5240.1s] pertama adalah itu tadi language
+[5243.1s] language apa eh Mas language model yang
+[5246.9s] ini yang pertama Kemudian yang kedua
+[5249.6s] adalah next Ini tas satunya dua ini
+[5251.7s] sebenarnya tas sat yang ini tas satunya
+[5254.1s] ada dua next language sama ini dua ini
+[5257.4s] jadi di sini ada dua Max language model
+[5260.5s] sama next sentence prediction Ya next
+[5264.0s] sentence prediction Ya next sentence ini
+[5266.2s] adalah Mas tadi Mas itu artinya Eh ini
+[5269.2s] di di ini apa dibolongin atau di haapus
+[5274.3s] kemudian diuruh memprediksi kata di
+[5276.1s] tengahnya yang bolong-bolong ini di
+[5278.2s] proses trainingnya ini di prraaining ini
+[5280.9s] yang bolong-bolong di tengah sebuah
+[5282.6s] kalimat kata-katanya dihapus Ini disuruh
+[5284.5s] memprediksi diraining dengan training
+[5286.7s] dan itu data trainingnya gampang yang
+[5289.7s] pertama Kemudian Kemudian yang yang Mas
+[5292.4s] ini kemudian Inah next sentence jadi ada
+[5294.9s] sentence kemudian sentence berikutnya
+[5297.3s] next-nya Apakah itu next-nya atau bukan
+[5299.6s] itu juga eh Mudah juga ya dengan
+[5303.0s] kriterianya seperti itu gu kemudian eh
+[5306.2s] knowledge yang didapat dari sini
+[5308.8s] didapatkan dari eh language model Max
+[5312.5s] language model dan next sentence
+[5314.0s] prediction
+[5315.7s] ini kemudian tasnya bisa ini adalah
+[5319.2s] question answering tasnya adalah name
+[5322.0s] entity recognition
+[5323.9s] ya ya ini adalah tas ininya apa tas
+[5329.3s] e
+[5330.9s] tas seperti misalkan ini ad misalkan eh
+[5334.6s] question answering questioning di sini
+[5336.3s] maksudnya adalah question inputnya sama
+[5339.1s] ini paragrafnya ini kalimat kalimat
+[5341.6s] ininya kalimat pertanyaannya dan ini
+[5344.2s] adalah eh teksnya isnya is kemudian
+[5349.5s] pertanyaannya apa diminta mencari dari
+[5352.5s] sini dari sini ya dicari di sini e
+[5355.6s] ininya start dan
+[5357.4s] dari yang ada di paragraf ini contohnya
+[5360.1s] Misalkan seperti ini ini adalah
+[5362.0s] pertanyaannya di sini
+[5364.7s] pertanyaannya ya pertanyaannya di sini
+[5366.6s] tadi ya pertanyaannya sequens di sini
+[5369.2s] yang diber yang tas tas e question
+[5372.9s] answering Inah pertanyaannya nah
+[5375.6s] kemudian Ini paragrafnya paragrafnya ini
+[5379.2s] paragrafnya pertanyaan ini ini
+[5381.7s] paragrafnya kemudian di jawabannya
+[5384.6s] disuruh nyari dari
+[5386.8s] sini di dalam teks di isinya ini nah
+[5390.2s] jawabannya ini jawabannya adalah di sini
+[5392.6s] di sini jawabannya apa saja ya di sini
+[5394.5s] gu nah ini adalah ee apa Eh tas yang
+[5400.3s] menerima knowledge dari tas question
+[5403.0s] answering Di Sini menerim dari eh next
+[5406.5s] sentence prediction dan dan ini dan Mas
+[5410.6s] language model kemudian Nah untuk nlu
+[5414.6s] itu menggunakan eh diraining menggunakan
+[5418.4s] bahasa Indonesia bahasa Indonesianya
+[5420.7s] cukup banyak juga datanya Nah kemudian
+[5424.0s] ini dataset dataset dataset yang
+[5425.8s] digunakan yang cukup banyak datasetnya e
+[5429.8s] dengan tas yang macam-macam ya bisa
+[5431.6s] digunakan untuk tas yang macam-macam
+[5434.4s] bisa digunakan untuk tas yang
+[5435.7s] macam-macam ada
+[5438.2s] emotionification analis ini Dat yang
+[5442.4s] berbagai tas ini kemudian
+[5445.6s] aspek analis
+[5450.0s] speing recn misalkan initoh salah satu
+[5454.4s] tasnya yang kita bisa gunakan ya untuk
+[5458.4s] find tuning tadi
+[5462.0s] ya ya
+[5466.2s] ini contohnya ya contoh untuk tas 1 tas
+[5469.0s] 2 dan seterusnya nah kemudian ini yang
+[5471.3s] terakhir permasalahan yang terkait
+[5473.5s] dengan ini dengan transfer learning itu
+[5476.6s] disebut dengan multitas learning Ya
+[5479.5s] kalau di transfer learning itu yang
+[5481.6s] mentransfer tas itu adalah yang datanya
+[5484.7s] banyak ya kemudian yang tas yang nerima
+[5487.5s] transfer itu datanya sedikit kalau
+[5490.2s] multitas itu datanya sama-sama banyaknya
+[5492.9s] ya tapi juga harus mirip-mirip antara
+[5495.3s] tas tas tas mirip-mirip jadi
+[5498.5s] barang-barang di sini tidak misalkan tas
+[5500.9s] 1 ini bikin rnn sendiri tas rnn
+[5506.3s] sendiriining sendiri tas RN sendirias
+[5510.9s] rend tapi ini dibarengkan
+[5514.2s] antara datanya dicampur kemudian juga
+[5517.9s] digunakan untuk tas-tas yang mirip-mirip
+[5520.9s] nah contohnya misalkan di
+[5523.3s] sini untuk deteksi image kalau khusus
+[5527.0s] untuk memprediksi pedestrian untuk apa
+[5530.6s] trotoar misalkan
+[5532.8s] diining untuk memprediksi Apakah di
+[5535.6s] gambar itu image itu ada mobil itu juga
+[5538.6s] diraining juga tapi menggunakan data e
+[5541.2s] apa yang sama dan seterusnya jadi s tas
+[5544.5s] 2 dan berikutnya dengan tasnya itu
+[5547.8s] saling terkait kemudian ee jumlahnya
+[5552.4s] hampir mirip-mirip jumlahnya nah
+[5555.6s] eh tasnya juga mirip artinya low level
+[5559.3s] fiturnya juga masih mirip-mirip ya l
+[5562.2s] level fiturnya artinya l level fitur itu
+[5564.0s] yang di sini itu masih mirip-mirip
+[5566.8s] sehingga bisa digunakan Saya kira
+[5568.8s] seperti itu eh untuk transfer learning
+[5571.7s] secara
+[5572.8s] dasarnya untuk lebih detailnya bisa
+[5574.9s] dilihat juga di
+[5576.6s] ee yang saya sampaikan di RPS atau
+[5579.8s] banyak yang lain Saya
+[5581.2s] kira silakan mungkin ada komentar
+[5583.8s] pertanyaan
+[5586.4s] tambahan pak aratul mungkin
+[5598.2s] yang saya tidak menambahkan cukup rinci
+[5602.0s] soal
+[5603.9s] jadi Sudah cukup e rinci ya dari konsep
+[5608.8s] attension dan
+[5611.3s] transformerut juga aplikasi bahkan sudah
+[5614.2s] di bahasa Indonesia yang ada yang
+[5617.0s] mengembangkan ya Bu Ayu Kalau enggak
+[5618.9s] salah ya pak ya
+[5621.6s] dari universitas itu itu
+[5626.5s] Eh ya tinggal bukan tinggal kita
+[5631.7s] memahaminya menerapkannya Jadi kalau
+[5634.5s] anda mau nyoba-nyoba ya tinggal ngambil
+[5637.0s] ee resource yang ada kemudian di coba
+[5640.5s] diun itu pun bukan hal yang sederhana ya
+[5643.5s] namanya ngeroding kan enggak langsung
+[5646.4s] jalan biasanya
+[5648.0s] begitu gitu aja mungkin mangga kalau ada
+[5651.4s] yang mau ditanyakan yang
+[5658.5s] lain bisa cukup diikuti bisa perlu waktu
+[5662.7s] untuk menyerap ya
+[5665.1s] nanti diharapkan yang presentasi yang
+[5668.2s] pascnya bisa
+[5670.0s] dipelajari Mas perteman dipelajari lagi
+[5673.2s] termasuk juga Mungin resar-resour yang
+[5675.2s] disebutkan yang aslinya yang saya juga
+[5678.0s] mengaju untuk
+[5686.7s] diperbaiki memastikan Pak eh untuk yang
+[5690.4s] transfer
+[5691.8s] learning itu kan
+[5697.1s] image recognition

@@ -1,0 +1,1080 @@
+[0.6s] Oke makanya tadi kelas m learning minta
+[4.4s] digantiin duluar
+[9.2s] Oke So hari ini kita akan masuk new
+[12.1s] topik kayaknya topik Sebelumnya udah
+[15.1s] selesai ya yang confusional Network ya
+[19.0s] benar
+[21.2s] enggak apa topik terakhir saya lupa
+[30.6s] Apakah kita sudah masuk ke recarenolnet
+[34.6s] atau masih di
+[39.2s] konolusionet CNN sepertinya sudah Pak
+[42.7s] jadi sudah bisa masuk ke rnn iya
+[47.2s] oke oke kita mulai
+[50.1s] kuliahnya Selamat pagi
+[53.0s] semuanya ee kalau kalian berpuasa ya
+[57.6s] mudah-mudahan bisa berpuasa dengan baik
+[60.2s] walaupun kuliah ya so kita akan masuk
+[63.7s] topik baru yang disebut recurrent neural
+[68.6s] Network saya asumsikan kalian udah bisa
+[73.0s] paham apa itu
+[79.9s] Eh multiayer percep Oke saya juga
+[84.3s] asumsikan kalian sudah paham apa itu
+[87.0s] convoluion neural Network di pertemuan
+[89.4s] sebelum nya Nah sekarang kita akan masuk
+[93.1s] ke recurrent neural Network
+[98.3s] Oke recur neural Network biasanya
+[101.5s] berurusan dengan sequence Apa itu
+[104.9s] sequence pola data data yang polanya itu
+[108.5s] sequens Susunan urutan misalnya teks ya
+[114.1s] kalau misalnya saya kasih kalian kalimat
+[116.2s] ini yang saya highlight ada tig paragraf
+[121.0s] dan saya balik-balik urutan
+[124.5s] kata-katanya maka artinya bisa
+[127.3s] berubah yang disebut sequence adalah
+[130.6s] data yang pola di
+[133.3s] dalamnya adalah urutan
+[137.2s] urutan misalnya kalimat misalnya Kalian
+[140.8s] mau
+[141.8s] Lakukan
+[143.4s] analisis yangat satu kalimat sentimennya
+[147.7s] positif atau negatif itu susunan
+[150.3s] kata-katanya kalau kata-katanya
+[152.6s] susunannya saya ubah bisa jadi yang
+[155.3s] negatif menjadi positif sentimen oke
+[159.0s] Bisa jadi artinya itu pun berubah kalau
+[162.0s] saya ubah seensnya atau urutannya jadi
+[166.2s] kita di link dengan dat bentuknya urutan
+[169.9s] bisa urutan
+[171.5s] numbers bisa urutan Words atau kata-kata
+[176.6s] ya bisa urutan anything Sequence ya bisa
+[181.0s] urutan voice bisa urutan video Frame ya
+[186.7s] so kita dealing kita Working with
+[189.8s] sequence nah sequence itu ada urutannya
+[193.3s] urutannya harus kita kasih indek
+[195.2s] Anggaplah t sering disebut time tapi ini
+[199.4s] bukan time dalam fisika ya Kenapa karena
+[203.8s] ini cuman notion of time bukan the real
+[207.1s] time jadi misalnya saya punya Sequence X
+[210.2s] bentuknya
+[211.4s] vektor maka saya bilang elemennya X1 x2
+[214.7s] x3 sampai XT ada indeksnya by Time Stamp
+[220.9s] oke komputer Tentu saja tidak bisa
+[224.2s] memproses selain numerical value karena
+[227.1s] komputer itu aritmetic
+[229.2s] device jadi semua data teks ini harus
+[232.4s] bisa ntinya kalian Ubah menjadi vektor
+[237.4s] baru bisa masuk ke nural Network oke
+[241.6s] say Saya pengin bikin sentimen
+[245.0s] analisis Bisa gak saya bikin sentimen
+[247.8s] analisis pakai mulayer
+[251.7s] per kalian sudah belajar mulayer
+[255.4s] per saya Des Mayer per untuk sentim
+[261.1s] analisis saya bikin Hiden
+[264.8s] layernya sayauh out layer Pos sentimen
+[270.0s] negatif ya untuk classification
+[273.5s] sentimentif dan sentimen negatif nah
+[277.0s] bagaimana saya masukkan Data sementara
+[280.1s] neural Network multilayer perceptron itu
+[283.6s] inputnya
+[285.6s] vektor artinya Teks itu harus saya
+[288.8s] jadiin vektor artinya teksnya itu harus
+[292.8s] saya
+[293.7s] encode menjadi vektor Anggaplah kita
+[297.3s] bodoh-bodohan ya Misalnya kalimat ini
+[299.9s] semua yang ada di
+[301.7s] sini
+[303.2s] Saya setiap kata saya jadiin
+[307.0s] angka ya ini Angka Satu ini angka dua
+[311.7s] nanti ada angka yang sama tetap balik ke
+[313.8s] satu gitu ya anggap saya
+[318.6s] [Musik]
+[321.3s] anggap ada yang lagi Putar lagu nih si
+[324.1s] Andi nih bagus juga lagumu itu
+[328.6s] oke
+[330.6s] Oke saya lanjut ya
+[333.2s] so setiap kata di sini harus kita encode
+[336.3s] jadi vektor untuk masuk ke multiayer per
+[340.3s] ya
+[343.0s] tapi salah satu kriteria sequence
+[346.4s] learning adalah Saya harus bisa
+[349.2s] mengingat pola urutan dalam waktu dalam
+[352.9s] waktu atau time yang
+[355.8s] panjang
+[358.6s] unforunay septron tidak punya memori
+[362.0s] tidak bisa mengingat pola dalam waktu
+[364.1s] yang panjang karena ini tidak didesain
+[367.6s] untuk sequence learning
+[370.4s] Oke so di
+[372.8s] sini kita harus bisa ngingat pola yang
+[375.4s] Misnya saya baca kalimat ini ya saya
+[378.4s] bacanya dari kiri ke kanan dan saya
+[380.4s] harus bisa ingat apa yang saya sudah
+[383.3s] baca dan saya terus melangkah ke kanan
+[386.2s] oke nah multiayer perseptron itu fail
+[390.8s] untuk mengingat pola sequ gak bisa
+[395.4s] dipakai Bagaimana dengan convolal
+[398.1s] Network sama dia gak bisa ya akhirnya
+[402.3s] pada orang-orang nyari
+[405.2s] arsitektur bilang cari saya arsitektur
+[409.0s] yang bisa seence
+[411.1s] moding ya dia bisa mengingat
+[415.2s] pola-ola
+[416.8s] karaal networ dan
+[420.2s] itu fail dipakai untuk pola-pola
+[423.6s] sequence
+[424.9s] ya zaman dulu orang start problem ini
+[428.6s] dari time series misalnya saya punya
+[430.8s] indek
+[431.9s] ftse ini financial ya bisa ggak saya
+[435.7s] predik ke depannya Saya harus bisa ingat
+[438.3s] bahwa dia pernah pinya di sini cycnya
+[441.1s] begini gitu ya multilayer percep fail di
+[446.8s] Oke cara mengerjakannya waktu itu mereka
+[449.8s] bikin
+[450.5s] autoregresif ya Apa itu autoregresif
+[454.0s] autoregresif model ini anggap saya
+[456.9s] regresi beberapa data ke belakang saya
+[459.2s] tarik garis ke depan
+[461.4s] ya pasti kita harus berbahasa matematik
+[464.8s] ya karena Deep learning Ai itu
+[468.3s] mathematical model bukan Magic bukan
+[470.8s] wangsit
+[472.6s] ya ya kalau saya Bahasakan
+[475.6s] autresif problem ya Misalnya saya bilang
+[479.9s] bahwa ada probability yang menggenerate
+[483.1s] gambar ini gambar pola ini
+[486.6s] ya saya anggap dia P ya bahwa ada
+[491.1s] probability P kalau saya kasih dia data
+[493.7s] XT -1 sampai X1 dia bisa nebak
+[497.8s] probability ini bisa nebak
+[500.6s] xt-nya given historical data dari x - 1
+[504.9s] t - 1 sampai X1
+[508.0s] ya so kalau kita berhubungan samaability
+[511.6s] pasti kita sebut bahwa di bahwa ada
+[514.2s] nilai sektasi conditional expectation ya
+[517.8s] itu dinotasikan pakai ini jangan takut
+[521.0s] sama matematik ya ini kalian copy paste
+[523.5s] di chat GPT kalian bisa tanya pakai
+[526.2s] Bahasa Indonesia itu udah gampang Ya
+[530.0s] intinya di autive model ini kalau saya
+[533.3s] kasih sequence ya di gambar ini ya kalau
+[537.6s] sayaih se ke dia dia bisa nebak sequens
+[542.1s] berikutnya misalnya sequens-nya itu
+[545.6s] kalimat dia bisa nebak kata berikutnya
+[549.7s] Oke misalnya Saya suka
+[554.4s] minum este gitu ya Dia bisa nebak kalau
+[559.2s] saya cuman ngasih Saya suka minum dia
+[561.8s] bisa nebak XT
+[564.2s] Oke dengan cara dia pelajarin hidden
+[566.8s] state pola di dalamnya dan dia bisa
+[569.5s] nebak XT + 1 dia bisa nebak dengan benar
+[575.2s] Oke So simple capability ini Inilah yang
+[579.6s] disebut language model bahwa kalau saya
+[583.0s] kasih data dia bisabak kata
+[585.3s] berikutnya dulu kita bikinnya sebelum
+[588.4s] ada ea yang canggih sekarang ini kita
+[590.8s] bikinnya pakai autegressive model kasih
+[593.5s] data
+[594.5s] XT e t-1 samp X1 dia bisa XT berikutnya
+[602.5s] Oke kalau kalian pakai handphone Samsung
+[605.3s] dulu tim Samsung research itu bisa nebak
+[608.3s] kalau kalian tulis satu kata dia bisa eh
+[612.7s] satu kalimat dia bisa nebak kata
+[614.6s] berikutnya Kalau kalian nulis satu
+[617.2s] karakter dia bisa nebak karakter
+[619.0s] berikutnya berdasarkan pola yang kalian
+[621.2s] tulis sebelumnya jadi itu fitur itu
+[623.5s] sudah ada di dalam keyboardnya Samsung
+[625.9s] keyboardnya Apple ya Tim saya dulu
+[628.6s] membuat itu itu
+[630.9s] Oke next sequence model so tadi saya
+[634.2s] sebut soal language model bahwa kalau
+[636.7s] saya kasih kalian data teks misalnya
+[639.4s] saya kasih kalian 10 buku di dalamnya
+[642.4s] banyak teks ada chapter ada section maka
+[645.4s] yang disebut language model itu dia baca
+[647.9s] itu pola dalam 10 buku itu dan dia bisa
+[651.0s] nebak kalau saya kasih satu kalimat dia
+[653.9s] bisa nebak kata berikutnya
+[656.8s] Oke bagaimana kita model sequence model
+[660.4s] untuk language ya human language kalau
+[665.0s] kalian belajarnya dari bahasa Indonesia
+[668.1s] itu terdiri dari kata dari kata-kata
+[671.2s] yang ada meaningnya tapi meaningnya itu
+[675.4s] arti dari kata itu didefine oleh
+[677.7s] teman-teman di
+[679.9s] sekitarnya
+[681.8s] contoh kalau saya misalnya punya kalimat
+[685.8s] ini dan saya bilang
+[690.3s] that arti kata that itu terdefine dari
+[694.9s] kalimat ini
+[698.1s] oke
+[700.7s] nowat
+[705.4s] apa that di situ Artinya
+[709.6s] bahwa bukan itu ya
+[719.4s] kata Death justru ditentukan oleh urutan
+[723.3s] kata-kata sebelum dan
+[725.5s] sesudahnya ini yang menarik ya Misalnya
+[728.2s] Saya bilang Saya pengin makan Saya
+[730.7s] pengin buka puasa Nanti di rusa rusa itu
+[734.3s] nama jalan di
+[736.4s] Makassar rusa itu baru punya arti
+[739.4s] setelah saya bilang saya pengin buka
+[741.8s] puasa di
+[743.3s] rusa rusa itu bukan binatang kebetulan
+[746.9s] dalam konteks tetangga-tetangganya nya
+[750.3s] itu nama jalan di Makassar
+[754.1s] ya so bagaimana kita model secara
+[759.3s] matematik maka kita bilang bahwa arti
+[762.5s] suatu kata itu ditentukan oleh kata-kata
+[766.4s] sebelumnya dan
+[767.9s] sesudahnya tapi tidak panjang ya
+[770.4s] Misalnya Saya punya kalimat sepanjang
+[773.0s] ini oke satu paragraf di sini ada kata B
+[777.3s] yang ini kata bat ini tidak didefine
+[780.8s] oleh sometimes yang di awal
+[782.9s] ini tapi hanya sebagian tetangganya bat
+[786.6s] Ini ya oke mungkin cuma sebagian ya baru
+[791.3s] m-deefine kata B
+[794.4s] Oke bagaimana saya model itu secara
+[799.4s] matematik yang terkenal ada ilmuwan
+[802.5s] namanya
+[803.9s] Markov Markov itu bilang begini
+[808.1s] oke the future is conditionally
+[811.2s] independent of the past given theent
+[815.2s] history agak sulit kalian pahamin mark
+[818.1s] of property ini tapi intinya the future
+[822.0s] is independent of past given present Oke
+[826.2s] saya ada di kata has the future itu been
+[831.0s] dan Den ya tapi dia independent of
+[835.5s] past present presentnya itu has Oke the
+[840.4s] past itu paling cuma segini ya tapi
+[844.0s] kalau history itu udah panjang
+[846.6s] sekali So itu yang kita sebut mark of
+[849.5s] condition that the future
+[852.4s] is independent of
+[856.7s] given so kita bisa ditentukan bahwa
+[860.5s] ketergantungannya first order misalnya
+[862.8s] cuman satu kata di belakangnya atau
+[865.4s] second order atau k order Mar mod oke
+[869.4s] Ini pertanyaan interview yang saya suka
+[871.4s] tanyain ke anak-anak yang mengaku Ai
+[873.8s] engineer suruh jelasin saya apa itu mark
+[876.5s] of condition jarang sekali yang bisa
+[879.9s] menjelaskan semuanya menghafal enggak
+[883.6s] ada gunanya menghafal sekarang karena Ai
+[885.8s] menghafal lebih baik
+[888.6s] oke Saya pengin kalian punya common
+[890.6s] sense tentang mark of condition mark of
+[893.2s] condition itu given sequence ini urutan
+[896.2s] kata-kata
+[897.4s] ini Maka kalau kalau saya pick satu yang
+[900.1s] saya bilang sebagai
+[902.2s] eh
+[903.8s] present maka the future dari Present ini
+[907.6s] is independent conditionally terhadap
+[909.9s] past given the
+[912.2s] present bahasa Inggrisnya the future is
+[915.4s] conditionally independent of the past
+[917.0s] givenon history Kenapa dia bilang reonon
+[921.0s] history karena enggak panjang history
+[923.2s] yang dia butuhkan untuk
+[925.7s] mefine present
+[928.3s] oke saya sering singkat mark of
+[931.0s] condition itu adalah future is
+[933.8s] independent of past given present
+[938.3s] f
+[939.9s] i ya future is
+[942.8s] independent P of pas and given present
+[947.2s] GF jadi F Iip GF ya sebaiknya kalian
+[951.8s] ingat baik-baik itu karena basic dari
+[954.8s] chat
+[956.1s] GPT GR semuanya pakai Markov model bahwa
+[961.2s] the future is independent of past given
+[963.1s] present dan setelah saya dapat persamaan
+[965.5s] matematiknya then saya bisa compute
+[967.8s] probabilitynya saya bisa hitung P
+[971.6s] Oke so di sini ada contoh code Nanti
+[974.4s] kalian berlatih dengan teaching
+[975.8s] assistant Bagaimana mengimplement
+[977.6s] misalnya saya kasih kalian sequence
+[979.6s] kalian bisa implement estimate
+[982.2s] probability berdasarkan Markov property
+[985.6s] untuk bikin simple language model oke
+[993.0s] Oke
+[994.8s] next kalian harus belajar Gimana Setelah
+[998.1s] kalian ngerti language model ya
+[1002.4s] Oke gimana merubah data teks menjadi
+[1006.0s] sequence ya load
+[1009.1s] teksnya split stringnya jadi token
+[1012.8s] ya bisa jadi karakter level token atau w
+[1017.0s] level token
+[1019.8s] bahwa tokennya adalah UN ya Sehingga
+[1023.1s] semua kalimat di sini kalau kalian pakai
+[1026.3s] level semua Kalimat akan menjadi vekor
+[1029.2s] misalnya dapat
+[1031.1s] angka ya ini semua akan jadi
+[1034.3s] vor Kenapa kita harus jadiin vektor
+[1037.0s] karena tidak ada yang bisa
+[1039.6s] dikelolaural Network kalau diaak jadi
+[1041.8s] vektor
+[1047.8s] inputnyaetor oranization baik di
+[1050.2s] karakter level maupun di Word level dan
+[1053.5s] kalau sudah dapat vektornya kalian bisa
+[1056.2s] pilih model neural Network
+[1058.4s] Oke nanti berlatih di sini Ada
+[1061.2s] jenis-jenis token banyak ya nanti minggu
+[1063.6s] Eh mungkin setelah ini kalian Bisa
+[1066.0s] berlatih dengan daava mengikuti tutorial
+[1069.1s] ini ya jangan hafal code ya ini intinya
+[1072.9s] di section ini saya pengin ubah R
+[1076.0s] menjadi
+[1077.1s] sequence next kita formalize language
+[1080.5s] model jadi kalau saya bilang pengetahuan
+[1084.4s] manusia ada di buku bisa enggak semua
+[1087.4s] buku di dunia
+[1088.7s] ini saya jadikan menjadi satu
+[1091.4s] probability distribution yang saya sebut
+[1093.8s] P
+[1095.7s] Oke saya ulangi Anggap semua ilmu
+[1100.2s] pengetahuan manusia ada di buku bukunya
+[1103.2s] ada
+[1104.0s] jutaan
+[1105.6s] ya bisa saya enggak saya masuk mkin
+[1109.0s] semua knowledge itu ke dalam satu
+[1110.4s] probability
+[1112.4s] distribution yang saya bilang
+[1114.8s] P t-nya di sini Tentu saja besar sekali
+[1118.0s] triliunan ya karena kita ngomong semua
+[1120.2s] buku yang ada di bumi ini kecuali kalian
+[1122.9s] pindah planet ke Mars mungkin bukunya
+[1124.9s] nambah jadi jadi puluhan juta
+[1128.0s] ya tapi Anggap semua buku di dunia ini
+[1131.1s] ada satu 1
+[1134.0s] juta setiap buku rata-rata ada 100 e ada
+[1139.4s] 1000 kata yang dipakai dalam setiap buku
+[1141.9s] in average maka kita ngomong t-nya di
+[1145.5s] sini di persamaan ini t-nya itu sebanyak
+[1149.0s] 1
+[1150.4s] triliun nah problem statementnya langage
+[1154.2s] model saya kasih 1 juta buku itu ke
+[1157.2s] kalian Coba kalian bikin P bikin
+[1161.2s] probability ya Join
+[1164.6s] probability sehingga semua knowledge
+[1167.0s] yang ada di buku itu ada di P
+[1173.3s] Oke saat ini P ini yang kita sebut chat
+[1176.9s] GPT gr dan lain-lain
+[1180.5s] ya karena kita berhasil sebagai human
+[1184.5s] Civilization membuat P ini membuat
+[1186.8s] langage model yang kita sebut sekarang
+[1189.5s] larage Mod
+[1193.9s] Mod kalau saya kasih kalian sat kalimat
+[1197.6s] dia bisabak kata
+[1199.9s] berikutnya tapi kenapa dia bisa pintar
+[1202.4s] banget kayak chat
+[1203.8s] GPT ternyata ada Prom
+[1206.5s] engineering di mana kita memasukkan
+[1209.1s] human feedback menggunakan reinforcement
+[1212.2s] learning sehingga chat GPT bisa sepintar
+[1216.5s] manusia Walaupun dia belum punya
+[1219.0s] mindfulness atau dia belum punya
+[1221.3s] consness tapi dia pintar
+[1224.9s] ya chatp itu orang terpintar di dunia
+[1229.8s] semua manusia di dunia dikumpulin yang
+[1232.0s] pintar-pintar melawan chat GPT lebih
+[1234.6s] pintar chat GPT karena dia mesin
+[1239.5s] dan bagaimana dia bekerja dia adalah
+[1241.8s] langage mod tapi lage mod yang sudah
+[1245.1s] dilatih dengan feedback dari manusia
+[1248.1s] yang kita sebared
+[1254.7s] IC
+[1257.6s] 931 saja dengan kpus yang sangat besar
+[1261.5s] GPT itu kalau enggak salah Sudah
+[1263.0s] triliion parameter dia pakai model
+[1265.4s] neural Network namanya Transformer
+[1267.5s] neural Network kita akan bahas
+[1269.8s] Transformer neural Network di kuliah
+[1271.7s] berikutnya hari ini kita fokus ke recar
+[1274.4s] neural Network zaman dulu waktu saya
+[1277.2s] kerja di Samsung kita bikin keyboard-nya
+[1279.5s] Samsung itu pakai model yang namanya
+[1282.6s] long shortter memory lstm atau gt3
+[1286.9s] current unit gru untuk menebak kata
+[1290.0s] berikutnya atau karakter berikutnya yang
+[1292.0s] akan kalian ketik waktu kalian mengetik
+[1294.9s] di dalam e mobile phone punya keyboard
+[1301.8s] oke sebaiknya kalian punyaon sens
+[1304.4s] tentang apa itu l model ya bisa mengerti
+[1307.7s] matematiknya matematiknya simpel ya
+[1311.0s] biasanya yang bikin susah bukan
+[1313.0s] matematik yang ada di buku
+[1314.9s] ini ya tapi pola pikir kalian yang judge
+[1319.1s] diri kalian sendiri bahwa kalian enggak
+[1322.0s] bisa matematik Nah yang kedua adalah
+[1325.8s] guru-guru yang sebenarnya tidak ngerti
+[1328.6s] Matematik dan mengajarkan ke kalian
+[1331.7s] bahwa itu bisa dikip
+[1334.2s] ya bukan kalian enggak bisa matematik so
+[1338.5s] hilangkan pemahaman bahwa kalian enggak
+[1340.6s] suka matematik enggak bisa matematik
+[1342.2s] Intinya saya kasih kamu korpus kita
+[1344.6s] bikin P Oke dan P ini sangat powerful
+[1347.9s] karena dia
+[1349.2s] joility sehingga saya bisabak kata
+[1351.7s] berikutnya ya Dan saya bisa Def p pakai
+[1355.0s] Mark property Yang tadi kita
+[1360.6s] theureend kalau saya bilang dua kata
+[1363.4s] berikutnya l modusisa Teak kalau saya
+[1366.2s] Bil 10 kata berikutnya diaisa tebak
+[1370.3s] ya mod
+[1378.8s] ini dijelasin bagaimana bikin language
+[1380.8s] model yang sederhana dan bagaimana
+[1383.8s] mengevaluasi hasil language
+[1386.3s] model karena ini adalah probability maka
+[1389.7s] ukuran evaluasinya juga berdasarkan
+[1392.9s] probability kita sebut
+[1395.6s] perplexity ya bagaimana kita ukur
+[1398.6s] language model punya quality Oke
+[1401.3s] language model ada probability tadi ya
+[1404.0s] Jadi kalau saya bilang It Is raining ini
+[1407.3s] lagi hujan ya kira-kira kata berikutnya
+[1410.2s] apa ini lagi hujan di luar di bilang
+[1413.3s] it'saining outside atauaining bananae
+[1416.6s] atauaining bla bla bla ya kan yang mana
+[1419.0s] yang paling mungkin dalam konteks it
+[1422.7s] isaining so dia kan cari probabilitynya
+[1425.4s] dari P ya dan hasil P itu bisa kita ukur
+[1428.6s] Oh
+[1430.2s] ternyata dia itu bisa sangat tidak
+[1433.8s] teratur keluar yang Pi W bla blaa ini
+[1437.7s] ini kan ngacau ya kalau ini masih Oke
+[1440.7s] ini oke Ini sudah
+[1442.9s] ngacau derajat kekacauan itu kita sebut
+[1448.4s] entropi Saya ulangi derajat kekacauannya
+[1452.9s] itu kita sebut entropi Kenapa Disebut
+[1455.8s] entropi apakah ini berhubungan dengan
+[1458.6s] fisika energi dan
+[1461.1s] entropi ya jawabannya Enggak entropi di
+[1464.6s] sini datang dari information theory dan
+[1468.4s] Dar Nobel PR yang namanya SH waktu itu
+[1470.7s] SH bilang kalau saya kasih kalian satu
+[1474.8s] informasi derajat ketidakteraturan dan
+[1477.9s] ketidakteraturan informasi itu saya
+[1480.6s] sebut entropi terus murid-muridnya tanya
+[1483.7s] Kenapa kamu sebut entrop jawabannya
+[1487.2s] simpel biar kalian berhenti bertanya seb
+[1489.8s] saja itu entropi gitu
+[1492.5s] ya kita ukur entropinya op itu derajat
+[1497.3s] kekacauan ke tidak ininya ya Jadi kalau
+[1500.2s] saya punya satu langage model dan saya
+[1502.0s] tanya Is it training dia jawab berapa
+[1504.5s] derajat
+[1505.5s] ketidak teraturan jawabannya itu kita
+[1508.3s] sebut
+[1509.8s] entropi Oke persamaan
+[1513.5s] 937 so ini eh
+[1517.9s] Entah kenapa juga karena historical
+[1519.8s] Reason di NLP orang sebutnya perplexity
+[1523.6s] ya so banyak istilah yang karena kita
+[1527.4s] suka-suka aja pakai gitu ya ya ahlah
+[1530.2s] kalau kamu bilang itu Cross entropy
+[1532.7s] untuk lossnya waktu diraining sekarang
+[1535.3s] untuk evaluasi performance-nya ya saya
+[1538.3s] bilang ini
+[1540.8s] perplexity ya suka-suka saya ya so
+[1545.4s] perplexity itu Apa ya Persamaan 3938
+[1549.7s] entropy itu apa itu Cross entropy loss
+[1552.4s] yang dia pakai waktu ngetrain language
+[1554.4s] model waktu mdefine loss-nya
+[1559.7s] Oke next kalian harus baca ini bersama
+[1564.3s] setelah itu belajar recurrent neural
+[1567.1s] Network kita akan masuk belajar recurent
+[1569.5s] neural Network
+[1573.4s] Oke bentar
+[1593.4s] okeal Network karena convolution tidak
+[1596.7s] bisa dipakai untuk menebak seence
+[1601.6s] learning orang nyari cara gimana caranya
+[1604.6s] sup dia bisa punya memor atau hi
+[1608.2s] ya
+[1613.2s] mol aknya Dia bil Oh iniaynyaus punya
+[1616.6s] Arit yang ber sebut saja rar neural
+[1619.6s] Network Oke bentuknya kayak
+[1623.4s] gini gambar yang ada warna biru di sini
+[1626.6s] di tengah yang
+[1628.1s] ada itu
+[1631.0s] MLP Which is itu ini ya MLP yang
+[1635.2s] ini yang warna biru ada
+[1638.6s] c-nya waktu input sequence masuk ya kita
+[1644.1s] anggap bahwa si neural networkect
+[1648.4s] dengan activation ini itu hidden
+[1652.1s] state dia mengingat hidden state
+[1655.7s] sequencenya saya masukkan setelah itu
+[1658.7s] dia ingat hidden statenya dan kita train
+[1661.3s] sampai tidak berubah lagi input dan
+[1664.4s] outputnya Ya lossnya udah
+[1667.4s] minimum ini the simplest recurrent
+[1671.0s] neural Network yang di tengah itu fully
+[1673.3s] connected layer yang diimplement dengan
+[1675.7s] multiayer pertr
+[1679.8s] Oke let's say Saya pengen bikin langage
+[1682.8s] model tapi karakter level saya input
+[1685.4s] banyak sequence karakter dia bisa nebak
+[1688.4s] karakter berikutnya apa saya train
+[1690.8s] datanya sehingga dia bisabak kalau saya
+[1693.4s] kasih kata Maine dia bisa tebak a
+[1698.5s] HNI kalian tidak sadar kalau kalian
+[1701.2s] pakai keyboard di Samsung itu
+[1703.9s] implementingter level dan level language
+[1706.7s] mod
+[1708.3s] sehingga kalau kalian salah-salah ngetik
+[1710.0s] dia masih bisa ngerti Oke kalian harus
+[1713.5s] bisa implementen pakai recar neural
+[1716.4s] network karakter level language
+[1719.7s] model tapi ternyata kalau saya tambahin
+[1722.8s] data rnn tadi dia enggak bisa ngingat
+[1726.5s] pola data yang terlalu besar ya fail
+[1731.3s] Oke kita harus cari arsitektur yang
+[1734.0s] lebih bagus
+[1736.9s] oke di sini ada
+[1738.7s] implementation dari karakter level
+[1741.0s] neural Network eh Lang model tapi kita
+[1744.4s] beruntung kita sudahudah punya buku yang
+[1746.2s] lebih baik kalian bisa lihat di
+[1749.8s] sini kalau kalian suka pakai ras tinggal
+[1754.1s] copy paste ya jadi saya akan pindah buku
+[1756.0s] nih
+[1757.2s] ya udah ada codya di sini tinggal kalian
+[1759.9s] copy paste kalau kalian suka pakai pyon
+[1762.5s] minta ke Dis atau ini pindahin ke
+[1765.6s] pythonnya ini kita bikin dari ya jangan
+[1770.4s] menghafal code ya gak ada satuun orang
+[1773.1s] bisa hafal code ya tapi kita akan
+[1775.7s] belajar arsitektur sekarang
+[1779.0s] ini ya gak usah dihafalin kalian bisa
+[1782.2s] bilang impl rnn untuk kakter level bla
+[1785.2s] bla bla pakai propagation time bla blaa
+[1788.6s] a-nya yang code buat kalian untuk bikin
+[1791.1s] code
+[1793.7s] a Oke saya
+[1795.9s] lanjutkan bagaim nya bekerja karena kita
+[1800.2s] berurusan sama data sequence maka back
+[1805.1s] propagation ternyata masih
+[1806.9s] bekerja tapi karena ada sequensnya
+[1810.8s] parsialential equationnya berubah pakai
+[1813.4s] sequens sehingga kita sebut back
+[1816.6s] propagation through time
+[1819.8s] oke karena rnn jelek sekali hasilnya ada
+[1824.1s] orang pintar ya namanya
+[1830.0s] susah bahasa Jerman namanya ini ya J SMI
+[1833.6s] lah oke si J SMI ini orang Jerman yang
+[1837.5s] bikin lstm dia bilang kalau mau ST
+[1840.3s] rnnnya beg
+[1842.3s] arsitekturnya bikin jadi memory di dalam
+[1845.9s] itu ada forget
+[1847.9s] inputate outputate ya jangan dihaalin
+[1851.5s] nih kalianumagat LM Kara semuisa
+[1855.4s] ditulama
+[1859.0s] di saat yang sama ada orang pintar juga
+[1862.0s] bikin arsitektur yang lebih simpel
+[1865.0s] dibanding lstm ya karena gate-nya lebih
+[1869.2s] kurang so lstm dan grru bisa dibilang
+[1873.0s] membuka babak baru modern rnn yang
+[1877.1s] nantinya kita revisi menggunakan
+[1879.0s] Transformer neural Network yang akan
+[1881.4s] kita pelajari di pertemuan-pertemuan
+[1884.2s] berikutnya saat ini Ai adalah
+[1887.2s] Transformer Network Oke Ai saat
+[1891.2s] ini Powered by Transformer tapi
+[1894.3s] Transformer itu sendiri inspired by lstm
+[1898.2s] dan gru yang akhirnya ditambahin
+[1902.2s] attention dan dibuat arsitektur namanya
+[1906.7s] Transformer untuk pertemuan hari ini
+[1909.1s] target kalian dengan teaching assistant
+[1911.2s] bisa implement language model pakai lstm
+[1915.7s] dan gru ya materinya ada di chapter 9
+[1922.3s] Oke kalian juga harus belajar back
+[1924.5s] propation through time Bagaimana
+[1926.2s] berubahnya back
+[1928.5s] propagation
+[1930.2s] ya jika saya tambahin aspek waktu
+[1934.0s] ternyata back propagationnya masih
+[1935.8s] bekerja ya so aman Oke kalian juga harus
+[1940.9s] belajar arsitekturnya implement Gimana
+[1943.3s] dengan prompting kalian bisa implement
+[1945.4s] lsdm dan Jr oke
+[1949.0s] kuliahnya sampai di sini silakan kalian
+[1953.0s] lanjut dengan daava atau Varel siapa
+[1956.6s] yang akan kasih Ta
+[1959.2s] Dafa Sepertinya saya Pak Oke bikin aja
+[1963.4s] language model sederhana minta sintetik
+[1967.0s] corpus gitu ya karakter level dan word
+[1970.1s] level kalian bisa pakai lstm dan jru Ya
+[1974.0s] baik Pak
+[1976.8s] Oke saya izin exit lebih dulu silakan
+[1980.4s] Dafa kamu bisa take the time pelan-pelan
+[1983.7s] aja ya sampai semuanya bisa ngprom bikin
+[1987.9s] lstm dan
+[1991.5s] gru Baik Pak terima kasih
+[1996.7s] Oke teman-teman kita lanjut ke Sesi
+[1999.5s] praktik Tunggu sebentar ya
+[2206.8s] Oke aku izin share screen sebentar
+[2339.2s] udah kelihatan ya
+[2343.8s] screennya
+[2346.3s] jadi di pertemuan ini kita akan sesi
+[2351.7s] praktik Deep learning rnn
+[2356.0s] lstm dan gru dengan
+[2360.4s] porch Nah untuk langkah
+[2363.9s] pertama kita bisa ini
+[2368.1s] instalasi library by
+[2372.4s] Torch dan Torch Vision terlebih dahulu
+[2375.9s] di Google
+[2377.2s] colet
+[2389.7s] kitaare ini ke kalian
+[2403.6s] bisa kalian tunggu ini proses
+[2420.4s] instalasinya Nah jadi dari perintah p
+[2426.3s] instor Vision ini akan mengunduh dan
+[2428.6s] menginstal py thorch serta Torch Vision
+[2431.7s] untuk manipulasi dataset gambar
+[2435.9s] oke
+[2462.7s] Mas menginstal sepertinya
+[2503.8s] Oke kita tunggu oke kalau udah lanjut eh
+[2508.0s] impor library yang
+[2510.3s] diperlukan seperti Torch library utama
+[2513.4s] untuk Deep learning kemudian Torch and
+[2517.8s] modul untuk membangun model neural
+[2519.6s] Network Torch and and
+[2522.5s] funional berisi fungsi aktivasi dan
+[2525.0s] operasi tensor lalu OS untuk manipulasi
+[2528.4s] sistem file dan numai untuk operasi
+[2530.8s] numerik pada
+[2533.0s] data bisa masukin ini
+[2541.0s] Oke next kita eh buat model rnn dengan
+[2545.9s] satu neuron
+[2548.2s] jadi di tahap awal ini kita membuat R
+[2550.9s] rnn sederhana dengan satu lapisan dan
+[2553.8s] satu neuron untuk memahami dasar dari
+[2557.4s] rnn sederhana
+[2560.7s] Oke kita bisa masukin aja code
+[2563.6s] arsitektur rnn rnn sederhananya
+[2568.0s] Oke kita Rani Nah jadi di code ini ada
+[2572.4s] self.wx itu bobot yang menghubungkan
+[2575.0s] Input ke neuron
+[2577.6s] Lalu ada self W itu bobot yang
+[2583.2s] menghubungkan ST sebelumnya ke neuron
+[2586.9s] kemudian adab itu bias untuk
+[2589.6s] menyesuaikan
+[2594.8s] output Lalu ada fungsi forward itu untuk
+[2599.6s] menggunakan fungsi aktivasi Tan untuk
+[2603.3s] menghasilkan output dari du time step
+[2631.9s] Oke kalau
+[2633.7s] udah ini kita ee
+[2637.2s] mencontohkan sederhana
+[2639.0s] aja buat modelnya dari
+[2642.1s] rnn Lalu ada
+[2644.2s] ee implementasi lstm atau long shortterm
+[2648.3s] memory yau jenis rnn yang dapat
+[2651.7s] menangani long term dependensi lebih
+[2654.5s] baik n kita bisa langsung masukin
+[2658.8s] cod-nya membuat model lstm sederhana
+[2672.9s] kudan ini
+[2677.2s] [Musik]
+[2679.8s] as
+[2690.7s] memor lalu
+[2694.5s] implementasi model Oke ee eh Nah untuk
+[2698.9s] yang ini lstm ini di cod-nya ini ee dari
+[2704.0s] penjelasan cod-nya
+[2706.4s] kita menggunakan
+[2710.8s] apa kelas lstm model nah lalu
+[2716.2s] e di cod-nya ini kita ada self dlstm ini
+[2721.6s] itu untuk layer lstm yang menerima input
+[2724.3s] sequence dan menghasilkan hidden State
+[2727.3s] Lalu ada
+[2728.8s] FC yaitu layer fully connected untuk
+[2732.0s] mengubah Hiden ST terakhir menjadi
+[2733.7s] output yang
+[2734.8s] diinginkan dan Lalu ada fungsi
+[2738.1s] forward Yaitu mengambil hidden state
+[2740.6s] terakhir dan menggunakannya sebagai
+[2742.2s] inputer FC untuk mendapatkan hasil akhir
+[2746.5s] next kita
+[2748.2s] implementasi gru atau get unit di
+[2757.9s] [Musik]
+[2764.0s] sebentar ini kita contohin contoh-contoh
+[2767.6s] sederhana aja supaya kalian bisa paham
+[2772.0s] dari kod-nya ini
+[2777.8s] Oke bisa kalian lihat dari penjelasan
+[2781.0s] kod-nya dari penjelasan kodennya ini
+[2785.2s] untuku itu
+[2788.3s] Eh memanggil kelas Ju model kemudian
+[2793.4s] Eh ada gru yaitu untuk layer gru yang
+[2799.2s] berfungsi seperti
+[2802.7s] lstmapi dia lebih sederhana kemudian ada
+[2807.4s] FC yaitu layer connected untuk
+[2810.4s] menghasilkanput dari terakhir Lalu ada
+[2814.2s] Fi for itu sama seper TM hanya saja
+[2818.4s] menggunakan gru sebagai layer
+[2823.9s] utamanya Mungkin nah terus selanjutnya
+[2826.8s] kita
+[2828.0s] bisa menggunakan lstm dan
+[2832.0s] gru untuk klasifikasi gambar mnis
+[2835.3s] dataset menggunakan mnis
+[2838.3s] dataset sebentar
+[2928.0s] Oke untuk langkah pertama kita impor
+[2930.3s] dulu dataset mnis-nya di Google
+[2933.7s] colab ini data bisa digunakan untuk
+[2943.8s] pelatihan
+[2963.6s] ini nah
+[2968.7s] untuk penjelasannya dari code ini eh
+[2972.4s] pertama mengimport library torionnya
+[2975.0s] dulu nah di t Vision menyediakan dataset
+[2977.9s] standar
+[2978.9s] sepertinis yang sering digunakan untuk
+[2981.4s] tugas klasifikasi gambar Lalu ada Torch
+[2984.6s] Vision
+[2985.7s] transform
+[2987.4s] nahor Vision transform itu digunakan
+[2990.3s] untuk melakukan transformasi pada
+[2992.9s] dataset sebelum dimasukkan ke dalam
+[2995.4s] model
+[2997.0s] lalu kita atur bat size-nya sekitar
+[3000.4s] 64 yang berarti
+[3003.3s] eh setiap iterasi dalam training akan
+[3007.0s] memproses 6 64 gambar
+[3011.0s] sekaligus
+[3012.8s] lalu membuat transformasi
+[3016.4s] dataset kita transformasi datasetnya
+[3019.6s] menggunakan
+[3021.7s] transformos yaitu mengubah gambar mnis
+[3024.8s] dari format Im menjadi tensor P agar
+[3029.8s] bisa diproses oleh
+[3031.9s] model lalu e mengunduh dan membuat
+[3036.8s] datasetnis
+[3038.4s] menggunakanion datet
+[3042.6s] ini jadi akan mengunduh
+[3045.9s] datasetnis dan menerapkan transformasi
+[3048.4s] ke tensor
+[3053.3s] laluer
+[3055.6s] iniya itu untuk membagi dataset ke dalam
+[3058.4s] batch sehingga lebih efisien dalam
+[3060.5s] pelatihan model
+[3064.0s] Oke kalau udah
+[3067.6s] di-download kita bisa ke tahap
+[3070.2s] selanjutnya yaitu
+[3072.6s] membangun model lstm untuk
+[3082.4s] klasifikasi kita bisa masukin kod-nya
+[3085.4s] ini lalu jalan kan
+[3088.6s] Nah dari code ini
+[3092.5s] ee kita membuat kelas image
+[3095.8s] lstm yang merupakan subcllass dari nn
+[3101.6s] modul nah lalu kita bisa menambahkan
+[3106.0s] layer ini layer lstm
+[3118.2s] lalu
+[3125.7s] eh input size
+[3129.6s] eh mengatur input size-nya sekitar
+[3136.2s] 28 jadi setiap gambar mnis memiliki 28
+[3140.6s] pikel per baris yang dianggap sebagai
+[3142.6s] jumlah fitur tiap time step Lalu ada
+[3146.8s] hidden size eh untuk hidden size ini
+[3150.4s] jumlah unit dalam lstm yang akan
+[3153.1s] menyimpan
+[3154.6s] informasi penting dari data Lalu ada en
+[3162.4s] layer kalau layers itu jumlah lapisan
+[3166.6s] lstm bisa ditambah untuk model yang
+[3169.1s] lebih
+[3170.0s] kompleks Lalu ada
+[3172.4s] bat
+[3174.6s] Ini apa ini agar input memiliki dimensi
+[3178.9s] B size S length dan input size lalu
+[3185.1s] menambah layer fully connected atau FC
+[3187.8s] sebagai
+[3196.4s] output-nya kemudian
+[3202.8s] eh next eh kita membangun model Dru
+[3207.3s] untuk klasifikasi
+[3243.4s] nah oke untuk model
+[3247.6s] apa membangun model gru ini mirip dengan
+[3252.0s] model
+[3253.2s] lstm tetapi menggunakan gru Nah kalau
+[3256.4s] gru itu versi lebih sederhana dari lstm
+[3260.0s] yang tidak
+[3262.1s] mempunyai Sal state Tetapi hanya
+[3265.8s] memiliki hidden
+[3268.2s] state Jadi maksudnya ee LS e mirip ke
+[3273.7s] LSM Tetapi lebih sedikit parameternya
+[3276.4s] dan lebih cepat untuk
+[3279.0s] dilatihnya lalu menggunakan gru untuk
+[3282.0s] mengolah sequens gambar
+[3286.5s] mnis Nah jadi
+[3291.0s] eh akan menjalankan input melalui layer
+[3294.0s] gru untuk mendapatkan hidden state lalu
+[3296.5s] menggunakan hidden state terakhir untuk
+[3299.1s] klasifikasi seperti pada lstm
+[3302.5s] Oke
+[3302.9s] [Musik]
+[3310.0s] sebentar selanjutnya kita melatih dan
+[3313.4s] mengevaluasi model lstm dan
+[3316.0s] jru-nya next kita siapin fungsi training
+[3319.8s] dan evaluasi
+[3332.0s] nah ini untuk kod-nya J bisa kalian
+[3336.9s] pelajari
+[3358.5s] in
+[3413.1s] Oke
+[3414.0s] selanjutnya kita
+[3419.1s] ee apa menjalankan training dan evaluasi
+[3422.7s] untuk model
+[3438.0s] lstmnya saya bisa masukin kod ini
+[3469.9s] mungkin proses eh runningnya memerlukan
+[3473.8s] beberapa
+[3475.1s] menit Jadi ditunggu aja
+[3593.8s] Nah jadi untuk ee di cdee bagian
+[3597.5s] menjalakan training dan evaluasi untuk
+[3599.3s] model lstm ini kita menentukan hyper
+[3603.0s] parameternya terlebih dahulu ada hidden
+[3605.7s] size sekitar
+[3608.6s] 128
+[3610.2s] lalu hidden siz-nya itu yaitu jumlah
+[3613.2s] unit dalam lstm kemudian en
+[3616.1s] layersnya
+[3618.0s] du jadi model memiliki dua lapisan lstm
+[3621.9s] lalu learning ratenya
+[3624.2s] 0,00 itu untuk kecepatan pembelajaran
+[3627.7s] Optimizer lalu menggunakan Cross entropy
+[3631.4s] loss Nah karena tugasnya ini klasifikasi
+[3635.2s] kita menggunakan nn Cross entropy loss
+[3639.3s] lalu menggunakan Adam
+[3642.0s] Optimizer algoritma optimisasi Adam ini
+[3645.4s] digunakan untuk mempercepat waktu
+[3648.1s] training kemudian melatih model
+[3652.0s] lstm dengan train model lstm model
+[3656.7s] trainader criterion Optimizer dan en ep
+[3661.3s] lalu evaluasi model lstm
+[3667.6s] Oke
+[3669.5s] masih
+[3671.8s] berjalan Jadi epoknya hanya lima aja
+[3675.4s] jadi nanti setelah sudah sampai lima
+[3678.8s] akan berhenti proses trainingnya
+[3787.1s] Oke untuk proses trainingnya udah di
+[3790.3s] epok 3 bisa dua kali lagi ya
+[3839.4s] Oke sudah yang keempat dan bisa dilihat
+[3842.9s] hasil
+[3845.2s] akurasinya lumayan tinggi sekitar
+[3848.1s] sekarang di sekitar 90 90,31%
+[3874.5s] dan juga nilai losnya yang Dar tadi di
+[3878.2s] sekitar
+[3880.7s] 0,4195 ee ketika epoknya bertambah dia
+[3885.0s] akan semakin menurun menurun mengecil
+[3888.1s] nilai losnya berarti
+[3891.0s] itu tandanya bagus
+[3895.8s] bisa Heeh bisa streaining dengan baik
+[3979.0s] Oke untuk ee trainingnya sudah selesai
+[3982.8s] untuk yang lstm
+[3985.9s] dan dan hasilnya mendapat sekitar
+[3990.4s] 98,73% ya di data
+[3994.0s] testingnya yang di yang di mana itu
+[3998.8s] bagus dari hasil akurasinya next kita
+[4002.6s] training dan evaluasi untuk model
+[4009.5s] grnya jadi sekitar
+[4012.6s] menit waktu kita R untuk training dan
+[4016.9s] evaluasi model
+[4018.6s] lstm-nya kita sekarang
+[4021.5s] tunggu untuk model gru
+[4163.2s] ya teman-teman mungkin Kak sambil
+[4165.6s] menunggu codingannya runningnya
+[4169.0s] selesai Aku mau contohin ini
+[4171.9s] eh kita eh belajar
+[4175.9s] ngom bisa menggunakan Chat GPT atau Dis
+[4179.8s] atau juga Cloud
+[4182.1s] eii tergantung preferensi teman-teman
+[4185.8s] lebih suka di
+[4189.0s] mana
+[4190.9s] Jadi kita bisa
+[4194.3s] buka
+[4196.3s] t-nya Nah jadi untuk yang PR pertama
+[4201.3s] ini kita mau belajar memahami konsep
+[4205.3s] dasar dari rnn lstm
+[4209.2s] Danu
+[4211.7s] nah ini saya sedang
+[4215.3s] belajar tentangur
+[4225.6s] dan
+[4227.7s] turunannya seperti
+[4230.3s] lstn dan cru
+[4234.8s] EE
+[4236.2s] [Musik]
+[4238.0s] bisa
+[4240.6s] jelaskan dengan cara yang
+[4247.5s] sederhana
+[4249.2s] perbedaan utama antara ketiganya dan
+[4254.7s] kapan saya harus
+[4258.2s] memilih masing-masing modelnya
+[4274.5s] Oke kita tunggu
+[4277.4s] nah jadi ini untuk jawabannya ya
+[4282.0s] nih B kalian lihat n ini diringkas lagi
+[4287.7s] oleh sdpt supaya kita lebih paham
+[4292.7s] maksudnya dari penjelasan modelnya jadi
+[4295.4s] enggak terlalu panjang enggak
+[4298.6s] terlalu banyak jadi
+[4302.4s] apa butuh waktu untuk
+[4305.0s] membacanya Kalau
+[4308.4s] singkat lebih enak ini aku coba share ke
+[4312.6s] ini ya Chat Zoom
+[4339.2s] eeah lalu kita bisa tanya
+[4342.5s] lagi kalau masih penasaran ee apa
+[4348.1s] namanya untuk PR yang ketiga ini kita
+[4351.3s] mau tahu cara bagaimana Melati model
+[4353.7s] lstm untuk data waktu nah Saya ingin
+[4357.8s] membangun model
+[4361.1s] lstm untuk
+[4363.7s] meem prediksi
+[4366.9s] data deret waktu atau time
+[4372.5s] series
+[4374.1s] menggunakan by Torch nah ini teman-teman
+[4377.8s] juga bisa pakai
+[4379.8s] tensorf kalau kalian lebih suka
+[4382.0s] tensorfow atau kalian buka
+[4385.5s] pers bisa bebas pilih mana aja lu bisa
+[4389.7s] berikan contoh kod
+[4392.7s] beserta penjelasannya
+[4423.9s] Oke ini untuk contoh dari kod
+[4428.8s] lstm untuk LSM sederhana untuk
+[4431.7s] memprediksi time shis pakai Fighter nah
+[4434.3s] ini untuk kode
+[4435.8s] basicnya jadi k teman-teman bisa
+[4438.2s] langsung aja eksperimen ke Google colab
+[4441.1s] copy paste
+[4442.8s] cod-nya lalu jalanin Nah nanti terus
+[4446.8s] juga dikasih nih penjelasan singkat dari
+[4449.8s] isi cod-nya itu apa-apa aja tuh Dari
+[4454.4s] model lstm kemudian pembuatan dataset
+[4458.3s] lalu ke tahap training lalu ke tahap
+[4460.8s] prediksi dan
+[4464.0s] visualisasinya next kita eh pengin mau
+[4467.8s] tahu bagaimana cara menggunakan gru
+[4470.2s] untuk NLP atau natural language
+[4473.1s] processing
+[4474.6s] Bagaimana cara menggunakan
+[4478.4s] diapu
+[4480.0s] untuk
+[4482.0s] pemesan
+[4484.2s] teks natural
+[4487.1s] langage
+[4491.3s] Processing saya berikan contoh kod
+[4496.3s] imple
+[4498.7s] implementasi dengan dataset
+[4520.6s] sederhana Nah ni kod-nya sudah dikasih
+[4524.4s] lagi nih
+[4526.9s] ya Nah ini bisa kalian copy paste lagi
+[4531.4s] nanti jalanin di Google colab dan
+[4534.5s] perhatiin apa yang dihasilkan dari
+[4538.6s] outputnya Nanti kalian bisa minta Chat
+[4542.1s] juga
+[4544.3s] ataup atau A
+[4547.7s] atau G ini untuk bantu kalian
+[4552.0s] belajar dengan rnn TM GR untuk model
+[4556.5s] Deep
+[4558.0s] learning seperti itu Nah kita balik lagi
+[4561.1s] ke Google
+[4562.4s] collect sudah
+[4565.2s] selesai
+[4566.9s] trainingnya dan sudah dievaluasi
+[4576.3s] Oke jadi tadi untuk yang
+[4579.3s] Ju
+[4580.8s] dapatkan akurasi sebesar di dat tesnya
+[4584.6s] seb besar
+[4586.3s] 98,92% nah ini cukup apa Bagus ya Bagus
+[4591.1s] banget
+[4594.1s] kururasinya tidak mengindikasikan eh
+[4597.5s] overfitting lalu kita menampilkan contoh
+[4600.6s] prediksi modelnya
+[4604.2s] Oke ini untuk hasilnya
+[4648.9s] dari hasil outputnya itu
+[4651.9s] menunjukkan eh prediksi model
+[4655.1s] rnn untuk gambar angka dari dataset mnis
+[4659.4s] Nah dari en sampel yang ditampilkan ee
+[4662.4s] Li prediksi model benar di angka 4 0 6 3
+[4667.9s] dan 6 sementara satu prediksi salah
+[4675.2s] ini bisa dilihat ada satu prediksi yang
+[4677.6s] salah di angka
+[4683.2s] 9 Nah ini prediksinya 9 tap seharusnya
+[4686.7s] itu angkanya
+[4695.8s] 7 lalu untuk yang bawahnya ini angka 3
+[4699.1s] benar ben
+[4700.9s] ben ben ben benar jadi eh kita bisa
+[4706.9s] mengetahui bahwa model ini sudah
+[4709.2s] memiliki performa yang sangat baik dan
+[4712.2s] mengenali angka tulisan tangan tapi ada
+[4715.2s] salah ada salah sedikit aja itu e yaitu
+[4720.0s] di angka ini Prediksi angka 7 ini tapi
+[4723.6s] enggak
+[4725.4s] apa-apa modelnya
+[4729.2s] udah apa memprediksi dengan baik
+[4732.6s] mengklasifikasikannya
+[4736.4s] Oke next ee
+[4739.5s] Mungkin bentar
+[4785.1s] selanjutnya kita bisa ke tahap ee
+[4787.6s] evaluasi ya untuk ya tahap
+[4791.9s] akhirnya dengan menambahkan
+[4794.8s] fusion
+[4795.8s] Matrix jadi kita
+[4799.4s] tampilin visualisasinya supaya tahu
+[4804.2s] ini
+[4805.9s] apa Model itu
+[4808.1s] ee salah kas mengklasifikasikannya itu
+[4812.0s] di
+[4813.3s] mana kita bisa masukin kod
+[4818.0s] ini kita tunggu
+[4913.9s] Oke jadi untuk confusion matrixnya ini
+[4918.3s] ee bisa apa menunjukkan performa model
+[4922.8s] klasifikasi pada dataset mnis yang di
+[4926.3s] mana
+[4927.2s] Eh pada diagonal utama dari kiri atas ke
+[4930.9s] kanan bawah
+[4933.0s] Dari apa
+[4940.8s] 5 dari yang ini 579 sampai
+[4945.3s] ke kanan bawah
+[4946.8s] 5854 itu menunjukkan
+[4950.5s] ee jumlah sampel yang diklasifikasikan
+[4953.3s] dengan benar untuk setiap kelas dari
+[4955.9s] digit angka 0 sampai
+[4958.4s] 9 ya tetapi ee dari setiap e angka ini
+[4964.6s] terdapat ada kesalahan memprediksi ini
+[4967.9s] misal di no0 ini kalau memprediksi apa
+[4972.4s] ada tiga apa tiga
+[4975.1s] salah tiga
+[4978.0s] prediksinya dua kemudian di angka sat
+[4980.8s] juga
+[4982.3s] ada angka du juga ada t ada 4 ada 5 ada
+[4987.3s] 6 ada 7 ada
+[4990.3s] ada
+[4992.1s] ada karena data setnya besar banyak jadi
+[4997.0s] eh itu enggak sedikit apa tidak terlalu
+[5001.2s] berpengaruh ke performa modelnya
+[5009.0s] Oke untuk yang bawah pun juga
+[5011.5s] sama t Apa hasil
+[5016.3s] [Musik]
+[5017.6s] prediksinya sama benar semua
+[5055.6s] Oke mungkin seperti itu
+[5066.5s] untuk
+[5069.4s] eh on praktik eh model dengan model lstm
+[5075.6s] dan cru untuk
+[5078.8s] eh memprediksi atau mengklasifikasikan
+[5084.6s] eh angka tulisan tangan dengan data
+[5090.0s] setnis sebelumnya ada yang mau ditanyain
+[5092.4s] enggak
+[5098.8s] kalau nanyanya malu di zoom bisa tanya
+[5102.6s] Nanti Via chat personal chat atau nanya
+[5106.4s] langsung di grup bisa nanya ke aku atau
+[5108.7s] ke bank
+[5110.7s] Farel dan
+[5113.0s] nanti untuk tugasnya akan diinformasikan
+[5116.4s] di grup
+[5119.9s] secepatnya baik kelas ML machine
+[5123.3s] learning maupun juga DL
+[5126.0s] learning dan juga untuk record kelasnya
+[5130.7s] nanti akan diupload ke Youtube Lalu
+[5132.8s] nanti link youtube-nya akan dishare juga
+[5135.8s] ke grup WA kelas seperti itu mungkin
+[5142.2s] kita cukup dulu untuk
+[5145.6s] pertemuan Deep learning di week 3 ini
+[5149.0s] kurang lebihnya mohon maaf dalam
+[5151.2s] penyampaian materi on prtik
+[5155.0s] ee sekian wasalamualaikum warahmatullahi
+[5158.4s] wabarakatuh

@@ -1,0 +1,266 @@
+[0.0s] hai hai
+[1.2s] The Key jadi kita buat notebook baru
+[3.7s] namanya part1 What the f*** di dalam
+[7.0s] sini ya Datanya jangan lupa Dian Jeep
+[9.5s] supaya bisa langsung dipakai Dan kita
+[12.0s] mulai dengan impor impor dulu silakan
+[14.4s] impor OS impor tandas
+[19.9s] Hai import
+[24.7s] langkah2nya lihat itu from a new tk.com
+[28.6s] nice
+[30.5s] Ayo kita butuh word pake nice untuk
+[33.7s] tokenization ya kita udah bahas waktu
+[36.7s] itu nama enaknya ada paket baru namanya
+[41.2s] gensim ini untuk istilahnya language
+[44.7s] modelling yang mau kita bahas hari ini
+[46.4s] impor aja dulu yang namanya word2vec nah
+[50.8s] itu yang nanti Mira mau ajarin Apa itu
+[53.4s] ya
+[56.8s] hai oke
+[58.5s] Hai sekalian juga aktiva tak kandungya
+[63.2s] Hai from takadum doto imports akadum Oke
+[68.5s] untuk progressbar ya Wira rasa itu udah
+[72.2s] cukup harusnya
+[75.1s] Oh ya harusnya ada cepet
+[77.8s] Hai Oke ini impor Wira kasih corpal aja
+[81.1s] kalau males
+[85.0s] Hai silakan kali ini Wira mau cerita
+[88.5s] dulu tentang Apa itu sebelum kita masuk
+[91.7s] ke boot to fake ini ya Apa itu What
+[94.1s] Factor gitu tapi kita mulai dengan
+[96.8s] kenapa kenapa kita malah butuh website
+[100.1s] or gitu Jadi kalau Mira kasih sedikit
+[102.5s] gambaran namanya saja sudah word Factor
+[108.7s] Oke jadi dari sebuah Word menjadi sebuah
+[112.4s] vektor yang besarnya
+[113.9s] Hai artinya Wira mau berusaha
+[115.9s] representasi setiap kata itu akan
+[118.5s] menjadi sebuah vektor gitu Kalau yang
+[120.5s] kayak back office atau tfdf itu adalah
+[124.3s] sentence menjadi Factor ya Jadi kita ada
+[127.5s] satu kalimat Gimana caranya tiap
+[129.2s] kalimatnya kita inqod jadi angka gitu eh
+[132.4s] tinggal hitung jumlah katanya ada yang
+[135.4s] nanti dinormalisasi seperti tfdf gitu
+[138.0s] Bisskey gitu ya Nah sekarang lain ya
+[140.9s] sekarang nih buat yang kita jadiin
+[142.9s] Factor gitu karena saat kita main sama B
+[147.4s] cover sama tpid Masih ingat enggak ini
+[149.7s] kita ada jumlah baris ini adalah Jumlah
+[152.0s] dokumen yang dokumen satu domain dua
+[153.7s] kalimat satu kalimat 2 dan seterusnya
+[156.1s] kolomnya ini banyak banget
+[159.1s] di kolom yaitu waktu itu bisa sampai
+[161.5s] ratusan ribu gitu ya dari itu kita baru
+[163.8s] dataset yang spesifik dan kecil gitu
+[166.1s] belum lagi nanti kalau kita mau modalin
+[168.3s] bangsa yang secara umum bahasa Indonesia
+[171.0s] kita mungkin pakai Wikipedia dalam atau
+[173.3s] pakai datang lebih besar gitu ya
+[174.9s] Sehingga enggak efisien bahkan secara
+[178.8s] komputasi pun mau nggak mau kita harus
+[180.4s] pakai Sparks Matrix Sumatera ceritakan
+[183.0s] ya
+[183.8s] the spaz matriks gitu kecuali kalau itu
+[187.3s] itu kan karena banyak akan maunya gitu
+[188.9s] ya sehingga kita harus pakai Space
+[190.9s] matriks baru lumayan efisien gitu kalau
+[193.7s] enggak ini terlalu gede
+[196.3s] Nah itulah Kenapa iddahnya idenya itu
+[199.2s] gimana kalau ini kita vocab nya kan
+[203.0s] banyak banget ya kita lakukan dimensi
+[206.4s] multi reduction gitu nah ini kan kita
+[208.9s] udah belajar kan ya di course 7 Enggak
+[212.6s] saya and supervise learning gitu yaitu
+[214.8s] tentang di menset irritation bahkan
+[217.4s] dikeroyok delapannya kita udah belajar
+[219.3s] Deep unsupervised learning bahwa kita
+[221.8s] ada teknik untuk reduce The Mansion yang
+[224.8s] kece enggak harus pakai teknik yang udah
+[228.1s] ada spdp caffe2 itu kan tekniknya udah
+[232.3s] ada tapi belum tentu terbaik untuk data
+[234.8s] kita sehingga kita bisa ngekos temenan
+[237.7s] kita buat custom dan mensil teori Datsun
+[240.7s] yaitu pakaian namanya autoencoder Kanya
+[244.6s] jadi ini kenapa waktu itu untung kita
+[247.7s] udah basotho encoder kita bisa bahas
+[250.5s] qwert UV kini ya gitu jadi idenya Wiro
+[255.2s] nanti akan ada Factor
+[258.2s] Hai tapi kita pakai onehotencoder aja
+[260.6s] bete waham coding jadi 00100 nah ini mau
+[265.5s] Wira readius jadi Factor yang lebih
+[268.6s] kecil gitu waktu itu kalau di istilah
+[271.3s] autoencoder ini adalah laten special itu
+[274.2s] Klaten Space tempat penyimpanan dan
+[277.2s] ketika diri di us ternyata malah lebih
+[279.3s] bermakna hanya mati tuh lebih bermakna
+[281.7s] yang harapannya kita bisa rekonstruksi
+[285.0s] balik gitu cuman kali ini apa kita
+[289.1s] rekonstruksi balik jadi 0101 nah ini
+[291.9s] yang agak beda gitu ya di sini yang agak
+[294.4s] beda oke nah pertanyaannya berarti
+[297.3s] targetnya ini kita mau melakukan apa
+[299.9s] tasnya Apa itu ya kalau di autoencoder
+[303.9s] tasnya adalah kembaliin seperti semula
+[306.4s] gitu atau bahkan ada yang kita tambahin
+[308.7s] noise gitu ya baru kembali instiz mula
+[310.9s] waktu itu namanya denoising autoencoder
+[313.8s] gitu sekarang tasnya ini spesifik karena
+[317.5s] kita lagi
+[318.2s] ngomongin bahasannya Bahasa itu gimana
+[322.1s] cara model lainnya Coba misalkan yang
+[325.4s] seperti ini Halo nama saya
+[330.0s] Hai saya
+[332.1s] Hai Wira adalah viral
+[338.3s] hai oke nah Entah kenapa kalau kita
+[342.2s] manusia itu manusia kita sering banget
+[345.2s] bisa menghandle problem seperti ini jadi
+[348.4s] bila ada kata yang kosong terus manusia
+[350.8s] diminta mengisi gitu entah Kenapa
+[353.8s] manusia bisa ya Bahkan ini kalau di
+[355.6s] ujian kita diminta untuk mengisi kalimat
+[358.2s] yang kosong gitu ya sehingga kalau Wira
+[361.9s] sengaja suruh mesin mempelajari ini
+[366.3s] Hai harapan wiraharapan Wira Wira bisa
+[369.3s] dapet suatu model yang memahami tentang
+[372.6s] bahasa Indonesia itu Oke jadi Halo nama
+[376.3s] adalah Wira dari informasi sekitar itu
+[378.9s] bisa enggak sih mesin Mira minta untuk
+[381.3s] isi di sini harusnya kata Apa itu dan
+[384.8s] jawabannya harus cuma satu ya kan boleh
+[386.6s] beberapa gitu Yang penting kata yang
+[389.0s] paling next sense dalam konteks ini
+[391.1s] sehingga modelling kita kali ini lebih
+[393.7s] Sakti karena akhirnya ada konteksnya
+[396.6s] waktu itu kalau B cover sama TV deh kan
+[400.3s] bahkan Wiro d'kasteel kelemahannya
+[402.1s] urutannya dibolak-balik katanya
+[403.9s] diacak-acak aja vektornya sama gitu
+[407.0s] kecuali kalau kita pakai n g gitu ya Nah
+[410.3s] di sini tanpa n g pun mesinnya nanti
+[413.2s] udah learning tentang kata-kata
+[414.9s] sekitarnya
+[417.0s] Hai sehingga ke nanti setelah kita
+[420.5s] lakukan learning seperti itu laten Space
+[424.3s] ini Factor Di tengah ini inilah yang
+[426.3s] namanya website or itu website
+[430.8s] the fight jadi nanti kita terserah kata
+[433.3s] apa saja onehotencoder Kita kan udah
+[435.7s] training ini ya encoder nya encoder nya
+[438.4s] akan merubah kata kita menjadi Factor
+[441.6s] make teknik Inilah yang disebut sebagai
+[443.7s] teknik word2vec Bagaimana merubah Word
+[448.1s] menjadi Pak ya Oke kita bisa balik ke
+[452.8s] notebook kita impor aja dulu materi
+[456.5s] ngajar Wira clone Luigi udah Vector
+[461.3s] Illustration
+[468.8s] hai oke
+[470.3s] hai hai
+[471.5s] Hai Oke jadi teknologi awalnya ketika
+[475.3s] kita idenya waktu fake ini ada dua tipe
+[479.0s] tas yang kita kepikiran di awal itu ya
+[481.7s] ya itu yang namanya skip-gram sama si
+[485.7s] Bowo gitu skip-gram itu prediksi kata
+[489.3s] yang ada di sekitar Jadi kalau misalnya
+[491.2s] Wira dekat kalimat Vini Halo nama saya
+[493.5s] adalah Wira nanti datasheetnya
+[495.6s] datasheetnya itu adalah saya kalau
+[498.5s] inputnya saya prediksilah kata Halo saya
+[501.6s] prediksi Nama saya prediksi adalah saya
+[503.9s] prediksi raja di satu kata prediksi
+[506.4s] sekitar sekitarnya Oke prediksi kata
+[510.1s] yang disekitar itu namanya adalah
+[511.6s] skip-gram skip-gram kalau siboh namanya
+[515.7s] continuous continuous backoffice itu itu
+[519.0s] prediksi kata yang kosong Jadi mirip
+[520.7s] yang tadi Wira ceritanya Halo nama saya
+[522.9s] adalah Wira Anggaplah sayanya enggak ada
+[524.7s] dengan kata halo kita harus prediksi ini
+[527.5s] adalah saya nama adalah saya adalah saya
+[530.8s] wirasa
+[531.5s] aja jadi ini x besarnya ini yee kecilnya
+[534.8s] oke
+[536.3s] Hai sehingga itulah yang nanti kita
+[538.2s] masukkan ke otoinfo.id kita autoencoder
+[541.9s] yang kita paksa kalau impor kata Halo
+[543.7s] dia harus mampu prediksi kata saya impor
+[547.1s] kata nama dia harus mampu prediksi kata
+[549.2s] saya juga gitu ya itu yang kita training
+[552.7s] supaya nanti dimensi redaksinya ada
+[555.0s] maknanya dan kali ini maknanya adalah
+[557.0s] seperti melihat kata-kata sekitarnya dan
+[561.2s] karena ada istilah sekitar itu kita ada
+[563.3s] istilah Windows itu ya mau Berapa jauh
+[567.1s] kita melihat kekiri atau kekanan itu Lex
+[570.3s] saya kalau windowsnya dua kita lihat dua
+[572.8s] kata ke kiri sampai kedua kata ke kanan
+[575.5s] gitu Oke kalau misalnya mentok misalkan
+[579.0s] ada di awal kalimat gitu ya
+[582.3s] misalkan kalimat yang tadi yang ini Nah
+[586.2s] kalau misalkan yang ini berarti energi
+[589.5s] prediksi ini doang sama2 kata setelahnya
+[592.7s] ya ini dan ini
+[595.2s] Hai Keh jadi datang saatnya itu banyak
+[597.7s] banget pokoknya nama prediksi Halo saya
+[600.1s] adalah kalau saya prediksi Halo nama
+[603.5s] adalah Wira kalau adalah betul prediksi
+[607.4s] siapa aja dua rekanan dan dua di kiri ya
+[610.0s] Wira ini udah mentok jadi enggak ada
+[613.2s] prediksi saya sama prediksi nama itulah
+[617.0s] kita generic datasheetnya kita masukkan
+[619.6s] ke auto encoder gitu autoencoder ini
+[624.6s] sedikit uske saja skip-gram tuh biasa
+[628.3s] kalau kita mau fokus ke kata-kata yang
+[631.0s] langka ini bagus setiap G cocok untuk
+[633.2s] their World gitu ya kalau sibuk lebih
+[636.1s] cocok untuk yang memang Freeport kata
+[638.6s] yang sering muncul dari sisi kecepatan
+[641.9s] skip-gram tuh biasa lebih pelan dan
+[644.5s] sibou tuh biasa lebih cepat gitu ya
+[647.3s] Sibuk biasa lebih cepat
+[650.7s] Hai nah ini bila kasih ilustrasinya
+[652.8s] nanti kita trainingnya gimana Tapi
+[655.0s] enggak usah takut Henna kita bakal pakai
+[656.8s] seseorang yang udah lengkap gitu Jadi
+[659.4s] ini sering dipakai maketus nya udah ada
+[661.2s] gitu Ini kata saya ini enggak pakai tvd
+[666.1s] enggak pakai brecoflex ya gitu Jadi saya
+[668.5s] langsung aja jadi uang hope and chord
+[670.8s] karena ini kata ya bukan sentence bukan
+[674.1s] kalimat-kalimat yasfira bisa jadi backup
+[676.5s] watch
+[677.5s] Hai kalau kata Wira kan dia udah jadi
+[680.5s] onehotencoder kami online kode gitu Jadi
+[683.2s] ini 000100 Anggaplah Ini kata saya gitu
+[686.8s] ya kita autoencoder tapi prediksi
+[690.8s] akhirnya nanti kita diminta untuk soft
+[693.7s] Max prediksi kata halo gitu ya karena
+[696.9s] ini saya prediksi kalau
+[700.0s] Hai sesimpel itu jadi ini bahkan kita
+[702.1s] udah bisa lakukan Nih walaupun walaupun
+[704.8s] ya impact test Kenyataannya nggak
+[707.7s] sesimpel itu gitu Ini kan target kita
+[711.5s] target neuron nya aja ada lecet 500-an
+[714.8s] ribuan gitu ya Nah nanti realities cara
+[717.6s] praktisnya komputasinya itu kita enggak
+[719.7s] efisien sehingga pertama kita jangan
+[722.7s] pakai soft Max tapi pakai logs of Max
+[725.9s] gitu Itulah kenapa kita selama ini
+[728.1s] workshop meser kaen ini udah banyak
+[730.8s] banget pasti probability ini 0,00000000
+[734.5s] ada 500.000 loh dan salah satu yang
+[737.4s] harapannya ini paling tinggi gitu ya
+[739.2s] Jadi pakai Lock softmax dan nanti kita
+[742.4s] banyak teknik lainnya praktisnya untuk
+[744.9s] mengatasi masalah ini ya target neuron
+[748.5s] yang terlalu banyak itu outputnya
+[750.9s] orangnya terlalu banyak
+[753.0s] Hai Oke sampai sini dulu idea tentang
+[756.1s] word2vec ada yang mau ditanyakan tidak
+[761.9s] Hai dengan Emang nanya
+[764.6s] mungkin karena ini kita juga udah
+[766.4s] belajar ya waktu itu jadi tinggal
+[768.2s] aplikasikan ke Chase data teks sekarang
+[771.3s] jadinya langsung paham Oke kalau gitu
+[773.5s] nggak papa kita bisa langsung praktek
+[775.2s] kalau gitu ya sip

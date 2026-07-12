@@ -1,0 +1,1840 @@
+[5.3s] okay
+[5.6s] so i'm going to talk about um burt and
+[7.4s] also some
+[8.7s] uh kind of precursor work and then some
+[11.4s] follow-up work that's happened
+[12.9s] in the last year now we'll not follow up
+[14.3s] but uh more more recent advancements um
+[16.7s] that's happened
+[17.5s] uh since then so
+[20.6s] uh first we're gonna talk about history
+[21.8s] and background so um
+[24.3s] everyone knows and loves ward embeddings
+[26.3s] in nlp right they're kind of the basis
+[27.9s] for
+[28.6s] uh neural networks work for nlp
+[33.0s] because neural networks work in a
+[35.4s] continuous space
+[37.0s] vectors and and matrices and obviously
+[40.4s] text is a discrete space and so there
+[42.8s] needed to be something to bridge the gap
+[44.6s] and uh it turns out that the thing to
+[46.7s] bridge the gap
+[48.2s] it's actually pretty simple it's just a
+[49.4s] lookup table from um
+[52.1s] each from a set of discrete vocabulary
+[54.2s] to a vector that's learned
+[55.8s] discriminatively end to end right so
+[57.4s] originally these were just learned like
+[59.1s] in in uh the original bengio 2003
+[62.2s] neural language on paper these were just
+[63.6s] trained discriminatively end to end
+[66.0s] and these were actually and so then
+[67.8s] people train language models and then
+[69.4s] use these pre-trained use the embedding
+[72.4s] layer as pre-trained representations
+[74.6s] um for for other tasks and but they
+[76.9s] wouldn't use the rest of the language
+[77.8s] model they would just use the embedding
+[78.9s] layer
+[79.3s] and then uh word develop and glove and
+[81.2s] stuff came along where
+[82.5s] then people found a much cheaper much
+[84.8s] more scalable way to train
+[85.9s] it where you can just use the uh
+[89.0s] statistics of a corpus where it's just a
+[91.7s] linear model so you don't have to
+[92.6s] compute these expensive
+[93.8s] feed forward layers that you're going to
+[94.8s] throw out anyways and so you can scale
+[97.0s] up to like billions of tokens
+[98.6s] on a single uh cpu right so
+[103.1s] the problem though is that these word
+[104.6s] embeddings are
+[106.5s] applied in the context free matter right
+[107.8s] so so for like a kind of a simple toy
+[109.9s] example
+[110.6s] the word bank if you say open a bank
+[112.8s] account and on a riverbank
+[114.2s] it's going to be the same embedding so
+[115.7s] people are trying to do stuff like
+[117.8s] uh word sense embeddings where it's not
+[119.9s] just a single word it's a full word
+[121.4s] sense
+[121.9s] but this kind of bank example is a
+[124.4s] little bit of a toy example right most
+[126.3s] almost any word has a different meaning
+[128.0s] depending on the context
+[129.8s] um it's very so even even like open the
+[133.0s] bank account and i went to the bank
+[134.3s] those are still
+[135.5s] in a semi different senses of the word
+[139.0s] bank one of them is a i mean they have
+[140.6s] different part of speech text kind of
+[142.7s] uh well i guess not really but like
+[144.2s] they're kind of they're kind of using
+[145.1s] different senses right
+[146.0s] and so um yeah so so we really need a
+[148.8s] contextual representation right so we
+[150.0s] want something
+[150.8s] where it's a representation of a word
+[153.4s] after
+[154.2s] it's been put into the context of the
+[156.9s] sentence that we've seen it in right
+[157.8s] which would be like at the bottom here
+[159.4s] so kind of for history of contextual
+[161.7s] representations
+[162.5s] the first big paper for this type of
+[165.3s] contextual organization was a paper uh
+[167.0s] from google
+[167.9s] in 2015 called semi-supervised sequence
+[170.3s] learning from andrew dye and quackley
+[172.1s] um and so in this one uh
+[175.3s] it was actually very similar to to
+[176.9s] papers that came after it it didn't get
+[178.2s] as much attention for various reasons
+[179.7s] so but basically they they had some
+[181.8s] classification tasks like
+[183.6s] uh sentiment classification on movie
+[185.0s] reviews and they had a big corpus of
+[186.6s] movie reviews
+[187.4s] and so then they said what happens if we
+[188.6s] just take our existing lstm model
+[191.0s] and instead of just using pre-trained
+[192.2s] embeddings which everyone has already
+[193.2s] been doing since like at least
+[195.0s] for the like actually probably since
+[196.6s] 2003. 2003 people have been using
+[198.6s] pretending betting's but
+[199.8s] they said let's actually pre-train the
+[201.1s] entire model as a language model
+[203.2s] and then let's fine-tune it for our
+[204.8s] classification test and they got
+[208.6s] pretty good results but not like stellar
+[210.4s] results and so now we know that the
+[212.2s] reason why they didn't get sell results
+[213.5s] they didn't train it on enough data and
+[214.7s] they because they basically turned on
+[215.7s] the same corporates that they were
+[216.5s] training on
+[217.0s] and they trained the same size model
+[218.7s] that they were training on which we now
+[220.5s] know needs to be bigger
+[221.4s] but that's kind of uh this was this was
+[223.3s] already kind of a little bit ahead of
+[225.0s] its time um
+[226.5s] partially because like you know stuff
+[227.6s] wasn't like we didn't have this compute
+[229.4s] back then
+[229.9s] even though it was only five years ago
+[231.8s] um and it would have been you know more
+[233.1s] expensive
+[234.1s] so uh and then in uh 2017
+[237.8s] elmo came out which was uh from the
+[240.4s] university of washington
+[241.4s] and ai2 and so this one
+[244.6s] they did something pretty clever where
+[246.2s] they took um
+[248.2s] you train a language model on a big
+[249.4s] corpus so they traded in a billion word
+[250.8s] corpus
+[251.5s] and they made a big model a lstm with 4
+[254.5s] 000 hidden dimensions which is quite
+[256.2s] expensive
+[257.1s] and they trained a bi-directional model
+[259.0s] so they but but
+[260.3s] it was uh kind of weekly bi-directional
+[262.2s] where they trained a left-to-right model
+[263.8s] and then a right left-right model and
+[266.2s] then they concatenated the two
+[268.1s] and they call these contextual
+[269.4s] pre-trained embeddings and so the idea
+[271.0s] behind elmo
+[272.1s] is that this doesn't actually change
+[274.1s] your existing model architecture
+[275.9s] you kind of take whatever task specific
+[278.6s] model architecture you have
+[280.2s] which could be you know for uh question
+[282.4s] answering it might be some sort of fancy
+[283.8s] model where you do a lstm over the
+[285.7s] source and over or over the question and
+[287.4s] over the answer then you then you attend
+[289.2s] to one another
+[290.1s] and in whatever kind of architecture you
+[291.7s] have and just wherever you would have
+[293.2s] put in glove embeddings before now you
+[295.0s] put in elmo embeddings
+[297.4s] um and so this got state of the art on
+[300.4s] you know
+[300.9s] everything at the time crescent
+[302.4s] answering semantic parts and synthetic
+[304.5s] parsing
+[305.1s] because it was and and so if you just
+[306.6s] took any existing kind of
+[307.6s] state-of-the-art model
+[309.1s] you could fit in put in mlm and get
+[311.2s] state of the art right uh but but they
+[312.8s] weren't
+[313.3s] uh but these were kind of the models
+[315.2s] were kind of fixed
+[316.5s] um and so then after that uh
+[321.4s] openai published improving language
+[323.7s] understanding with generative
+[324.5s] pre-training which is
+[325.5s] simply called gpt-1 and so in this they
+[329.4s] took a just just like a similar large
+[333.4s] corpus
+[334.5s] about a billion words and they trained a
+[337.0s] very large language model so a 12-layer
+[338.8s] language model
+[339.4s] which at the time was maybe i don't know
+[341.8s] whether it was actually a large language
+[342.9s] rather than between at the time
+[343.7s] certainly was the largest enterprise
+[344.6s] that had been trained on that much data
+[345.9s] for a kind of open source model
+[349.4s] and when i first read it i actually
+[350.9s] thought that it was like too big like
+[352.5s] not
+[352.8s] not that it was worse but that they were
+[354.4s] kind of just showing off by showing how
+[355.4s] big of a model they could train
+[356.6s] but now we know that actually this this
+[358.4s] this depth that they had was actually
+[359.8s] kind of the crucial
+[360.6s] the crucial element so they did
+[362.4s] something that was like fairly simple
+[363.6s] right that is train the language model a
+[364.9s] very large one and then they just
+[366.3s] fine-tuned it
+[367.1s] by taking the last token and then
+[369.1s] fine-tuning it for a classification task
+[371.0s] right so is this positive or negative
+[373.5s] and they got
+[374.3s] basically state of the art on lots of
+[376.1s] different classification tasks
+[378.2s] but and so i'm going to i'm going to
+[380.4s] actually take a uh
+[381.8s] kind of a a side here before i go into
+[384.0s] bert um which is about transformer so
+[386.2s] that was the other uh
+[387.3s] kind of big thing like the the big
+[389.1s] precursor uh that allowed
+[391.0s] bert and gbt to work well right so um
+[395.7s] burton gbt both used to transform which
+[397.3s] i'm sure you guys have learned about and
+[398.4s] so
+[399.5s] i i don't need to go into all the
+[401.1s] details about it but
+[402.6s] um so it has
+[406.2s] you know multi-headed attention feed
+[407.4s] forward layers layer norm i won't go
+[409.3s] into all the details because
+[410.3s] i think you guys already learned about
+[411.1s] it but so the the big thing
+[413.6s] about why this kind of took over is uh
+[416.5s] there's really two advantages versus the
+[417.7s] lstm
+[418.4s] one is that there's no locality bias and
+[420.8s] so
+[422.6s] um long distance context has a equal
+[425.1s] opportunity to short distance context
+[426.7s] which is
+[427.9s] important so for like normal language
+[430.1s] understanding that
+[431.1s] the locality bias of lstms is generally
+[434.6s] considered to be a good thing
+[437.4s] because local context is more
+[440.6s] relevant than long-distance context but
+[442.4s] the way that gpt and bert and other
+[444.0s] models work
+[444.7s] is that they actually concatenate
+[447.5s] context
+[448.3s] and so if you have a uh like a model
+[451.1s] that says does this sentence does
+[452.5s] sentence one entail sentence two
+[454.5s] the way that it was done historically
+[456.1s] meaning like before gbt
+[457.5s] was that you would like encode them both
+[459.4s] let's say with an lstm
+[460.6s] then you would do attention from one to
+[461.9s] the other with
+[464.1s] a transformer you can just put them into
+[466.2s] the same sequence
+[467.5s] and give them separate sequence of
+[469.6s] betting or add a separator token
+[471.2s] and it will learn how to uh and then it
+[474.2s] can
+[474.5s] things can tend to to its own sentence
+[476.1s] locally but it can also attend
+[477.6s] all the way to the other sentence uh for
+[479.8s] almost for
+[481.5s] no it's just as easy for it to tend all
+[483.6s] the way to the other sentence
+[484.6s] and so when you do this kind of you can
+[486.2s] just pack everything to a single
+[487.1s] sequence and then
+[488.1s] uh everything will be learned rather
+[489.5s] than rather than having to do this as
+[490.9s] part of the
+[491.4s] model architecture which is ends up
+[493.3s] being a pretty important uh
+[494.9s] thing about simplifying these models and
+[497.4s] so the other thing
+[498.2s] is um that having a
+[502.0s] with transformers with with lstms let's
+[505.1s] say
+[505.4s] this is a batch and these are the words
+[507.0s] in the back so you have two sentences
+[508.4s] and four words per sentence
+[509.8s] every step has to be computed um one at
+[512.1s] a time so you only get a batch size of
+[514.2s] two effectively
+[515.4s] and so on modern hardware which is tpus
+[518.4s] and gpus
+[519.3s] the bigger the matrix multiplication the
+[520.6s] better it is you want all three
+[521.9s] dimensions to be big
+[523.4s] so even if you have big hidden layers um
+[525.7s] your batch size dimension will still be
+[527.2s] small
+[527.7s] unless you have a huge batch but then
+[529.0s] that's too expensive for long sequences
+[531.0s] but with transformers it's the total it
+[533.7s] because
+[534.1s] it's layer wise attention um the total
+[537.0s] number
+[537.5s] the batch size is the total number of
+[538.6s] words so if you have 500 words and then
+[541.0s] 32 sentences it's actually 32 times 512
+[544.2s] is the total batch size so you get these
+[545.3s] huge matrix multiplications
+[546.5s] and you can take advantage of modern
+[548.4s] hardware
+[550.5s] and so that's kind of why the
+[551.3s] transformer has taken over because of
+[553.0s] these two things
+[553.8s] and that's why it was used in gpd and
+[555.0s] why it's using burp so
+[557.5s] now i'm going to talk about bert so
+[562.6s] the problem with the previous model
+[565.4s] being elmo and gpt and
+[566.9s] um bloods before it is that the language
+[569.9s] models only used left context or right
+[572.2s] context
+[573.7s] or a concatenation of both but really um
+[577.5s] but language understanding is
+[578.4s] bidirectional right so there's this
+[579.5s] clear uh
+[581.6s] kind of mismatch between why is why did
+[583.7s] everyone train on but on unidirectional
+[585.4s] models where you could only see to the
+[586.7s] left or only c to the right
+[588.6s] when really we care when we know that in
+[590.4s] order to understand language you need to
+[591.5s] look in both directions right
+[593.0s] so there's two reasons so one is that
+[596.2s] language models historically had been
+[597.8s] used for um
+[599.8s] typically as features in other systems
+[601.9s] so like the most direct application of
+[603.2s] language modeling would be like
+[604.2s] predictive text right which is directly
+[605.8s] just saying predict the next word
+[607.2s] the other but the other applications
+[608.6s] that are actually more common are to use
+[610.1s] them in a machine translation system or
+[611.4s] a speech recognition system
+[612.6s] where you have these features like
+[614.5s] translation features or
+[616.0s] acoustic features and then you add a
+[617.8s] language model that says what's the
+[619.3s] probability of the sentence
+[620.5s] and so for this you want it to be a
+[621.5s] well-formed distribution for these
+[623.4s] pre-trained models we actually don't
+[624.6s] care about this but this was kind of
+[625.8s] something that was
+[626.5s] uh kind of people had just been like
+[629.4s] kind of
+[630.3s] i guess fixed on this idea that language
+[631.9s] models have to have to have a
+[633.0s] distribution a probability description
+[634.4s] even though we actually don't care about
+[635.4s] that
+[636.2s] but the other kind of bigger reason is
+[638.0s] that words can see themselves in a
+[639.4s] bi-directional encoder
+[641.8s] and so what this means is when you build
+[644.5s] a
+[645.0s] representation incrementally
+[648.6s] so you have your input and then you have
+[650.5s] your output and it's always offset by
+[652.0s] one
+[652.7s] so we can we have the the startup
+[655.8s] sentence token we predict the first word
+[657.7s] then we feed in the second word
+[659.0s] we fit in the first word the second word
+[660.7s] and so we can encode the sentence once
+[663.0s] and predict all the words in the
+[664.2s] sentence with the unidirectional model
+[665.4s] and so this gives us good sample
+[666.6s] efficiency right because if we have a
+[668.1s] 512 dimension
+[669.7s] like a sequence of 500 words we don't
+[671.6s] want to have to uh
+[673.0s] only predict one word because it's going
+[674.3s] to be 500 times
+[676.3s] as much compute to get the same amount
+[678.7s] of predictions
+[680.2s] but if we were to just really do a
+[681.7s] bidirectional lcm or transformer
+[683.8s] we would have a situation where you
+[685.6s] encode your sentence every
+[687.4s] everything is bidirectional and so after
+[689.1s] the first layer
+[690.6s] everything can see itself so so this
+[692.4s] word open there's a there's a path back
+[694.4s] down to open and so it's trivial to
+[695.7s] predict a word
+[696.6s] that can that can where it's in the
+[698.1s] input also right there's no there's no
+[699.9s] actual prediction going on there
+[701.8s] so the simple solution which is
+[704.6s] basically the whole crux support is that
+[706.7s] let's instead of
+[710.3s] training a normal language model let's
+[712.5s] just predict mask out
+[713.8s] k percent of the words so uh the man
+[716.8s] went to the
+[717.5s] mask to buy a mask of milk and so
+[721.3s] and so now you can run a bi-directional
+[722.6s] model on that and because the words
+[723.8s] aren't in the input you can't cheat
+[725.4s] right the downs and so
+[728.7s] the downside of this is that you're not
+[730.4s] getting as many predictions
+[731.9s] per sentence right you're only getting
+[733.8s] predicting 15 percent of words instead
+[735.2s] of
+[735.8s] 100 of words but the upside is that
+[737.5s] you're you're getting a much more rich
+[738.7s] model because you're seeing in both
+[739.7s] directions right
+[740.9s] so this value of k is a hyper parameter
+[742.9s] that we have to
+[744.2s] uh just decide on empirically so we use
+[746.6s] 15
+[747.5s] it turns out that that's actually kind
+[748.6s] of an optimal value people have so we
+[750.2s] and also people since then have done
+[751.8s] um more thorough ablation experiments
+[754.3s] and found that
+[755.1s] this 15 is good so the reason the reason
+[757.3s] for doing a certain percent
+[758.6s] over another is that if you were to do
+[759.9s] let's say 50 masking you would get way
+[762.1s] more predictions
+[762.9s] but you would also mask out like all of
+[764.9s] your context and so
+[766.9s] um you can uh if you mask out all of
+[770.6s] your context and you're not getting any
+[771.6s] you can't learn contextual models and if
+[773.2s] you only do
+[774.3s] like let's say you could mask out one
+[775.6s] word that would that might be optimal
+[777.6s] maybe um but you would have to do way
+[779.9s] more data processing so it'd be way more
+[781.3s] expensive to train and we know that
+[782.3s] these models are basically
+[783.4s] just compute bound so if you just have
+[785.7s] enough data you can just kind of
+[786.9s] train them infinitely and it'll always
+[788.8s] do better so it's really just a
+[790.4s] trade-off between these two these two
+[791.8s] things
+[793.4s] um so one other little detail invert
+[795.5s] which turned out to be super important
+[799.1s] is that because the mass token is never
+[800.6s] seen at fine tuning time uh instead of
+[802.9s] always replacing a word with the masked
+[805.3s] token
+[806.4s] as in this case uh we would randomly
+[809.2s] sometimes
+[809.9s] predict it with a random word and
+[811.4s] sometimes keep the same word so like so
+[813.1s] 17 time would say we went to the store
+[814.9s] and went to the running right
+[816.1s] and so we wouldn't tell the model which
+[819.8s] which case was which uh we would
+[823.0s] we would just have it we would just have
+[824.9s] to
+[826.2s] we would just say what what should this
+[827.8s] word be right and didn't know whether
+[829.3s] it's right or not so
+[830.2s] it could be the same word so because 10
+[831.5s] percent of time it's the same word it
+[832.7s] could be a random word
+[833.6s] and so it has to uh basically be able to
+[835.8s] maintain a good representation
+[837.4s] of every word because it doesn't know
+[839.4s] whether it's really the right word so i
+[841.0s] actually look at everyone and figure out
+[842.0s] whether this is the right word so we
+[843.2s] could potentially even just get away
+[844.2s] with not using the math token at all and
+[845.6s] just doing like this 50
+[846.7s] time and this 50 of the time but the
+[848.8s] reason for not doing that is that
+[850.3s] uh you know then we'd be corrupting a
+[852.2s] lot of our data and we don't want it to
+[853.4s] necessarily
+[854.1s] corrupt the data because the fact that
+[855.5s] this is the wrong word might mess up our
+[857.7s] prediction for some other word over here
+[858.9s] right
+[859.4s] so whereas the mass token at least it
+[861.4s] knows that it's not the right word so
+[862.7s] it doesn't use that as part of its
+[864.0s] context um
+[866.7s] so the other the other kind of uh detail
+[870.0s] of burt which also now and subsequently
+[873.0s] may not be
+[873.6s] been that important is that a lot of
+[876.6s] these tasks that we're doing we're not
+[877.8s] just learning
+[878.7s] words we're want to predict the
+[881.3s] relationship between sentences so
+[883.0s] question answering in particular we have
+[884.6s] a query which is a
+[886.4s] generally a sentence and then we have a
+[889.0s] answer which is a paragraph
+[890.4s] or a sentence or document and we want to
+[893.4s] um you know say does this answer the
+[895.8s] question
+[896.6s] so by doing that we um so we want to
+[900.0s] have some pre-training task
+[901.5s] that actually does a sentence level uh
+[904.7s] prediction rather than just a word level
+[905.9s] prediction so the way that we did this
+[907.3s] which
+[907.8s] and we need this to have like an
+[908.8s] infinite amount of data right where we
+[909.8s] can just generate an infinite amount of
+[911.0s] data
+[911.4s] so we don't want it to be an annotated
+[913.0s] task um
+[914.7s] so the way that we did this is we
+[917.8s] just did a next sentence predicting test
+[920.4s] where we just took
+[921.4s] two sentences from the same corpus from
+[924.4s] the same document and
+[925.4s] and 50 time they're from the same
+[926.6s] document 50 time there from a random
+[928.4s] document
+[929.2s] and then we just said was this the real
+[931.4s] next sentence
+[932.4s] uh or not and so if you have like the
+[934.5s] man went to the store he bought a gun on
+[935.9s] the milk that is the next sentence he
+[937.4s] said the man went to the store penguins
+[939.0s] are flightless
+[939.8s] that's not the next sentence so
+[941.0s] basically now we're forcing the model
+[943.0s] at pre-training time to actually make to
+[944.7s] look at the full sentences
+[946.2s] and then make some sort of sentence of a
+[948.2s] prediction and we hope that this
+[949.5s] uh is kind of generalized
+[953.0s] is something like question answering
+[954.4s] where you have a question and answer as
+[956.2s] sentence and sends b
+[958.7s] uh so in terms of our input
+[960.8s] representation
+[964.2s] it looks pretty similar to a normal
+[965.4s] transformer but we have these
+[968.1s] additional embeddings which are called
+[970.4s] segment embeddings
+[971.8s] so a normal transformer you would have
+[974.4s] your input
+[975.4s] and then you would do wordpress
+[976.6s] segmentation right where you split up re
+[978.8s] apply this unsupervised
+[980.8s] splitting of words into um
+[983.9s] kind of uh morphological splits but
+[986.2s] they're usually often not morphological
+[987.9s] so it's unsupervised but you end up with
+[989.8s] something that's roughly morphological
+[991.3s] right
+[991.7s] and so now you have like no no out of
+[993.4s] vocabulary tokens
+[995.0s] everything is represented at least at
+[996.5s] the very least you always split into
+[998.0s] characters
+[998.9s] uh so we use a 30 000 word vocabulary
+[1001.7s] and then we have our
+[1003.0s] token embeddings then we have our normal
+[1005.9s] position embeddings which is the bottom
+[1007.2s] and so these are
+[1007.9s] part of the transformer where because
+[1009.7s] transformers unlike lstms don't have any
+[1011.5s] sort of um
+[1013.6s] locational uh awareness so the only the
+[1016.2s] way to encode that is that you
+[1018.0s] encode a actual embedding for every
+[1020.2s] position so this is called absolute
+[1021.6s] position embedding there's other kind of
+[1023.0s] techniques nowadays
+[1025.5s] and so and then you have the segment
+[1027.4s] embedding which is
+[1028.8s] this is a sentence a or sentence b and
+[1030.4s] so this kind of generalizes in more
+[1033.4s] general context so you can imagine if
+[1034.8s] you're saying if you're trying to say
+[1036.1s] like you're trying to do like web search
+[1037.4s] you might say
+[1038.0s] here's my query here's the the title
+[1040.4s] here's the url here's the
+[1041.9s] document content um and so you can kind
+[1045.1s] of just pack these onto a single
+[1046.3s] sequence and then just give them
+[1047.4s] different
+[1048.5s] segment embeddings or type embeddings so
+[1050.9s] that now you get
+[1052.5s] uh are able to have a much stronger
+[1056.0s] um you're able to kind of just represent
+[1058.9s] everything
+[1059.5s] in this kind of same single sequence
+[1061.8s] where you kind of just differentiate but
+[1063.1s] just a single embedding that's different
+[1064.3s] and this is all of course learned
+[1067.2s] and so this is in contrast to kind of
+[1068.6s] the older style where you would
+[1069.8s] typically have a different encoder for
+[1071.0s] every part of it so like you would have
+[1072.1s] a different code for the query and then
+[1073.2s] maybe for the title and maybe the url
+[1075.0s] but this case it's all just a single
+[1076.2s] sequence so
+[1078.3s] we trained on about a three billion word
+[1080.6s] corpus which was
+[1081.4s] at the time large now it's not actually
+[1083.2s] even that big of a what people are
+[1084.6s] training on
+[1087.2s] uh we used a batch size uh which was
+[1090.2s] also large
+[1091.3s] um we trained for about 40 epochs over
+[1093.9s] the data and we trained these two models
+[1095.4s] which are still relatively large
+[1097.2s] um so one of them is a 12 layer 768 and
+[1100.9s] then the other 24 layer 10 24. so at the
+[1102.7s] time this was basically like
+[1104.6s] one of the largest models that had been
+[1105.9s] trained although now people are training
+[1107.4s] models that i think are
+[1108.6s] uh 30 times or more bigger than this um
+[1112.2s] in the more recent papers so things have
+[1113.8s] kind of exploded in terms of
+[1115.6s] compute compute in the last i don't know
+[1117.4s] three years
+[1119.1s] but uh yeah so
+[1122.8s] the fine tuning procedure is uh
+[1126.5s] it's pretty straightforward right so we
+[1128.8s] we pre-trained this model for these two
+[1130.2s] tasks and so now
+[1131.5s] we have an input sequence which is
+[1133.4s] multiple sentences with different type
+[1134.6s] embeddings
+[1135.4s] we feed them through the uh our
+[1137.8s] transformer
+[1138.8s] model and now we have the special
+[1141.2s] embedding
+[1141.8s] which i think i didn't mention so this
+[1143.8s] is the special embedding this is this is
+[1145.9s] basically it's learned to predict the
+[1148.3s] the next sentence prediction task
+[1150.1s] and then this is used also for
+[1153.0s] classification text
+[1154.1s] but this it's not just that we're using
+[1155.4s] the embedding right we are
+[1157.3s] we're fine-tuning the entire model right
+[1158.8s] so this so it's really not that this
+[1160.7s] embedding is intrinsically useful or
+[1161.9s] that the word embeddings are
+[1163.0s] are useful it's that the the the weights
+[1165.9s] inside the entire 12 or 24 layer model
+[1168.6s] are useful and so by fine-tuning the
+[1170.7s] entire model you can kind of
+[1172.4s] pick out the salient parts that are that
+[1173.9s] are important for some downstream task
+[1177.2s] and so this is this is the kind of the
+[1180.6s] the class specific fine-tuning freight
+[1182.4s] so if we have a single classification
+[1184.1s] task
+[1184.9s] uh like let's say sentiment analysis
+[1188.6s] um where i say is this a positive or
+[1190.5s] negative review we we
+[1192.2s] encode our sentence with the burp model
+[1194.9s] then the only parameters that we add are
+[1196.4s] this
+[1197.0s] final output matrix right so maybe if we
+[1198.8s] have three let's say
+[1200.2s] positive negative or neutral this might
+[1202.0s] be a thousand times
+[1203.3s] three right so it's just three thousand
+[1204.6s] parameters and 300 million
+[1207.4s] so 3 000 new parameters and 300 million
+[1210.6s] old parameters
+[1211.4s] and we jointly train all 300 million
+[1214.3s] plus 3000
+[1216.4s] for this downstream task but because the
+[1218.3s] vast majority of them are pre-trained
+[1219.8s] we can kind of adapt to it in only like
+[1221.8s] a few thousand
+[1223.1s] labeled examples and similarly for a
+[1225.3s] sentence fair class
+[1226.5s] we do um we just continue to do
+[1228.7s] sentences with different type embeddings
+[1230.0s] so we have if you want to say does this
+[1231.4s] sentence entail this other sentence you
+[1233.1s] say sentence a
+[1234.5s] uh you put it concatenate sentence b and
+[1237.2s] then
+[1237.7s] also predicts from from this token and
+[1239.4s] fine-tune the entire thing so similarly
+[1241.2s] very few additional parameters for span
+[1243.5s] prediction tasks
+[1244.8s] you just have kind of a start of a start
+[1248.2s] of span and a span so you're only adding
+[1249.6s] a few thousand new parameters
+[1251.8s] and then for tagging tasks like part of
+[1253.9s] speech tagging
+[1254.8s] you just um have a
+[1258.3s] single uh sentence you have you you add
+[1262.0s] every single token or maybe every token
+[1263.8s] except for the the word pieces but like
+[1266.1s] you that's kind of pre-processing you
+[1268.0s] you predict um
+[1269.3s] what's the part of speech of this and so
+[1271.5s] this is really why
+[1273.0s] uh so like word itself is really a kind
+[1277.4s] of
+[1277.8s] i would say an incremental improvement
+[1279.7s] over what art exists so it kind of took
+[1281.7s] uh transformers uh elmo
+[1285.2s] gpt really these three ideas and kind of
+[1288.5s] made
+[1288.8s] a pretty simple uh change on top of them
+[1292.6s] and but the reason why it had such big
+[1296.3s] impact is not just the numbers that i'll
+[1297.6s] show in a few slides it's really
+[1299.1s] this this thing because
+[1302.8s] um with elmo
+[1305.4s] there was really no fundamental
+[1306.9s] difference between it was just
+[1307.8s] contextual embedding right so you
+[1309.0s] still had because like a lot of deep
+[1310.9s] learning historically
+[1312.4s] has been fun in building new models
+[1315.0s] right so you have all of these
+[1316.2s] components
+[1316.7s] kind of like lego blocks right you have
+[1319.1s] tension layers feed forward layers layer
+[1321.0s] normalization
+[1322.5s] lstms etc and you can just
+[1326.6s] kind of like figure out say okay for
+[1328.2s] this new task how do i glue these
+[1330.4s] together
+[1331.0s] in a way that's best right and so
+[1334.1s] um and so with elmo it wasn't really
+[1337.4s] it didn't really change anything
+[1338.4s] fundamentally it was just because these
+[1340.7s] were
+[1341.0s] you just fed it into your existing model
+[1342.2s] and you got state-of-the-art for
+[1344.1s] gpt-1 one it wasn't um
+[1347.9s] most like these things didn't really
+[1349.3s] work right because it was a
+[1350.2s] left-to-right language model
+[1351.4s] and so you could just kind of take the
+[1352.6s] last token and then predict a
+[1354.4s] classification test
+[1355.4s] but it didn't really make any sense to
+[1356.9s] predict um like part of speech tags
+[1359.0s] because
+[1359.4s] for the first word there's no context so
+[1361.4s] it makes no sense to predict with no
+[1363.0s] context
+[1364.3s] um with bert the reason why it had such
+[1367.4s] high impact
+[1369.4s] was because it kind of simplified things
+[1371.2s] and so that's not i'm not saying that's
+[1372.5s] necessarily
+[1373.4s] a good thing because as a researcher or
+[1376.5s] or a bad thing
+[1377.3s] i'm so as a researcher kind of
+[1379.7s] ironically the ultimate goal of research
+[1381.1s] is often like research yourself out of a
+[1382.4s] job right like
+[1383.2s] it's like you know if a if a physicist
+[1385.4s] i'm not saying bert had
+[1386.6s] anyone near this impact like a physicist
+[1388.3s] that came up with like the grand theory
+[1389.4s] of physics
+[1390.2s] they would kind of like that would be
+[1391.7s] like the greatest moment in physics but
+[1393.3s] also that would kind of
+[1394.5s] uh eliminate a lot of research right and
+[1396.2s] so that's kind of like the end goal
+[1398.0s] of richard just kind of solved the
+[1399.8s] problem right so so
+[1401.4s] bert um kind of has
+[1404.7s] a is a step where now
+[1408.2s] like all of these different kinds of
+[1409.5s] problems there's really it kind of
+[1411.8s] killed like a lot of the need to do um
+[1414.8s] model architecture design which is kind
+[1416.4s] of
+[1416.6s] unfortunate because that's like really
+[1417.8s] fun um and so
+[1420.3s] that's kind of the the impact and i'm so
+[1422.6s] i'm not gonna say whether it's like a
+[1423.4s] good or a bad impact it's kind of like
+[1425.0s] the objective impact and that's why it's
+[1426.2s] had so much impact is because
+[1427.9s] it has kind of had this effect on
+[1431.3s] now so many things that used to be like
+[1433.6s] designing fun
+[1434.3s] you know models it's just feed it in and
+[1436.8s] use one of these
+[1437.6s] four recipes and it kind of just works
+[1439.0s] for all of these different tasks
+[1441.8s] so in terms of actual empirical results
+[1443.8s] so these are at the time the paper was
+[1445.0s] published of course things have gotten
+[1448.1s] better since then so these this this
+[1450.5s] glue task
+[1451.2s] is a set of um they're all kind of
+[1453.6s] similar in that they're all sentence
+[1454.8s] pair or sentence classification test
+[1456.4s] so like multi-nlai would be something
+[1459.5s] like
+[1460.0s] hills and mountains are especially
+[1461.3s] sanctified in jainism and then
+[1462.9s] hypothesis is jainism hates nature
+[1464.9s] that's a contradiction right so in order
+[1466.2s] for a nlp model to be able to understand
+[1468.7s] this
+[1469.2s] or to be able to answer this correctly
+[1470.6s] and give this the label of contradiction
+[1472.5s] it needs to know
+[1473.5s] that uh hills and mountains are
+[1477.1s] part of nature sanctified is a good
+[1479.4s] thing and that hating something is a bad
+[1480.9s] thing and be able to do all of this
+[1482.0s] reasoning right
+[1482.7s] so it's pretty complicated reasoning
+[1484.8s] similarly for cola you have to be able
+[1486.1s] to say like the
+[1487.0s] the wagon rumbled down the road versus
+[1489.0s] the car honked down the road
+[1490.6s] and so um these things are
+[1494.2s] uh you know one of them to a native
+[1496.6s] english speaker
+[1497.2s] sounds totally fine the other one sounds
+[1498.5s] weird and so it's similar and
+[1500.4s] neither of these have very much data
+[1501.4s] right so you have to be able to
+[1502.0s] generalize on only
+[1503.5s] uh like a few thousand examples um
+[1507.2s] so bert uh bass which is the same size
+[1509.8s] as open ai
+[1510.9s] uh it significantly beat open ai which
+[1514.0s] was the previous state of the art
+[1516.2s] and then uh the uh
+[1519.4s] bert large which was bigger of course
+[1521.2s] got better results which is
+[1522.6s] only surprising that it got better
+[1524.0s] results across the board including on
+[1525.9s] the very very tiny data that's only a
+[1527.4s] few thousand examples that was kind of
+[1529.0s] that's kind of the more interesting
+[1529.8s] result rather than just the fact that
+[1531.5s] uh it got better results because
+[1533.2s] historically when you uh there was you
+[1535.1s] know rules of thumb about if you have
+[1538.0s] some number of examples how do you
+[1539.9s] design the model size
+[1541.3s] that's optimal for that and so if you
+[1542.8s] don't do pre-training like if you keep
+[1545.0s] making the model bigger without
+[1545.9s] pre-training
+[1546.7s] eventually you'll get worse results
+[1548.6s] because your model will overfit your
+[1549.8s] training data
+[1551.0s] with pre-training you basically only
+[1552.1s] ever do like one pass of the day anyways
+[1554.2s] so there seems to be almost no limit to
+[1556.4s] how big you can make it
+[1557.6s] and still get good results even with a
+[1559.0s] tiny amount of fine-tuning data and
+[1560.5s] that's really like one of the one of the
+[1561.8s] big takeaways
+[1563.0s] so i'm not go yeah so
+[1566.8s] uh squad 2.0 i said so the reason why
+[1570.6s] these are these are numbers
+[1571.7s] and these ranks are lower because i took
+[1573.3s] the screenshot
+[1574.9s] uh after like this you know
+[1577.2s] significantly after
+[1578.2s] uh when a bunch of other people had
+[1580.2s] submitted systems
+[1581.6s] but um so this is a question and data
+[1585.8s] set so it'd be like what action did the
+[1587.0s] u.s take that started the second oil
+[1588.2s] shock
+[1588.7s] so in this case there's no answer right
+[1590.8s] so it's something you have to be able to
+[1591.5s] predict is that there's no answer in
+[1592.6s] this
+[1592.9s] phase uh so we have to either predict
+[1594.6s] the answer or say there's no answer
+[1596.0s] so bert beat the um
+[1599.2s] burpee the previous state of the art but
+[1600.7s] at the time that it was submitted by
+[1602.2s] about six points which is you know
+[1603.4s] pretty big gain
+[1604.3s] now this has kind of gone past human
+[1606.0s] level um
+[1607.5s] but at the time yeah it was it was large
+[1610.3s] so i'll kind of do some ablation
+[1611.4s] experiments
+[1612.6s] or go through some of the bleaching
+[1613.4s] insurance so this one there's there's
+[1615.6s] four things that i'm comparing here so
+[1617.7s] this is all all
+[1618.7s] burp based size models so the blue line
+[1622.2s] is kind of the
+[1622.9s] the bert based model the red line
+[1626.6s] is if we take out the next sentence
+[1628.6s] prediction so in our case even though
+[1630.1s] people have subsequently said that they
+[1631.2s] don't think it's important
+[1632.5s] in our case we actually did measure it
+[1633.7s] and it turns out it seemed like it was
+[1635.1s] important
+[1635.8s] to have this next sentence prediction
+[1637.0s] task
+[1639.3s] especially for um
+[1642.4s] kind of question answering tasks which
+[1643.9s] is this one but it seems to help a
+[1646.0s] little bit at least in all four of them
+[1647.4s] uh to to have it so this kind of doesn't
+[1649.3s] cause there's some strength in
+[1650.6s] learning some uh model that learns uh
+[1654.4s] joint that learns a relationship between
+[1656.3s] sentences so then
+[1658.6s] this one is the one that makes an
+[1660.8s] apples-to-apples comparison between
+[1663.4s] open ai and open asgpt1
+[1666.6s] and bert right because i also i made the
+[1669.2s] model bigger but not not per base so
+[1670.8s] bird base was the exact same size but it
+[1672.1s] was training more data
+[1673.2s] so to make it a fair comparison i
+[1675.0s] basically retrained my own
+[1676.6s] implementation of
+[1677.8s] open ai's gpt one and i
+[1680.9s] uh which is which is this yellow line
+[1684.0s] and we can see that on on some of the
+[1685.8s] tests it's not that far although this is
+[1687.7s] actually a pretty big gap like this this
+[1689.2s] drop is
+[1689.9s] you know like four points which is which
+[1691.8s] is a lot but on some tests like squad
+[1693.8s] and mrc it was it was way worse and so
+[1700.0s] for squad it makes sense because squad
+[1702.3s] is a labeling it's a span labeling task
+[1704.2s] and so if you only have left context
+[1706.9s] then words at the beginning have
+[1707.9s] basically no context
+[1709.2s] and so you're asking it to do span
+[1710.6s] labeling on words with with almost no
+[1712.2s] context
+[1713.3s] so it really doesn't make any sense and
+[1715.0s] so of course it's going to do much worse
+[1716.4s] so then we also added a to make it fair
+[1718.3s] we also added an lstm
+[1719.8s] on top of it which is trained from
+[1721.0s] scratch and this does help a little bit
+[1723.1s] on some of the tasks but on other ones
+[1725.0s] it doesn't help so i can swat it helps
+[1726.4s] because now you have
+[1727.4s] bidirectional context but on mrbc
+[1729.3s] because it's a very small task it's only
+[1730.6s] got 3000 labeled examples
+[1732.2s] it doesn't help at all so
+[1735.3s] if this does show that that kind of the
+[1736.6s] mass language model and the next
+[1738.2s] prediction
+[1738.9s] are both important especially the mass
+[1740.9s] language model
+[1743.8s] so the other thing uh one of the other
+[1746.3s] ablations
+[1747.0s] is that when we when we apply the
+[1750.1s] the mass language model we're only
+[1752.3s] predicting 15
+[1753.5s] of words in the sentence but when you do
+[1755.3s] a left-to-right language model you're
+[1756.5s] predicting every single word
+[1757.5s] conditioning all the words to the left
+[1759.8s] so one question might be how much does
+[1762.1s] this make it take longer to converge
+[1763.8s] even though eventually we know that it
+[1764.9s] converges at a much better point
+[1766.5s] if you have a limited training budget is
+[1768.2s] it better to do a left-to-right model
+[1770.1s] and so we see that
+[1773.7s] when you do this mass-language model the
+[1775.0s] bi-directionality starts to improve like
+[1777.0s] at the very very beginning because
+[1778.0s] you're doing so many more predictions
+[1779.4s] it's true that uh the left right model
+[1782.2s] does do better at the very
+[1783.4s] like for like epoch one but then very
+[1786.5s] soon after because the bi-directionality
+[1788.1s] is so important
+[1789.0s] uh it starts to take over and so it's
+[1791.0s] basically better from almost the start
+[1792.7s] to do bi-directionality and then it
+[1794.7s] takes longer to converge but
+[1796.0s] but the overall convergence is of course
+[1797.4s] much higher
+[1800.1s] um and then finally for for uh
+[1804.2s] this uh ablations um we can see that
+[1808.7s] going from a smaller model which was 100
+[1811.2s] million to 300 million parameters helps
+[1812.6s] a lot which isn't surprising
+[1814.2s] but the more surprising thing is that
+[1815.6s] one of these curves these aren't these
+[1817.1s] aren't comparable
+[1818.4s] uh um you shouldn't compare the curves
+[1821.4s] to each other
+[1822.0s] the point is to look at the curves as a
+[1823.9s] function of
+[1825.1s] uh the number of parameters and
+[1828.5s] see that this one is um this one only
+[1831.4s] has three thousand
+[1832.2s] labeled examples and this one has uh 400
+[1834.6s] 000 labeled examples
+[1835.5s] so in both cases the curves look very
+[1837.8s] similar which is surprising because
+[1841.0s] you know the rule of thumb that you're
+[1842.2s] going to over fit your data if you only
+[1843.6s] have a few num a few
+[1845.7s] labeled examples turns out not to really
+[1847.1s] be true anymore and there's um
+[1850.0s] you know and these and these curves keep
+[1851.1s] going up right so now with subsequent
+[1852.6s] papers which we'll talk about
+[1854.4s] like this this this big one was 300
+[1856.0s] million parameters people have gone up
+[1857.0s] to 11 billion parameters
+[1858.3s] and still seen similar behaviors you've
+[1859.9s] still seen the curves go way up and
+[1861.5s] gotten so that results which is kind of
+[1862.8s] crazy because
+[1863.8s] now we know that um you know basically
+[1866.5s] there's almost no limit
+[1868.8s] so another thing i want to talk about
+[1870.1s] before i talk about uh
+[1871.9s] stuff that's happened since burt um is
+[1874.6s] the kind of
+[1875.3s] is even though bert um
+[1878.5s] itself was in some ways very simple
+[1881.5s] which is
+[1882.2s] you know not a bad thing um it was very
+[1884.9s] successful immediately
+[1886.0s] and you know part part of that is the
+[1887.3s] google brand and like you know got a
+[1888.6s] cute name and stuff like that but i
+[1889.8s] think that i i spent
+[1890.8s] a lot of time with the open source
+[1891.6s] release in particular looking at other
+[1893.3s] open source releases
+[1894.4s] and figuring out what people didn't like
+[1896.2s] about those um
+[1898.3s] and so i think this is important like
+[1899.4s] when you're uh when when you're season
+[1901.5s] or even even
+[1902.5s] working industry as a and trying to
+[1904.2s] release something so um
+[1906.1s] i kind of just listed the things here
+[1907.8s] that i thought were uh important for
+[1910.2s] like why why it was uh successful
+[1912.7s] compared to
+[1913.4s] other things um so like i'm not trying
+[1916.2s] to call them out just to be mean because
+[1917.8s] but like the open ai gpt-1 release was
+[1919.7s] really uh was not very good
+[1921.1s] and then the like you said there were
+[1922.6s] this because the the open eye gbt2
+[1924.3s] release was very good
+[1925.3s] um and so uh yeah because it was very
+[1928.6s] hard to run
+[1929.5s] and there was not commented the
+[1930.9s] tensorflow code was very um like it
+[1932.6s] worked fine like i replicated
+[1934.0s] it but like the the tensorflow code was
+[1936.6s] very non-idiomatic
+[1937.8s] it used all sorts of weird stuff the
+[1938.9s] python was weird there was no comments
+[1940.3s] there was basically no instructions
+[1941.7s] so like um and then other code bases
+[1944.3s] also are
+[1945.2s] uh kind of too big it's like people just
+[1946.6s] wanna like say like we want to have one
+[1948.7s] unified code base for our entire
+[1950.3s] you know language team and so they just
+[1952.6s] put stuff as part of that and people
+[1953.5s] don't really like that either
+[1954.5s] so i was very insistent that we'd do a
+[1956.5s] minimal release so like this we're just
+[1958.2s] going to release burt it's not going to
+[1959.3s] be part of anything there's exactly any
+[1960.5s] external dependencies um
+[1962.3s] and it's going to be like very well
+[1963.4s] commented i think that people and it was
+[1965.3s] kind of also easy to drop in
+[1967.0s] just the modeling part and just the
+[1968.3s] tokenization part and and just the uh
+[1970.5s] the front end which runs like the
+[1971.6s] training loop and kind of separate all
+[1973.5s] these out
+[1974.2s] because um that way and so i think
+[1976.1s] because of that um
+[1977.6s] people kind of started using it much
+[1979.5s] quicker um and of course like all the
+[1981.2s] publicity helped
+[1982.2s] but uh i think that uh you know it could
+[1984.2s] have easily
+[1985.4s] been not as successful if if it had been
+[1987.9s] you know done in a different way so uh
+[1989.8s] it's just
+[1991.2s] kind of advice so um
+[1994.2s] yeah so now i'm going to talk about five
+[1997.5s] models that have
+[1998.5s] come out since bert that have all
+[2000.2s] improved on top of burt in various ways
+[2001.8s] there's been more than five
+[2003.0s] but i'm going to highlight these five so
+[2004.5s] i think that they're interesting
+[2006.8s] a lot of them didn't come from google
+[2007.8s] but it's not because this is well
+[2010.2s] a lot of them involved google i would
+[2012.7s] say many of them actually were not
+[2014.3s] they were they were interns at google
+[2017.0s] from various universities
+[2018.4s] who were supervised by google
+[2020.1s] researchers and also use google compute
+[2021.7s] i mean the reason why a lot of them came
+[2022.7s] from google is because like frankly like
+[2024.7s] other than
+[2025.6s] facebook google and microsoft there's
+[2027.1s] not really many uh
+[2029.0s] like people that can the companies that
+[2031.4s] have the resources to train these
+[2033.0s] huge state-of-the-art models and so
+[2036.5s] almost by necessity it's gonna it's
+[2037.9s] gonna come from one of these um
+[2039.8s] one of these labs so the first one
+[2043.0s] was roberta and so this is probably the
+[2045.2s] one that had like the least uh
+[2046.9s] kind of new stuff it was it's really
+[2048.2s] just uh and it's and so this was
+[2050.3s] university of washington facebook
+[2051.7s] uh it came out not that long after bert
+[2053.7s] and so what they showed was that burt
+[2056.0s] was really under trained
+[2057.4s] and so basically they took even on the
+[2060.4s] same amount of data which was
+[2062.0s] which was even though i did 40 epochs on
+[2063.7s] the data if you do it for like 200
+[2065.4s] epochs you get even better results like
+[2067.2s] significantly
+[2068.6s] um so they uh so basically they trained
+[2071.5s] more
+[2071.9s] more ebooks on the same data and they
+[2073.7s] also showed that more data helps which
+[2074.7s] is also not super surprising
+[2076.3s] and they did improve masking and
+[2077.9s] pre-training using a couple of a couple
+[2079.4s] of tweaks to that and they
+[2080.5s] and they were able to get uh
+[2082.2s] state-of-the-art results which is cool
+[2084.2s] uh and so yeah but that was a pretty
+[2086.6s] straightforward paper
+[2089.2s] so the next one is xlnet which was done
+[2091.8s] by uh
+[2093.0s] some interns in cmu when they were at
+[2094.6s] google brain and so this actually had
+[2096.5s] some some really
+[2097.4s] cool changes so
+[2100.5s] one of them was they used this
+[2102.4s] transformer xl which was actually the
+[2104.2s] precursor done by the same people
+[2105.8s] that uh where they were just doing links
+[2108.5s] only tests did a pre-training
+[2110.6s] but the big one of the big innovations
+[2113.0s] of transformer xl
+[2114.3s] is this idea of relative position
+[2115.7s] embeddings and so
+[2117.5s] with absolute position embeddings the
+[2119.8s] problem is that
+[2121.0s] every word gets like this is word
+[2124.2s] for this is word five this is word six
+[2126.0s] and so they are embedding so they do
+[2127.1s] generalize
+[2127.8s] but in in practice there's a quadratic
+[2129.9s] number of relationships like how does
+[2131.2s] word 83 relate to word 76 right that's
+[2133.5s] that's that's like and once you get
+[2135.8s] bigger like 500 a thousand
+[2137.4s] now you have a thousand squared total
+[2138.9s] relationships like you have to say how
+[2140.1s] does word 997 relate to whatever
+[2141.8s] right and so that's obviously not
+[2143.0s] optimal once you get to a large size
+[2146.2s] and so with with
+[2149.3s] uh relative vision embeddings you
+[2150.9s] basically can
+[2152.6s] say how much does
+[2155.7s] dog attend to hot and how much should
+[2158.5s] the word dog attend to the previous word
+[2160.5s] and then you get and these are
+[2161.5s] non-linear for or so these are linear at
+[2163.3s] first
+[2163.8s] but then you combine them and then you
+[2165.0s] get a non-linear uh
+[2166.8s] contextual orientation then you do this
+[2168.1s] in many many layers and this ends up
+[2169.8s] being
+[2170.2s] so then you say how does this contextual
+[2171.8s] organization of dodge how much do that
+[2173.1s] detect the previous word
+[2174.5s] and then you kind of get can build up
+[2176.0s] and so this generalizes much better for
+[2177.3s] long sequences
+[2178.1s] so that's a cool uh innovation and then
+[2180.9s] the other one
+[2181.7s] which is specific to pre-training and
+[2183.5s] not just the model itself
+[2185.1s] is this idea of permutation language
+[2186.4s] modeling so this is a little bit hard to
+[2188.2s] explain
+[2190.8s] i think the paper uh explained it very
+[2193.2s] formally i guess
+[2194.4s] and so um but basically
+[2197.8s] there's a trick where so in a left to
+[2199.1s] right language model every word
+[2201.1s] done predicting is is based on the word
+[2203.3s] the left right
+[2204.2s] but imagine that instead of instead of
+[2205.8s] predicting all every word you can
+[2207.4s] basically take any permutation so it's
+[2208.8s] like i'm going to predict
+[2209.8s] the first word then i'm going to pick
+[2211.4s] the third word then the second word then
+[2213.7s] the fourth word
+[2214.8s] and so um that's a totally valid way and
+[2218.0s] you still get the welfare and
+[2219.0s] probability distribution because it's
+[2219.9s] still predicting one word at a time
+[2221.4s] given some permutation of the input and
+[2224.0s] with transformers and with attention you
+[2225.4s] can actually do this very efficiently
+[2226.8s] just by masking out your attention
+[2228.2s] probabilities and so
+[2230.0s] every single sentence you have you can
+[2232.4s] kind of sample a single permutation
+[2234.8s] of this and you can uh now
+[2238.1s] now you can effectively train a
+[2239.3s] bi-directional model because this word
+[2241.8s] it won't be conditioned on every still
+[2243.3s] on average every word will only be
+[2244.4s] conditioned in half the words
+[2245.6s] but this word will be conditioned on you
+[2247.6s] know
+[2248.6s] all these words to the left and all
+[2249.6s] these words to the right maybe it'll be
+[2250.6s] missing these words but that's fine
+[2252.4s] and so you get much better sample
+[2254.8s] efficiency so i thought this was a
+[2256.0s] really clever idea
+[2257.3s] uh and so and this was kind of like the
+[2259.5s] main innovation of xlnet
+[2260.9s] and so um yeah they basically get better
+[2263.7s] sample efficiency because
+[2265.0s] they're able to uh to do this random
+[2268.2s] permutation and kind of take advantage
+[2269.6s] of this so this wouldn't work with lftms
+[2271.3s] because
+[2272.1s] uh because of this ordering but because
+[2275.1s] the way that masking is done in
+[2276.3s] transformers it's just um
+[2279.2s] it's just a it's just a mask on the
+[2280.6s] attention so it actually ends up working
+[2282.6s] very well
+[2283.6s] and so they also got
+[2286.7s] so yeah the numbers compared to roberta
+[2289.2s] they actually ended up being pretty
+[2290.1s] similar
+[2290.9s] um but
+[2294.1s] a lot of these things are hard to
+[2295.0s] compare because people change the data
+[2295.9s] set and change the
+[2297.4s] change the size of the model so it's
+[2299.2s] hard to compare apples to apples but
+[2300.6s] these two techniques ended up being
+[2301.8s] pretty similar but i think you know
+[2302.8s] exonet had more innovations in terms of
+[2305.0s] uh
+[2305.8s] technique um so albert it's called
+[2310.0s] a light bert for uh self-supervised
+[2312.8s] learning
+[2313.3s] and so this also had a couple of cool
+[2316.4s] innovations
+[2317.0s] and so the idea here is really massive
+[2319.5s] parameter sharing
+[2320.5s] with the idea being that if you share
+[2322.1s] parameters you're not gonna get a better
+[2323.2s] language model but you're gonna get
+[2324.6s] better
+[2325.2s] sample efficiency you're gonna get less
+[2326.6s] overfitting when you fine tune right
+[2328.2s] because if you have
+[2329.3s] a billion parameters and you fine tune
+[2330.7s] them on a 300 on a data set with like a
+[2332.6s] thousand
+[2333.1s] labeled examples you're still going to
+[2334.5s] overfit very quickly right but if you if
+[2336.2s] you have
+[2336.8s] a much smaller number of parameters
+[2338.3s] you're going to get less overfitting so
+[2339.4s] we get a similar powerful model with
+[2340.5s] fewer parameters
+[2341.3s] you're going to get less overfitting and
+[2343.7s] so they
+[2344.5s] uh so the two major innovations were so
+[2347.2s] instead of using a word
+[2348.2s] because the wording table is big right
+[2349.5s] because it's the size of your of your
+[2351.3s] vocabulary the number of
+[2352.5s] uh word pieces times the hidden size and
+[2355.4s] so it's going to be much bigger than
+[2356.4s] hidden
+[2357.0s] the hidden layer so first thing is that
+[2359.4s] they used a factorized embedding table
+[2361.1s] so if they had a hidden size of a
+[2362.4s] thousand they only
+[2365.7s] use like 128 dimensional input embedding
+[2368.6s] and then they projected that to a
+[2369.7s] thousand
+[2370.4s] using uh using a matrix and so
+[2374.6s] instead of having 1024 by a hundred
+[2376.9s] thousand they would have 128 by 100 000
+[2378.6s] plus 1024
+[2379.8s] times 128 and you multiply these
+[2381.5s] together and multiply the two matrices
+[2383.3s] together and then effectively you have a
+[2384.8s] 10 24 by a hundred thousand
+[2386.9s] embedding matrix um but you have much
+[2389.4s] fewer parameters but you're doing
+[2390.6s] parameter tying well not really this
+[2392.3s] isn't a problem but you're doing
+[2393.3s] parameter reduction
+[2394.3s] in a clever way the other one is
+[2397.4s] cross-layer parameter sharing so this is
+[2399.0s] similar as a simple and it was also it
+[2402.2s] was been done in previous papers
+[2403.6s] especially um universal transformer
+[2406.6s] and the idea is that you run a bunch of
+[2408.9s] transformer layers but
+[2409.8s] all let's say if you have 12 layers all
+[2411.4s] 12 layers just share the same parameters
+[2412.7s] right
+[2413.4s] and so uh that ends up so so now you can
+[2416.9s] have
+[2417.1s] a a much bigger model that has
+[2420.9s] fewer parameters than bird has and so
+[2422.4s] you get less overfitting
+[2424.2s] and so um they got state of the art
+[2426.7s] compared to
+[2427.5s] x on that and roberta but one important
+[2430.9s] thing to keep in mind is that albert is
+[2432.6s] light in terms of parameters not in
+[2434.1s] terms of speed
+[2435.0s] so for a um
+[2438.2s] for the mixed for the model that's uh
+[2442.3s] that's actually comparable to to burt
+[2445.4s] um they
+[2448.7s] they actually did slightly like this
+[2450.6s] model and this model were
+[2453.0s] about the same but this one was actually
+[2454.2s] slower so it's only when they started
+[2457.2s] making models that were much bigger in
+[2459.3s] terms of compute
+[2460.7s] than bert but doing more parameter tying
+[2463.8s] then they started getting good results
+[2465.4s] and so
+[2467.7s] the implication of this is that like uh
+[2469.5s] you can you can reduce the number of
+[2470.6s] parameters
+[2471.2s] but still um nobody's figured out how to
+[2475.0s] reduce the amount of pre-training
+[2476.0s] compute that required
+[2477.1s] which is you know kind of unfortunate so
+[2480.6s] the next one is t5 which is uh
+[2483.7s] exploring the limits of transfer
+[2485.0s] learning with unified text detection
+[2486.1s] former so this was
+[2488.2s] a paper by google brain and other groups
+[2491.2s] in google
+[2491.8s] uh where they use just they used a lot
+[2493.6s] of compute and they and they did tons of
+[2495.5s] ablation on
+[2497.2s] uh pre-training they didn't like they
+[2498.8s] their goal wasn't to come up with some
+[2500.0s] with some
+[2500.9s] super clever new pre-training technique
+[2502.7s] right is really just to carefully ablate
+[2504.6s] every aspect
+[2505.6s] how much does model size matter how much
+[2506.9s] is training did it matter how much does
+[2508.0s] cleanliness of data matter
+[2509.2s] like how much does the exact way that
+[2510.5s] you do the pre-training objective matter
+[2511.7s] like how doing masking like
+[2513.1s] how many spans do you mask and so they
+[2514.9s] wanted to kind of very clearly
+[2516.5s] um uh do this and they also wanted to
+[2519.5s] push the limits of size and say what
+[2520.9s] happens if we have
+[2521.8s] 300 million a billion 10 billion
+[2523.8s] parameters right
+[2526.2s] and and then so they did tons and tons
+[2528.7s] of ablation
+[2530.8s] and they got state of the art and
+[2531.8s] everything and they're still sitting
+[2532.6s] there and everything
+[2533.8s] and the results though are a little bit
+[2536.4s] bleak
+[2537.6s] uh in the sense that nothing really
+[2541.7s] mattered except making the data like
+[2543.9s] like all of the ablations
+[2545.2s] it wasn't like oh you know bert did
+[2547.9s] everything perfectly it was that
+[2549.4s] it doesn't matter like you could do 20
+[2551.2s] 25 you can do this fine-tuning recipe
+[2553.8s] this functioning recipe
+[2554.9s] it's like all that really matters is
+[2556.6s] making the model bigger and trading in
+[2557.8s] more data
+[2558.3s] and clean data uh and so um
+[2562.5s] yeah it's a little bit of a of a bleak
+[2564.5s] paper if you
+[2566.8s] are hoping that there is exists some
+[2568.9s] pre-training
+[2569.9s] uh technique which is super
+[2571.1s] computationally efficient and also can
+[2572.6s] get you know very impressive results
+[2574.2s] which i'm not saying there isn't but
+[2575.5s] like most of this evidence uh
+[2578.1s] points it out so so the one kind of um
+[2580.3s] newest paper that is maybe the most
+[2582.2s] positive in this direction
+[2583.3s] is this uh paper called elektra uh
+[2586.6s] and so uh and so this is done by uh
+[2591.0s] kev clark from here and uh and google
+[2593.3s] brain and so
+[2595.2s] yeah and this one it's a pretty clever
+[2596.6s] idea so basically their idea is
+[2598.9s] instead of training instead of training
+[2602.2s] to generate the output
+[2603.3s] you just train it as a as a
+[2604.4s] discriminator and so
+[2606.3s] you have a local language model you do
+[2609.2s] some masking you have a local language
+[2610.6s] model which replaces it
+[2612.3s] and then you try to discriminate whether
+[2613.5s] it's the original one or not and so the
+[2614.9s] idea here is that
+[2616.0s] you are um doing a much
+[2619.2s] you're you're you're getting better
+[2620.5s] sample efficiency for pre-training
+[2622.5s] because you're predicting every uh
+[2625.7s] every word which is actually i mean i
+[2627.8s] don't know exactly why it would be that
+[2629.0s] different from from from because burt
+[2630.9s] still uh
+[2632.5s] in terms of because you don't replace
+[2634.1s] with er with the mask with every word
+[2635.2s] you also randomly corrupt it but but
+[2636.9s] the the bigger the biggest difference is
+[2638.3s] that um
+[2640.2s] is that these are kind of contextually
+[2641.8s] replaced so i convert when i did
+[2643.7s] random masking and replace with a random
+[2645.6s] word it was truly a random word so most
+[2646.7s] of the time it's completely trivial to
+[2648.0s] tell that this was not the right word
+[2649.4s] you didn't necessarily know which word
+[2650.6s] should be replaced
+[2651.5s] but in this case they actually used a
+[2653.7s] intentionally weak but still non-trivial
+[2655.5s] language model to predict which word so
+[2657.1s] like this locally makes sense the chef
+[2658.7s] ate the meal
+[2659.4s] but it doesn't make any sense like a
+[2661.4s] very strong model would not predict this
+[2662.7s] right so
+[2663.4s] that's the idea that you use a weak
+[2664.6s] model to to to do the substitution to
+[2667.0s] use when you train a strong model to
+[2668.9s] do this so these results are
+[2673.1s] i know this is a big table but these
+[2674.5s] results are they're certainly
+[2676.4s] positive with regard to uh previous
+[2679.4s] results in terms of compute versus
+[2681.4s] um so like for if
+[2685.0s] we compare this row so uh which is
+[2689.4s] one tenth of the compute of bert large
+[2691.0s] to bert base which is also one tenth
+[2692.6s] computer but large
+[2693.4s] it certainly does a lot better than burp
+[2694.6s] base um
+[2697.1s] but when they uh
+[2701.1s] if you but in terms of state of the art
+[2703.8s] um
+[2705.0s] when they do you know the same amount of
+[2707.4s] uh compute as their bert large
+[2709.8s] which is this one or compared to other
+[2711.7s] state-of-the-art models they're not
+[2713.1s] in order to get state-of-the-art or to
+[2714.3s] get similar to say they are they
+[2715.3s] basically need to do as much compute as
+[2716.8s] state of the art so like four four four
+[2718.2s] x five point four x
+[2719.6s] so i mean at scale down values they were
+[2722.0s] able to do better but this is a still a
+[2723.4s] pretty big gap like four points
+[2725.1s] um so it's it's positive but it's not
+[2727.5s] it's certainly not like
+[2728.6s] the silver bullet in terms of uh
+[2731.6s] showing that uh we can you know
+[2735.1s] pre-train models much better for
+[2738.5s] for cheaper so but so the last thing i
+[2741.2s] want to talk about is um
+[2743.0s] how we actually serve these models right
+[2744.4s] because you know i've said that like
+[2746.6s] they're incredibly expensive to train
+[2748.6s] and nobody
+[2750.5s] has been able to figure out how to make
+[2751.4s] that faster but you know they're being
+[2754.2s] used all over the place right so like
+[2755.9s] uh you know there's news stories google
+[2757.8s] has improved 10 of
+[2759.7s] searches by language are sending say
+[2761.1s] hello to bert and then brings says it's
+[2762.4s] been applying since april
+[2763.7s] so and so this this is live in google
+[2765.5s] search and bing search and so these are
+[2766.8s] like really low anc services right that
+[2768.4s] have like a few milliseconds of
+[2769.9s] of latency and they serve you know
+[2773.0s] billions of queries a day
+[2775.8s] so how how are they doing this is it
+[2778.1s] just like
+[2779.0s] uh that you know google and microsoft
+[2782.0s] are spending billions of dollars on
+[2783.0s] hardware what they are but not not just
+[2784.5s] for this right
+[2785.2s] and so like uh like it would
+[2788.8s] it would it would cost billions of
+[2789.8s] dollars just to serve this if you would
+[2791.0s] actually be serving bert
+[2792.0s] but we're serving uh not instead of
+[2793.9s] we're using we're using model
+[2795.4s] distillation right so this has been
+[2796.4s] around for a while
+[2797.6s] um so it's called distillation or model
+[2801.3s] compression
+[2802.1s] uh one one of the first papers was this
+[2804.1s] model compression paper
+[2805.4s] um that was that was done for
+[2809.2s] uh i forget exactly what task but then
+[2811.2s] and then hinton's paper distilling
+[2812.5s] knowledge and neural networks is a more
+[2813.4s] well-known version of
+[2814.8s] not versions but a more well-known uh uh
+[2817.1s] paper on
+[2817.8s] on distillation but in reality the one
+[2820.2s] the version that
+[2821.3s] that we use at google in the version
+[2822.7s] that most people use when they say model
+[2823.8s] distillation for
+[2824.9s] uh pre-trained language models it's a um
+[2828.5s] it's a very simple technique but but
+[2830.2s] it's easy to misinterpret what
+[2831.5s] what we mean so what we do is we
+[2835.0s] pre-train
+[2835.8s] we train the state-of-the-art model
+[2836.8s] whichever ones we can most afford to
+[2838.8s] train
+[2839.3s] right because of course we can just make
+[2840.5s] it bigger but we set some budget of you
+[2842.3s] know we want to train it for a day on
+[2843.5s] some number of tpus
+[2845.5s] and then we fine tune it right so we get
+[2847.4s] a model that's the maximum accuracy and
+[2848.8s] that's our teacher model this is
+[2849.7s] expensive
+[2850.4s] then we have a large amount of unlabeled
+[2852.2s] input which is typically for for most
+[2854.4s] industry applications you have unlabeled
+[2856.3s] input because you have you know in
+[2857.5s] search you have
+[2858.3s] this is what they use a search for this
+[2859.7s] is what they clicked on that's how it
+[2860.6s] searches they're trained
+[2861.8s] uh and so you can then just take these
+[2864.6s] and
+[2865.0s] you um and then you just label your
+[2867.4s] examples with them
+[2869.1s] so you can get billions of these if you
+[2870.9s] actually run a real service
+[2872.6s] and then you so then you then you run
+[2875.0s] these
+[2875.7s] you know query answer pairs through your
+[2878.4s] teacher
+[2879.4s] and you get a pseudo label and just
+[2881.4s] train a much smaller model
+[2883.0s] much meaning like 50 times 100 times
+[2884.5s] smaller to
+[2886.6s] predict your student your teacher
+[2888.4s] outputs and so and you can generally do
+[2889.8s] this for most
+[2890.6s] techniques i mean for most tasks you can
+[2893.1s] do this
+[2893.8s] uh pretty easily and get a huge 50 to
+[2895.8s] 100x
+[2897.3s] compression with no degradation but the
+[2900.0s] important thing to realize that we're
+[2901.1s] not compressing the pre-trained model
+[2902.6s] itself
+[2903.2s] we haven't really had any luck doing
+[2904.7s] that so like you can't actually just
+[2906.2s] take
+[2906.5s] bert and then compress it to a smaller
+[2908.5s] model which you can then fine-tune for
+[2909.7s] all these other tasks it's only
+[2911.0s] after you've chosen the task and after
+[2912.6s] you find it tune it for this task
+[2914.4s] that you that we were able to do it um
+[2917.3s] so
+[2918.6s] to show some specific results so let's
+[2921.6s] say we have let's say we have a
+[2922.7s] large teacher this is an amazon book
+[2924.2s] reviews course this is a paper that
+[2925.9s] i've got to cite it but this is a paper
+[2927.8s] that my group uh published
+[2929.4s] julia turk uh wrote and so
+[2932.8s] um this has fifty thousand labeled
+[2936.2s] examples and eight million
+[2937.8s] uh unlabeled examples so you you fine
+[2940.8s] tune on you pre-train vert large
+[2942.5s] normal you take the protein but large
+[2944.2s] you uh you fine-tune it on these
+[2946.4s] 50 000 examples you get this 88 accuracy
+[2948.5s] right
+[2949.7s] then uh and so
+[2952.9s] but then now let's say instead of using
+[2954.4s] bert large you used a much smaller
+[2955.4s] version so this one's
+[2956.7s] a quarter of the size this one's you
+[2958.0s] know a sixteenth the size whatever this
+[2960.7s] one's about a hundredth of the size
+[2962.3s] right so this this row that's a
+[2963.4s] hundredth of size if you were to just
+[2965.2s] train it
+[2965.7s] if you were to pre-train this on the
+[2966.9s] same wikipedia bookstore just like burt
+[2970.1s] and then fine tune it you would get 82
+[2973.3s] percent accuracy
+[2974.2s] which is you know a lot worse 60 60 like
+[2977.0s] six six absolute worse which is quite a
+[2978.2s] big drop right
+[2979.0s] but then if you were to take this 88
+[2982.3s] teacher label these eight million
+[2984.5s] examples which are of course held out
+[2986.3s] this is test
+[2987.1s] this is test accuracy um and then
+[2990.4s] uh and then train this classification
+[2993.5s] model
+[2994.2s] which says this is a good about review
+[2995.8s] on these eight million examples
+[2997.3s] you can take this model that's a hundred
+[2998.4s] times smaller and get the same accuracy
+[2999.8s] as a teacher right you get the same
+[3001.4s] accuracy so that's really the uh the
+[3004.3s] cool thing about distillation
+[3005.5s] is that you can get models that are much
+[3006.9s] smaller but you still need to train the
+[3008.2s] big model in the first place so it
+[3009.1s] doesn't help the training cost it just
+[3010.2s] helps it's actually more expensive
+[3011.2s] because then you need to use this big
+[3012.1s] model to label
+[3013.3s] millions or billions of examples so it
+[3015.0s] ends up being more expensive than just
+[3016.2s] trading birth but but you can actually
+[3017.3s] serve this model
+[3018.9s] at inference time for a tiny cost so
+[3022.9s] the question is why does distillation
+[3024.5s] work so well um
+[3026.6s] so the big hypothesis is that language
+[3029.8s] modeling is kind of the ultimate nlp
+[3031.2s] task
+[3031.7s] right a perfect language model is also a
+[3033.8s] perfect question answering system
+[3035.3s] a perfect entailment system sentiment
+[3037.6s] analysis co-reference etc right because
+[3039.6s] in order to be able to do these things
+[3041.0s] you kind of have to be able you could
+[3042.1s] construct it as a language model
+[3044.6s] so when you're training a massive
+[3046.3s] language model you are
+[3048.2s] learning many millions of latent
+[3049.5s] features which can which are effectively
+[3051.1s] the same features that you need for any
+[3052.3s] other task
+[3053.5s] and so when you're doing a simpler a
+[3055.1s] fine tuning of a more specific task
+[3057.0s] what's the fine tuning is basically
+[3058.4s] taking these label these latent features
+[3059.8s] which your system happened to learn
+[3061.0s] some encoded somewhere in your weights
+[3062.9s] and you are it's kind of just tweaking
+[3064.5s] these which is why i can do it with a
+[3065.5s] single
+[3065.9s] pass over the fine tuning data and so
+[3069.1s] but once you've figured out which parts
+[3070.4s] are important
+[3071.7s] then there exists a hypothetically much
+[3073.4s] smaller model size which can still
+[3075.4s] get the same representation the same
+[3077.0s] generalization right so then you label
+[3078.6s] a bunch of examples with this fine-tuned
+[3080.6s] model and now you can learn a model that
+[3082.1s] can really hone in on just these
+[3083.0s] features that are important and so
+[3084.2s] it can it can take you know it'll it can
+[3087.0s] train a model that's 100
+[3088.4s] the size and
+[3092.0s] just honing on these features if you
+[3093.3s] have a lot of pseudo-label data
+[3096.0s] and and that's why it works and so the
+[3098.6s] evidence really is that
+[3099.7s] it just doesn't work to do
+[3100.6s] self-distillation right and so it must
+[3102.1s] be that
+[3103.8s] it's really just learning a subset of
+[3105.0s] the features for most of these tasks
+[3107.4s] um and so basically every task but
+[3111.4s] language modeling we've been able to get
+[3112.7s] distillation to work for so this
+[3113.9s] includes tasks that seem like really
+[3115.2s] hard like
+[3115.9s] question answering and search um so that
+[3118.8s] that does imply that
+[3119.9s] that language modeling itself and
+[3121.4s] predicting and which is basically
+[3123.0s] language generation also because that's
+[3124.6s] just a form of language modeling
+[3126.1s] uh is fundamentally harder than language
+[3128.5s] understanding
+[3129.2s] which is not uh super hard to
+[3132.2s] buy or at least maybe it's not
+[3133.5s] fundamentally harder but given the state
+[3134.8s] of the art
+[3135.5s] state-of-the-art models for language
+[3137.3s] understanding are fundamentally
+[3139.3s] simpler than what they do right so
+[3141.0s] presumably just doing kind of pattern
+[3142.6s] recognition
+[3143.4s] than models that are generating language
+[3146.9s] and so that's kind of why all of these
+[3148.6s] classification models can can kind of be
+[3150.4s] distilled so well um
+[3153.1s] so basically in conclusion uh the
+[3156.4s] pre-trained models work really well
+[3157.8s] they're very expensive we know how to
+[3160.5s] um kind of solve this for inference time
+[3163.0s] and we can do fast inference
+[3164.3s] but it is still unsolved uh
+[3168.5s] how to make these fast uh at training
+[3171.8s] time and moreover uh
+[3175.1s] it seems like a lot of the details about
+[3177.8s] algorithmic improvements for for making
+[3179.7s] the training more efficient
+[3180.9s] um don't seem to have a ton of benefit
+[3183.9s] in terms of at least getting
+[3184.6s] state-of-the-art results
+[3185.9s] and seems like a lot of choices don't
+[3188.1s] really matter that much and it's really
+[3189.3s] just about
+[3190.5s] you know a couple of like like compared
+[3193.0s] to just the kind of the simple
+[3194.0s] masculine bass line it's it's pretty
+[3195.4s] hard to beat that in in an apple's
+[3197.0s] established comparison
+[3198.3s] um so yeah it's a little bit uh
+[3201.7s] i mean it's a little bit unfortunate for
+[3203.2s] for from a research perspective it's
+[3204.6s] definitely good from a uh
+[3205.9s] from people who who want to build nlp
+[3208.2s] systems and who want to
+[3209.6s] especially domain specific nlp systems
+[3211.4s] like people who want to you know adapt
+[3212.9s] to a medical domain
+[3214.0s] or people where you only have a tiny
+[3215.3s] amount of data or people who want to do
+[3217.0s] startups or they want to you know build
+[3218.3s] an actual product and they only have
+[3219.4s] timing on data so it's definitely good
+[3220.6s] from that particular but
+[3221.4s] certainly i think uh from the
+[3224.5s] perspective of sometimes you know
+[3226.1s] uh uh research like as i was saying the
+[3229.0s] goal of research is to kind of like
+[3229.9s] research yourself out of a job
+[3231.1s] then it is kind of uh you know it's a
+[3234.2s] little unfortunate from that perspective
+[3236.1s] um but you know i still think that
+[3237.6s] there's there's there's a possibility
+[3239.0s] that there's going to be
+[3239.7s] a breakthrough that kind of shows how to
+[3241.9s] do computational efficiency
+[3243.5s] um without it can kind of show
+[3246.3s] compelling results that you don't need
+[3247.9s] you know such an absurdly large model or
+[3250.5s] actually besides the models matter you
+[3251.7s] don't need to make sure the expensive
+[3252.9s] model
+[3253.5s] uh to to do well um maybe it'll come
+[3256.1s] from sparsity right or something like
+[3257.4s] that where
+[3258.2s] you actually do have a really large
+[3259.2s] model just it's just sparsely activated
+[3261.3s] in some using some efficiency tricks or
+[3262.8s] whatever

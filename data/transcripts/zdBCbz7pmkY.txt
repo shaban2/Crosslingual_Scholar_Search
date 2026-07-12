@@ -1,0 +1,1686 @@
+[0.0s] Ayo kita start ya Kalau hari ini kita
+[3.1s] masuk ke topik baru kemarin computer
+[5.8s] Vision in jadi sampai ke modern
+[9.3s] arsitektur dari konklusi neural Net Kita
+[11.9s] udah karakter kita ganti topik dan
+[14.9s] natural language processing Oke so
+[18.8s] sebelum masuk ke model neural Network
+[21.6s] yang sering dipakai di NLP yaitu recaro
+[25.8s] neural net ya mungkin saya kasih
+[28.4s] gambaran dulu konteksnya saya kasih
+[31.4s] contoh azur
+[33.6s] headboard jadi ada kayak boat yang kita
+[37.7s] bisa nanya tentang medical atau help
+[41.4s] atau medicine gitu ya Banyak orang
+[44.3s] ngeliat bikin seperti ini Ken kayak
+[46.4s] bikin aplikasi chat bot gede enggak
+[49.3s] ngelihat intinya aplikasi seperti itu
+[52.1s] sebenarnya ada di dalamnya namanya
+[54.5s] lanjut model eh
+[57.8s] solinst model itu a Ah
+[61.5s] di sini kalau lihat di ininya ya semua
+[64.9s] fitur-fitur chatbot dia bisa buat karena
+[67.1s] ada lanjut modelnya
+[68.7s] bahwa semua kata-kata dalam bidang help
+[72.3s] itu
+[74.2s] strukturnya minimnya ada dalam satu data
+[77.6s] structure
+[80.5s] vektor-vektor itukan angka
+[83.1s] sementara kata-kata itu kan kayak begini
+[86.0s] lanjut model ini kan word gitu kalian
+[90.1s] with model itu bagaimana kita bring
+[92.8s] kata-kata atau word ini kedalam struktur
+[96.5s] Factor
+[99.0s] ini dia punya struktur Factor sehingga
+[102.3s] kalau saya punya kata-kata bisanya saya
+[104.6s] masukin tag where kelanjut model satu
+[108.1s] kalimat
+[109.2s] tidak akan ngasih kita hasil printnya
+[113.5s] itu bahwa itu muka kalimat yang benar
+[115.8s] atau kalimat yang tepat gitu ya nah
+[120.0s] mereka bisa buat lanjut model itu mereka
+[123.9s] problem pertamanya adalah bagaimana
+[127.0s] merepresentasikan kata oke ke dalam
+[131.3s] Factor karena jurnal Nature itu butuh
+[134.2s] Factor Enggak bisa kata ini saya masukin
+[136.3s] your Network Eh kalau image memang sudah
+[140.2s] Vector image itu kan matriks Bagaimana
+[144.1s] dengan katak oke nah jadi hari ini kita
+[147.8s] akan fokus belajar tentang word
+[151.1s] embedding Bagaimana merepresentasikan
+[154.0s] kata ke dalam Factor Eh ini materi dasar
+[158.5s] untuk NLP
+[161.3s] so ini hanya gambaran besar bahwa kalau
+[165.3s] mostat bikin analitik service kayak
+[167.8s] chatbot Healthcare chatbot dan lain-lain
+[170.9s] itu harus that dengan lanjut mode karena
+[173.2s] yang lainnya itu sebenarnya sudah
+[174.8s] trivial lanjut model Indonesia nih ada
+[177.6s] enggak misalnya struktur Ia menjelaskan
+[180.4s] semua jenis penyakit dan obat yang
+[183.1s] terkait eh jawabannya enggak ada kita
+[187.1s] belum punya lain this model bahasa
+[188.8s] Indonesia tapi kalau kita bisa buat dan
+[191.7s] kita bisa buat Analytical service untuk
+[194.1s] health service di Indonesia gitu ya
+[197.8s] sekarang lanjut modal udah banyak di
+[201.4s] bikin ya ini aktif riset di NLP misalnya
+[205.5s] kayak bikin frame biomedical untuk teks
+[208.9s] mainin jadi semua kata-kata yang ada di
+[211.8s] biomedical itu dia punya struktur Factor
+[214.1s] mentega saya bisa tahu arti setiap kata
+[217.0s] dari Fitri
+[218.8s] nih contoh banyak nanti nanti tinggal
+[222.0s] sejak keyboard klitren lanjut model
+[224.3s] untuk medical dental Services ini aktif
+[227.6s] riset tahun 2021
+[230.2s] oke itu ada juga es medbird Nah kita
+[235.2s] akan belajar sampai coba tapi kita akan
+[237.6s] start hari ini dengan quote embedding
+[240.5s] supaya kita mengerti konteksnya secara
+[243.2s] bahasa manusia Oke
+[247.9s] softlight nya udah saya upload tapi
+[251.4s] masih nanti saya akan upload versi
+[253.5s] terakhir ada teh baubah the
+[257.5s] OK show Network itu inputnya Factor
+[261.5s] nggak mungkin kita masukkin kata-kata ya
+[265.0s] Jadi gimana caranya kita map satu kata
+[268.5s] ke Factor ya itu problem yang dihandle
+[272.3s] oleh embedding the word ke dalam Factor
+[274.6s] eh dan bukan cuman katanya saya masukin
+[278.2s] ke dalam Factor tapi apakah bisa
+[280.0s] semantiknya artinya dan lain-lain itu
+[283.3s] konteks yang lebih besar kan kalau
+[285.6s] misalnya saya punya 1000 kata saya
+[288.4s] ekstrak dari Wikipedia terus ya setiap
+[291.7s] unit kata unit itu saya bikin Factor
+[294.0s] panjangnya 1000 termasuk in misalnya
+[296.5s] bisanya satu kata itu nilainya satu yang
+[299.8s] lain 10 Iya kan Nah itu cara paling Abay
+[304.1s] cara paling opsi setelah kalau kita
+[306.7s] bilang saya punya 1000 kata bikin Factor
+[308.9s] size-nya 1000 setiap kata ada nilainya
+[311.8s] satu selebihnya nol Ya nah tapi apakah
+[315.9s] dengan model itu model yang terbaik aja
+[318.3s] akan kita pelajari hari ini apa aja
+[320.1s] opsinya nih kalau saya pengen mapping
+[322.2s] atau represent atau embedding kata ke
+[326.6s] dalam Factor Oke terkesan sederhana
+[330.0s] problemnya tapi kalian harus tahu bahwa
+[332.1s] itu bukan problem sesederhana itu
+[335.2s] nantinya akan berurusan dengan kalimat
+[338.3s] nantinya akan berusaha dengan padanan
+[340.9s] kata-kata susunan kata-kata gitu jadi
+[343.4s] factory ini harus bisa juga punya fitur
+[346.2s] lain selain cuman representasi tapi bisa
+[349.9s] nggak dia ngasih similarity dia
+[352.3s] ngeluarin similarity wakatta ini similar
+[355.6s] sama kata ini Oke Nah kalo dia udah di
+[358.8s] dalam Factor mungkin miliar fb-nya itu
+[361.1s] saya bisa dihitung sebagai cosinus
+[364.4s] dan sektor 2 dimensi gitu ya kalau
+[367.9s] cos-sin dari dua vektor itu nilainya
+[371.4s] berdekatan mungkin kata itu similar oke
+[376.3s] nah ini menarik disetiap lain beach
+[381.3s] bahwa
+[382.9s] seemiller word atau kata-kata yang sama
+[386.2s] atau serupa Mirip ya itu pasti punya
+[390.2s] seemiller konteks Oke dan diet bisa
+[393.2s] dipertukarkan
+[394.4s] contoh misalnya yesterday ini ada opsi 3
+[397.7s] di dalam pot us the President Achmad
+[400.0s] Trump call the press conference eh
+[404.2s] Nah ini kan konteksnya itu selain tetap
+[407.6s] tiga ini tapi konteksnya adalah yang di
+[411.2s] tengah ini yang saya kurung kurawal ini
+[413.6s] itu memanggil press conference
+[416.5s] dan opsi metode potus yaitu foto sit-up
+[420.0s] Slavina at&t atau the President netral
+[422.9s] itu ya Nah sebaiknya
+[426.9s] 1word embedding atau Factor embedding
+[430.0s] dari worth tadi itu harus bisa
+[431.9s] menunjukkan bahwa potus the President
+[434.5s] nama Trump ini similiar konteks atau
+[437.8s] mining itu gimana caranya kita bisa buat
+[441.2s] seperti itu dan kenapa ini penting
+[444.0s] karena semua aspek misalnya kita mau
+[446.8s] bikin mesin translation bikin teks
+[449.3s] classification bikin
+[452.5s] ksystem kayak question and answer sistem
+[455.4s] ujungnya kita butuh up to embedding dari
+[458.6s] worth ya karena itu yang di akan diinput
+[461.9s] masuk ke dalam model machine-learning
+[464.7s] atau neural network eh Hai
+[468.6s] So kita start dengan
+[472.0s] historical review dulu kita mikirnya itu
+[474.5s] gimana dan ini sebenarnya enggak apa
+[477.3s] yang mungkin matematiknya nanti agak apa
+[481.1s] ada
+[483.1s] Oh intimidating tapi Biznet Coba lihat
+[486.4s] problemnya dulu
+[487.9s] bawa kalau bisa enggak saya pakai hot
+[490.3s] encoding aja bahwa kalau saya punya
+[492.0s] banyak ke atas saya bikin Factor aja
+[494.3s] panjang dan misalnya ada satu kata Ardi
+[498.5s] fat Nah itu direpresentasikan dengan
+[500.8s] Factor yang ada angka satunya ya dia
+[504.2s] Angka keempat dalam di channel yang kita
+[506.2s] bikin misalnya total panjangnya Rp10.000
+[509.7s] setiap kata saya kasih angka satu ini eh
+[514.4s] selainnya nol nah tapi panjang vektornya
+[518.1s] akan jadi Rp10.000 Oke dan
+[522.7s] Pasti
+[524.5s] Papa vektornya itu akan sangat panjang
+[528.1s] dan isinya itu Spark maksudnya kalau
+[532.0s] kata keempat itu ini hati cuman ada
+[534.2s] sangka satu selebihnya nol kalau kata
+[536.8s] yang lain juga begitu Jadi ada Factor
+[538.8s] panjang dan para sekali gitu
+[541.4s] jadi Oh kita bisa pakai One Heart One
+[545.3s] Shot encoding tadi atau bagaimana ada
+[548.9s] ide lain lagi nih gimana kalau setiap
+[551.6s] kata dalam vocalbulery itu itu kita
+[555.1s] hitung apa ya kehadirannya atau presence
+[559.2s] nya di dalam dokumen sehingga misalnya
+[562.6s] saya punya satu juta Dokumen ada kata
+[565.1s] Hello di dokumen pertama ketiga dan
+[567.8s] kelima ya maka saya dipresentasikan satu
+[571.3s] Factor panjangnya satu juta dan kata
+[574.7s] Hello itu adalah
+[577.2s] 10101 karena dia ada di dokumen pertama
+[580.5s] knoll ketiga dan kelima
+[583.0s] jadi representasi kata Hello di dalam
+[586.5s] Factor embed itu saya bikinnya
+[589.4s] 10101 selebihnya nol oke nah Apakah
+[594.2s] model fox1 Houten coding diatas dan ini
+[597.2s] lebih bagus
+[599.5s] ternyata ide yang kedua itu orang pakai
+[602.8s] tapi dia bilang bagaimana kalau saya
+[605.0s] bilang setiap kata itu adalah satu titik
+[608.1s] di dalam ruang ya kayak kalian bayangkan
+[611.7s] ruang tiga dimensi ini Empat kita
+[613.8s] beberapa sekarang ini kalau ada satu
+[616.7s] titik maka itu satu kata
+[618.7s] kenapa dia pengen buat gitu karena kalau
+[621.1s] saya bikin di one hot Enno ding sama di
+[624.5s] dokumenter presentation itu vektornya
+[627.9s] itu parts partner jarang sekali nilainya
+[631.5s] Spark bisa nggak kita bikin dia jadi
+[634.7s] Dens
+[636.6s] contoh misalnya saya bilang setiap kata
+[639.6s] itu satu titik di dalam ruang ya vektor
+[643.0s] 3 dimensi
+[644.0s] Mbak besar vektor cuman
+[647.5s] Hai sehingga kata Hello yang tadinya
+[649.5s] Disini di sebelah kiri itu
+[652.5s] 01101001
+[654.2s] 0.6 menjadi 0,4 minus 01 1055 dan
+[658.9s] seterusnya Oke tapi fix panjangnya da300
+[662.8s] oke nah itu kita sebut word embedding
+[666.5s] kalau yang sebelah kiri itu kadang kita
+[669.2s] sebut becoff wars atau
+[673.8s] bowaddict13
+[676.8s] dimensinya kelewat embedding pasti lebih
+[679.1s] kecil Kalau di sebelah kiri ya
+[681.1s] Tergantung jumlah unit wordnya ya kalau
+[683.9s] di sini kan kita bisa fix 300 dan setiap
+[687.0s] vektor itu ada nilainya setiap elemen
+[689.7s] dari vektornya dia lebih dance Pasti
+[693.4s] komputasinya enggak lebih mahal
+[696.1s] dibanding yang Spark karena sparky ini
+[698.6s] panjang-panjang sekali tapi sparky Tin
+[701.9s] kita bisa Red dokumen dokumennya masukin
+[705.4s] ke korpus wedding cake Hai nah beko food
+[709.6s] itu biasanya berasumsi bahwa setiap kata
+[713.1s] itu independen Ya tentu saja Ada plus
+[716.3s] minus nya tentu saja ada ada ininya apa
+[721.3s] Jelek kan Ya gitu ya kalau hot MP3 dia
+[724.6s] asumsi bahwa setiap worth itu ada
+[727.0s] dependensi nya dependensi kita bisa ukur
+[729.3s] nanti Misalnya katak Halo dan Hello itu
+[732.5s] sama Enggak Oh kalau ternyata vektornya
+[734.8s] mirip angkanya oke
+[737.7s] tidak terlalu jauh beda angkanya bisa
+[740.5s] jadi sama kata itu hehe Jadi dengan What
+[743.7s] embedding dia bisa MB ke dalamnya bukan
+[746.9s] cuman independen worth tapi dia juga
+[750.2s] bisa embed kedalamnya dependensi
+[753.2s] dependen sini-sini bisa similarity dan
+[756.6s] lain-lain Oke
+[760.0s] bebek of Words pasti vektornya atau
+[763.5s] matriksnya panjang sekali besar sekali
+[765.5s] misalnya 10.000 Word games
+[768.5s] nashnya ya kalau misalnya ada 100unit
+[771.8s] Yaudah 10 satu juta apa vektor W itu
+[775.9s] yang kuat embedding yaitu itu 21 juta
+[778.8s] hanya Oke
+[782.0s] sementara kalau dibuat embedding saya
+[784.4s] bisa compact bisa lebih dance jadi dia
+[787.3s] enggak Spark setir
+[789.9s] ya Masa cuman
+[792.1s] 3 kali 10 pangkat 4 y
+[795.1s] modelnya juga enggak fleksibel kalau
+[797.7s] misalnya ada satu kata yang tidak ada di
+[800.2s] dalam backup Word dia nggak bisa biar
+[804.0s] diubah lagi jersey tren lagi model
+[806.0s] becoff worth ya karena dia tidak bisa
+[809.9s] fleksibel terhadap kata yang asin beda
+[813.5s] dengan yang buat embedding dia bisa
+[815.5s] fleksibel kalau ada kata yang asin
+[817.8s] sebelumnya di bisa masukin ke dalam
+[819.4s] dataset nya dan dia karena dia bisa
+[822.1s] melihat dependensi nya dia bisa tahu
+[824.1s] bahwa
+[825.1s] kultivator itu sebenarnya far Hai
+[827.6s] seemiller dengan partner eh Nah jadi
+[830.8s] kita jadul utuh kalau bikin NLP kayak
+[833.7s] sentimen analisis biasanya pakai
+[835.7s] Blackout sekarang udah mulai sekarang
+[837.9s] orang lebih seneng pake kuota embedding
+[840.0s] oke apapun tas di NLP Biasanya
+[843.6s] ujung-ujungnya kita akan bekerja dengan
+[845.5s] Word embedding dan itu Modelnya udah
+[848.5s] bacanya eh one dia sudah jadi vektor
+[852.2s] atau embedding
+[853.9s] Factor for embedding ya apapun namanya
+[857.2s] yang penting kalian harus dapetin karena
+[859.7s] istilah-istilah itu Pak banyak sekali ni
+[861.8s] ni machine-learning
+[863.8s] show misalnya saya punya Factor
+[867.1s] king Anggaplah Kita cuman tiga dimensi
+[870.3s] ini King Queen Man Woman Walking work
+[874.2s] from swimming at ada feat ada female
+[877.2s] atau objek ini Titus adakan recapital
+[880.5s] Nah kalo dia udah di dalam Wa apa di
+[884.1s] dalam pot embedding Safee Sali dengan
+[887.9s] operasi sederhana bisanya Factor Queen
+[890.5s] yakni Queen itu saya bisa bergerak dari
+[893.6s] King
+[894.7s] teh kurangin men-set tambahin woman itu
+[899.0s] jadi kulit Oke
+[903.9s] atomisnya Factor Paris itu similar atau
+[908.0s] mendekati dengan Factor Perancis di
+[910.7s] Quran Italy ibukotanya Oke kita main ROM
+[914.4s] tapi tahunnya
+[916.5s] Oke ini bisa diinterpretasi Operation
+[920.4s] ini itu sebagai Trans itu adalah this
+[924.1s] Paris es Italy Turonggo Oke so buat
+[929.1s] embedding itu jauh lebih fleksibel untuk
+[931.3s] Operation ya karena dia membawa
+[933.2s] similarity misalnya saya udah punya What
+[936.0s] embedding anggap vektornya W itu ya
+[939.3s] terus saya pengen nyari kata yang
+[942.4s] seemiller
+[943.8s] terhadap dolar AS
+[947.4s] Hai maka yang dilakukan adalah saya dot
+[950.2s] product matriks W atau fade of what
+[954.5s] embedding dodol dengan vektor.doc karena
+[958.1s] setiap kata di dalam W itu
+[961.9s] direpresentasikan oleh Factor Jadi kalau
+[963.8s] satu kata dog itu ada satu Factor Doll
+[966.2s] Oke jadi kalau saya dot product
+[969.3s] dia akan ngeluarin ya Inikan matriks
+[972.5s] Weni matriks ya dengan kolom jumlah
+[975.8s] barisnya free dan kolomnya deh kalau
+[979.8s] saya dot product ya satu Factor terhadap
+[982.8s] masuk dia akan jadi
+[984.4s] Factor Eh vektornya ini kita lihat
+[987.9s] angkanya ototnya the dogs 999 Dogs dia
+[992.6s] bisa seemiller dengan Dogs papilloma
+[994.8s] Pitbull Keh
+[996.9s] Iwan saya punya What embedding saya bisa
+[1001.0s] bekerja dengan What embedding itu karena
+[1004.0s] itu seperti dataset nya atau kayak ada
+[1007.0s] pria dan Factor jam-jam seperti preman
+[1011.9s] dataset untuk energi tas
+[1015.5s] kalau misalnya ada kita mau nyari si
+[1018.4s] militer dapat grup yang similiar dari
+[1021.6s] Orchard Dogs Kymco Gimana caranya kalau
+[1024.6s] saya punya What embedding wae ya saya
+[1026.9s] bisa call kulit similiar artinya
+[1030.1s] wedred chat gue Dodok wae.com Oke karena
+[1035.1s] ini Factor teh matriks dikali vektor
+[1037.7s] matriks Doctor tiga kali saya akan
+[1040.1s] dapatin juga Factor dan kita cari indeks
+[1043.9s] yang paling tinggi nilainya seperti tadi
+[1045.8s] sebelumnya ya hehe seneng cuman better
+[1050.8s] option nya ternyata adalah biar tinggal
+[1052.8s] wae saya.id vektor.doc + cap + co itu
+[1058.3s] better option oke
+[1060.3s] Banyak sekali
+[1062.1s] application ada reward vektor atau
+[1064.4s] wedding
+[1066.1s] itu mesin pintas semuanya butuh ini
+[1069.1s] mulai dari worth miliar riti machine
+[1071.9s] translation
+[1072.8s] Oke misalnya saya mau buat kalau saya
+[1077.0s] punya obat disini Panadol Oke kita coba
+[1080.2s] Tapa aja yang seemiller komposisinya
+[1082.8s] dengan Panadol kalau saya punya worth
+[1085.5s] vektornya saya tinggal
+[1089.3s] www.panda.org kalau saya punya Panadol
+[1091.6s] Saya sebut di Indonesia tulisannya gitu
+[1093.6s] gimana kalau dia misalnya kita disebut
+[1096.6s] di negara lain Misalnya di Vietnam di
+[1100.0s] Thailand di Myanmar itu Kenya mesti
+[1103.2s] translation
+[1104.7s] Bagaimana misinya Saya mau repot nice
+[1107.7s] NTT nemen titik ReverbNation Oke
+[1111.4s] misalnya saya punya kata-kata dan
+[1114.6s] seret didalamnya ada kata Panadol Gimana
+[1118.0s] saya ekstrak kata Panadol dalam
+[1120.1s] kata-kata itu itu juga butuh worth
+[1122.6s] Factor Oke
+[1124.4s] retensi sentimen analysis Hai forever
+[1128.6s] spesolution klastering Semantic Analysis
+[1131.1s] of document semua tas-tas ini itu yang
+[1134.4s] kita sekarang sebut natural language
+[1136.6s] processing Oke ini domain
+[1140.6s] team7 banyak sekali problem air
+[1143.5s] didalamnya selain computer Vision jadi
+[1146.4s] ada dua bagian besar dia sekarang itu
+[1149.6s] computer Vision gimana kita berurusan
+[1151.7s] ama Image kita melakukan classification
+[1155.7s] di tection ya object detection
+[1158.6s] segmentation dan lain-lain sementara
+[1161.2s] untuk NLP ya kita punya
+[1164.3s] wedding cake dan kita pengen melakukan
+[1167.2s] quote similarity machine translation lem
+[1170.4s] entity recognition dan lain-lain memang
+[1173.2s] Titi recognition ini chord engine dari
+[1175.9s] question unsur sistem jadi ini tas-tas
+[1178.5s] MLB yang nanti bisa sangat
+[1181.6s] cepat kalau kita punya World vektornya
+[1184.3s] karena World vektornya itu seperti
+[1186.3s] predator hai oke
+[1190.0s] so kita akan bahas latent Semantic
+[1193.6s] analysis ini teknik-teknik lama ini for
+[1196.8s] historical
+[1198.1s] purposif spek kalian tahu pola pikir
+[1201.9s] engineer sama saintis untuk bangun out
+[1206.2s] representation
+[1207.7s] itu ada word2vec ini model yang di
+[1210.8s] proposal igoogle
+[1212.4s] tahun 2013
+[1214.9s] kalau yang latent Semantic analysis dia
+[1217.8s] kayak waiting base model jadi ada banyak
+[1221.8s] document.get cari
+[1224.2s] ukuran ad-dari tense di dalam dokumen
+[1227.7s] dan dia bikin ke dalam Factor Kalau
+[1230.7s] waktu fake itu dia prediction base model
+[1233.4s] jadi dia bisa predict
+[1235.2s] pasangan aoku orange dari satu konteks
+[1239.1s] atau kata
+[1240.4s] Persada glove dihitung di akaun best
+[1243.8s] model
+[1244.7s] Crusade Elmo Elmo ini selain Which
+[1248.1s] model-based
+[1249.3s] lain guys model-based jadi nanti kita
+[1252.6s] akan belajar mungkin minggu depan kita
+[1254.4s] akan belajar apa itu lanjut model ya
+[1256.3s] supaya lebih
+[1257.8s] lebih dalam pemahamannya ya hari ini
+[1261.4s] kita fokus dulu mungkin dibuat embedding
+[1264.0s] introduction Oke so kita lihat pola
+[1267.6s] pikir orang tahun 90-an
+[1270.9s] salah satu contoh implementasi
+[1273.9s] ia ini adalah becoff word by model jadi
+[1279.2s] dia kok kumpul banyak dokumen-dokumen
+[1282.1s] disini bisa artikel dari web bisa
+[1285.4s] Wikipedia bisa halaman buku Witir dan
+[1290.3s] jumlah kata dia bikin matriks A Oke dan
+[1295.2s] bagaimana dia kompos Master ini
+[1298.0s] dia pakai Sering pakai TF ID
+[1302.7s] FP them
+[1304.5s] prequency invest dokumen serta gitu
+[1308.0s] statistical Mesir untuk evaluet apakah
+[1311.2s] suatu dokumen suatu kata Nia itu ada
+[1315.5s] dalam dokumen Oke jadi ini ini kayak
+[1319.7s] teknik mengukur atau fungsi untuk
+[1322.5s] mengukur Berapa banyak kata itu ada
+[1325.1s] dalam dokumen dengan semua dokumen yang
+[1327.2s] kita punya Oke jadi latent Semantic
+[1330.5s] analysis contohnya workbag itu bikin
+[1334.0s] matriks A dengan data source M dengan
+[1336.9s] Edward jadi dari semua data source ini
+[1339.5s] saya cari unit wordnya Apa itu jadi
+[1342.1s] kolomnya
+[1344.3s] indeks dokumennya itu jadi rohnya ke
+[1347.3s] barisnya gitu terus kita harus kompos
+[1350.7s] hanya ini dengan tf.idf Oke
+[1355.0s] Nah setelah hanya dapet proses ini kan
+[1358.8s] harusnya non machine-learning proses ya
+[1360.9s] ini lebih kayak algorithm proses bahwa
+[1364.1s] dari dokumen saya cari unit wordnya
+[1366.4s] Setelah itu saya indomen indeks saya
+[1369.4s] scan setiap dokumen pernik boards pakai
+[1372.8s] teknik
+[1374.0s] tf.idf Oke Akhirnya saya dapat
+[1377.4s] kek Tapi setelah saya dapat itu kita mau
+[1380.3s] ngapain dengan ini
+[1382.3s] setelah saya dapat a3di kalau kalian
+[1385.6s] pernah belajar
+[1386.8s] matematika dasar dulu bahwa status
+[1389.4s] matriks Misalnya A
+[1391.6s] itu bisa didekomposisi atau dipisahin
+[1395.8s] Misalnya ini panjangnya m * n jumlah
+[1400.4s] barisnya m jumlah kolomnya n maka secara
+[1405.8s] di dalam apa anak matriks analisis itu
+[1410.5s] selalu saya bisa bikin tiga
+[1412.9s] matriks-matriks u-ya misalnya misalnya
+[1417.1s] anggap lalunya ini menyatakan dokumen
+[1420.3s] er to konsep imlerith Oke
+[1424.3s] dan selalu saya bisa pisahkan matriks A
+[1427.5s] jadi 3 matriks anggap yang di tengah ini
+[1430.4s] matriks diagonal r * r Oke Sigma dan
+[1435.9s] yang di ujungnya itu adalah n kali er
+[1438.2s] oke nah kalau saya kasih arti ke dalam
+[1441.4s] pemisahan ini pemisahan ini sering
+[1443.5s] disebut spdr
+[1445.1s] di dalam matriks Processing Oke
+[1449.4s] single value decomposition
+[1451.8s] bahwa suatu matriks ukuran Mm bisa saya
+[1455.7s] dekomposisi menjadi 3 m dan kalau saya
+[1458.5s] dapatin tiga matriksnya saya bisa kasih
+[1461.1s] arti ke masing-masing matriksnya
+[1463.4s] misalnya UU itu saya bilang dokumen tuh
+[1465.6s] ponsel similarity matriks sementara
+[1468.9s] v-nya waktu Konsep artinya yang di
+[1471.2s] tengahnya itu prank atau konsepnya itu
+[1474.6s] sendiri oke
+[1476.6s] kalau saya udah punya satu matriks A
+[1479.6s] yang tadi saya bikin B of works saya
+[1482.8s] selalu bisa pisahin dan kalau sudah
+[1487.0s] dipisah maka saya bisa bilang bahwa
+[1489.1s] punya itu Itulah tenda mention
+[1493.0s] bahwa ini dimensi dari kata-kata yang
+[1496.1s] saya punya dia sementara v-nya itu
+[1499.8s] wordnya
+[1501.4s] semua kata uniknya base punya laten dan
+[1505.9s] wordnya di tengahnya itu adalah string
+[1508.9s] dari setiap konsep eh
+[1512.4s] Nah mungkin kalau belum terlalu ngerti
+[1515.3s] cari cara spek kalian bisa ngerti bahwa
+[1518.0s] ada satu matriks A saya bisa bisain jadi
+[1520.9s] tiga usik Medan V punya itu nanti jadi
+[1525.1s] latent Semantic
+[1527.2s] sementara v-nya itu Jun quotes di
+[1530.6s] tengahnya itu adalah kekuatan dari
+[1532.6s] semantik latennya atau konsepnya
+[1536.2s] eh
+[1538.7s] ah kalau saya udah punya dekomposisinya
+[1542.0s] Maka kalau saya punya satu kata
+[1544.4s] w&w ini pasti ada dalam ayat Hai Keh
+[1548.6s] karena weight and satu kata itu pasti
+[1551.1s] kolom di dalam a-nae saya bisa
+[1554.7s] lakukan proses embedding kayak dicoding
+[1558.2s] ya saya kayak encoding Ittihad konsepnya
+[1560.5s] kata baru saya pengen COD melihat dia
+[1562.8s] ada di mana dilatar space
+[1564.9s] atau decoding bahwa kalau saya punya
+[1568.4s] kata wae ya
+[1570.4s] Saya pengen dikotil Saya pengen tarik
+[1573.7s] balik dia dari
+[1575.7s] matriks A Nah dengan dengan dekomposisi
+[1579.7s] ini encoding sama dicoding bisa saya
+[1582.1s] lakukan terhadap
+[1584.2s] matriks A Oke jadi saya bisa lakukan
+[1588.2s] encoding kalau ada satu kata saya input
+[1591.2s] kedalam sedalamnya kira-kira posisinya
+[1593.5s] dimana atau saya bisa dicoding ya saya
+[1596.5s] tarif dalam begitu kira-kira artinya apa
+[1598.7s] Oke so jadi dia bisa merekonstruksi satu
+[1603.2s] kata dari embedding nya dengan melalui
+[1606.7s] empot ikut oke problemnya dengan teknik
+[1610.8s] ini SVD itu mahal sekali komputasinya
+[1613.8s] algoritmanya banyak kok kalian set di
+[1616.4s] internet SVD untuk satu matriks itu
+[1619.8s] banyak sekali algoritma yang prei Oh
+[1622.5s] kalian bisa pakai tapi tetep mahal
+[1624.1s] sekali ya jadi lambat encoding decoding
+[1627.3s] nya lambat sekali tergantung size dari
+[1630.2s] matriks A Oke
+[1632.7s] so mudah-mudahan udah kebaya battens
+[1635.7s] pesta di itu yang menjadi basis dari
+[1638.1s] back of word oke nah karena kita tahu
+[1641.5s] lambat akhirnya orangnya real
+[1644.1s] alternative way how to do better than by
+[1647.5s] overd oke nah ada konferensi terkenal
+[1651.1s] namanya nips itu conference ad jurnal
+[1655.1s] yang paling terkenal ya number one in
+[1656.9s] the world ada satu paper dari Google
+[1659.3s] What the tahun 2013 dia bilang What
+[1662.8s] the itu adalah distributed
+[1664.4s] representation dari Watch dan kalimat
+[1666.9s] atau V plus dengan kompos Yona glithi
+[1671.0s] Oke kita akan lihat konsep utamanya What
+[1675.0s] the ini apa
+[1677.4s] so kalau tadi becoff Wars latent
+[1680.0s] Semantic itu seakan-akan semua kata itu
+[1683.4s] independen ya
+[1685.8s] oke memang ada latennya semantik
+[1690.1s] latennya pada saat saya lakukan STD ya
+[1693.0s] dari matriks A tadi
+[1695.4s] tapi eh ya itu
+[1699.2s] relationship setiap katanya konteksnya
+[1701.9s] pun tidak masuk ke situ sehingga waktu v
+[1705.3s] kini itu mencoba soft the problem ya
+[1710.1s] jadi instead of the bilang entire
+[1712.8s] document saya scan trustable vektor a b
+[1717.1s] mana Kalau saya paket 1 paket 1 kata kah
+[1721.5s] Ya beberapa kata ke eh dianggap kita
+[1726.3s] ambil posisinya Dan dari situ kita
+[1728.6s] anggap itu centernya dan kita cari
+[1730.7s] kata-kata yang terkait maka
+[1732.7s] Oke kalau dia terkait tamatkah itu kita
+[1736.5s] bilang dia ada dalam suatu konteks
+[1739.5s] ya ada beda ya ama tadi pendekatan beko
+[1743.5s] Fuad sama lokal konteks yang What the
+[1746.0s]  karena saya bisa rendem lipstik
+[1749.2s] satu kata oke dan setelah itu saya cari
+[1751.7s] kata-kata yang satu konteks dengan kata
+[1755.3s] tersebut Eh
+[1757.7s] kau Misalnya kannya tiga gitu ya Ah
+[1764.0s] saya pilih satu kata misinya Day itu
+[1768.2s] senter webnya kita punya fokus word ya
+[1771.3s] Setelah itu kita cari kira-kira kata apa
+[1775.2s] yang mirip konteksnya dengan D oke
+[1780.8s] nah jadi kita pilih dulu senter wordnya
+[1783.8s] ini disini yang kata die ya atau fokus
+[1787.2s] woi baru-baru kita cari konteks wordnya
+[1790.6s] ya
+[1793.4s] jadi dia anggap bahwa semua kata yang
+[1797.0s] Yuni Itu sebab sebagai centernya terus
+[1799.3s] diambil
+[1800.5s] sekitarnya gitu konteks wordnya dari
+[1802.8s] setiap kata pasti akan ada yang nyambung
+[1805.5s] ya Nanti
+[1806.7s] kalian bisa bayangkan ini kayak graffiti
+[1809.9s] bahwa ini nanti jawabnya akan besar
+[1811.6s] sekali
+[1812.5s] tapi setiap KTP jadi kontes dan dia
+[1815.1s] ngelihat
+[1816.4s] konteksnya
+[1818.0s] berkata Oke beda sekali pendekatannya
+[1822.5s] dengan yang tadi nah coba kita lihat
+[1824.9s] misalnya Windows size-nya dua misalnya
+[1827.7s] katanya King ya kalau saya pakai
+[1830.0s] onehotencoder
+[1831.7s] ya Ada Factor king saya anggap
+[1835.5s] 1000 Ya nah tapi kalau kita lihat
+[1839.4s] tetangganya dari King ya Bisanya kata
+[1842.5s] Brave Persada kata laki-laki karena
+[1845.7s] biasanya atletik Hai Maka kalau saya mau
+[1849.5s] represent kata apa men saya bikin
+[1854.6s] 001 kalau kata brief
+[1857.4s] 01000
+[1860.4s] nah
+[1862.7s] brief tadi 01 Men itu 001 itu ya Ini
+[1868.7s] setiap kata itu
+[1871.3s] ada vektornya oke
+[1876.9s] nah bagaimana kalau saya mau
+[1878.8s] merepresentasikan
+[1880.9s] bresmed Edward please jadi saya bilang
+[1884.5s] kalau pakai onehotencoder itu
+[1886.9s] 11011 atau Kalau saya bilang king man
+[1891.1s] 101 Oke atau kingbright 11000 oke nah
+[1896.7s] itu dengan one hot info ding bayangkan
+[1899.2s] kalau katanya ada satu juta ya vektornya
+[1901.3s] panjangnya sejuta ini vektornya
+[1903.1s] sangat-sangat para ya jadi
+[1907.5s] out the itu pengen get out dari
+[1910.2s] problems that City itu tiap buat yang
+[1913.2s] baru ya model yang baru bahwa setiap
+[1915.3s] kata itu ah unik gitu ya dan di kita
+[1920.4s] harus bergerak dari setiap kata itu
+[1922.0s] untuk melihat konteksnya nah bagaimana
+[1925.1s] cara melihatnya itu dia prediksi Oke
+[1928.5s] bahwa kalau kata ini itu kata Syang
+[1932.9s] kira-kira yang tetangganya ya itu apa
+[1936.3s] aja gitu nah di akan belajar dari
+[1938.2s] dataset yang kita punya memprediksi dari
+[1941.7s] setiap kata kata-kata yang lainnya apa
+[1944.0s] Oke
+[1946.8s] yang yang What the diawal-awal itu
+[1950.7s] Propos yang namanya pontinus B cover
+[1953.3s] jadi tetap pakai becoff watch ya jadi
+[1956.7s] dari inputnya misinya World Elf apa what
+[1960.6s] embedding satu world mp3the world minus
+[1963.8s] 1 dia gabungin ya dia jumlahkan dan
+[1967.0s] diapro sehingga didapat model continuous
+[1971.0s] beko food atau w0 kalau digambar ini
+[1973.6s] tapi ada juga pendekatan lain untuk dia
+[1976.8s] bikin apa what the nya itu dari
+[1980.6s] input b0di a projection overtime ya baru
+[1983.9s] dia output Oke dilihat di sini ada yang
+[1987.7s] continuous beko food dari inputnya ke
+[1990.5s] outputnya Nah kalau saya bisa in out Put
+[1994.5s] dari isini saya C pisahin lagi ya
+[1997.7s] akhirnya saya bisa Project ya Jadi bukan
+[2001.1s] cuman
+[2002.8s] menggabungkan Sam dan projection Ya tapi
+[2006.1s] saya juga bisa projection of Steam
+[2009.4s] Oke dan disini mereka udah mulai pakai
+[2013.0s] girl Network jadi kalau baca papernya
+[2015.7s] waktu fake-it udah punya your Network
+[2019.3s] Heaven jadi dari input layer dari fokus
+[2022.7s] wordnya dia bikin hidden layer yang B
+[2026.1s] Udaya ada output layer nya Hai dan dia
+[2028.1s] trainer allnetwork ini supaya bisa
+[2030.8s] merepresentasikan
+[2033.2s] Oh what embedding
+[2036.9s] Eh misalnya kata King dengan Brave ya
+[2040.2s] gede masukin gue nanti memodel
+[2043.2s] parameternya ini dia tren dengan label
+[2046.7s] ya
+[2048.7s] Oke jadi semuanya nanti ada nilainya di
+[2052.9s] dalam neural Network
+[2056.3s] ini bisa fredik lokal saya masukin dah
+[2060.3s] saya jalanin lagi kalau saya kasih kata
+[2063.6s] King dia bisa fredik bahwa konteksnya
+[2065.9s] yang seemiller dengan kira-kira Brave
+[2068.6s] dan laki-laki biasanya kalau brace itu
+[2071.7s] biasanya King atau mens kalau men King
+[2074.9s] momen ini ini karena contohnya sedikit
+[2077.3s] aja tadi ya jumlah kata tapi bayangkan
+[2080.5s] kalau semua kata-kata di dunia Kita
+[2083.1s] masukin kedalam struktur What the
+[2085.6s] ini atau semua ke serta di dalam domain
+[2088.6s] spesifik contoh misalnya Saya cuman mau
+[2091.9s] fokus ke domain medical medicine Oh
+[2096.2s] kalau saya ada kata
+[2098.5s] flu maka dia bisa predict obatnya apa eh
+[2103.5s] atau sebaliknya kalau saya punya Tata
+[2106.1s] obat dia bisa trading outputnya
+[2109.0s] konteksnya apa Nah What the itu
+[2112.3s] Ma'mun capture kontekstual information
+[2115.4s] tersebut jadi dia
+[2117.2s] lebih bagus dibanding yang AB cover atau
+[2121.7s] continuous backup
+[2125.0s] softto technical detailnya untuk
+[2127.9s] membangunnya biar kita semua kata itu
+[2130.4s] kita anggap sebagai center Setelah itu
+[2133.3s] kita prediksi ya Ah konteks wordnya atau
+[2138.4s] next atau tetangganya gitu ya jadi perut
+[2142.2s] dia hendel masalah prediction bahwa
+[2144.7s] kalau saya punya ABS
+[2147.5s] Pak satu kata dia W dia akan predict
+[2151.6s] nextnya atau konteksnya
+[2154.3s] ceria2 matematisnya bisa ditulis seperti
+[2157.2s] ini kalian jangan intimedia Cipta Ma ini
+[2159.4s] cuman ini sebagai ke representasi
+[2163.5s] prediction Oke bahwa saya mencari
+[2167.9s] probability bahwa kalau ada webnya dan
+[2171.3s] Pepeng mencari probability konteksnya
+[2173.6s] dengan cara menggunakan softlens
+[2177.4s] of function key
+[2180.5s] jadi dari
+[2183.4s] prediction problem pakai softlens yang
+[2186.3s] di model pakai softmax dia bisa membuat
+[2188.7s] objective function atau kos function
+[2191.7s] ingat kita waktu belajar neural Network
+[2194.3s] your Network itu kan minimizing satu
+[2196.6s] kosong then back jadi kalau saya udah
+[2199.1s] punya kos atau objective function nya
+[2201.1s] saya bisa pakai teknik-teknik
+[2204.9s] Maximum likelihood untuk mencari Hai
+[2207.5s] minimumnya one dia minimum Nah itulah
+[2211.2s] hasil prediksinya it jadi
+[2214.3s] ah jadi fine objective function setelah
+[2218.3s] itu dia cari dia optimis ya Tapi tetap
+[2221.6s] masih mahal
+[2222.5s] mereka komputasi yang gede contoh
+[2226.5s] misalnya kalau saya
+[2228.5s] bilang King bresman
+[2231.7s] Apakah ini kata-kata yang sering dipakai
+[2234.4s] gitu
+[2235.4s] nanti dia akan cari
+[2238.0s] kata-kata tersebut
+[2240.0s] Apakah memang kata ini sering dipake
+[2243.2s] danin ya
+[2245.8s] oke
+[2250.0s] nah bagaimana kalau saya ubah prediction
+[2252.8s] problemnya pakai fungsi yang lain
+[2254.3s] misalnya pakai sigmoid ya ingat kita
+[2257.0s] belajar ini waktu di pertemuan
+[2259.0s] sebelumnya tentang multilayer perceptron
+[2260.8s] ya kan bahwa ada aktivasi sigmoid di
+[2264.2s] dalam preceptor Nah bisa enggak kitab C
+[2267.8s] fungsi sigmoid ini untuk memprediksi
+[2270.2s] contents word again setelah saya dapat
+[2273.6s] fungsi sigmoid DC pake
+[2275.6s] jadi fine objective function kita harus
+[2279.7s] mengoptimalkan objective function oke
+[2282.4s] apapun objective function yang dia pakai
+[2285.2s] soft Max ataupun typhoid ujungnya kita
+[2287.9s] akan berurusan dengan Curl Network bahwa
+[2290.2s] tiada satu jual metrot kita harus
+[2292.6s] optimis objektifnya tadi
+[2295.1s] baik pakai softmax maupun pakai sigmoid
+[2298.6s] gitu ya sehingga saya hasil trainingnya
+[2301.2s] Saya punya jual Network yang sudah
+[2303.7s] diprint dan bisa merepresentasikan bahwa
+[2306.7s] katak King itu akan Moslem or trouble
+[2310.5s] akan berpadanan konteksnya dengan brush
+[2313.7s] dan Man Cave
+[2315.9s] tentu saja harus dilatih neural Network
+[2318.7s] ya ya
+[2319.9s] Nah karena sekarang itu banyak yang
+[2323.5s] sudah bikin bredrin kadang-kadang kita
+[2325.8s] pakai Freddy yang the dilatih jadi kita
+[2328.8s] enggak ngelatih dari awal karena itu
+[2331.5s] Bhojpuri Ting Resort gitu ya sampai
+[2334.5s] sekarang ini kita sebut lanjut model ya
+[2337.6s] nanti kita akan bahas minggu depan Oh
+[2340.2s] lanjut model yang sering dipakai
+[2341.9s] sekarang itu seperti apa cuman kita di
+[2344.4s] pertemuan minggu ini tutup ngerti
+[2346.6s] konteksnya Oke
+[2350.5s] so kalau kita udah punya skip n g ya
+[2353.9s] model yang udah bassnya Curl Network ya
+[2356.7s] what the implementation itu salah
+[2359.6s] satunya skip n g ini so kita bisa
+[2364.3s] misalnya di sini kita ekstrak satu kata
+[2367.0s] Windows misalnya hair itu saya bisa
+[2369.0s] extra Oke kita bisa Set nilainya jadi
+[2374.0s] karena saya udah punya jual networknya
+[2376.3s] ya sebagai white representation nya kita
+[2378.8s] bisa Set vektor velg-nya sehingga
+[2381.3s] misalnya nilai way to probability nya
+[2384.7s] berapa gitu bahwa memang kalau Agatha
+[2388.0s] Heaven disini ini kata-kata ini
+[2391.2s] probability nya untuk sering dipakai
+[2393.3s] manusia itu sering tinggi enggak itu ya
+[2396.0s] Nah dia bisa calculated itu dengan cara
+[2399.3s] menghitung persamaan dibawah ini jadi
+[2402.7s] dari
+[2403.9s] diaktivasi
+[2406.1s] www.cec17.com tua dan sumanya dan
+[2409.3s] dihitung total probability oke
+[2413.0s] Bisa juga sebaliknya bahwa kalau ada
+[2415.6s] kata
+[2416.6s] ah yang apa corrupted atau nggak cocok
+[2421.2s] ya bahwa kata ini enggak mungkin kayak
+[2425.2s] begini account or comment Close To
+[2427.2s] Calvin probabilitanya Pasti lo ya Jadi
+[2431.4s] bisa dibilang bahwa kalau saya punya
+[2434.1s] waktu feat sebagai lanjut model kalau
+[2436.9s] saya kasih dia kata-kata sebagai where
+[2439.2s] ya maka dia akan keluarin saya
+[2441.9s] probability apakah kata-kata itu sering
+[2445.1s] itu apa probably the tinggi terjadi
+[2448.8s] dalam bahasa Inggris atau enggak Kirim
+[2451.9s] Mungkin kalian bisa lihat contoh di sini
+[2454.8s] ini like share dari Stanford University
+[2458.0s] ngajarin ada demonya telah saling udah
+[2460.8s] jadi ya lanjut modelnya
+[2463.3s] ini
+[2467.8s] nanti kita akan bahas lebih lanjut Lex
+[2470.5s] lanjut model tapi intinya ada satu
+[2472.9s] dataset yang udah diprint nya bentuknya
+[2475.6s] neural Network parameter pasti kalau
+[2478.5s] saya kasih dia kata-kata dia kasih saya
+[2481.3s] [Musik]
+[2482.6s] terpakai smp-nya
+[2487.0s] Pak harus lo gitu
+[2490.4s] ah
+[2492.0s] enggak di contohnya dari jadi kayak jadi
+[2495.8s] saya kasih dia kata-kata nanti dia akan
+[2498.3s] kasih lihat ini probability nya berapa
+[2501.8s] persen valid kata-kata tersebut
+[2505.3s] nah bayangkan kita bisa ngapa aja dengan
+[2508.1s] itu kalau semua kata-kata yang ada di
+[2510.3s] lembah Indonesia itu ada di sini
+[2514.3s] ya
+[2516.0s] contoh misalnya kalau saya bilang orang
+[2518.6s] yang kena omnitron biasanya punya
+[2523.0s] symptom of lu meriang dan lain-lain Nah
+[2527.8s] kalau saya punya lanjut modelnya yang di
+[2529.7s] trade dengan konteks
+[2531.7s] konteksnya semua udah di capture naik
+[2534.1s] dia akan keluarin saya bahwa itu
+[2536.5s] probabilitasnya Tinggi oke
+[2541.1s] so
+[2542.6s] Kita juga bisa Silet negatif Temple on
+[2546.3s] kita punya skip n g atau What the
+[2548.9s] ya jadi kita bisa sampel pakai
+[2552.0s] frekuensinya Oke Misalnya
+[2556.1s] ini ada satu contoh dari mikolov dia
+[2559.0s] Propos samplingnya seperti ini ya enggak
+[2561.8s] ada justifikasi teori vitalnya tapi dia
+[2564.3s] bilang ini jalan Oh saya bisa pakai
+[2566.9s] rumus di untuk sampling ya
+[2569.7s] bagaimana saya champlin negatif board
+[2572.3s] Selain itu diwaktu fake itu juga
+[2575.0s] relationship ya karena dia selalu
+[2577.2s] mengambil konteksnya Ya itu dia juga
+[2580.1s] udah punya relationship di dalam the
+[2583.9s] representasinya gitu eh bisanya
+[2586.9s] relationship antara Trans sama Faris itu
+[2590.2s] kan Paris ibukota Perancis become bigger
+[2593.4s] mag Miami ma floryday karena memang
+[2596.5s] gadgetren dengan kontekstual maka dia
+[2599.4s] bisa punya
+[2600.6s] relationship information atau
+[2604.7s] tidak di dalam di dalam lanjut model Eh
+[2611.3s] sini ada di Matinya oke so bagaimana
+[2616.1s] orang mama dulu atuh chordnya pertama
+[2619.3s] keluar What the itu Google taruh
+[2622.2s] sini ajutan sachet nanti What the
+[2625.1s] Google implementation of ra
+[2630.6s] nanti kalau masuk ke soskot ya Kalau
+[2633.2s] enggak salah dia akan beling ke gitarnya
+[2636.5s] gigi Sahabat juga ada
+[2639.1s] ini Cocot tahun 2013 waktu itu belum ada
+[2643.1s] payten jadi dia pakai Sir jadi depresi
+[2647.4s] contoh data sheet Oke dengan judul dari
+[2650.3s] Wikipedia todar kemana-mana setelah itu
+[2652.7s] dia bangun oh
+[2655.2s] what the nih
+[2658.9s] kalau mau coba-coba ini bisa Coba disini
+[2661.7s] timely bisa bantuin untuk ngelihatin
+[2663.7s] ininya sekarang udah ada banyak yang
+[2666.3s] model-model yang lebih modern dibanding
+[2668.7s] What the contoh misalnya vastex ya
+[2671.4s] Ini juga out representation tapi dia
+[2675.0s] spesifik untuk
+[2676.7s] fungsinya untuk sentence classification
+[2679.8s] jadi kalau kita mau bangun What
+[2681.8s] representation untuk klasifikasi Oke ini
+[2685.1s] bisa desain bisa saya punya kita Oh obat
+[2689.8s] gitu ya doser pengen bilang kalau saya
+[2691.8s] kasih obat ini dia kasih tahu ini buat
+[2694.8s] apa Nah itu mungkin bisa pakai ini
+[2697.8s] selamat kita punya datasheetnya kita
+[2699.6s] bisa trend model fasttext untuk
+[2702.6s] classification Yo what's representation
+[2706.4s] juga mirip dengan What the tadi ya
+[2710.2s] dan
+[2711.9s] dia udah pakai odol Network yang untuk
+[2715.8s] implement continuous bed cover dance
+[2721.1s] keep n g Eh ini banyak yang pakai
+[2723.9s] sekarang paste teks ya tapi cerita
+[2726.9s] awalnya itu dari waktu feat eh ah banyak
+[2731.7s] implementasi implementasi dipitenz Tapi
+[2734.4s] biasanya kalau bangun tidak seperti
+[2737.4s] waktu fake atau berapa
+[2740.0s] vastex itu dia pakai ciotes ikhlas
+[2742.8s] karena memang ada algoritma nohea
+[2745.9s] didalamnya a yang kita butuhkan cepatan
+[2748.9s] untuk menghitung Oke
+[2750.8s] so selanjutnya
+[2753.1s] ada model lagi yang di Propos namanya
+[2756.2s] blog-blog ini
+[2758.1s] global Factor untuk white representation
+[2762.1s] Oke tadi kita udah belajar World fact
+[2764.9s] Jadi kalau waktu fake itu semua kata
+[2767.7s] dianggap Sentral terus dia predict
+[2770.0s] konteks disekitarnya apa ya
+[2773.3s] Nah bedanya dengan glove kalau glove ini
+[2776.8s] countess model kalau tadi prediktif
+[2779.7s] modal bodi yang memprediksi kata-kata
+[2781.9s] disekitar satu kata kalau blog ini
+[2784.9s] adalah count Based
+[2786.3s] bagaimana dia bekerja itu dia
+[2789.2s] mempelajari vektor dengan cara melakukan
+[2792.6s] Diamonds meneliti reduction ya kalau
+[2796.2s] misalnya ada kookurensi
+[2798.6s] waktu dia menghitung di dalam matriks
+[2801.2s] Oke jadi di account ukurannya Dan kalau
+[2805.0s] itu terjadi dia lakukan Dimensions tidak
+[2807.9s] Semoga dia Nggak dia nggak nambahin
+[2810.5s] dimensi dari vektornya tapi digabungin
+[2814.9s] Iya lah gimana dia Le gabung ini tuh
+[2819.0s] jadi dia Pa factories matriks untuk
+[2822.3s] ngasilin matriks yang lebih kecil dari
+[2824.8s] word dan fitur esnya Oke
+[2828.0s] sehingga
+[2829.5s] setiap rohingya itu menghasilkan vektor
+[2832.7s] representasi dari setiap word eh mungkin
+[2837.7s] Gambarnya agak mirip-mirip tadi sama
+[2840.1s] yang SPD tapi ini bukan SPD ya ya jadi
+[2843.9s] dia demensi neliti redaction bahwa kalau
+[2846.9s] saya punya satu apa kalau saya punya
+[2850.2s] satu matriks anward dan worth bisa
+[2854.6s] pisahin menjadi dua vektor ada Factor
+[2859.0s] yang vertikel ada Factor yang horizontal
+[2861.9s] Edward Ya selama dimensinya sama ini
+[2865.8s] kalau saya dot product
+[2867.5s] Factor sebelah kanan ini biarkan
+[2869.9s] ngasilin Madrid Jadi saya harus
+[2871.8s] dekomposisi dari satu word yang besar
+[2874.9s] saya buat dua factory ini di ini namanya
+[2878.6s] matriks faktorisasi Oke jadi factories
+[2883.4s] matriksnya untuk menghasilkan lower The
+[2885.6s] Mansion worth sama pictures Oke sehingga
+[2889.0s] dimana setiap setiap baris ya setiap
+[2892.7s] Barus menghasilkan vektor representasi
+[2894.7s] dari setiap pun
+[2897.3s] Oke jangan dihafalin juga matematiknya
+[2901.0s] nggak perlu kita cuman betul lihat how
+[2903.3s] it works bahwa dia Smash dari satu Oh
+[2907.1s] apa matriks dia pisang India faktorisasi
+[2910.6s] dia
+[2914.2s] saudari faktorisasi itu the production
+[2917.3s] problem dia bisa duet
+[2920.3s] objective function dan setelah itu dia
+[2923.0s] juga bisa minimize objective function
+[2925.4s] nya ok
+[2927.0s] Hai biasanya di blog waktu ditraining
+[2929.5s] dia akan menghasilkan dua vektor
+[2932.5s] W dan website pakai topi ini mirip
+[2937.3s] vektornya cuman X bedanya itu cuman di
+[2939.8s] random initialization
+[2944.1s] Oke bagaimana implementasi glove banyak
+[2949.1s] implementasinya yang perlu kita tahu
+[2951.5s] sebenarnya how it works dan Problem apa
+[2954.5s] yang bias tol Tegal kita nyaring isinya
+[2957.0s] gloves implementation
+[2959.2s] ah
+[2961.6s] bisanya diisi plus-plus
+[2964.5s] Oke
+[2966.1s] sudah banyak Eh apa bedanya dia dengan
+[2971.0s] What the ya kalau kalau What the
+[2973.0s]  Itu dia mencoba memprediksi
+[2975.8s] konteksnya disekitar satu kata yang
+[2978.3s] dianggap sebagai center kalau yang blog
+[2981.3s] of ya dia mencoba menghitung coure ya
+[2985.9s] Dan setelah itu lakukan faktorisasi agar
+[2989.2s] dia bisa punya macet yang lebih kecil
+[2991.4s] Oke ke namanya blogs World Factor Kenapa
+[2996.0s] mostly at zaman itu sebelum-sebelumnya
+[2998.6s] kita pakai kipas plastik sama sihir
+[3002.1s] karena memang ini banyak text Processing
+[3004.2s] yang butuh cepet oke nah biasanya
+[3007.1s] setelah ada si plus-plus nya kita bisa
+[3009.2s] pakai versi patennya gitu ya Misalnya
+[3012.5s] glove implementation by tol
+[3019.8s] macet floor Oke ini juga banyak yang
+[3024.5s] jadi bisa-bisa dua cara kalau kita nggak
+[3027.9s] mau bikin blognya sendiri ya kita pakai
+[3029.9s] mudah jadi aja ya Dan kita bisa pakai
+[3033.1s] Jadi payted intinya gitu kalau saya juga
+[3036.1s] mau bikin pakai apa Pakai what the
+[3040.3s] atau pakai glove ya Cari frementasi yang
+[3042.6s] udah ada terus kita bikin
+[3044.6s] out-nya yang kita butuh lebih Eigner
+[3048.0s] adalah teksturnya udah jadi dan saya
+[3049.9s] bisa berinteraksi dengan Factor itu
+[3051.6s] untuk melakukan machine-learning teh Apa
+[3053.9s] tugas-tugas hasil learning di tahun 2018
+[3057.6s] ini ada pepper satu lagi namanya Elmo ya
+[3061.7s] jadi embedding for from lanjut model
+[3065.4s] representation kita coba lihat apa
+[3067.7s] konsep besarnya dari Elmo
+[3070.1s] tiadalah dibilang lanjut itu kompleks
+[3073.1s] dan konteksnya itu bisa sangat berubah
+[3076.7s] ketika saya pakai dalam satu kalimat
+[3080.8s] contoh misalnya ada tiga kalimat disini
+[3084.2s] I let the kids out site to play i have
+[3087.6s] never existed in most famous place
+[3089.3s] before it was done by the coach water
+[3093.2s] proof of
+[3094.5s] Eh ini konteksnya udah beda banget
+[3097.2s] artinya oke kita model-model Sebelum
+[3101.5s] Elmo itu tidak punya mekanisme untuk
+[3104.8s] mencapai share nikah tidak jangan pakai
+[3109.2s] kata konteks pernah dipakai di atas ini
+[3112.0s] beda nuansa ya bahwa kata play disini
+[3115.8s] itu nuansanya adalah anak-anak Kecil
+[3119.1s] bermain
+[3119.9s] Oke
+[3121.8s] tapi sih at level heck.in morfemis
+[3125.2s] playford ini bukan arti kata bermain
+[3128.0s] seperti yang yang anak kecil ya
+[3131.3s] begitupun dengan yang di bawah yang
+[3133.6s] dibawah ini lebih professionalism ada
+[3135.4s] kodya dan dan lain-lain nah
+[3139.3s] nuansa-nuansa ini enggak bisa di capture
+[3141.3s] oleh
+[3143.1s] method-method sebelumnya tadi seperti
+[3145.7s] World five ya Jadi kita harus bisa sense
+[3149.6s] untuk desain tas itu ya
+[3151.8s] Wah ada enggak model lain yang bisa
+[3154.5s] lakuin Oke karena glove What the
+[3158.8s] itu hanya satu representasi dari Word
+[3161.3s] dia nggak bisa
+[3163.1s] nangkap apa ya nuansa atau ambiguity
+[3166.6s] gitu Hai ah
+[3169.8s] semua miliknya pemain altogether jadi
+[3172.7s] dia enggak bisa terpisah gitu nah bisa
+[3175.3s] enggak ada satu model neural Network ya
+[3178.0s] yang punya
+[3180.4s] multi-level dari understanding aku
+[3182.9s] nuansa tadi Nah ini yang Model pertama
+[3185.8s] di Propos namanya Elmo embedding flight
+[3189.1s] mode representation Oke
+[3193.9s] so apa LTD besar yang dipost di Jadi
+[3199.9s] sebelumnya kan kita cuma water
+[3202.0s] presentation ilmu ini tiba-tiba memakai
+[3204.3s] kata lain Lebih model
+[3206.5s] dibilang embedding from lanjut model dia
+[3209.3s] nggak bilang embedding from worth eh
+[3212.9s] sebelum-sebelumnya glove What the
+[3215.4s] dan lain-lain itu adalah What embedding
+[3217.8s] atau white representation jadi setiap
+[3221.2s] kata saya kasih representasi dalam
+[3223.1s] bentuk vektor yang akan Nah kalau ilmu
+[3226.1s] disebut jenis model repot DC apa ini
+[3229.9s] nah problem yang diatas diet maksud di
+[3233.8s] dalam lanjut model ini adalah kalau saya
+[3236.3s] punya satu
+[3238.0s] kalimat-kalimat itu susunan kata-kata ya
+[3241.0s] selesaiin satu probability bahwa kalimat
+[3243.9s] itu memang valid dalam satu Bahasa oke
+[3248.1s] contoh misalnya file Wings tunai
+[3253.8s] dan Los Wings tonight Grace yang mana
+[3257.2s] yang lebih valid probability nya lebih
+[3259.2s] besar antara Hai wind sunlight atau lan
+[3263.0s] switch tunai
+[3264.4s] di dalam bahasa Inggris kita tahu bahwa
+[3267.8s] probabilitasnya Hai Winston Nights jauh
+[3270.2s] lebih besar dibanding Let's kita jarang
+[3272.3s] praktek pakai kata hujan besar gitu ya
+[3276.4s] hehehe dalam bahasa Inggris saya dalam
+[3279.9s] menurut bahasa Indonesia belum belum
+[3281.3s] tentu ya kita sering bilang hujan deras
+[3283.6s] hujan hebat hujan lebat gitu ya ya
+[3287.0s] probability Aceh mana yang lebih besar
+[3288.9s] dalam bahasa Inggris untuk di mesin
+[3291.2s] transmission case kadang untuk display
+[3294.2s] corection juga
+[3296.3s] ya offices about fifteen minutes from my
+[3299.4s] house oke nah kata minusnya ini ya ini
+[3305.7s] mungkin ada
+[3307.8s] thaipod101 5 Tini probability about
+[3311.4s] fifteen minutes from atau boat fifteen
+[3314.9s] minutes
+[3316.3s] from ya itu yang mana ya sebelah kiri
+[3320.6s] harusnya lebih besar ya karena ini tempo
+[3324.7s] di
+[3326.7s] penulisannya salah di harusnya cuman
+[3329.7s] tekanan lebih besar dan kita bisa pakai
+[3332.4s] lanjut mode untuk spell corrections
+[3335.3s] gimana speech recognition Oke kalau
+[3339.9s] misalnya saya bilang iso kafan dan saya
+[3342.9s] punya special commission
+[3345.6s] for babi sinyal lebih besar dibanding
+[3348.8s] Ice Open Oke
+[3353.5s] mirip-mirip kalau disebut ya
+[3356.9s] isofer Ice Open Oke
+[3362.6s] di dalam teks summer season please
+[3366.2s] chatbot question and answer lanjut model
+[3369.6s] ini sangat sangat diperlukan Ini adalah
+[3372.1s] Backbone nya dari chatbot
+[3375.3s] eh banyak orang sekarang bikin catbird
+[3378.1s] tapi masih rule-based Kenapa karena kita
+[3380.5s] nggak punya lanjut smoother berbahasa
+[3382.2s] Indonesia bahwa kalau misalnya ada orang
+[3384.4s] Hai kamu kemana pagi ini di dia tulis
+[3387.1s] dicat gitu ya
+[3388.8s] nanti karenanya ke lanjut mode ini Diana
+[3392.6s] probability nya Nanyain
+[3394.7s] apa lebih besar dari apa gitu Oke
+[3397.8s] selanjutnya water itu ngeluarin nilai
+[3400.8s] probability satu kalimat
+[3403.4s] Apakah itu valid dalam satu bahasa
+[3405.9s] tonggak gimana dia di trend itu biar
+[3409.1s] butuh jual netbook model yang besar
+[3411.3s] sekali Oke jadi bukan cuman ngeluarin
+[3416.6s] probability satu sentence itu valletta
+[3418.9s] pendak tapi ternyata mbak hanya
+[3420.6s] penggunaannya yang bikin translations of
+[3422.9s] corrections PC connection text
+[3425.3s] summarization question announcer dan
+[3427.6s] lain-lain jadi dengan kemampuan bahwa
+[3430.4s] saya bisa steam probability ke dalam
+[3433.5s] satu sentence akan saya bisa ngelakuin
+[3436.2s] banyak hal
+[3437.1s] eh
+[3439.6s] ingat juga bahwa ada cendrol bahwa
+[3442.1s] misalnya pywin tunai karena ini pompa
+[3444.8s] bility probability of Canada
+[3446.7s] mathematical operation nya bahwa PH
+[3449.3s] dikali pywin hair conditioner Wings Hai
+[3453.0s] dan kondisional tonight
+[3456.7s] bisa-bisa platform banyak kali Oh
+[3460.8s] logical operations on saya dapat
+[3463.6s] probability dari ladies model oke oke
+[3467.0s] Hai nah bagaimana orang membangun lain
+[3469.0s] smoother apakah Beat pakai model neural
+[3471.3s] Network Seperti apa jawabannya adalah
+[3474.0s] rekaren jual nett karena problemnya
+[3476.6s] adalah problem yang sering dikenal di
+[3479.2s] machine learning sebagai sixbones
+[3481.2s] labeling problem oke jadi misalnya saya
+[3484.1s] punya kata Fred final softlight today
+[3488.2s] Oke jadi saya masukin ke jurang Network
+[3495.9s] Oke untuk mencari pola di dalam kata ini
+[3500.4s] Jadi ini kan cats average Christine Awas
+[3504.2s] dan seterusnya sini Jadi kata ini saya
+[3507.3s] masukin ke jurang Network neural Network
+[3509.5s] ini ditengah yang gambar kotak-kotak ini
+[3511.3s] dengan parameternya Oke dan dia akan
+[3513.9s] keluarin saya probabilitas bahwa kata
+[3516.7s] ini itu
+[3518.8s] valid Oke Bagaimana ilmu ini ditraining
+[3523.0s] awal-awalnya ini yang sekarang nanti
+[3525.3s] kita akan belajar modern wow ya kayak
+[3528.1s] bet ya oh
+[3531.6s] GP3 dan lain-lain mungkin pertemuan
+[3534.0s] minggu depan tapi intinya adalah set rem
+[3537.4s] dari sentence jadi setiap sentence saya
+[3539.7s] masukin tentu saja bukan ininya ya
+[3542.4s] vektornya saya masukin deket happy ya
+[3545.8s] Nah dia akan nyari feat is happy jadi
+[3549.8s] dia mapping jadi dia tren lanjut
+[3552.3s] modelnya dengan 2 layer lsf kita akan
+[3555.3s] belajar Ini Nanti elestianto untuk
+[3557.3s] sekarang kita harus mengerti dulu apa
+[3559.6s] itu lanjut model dan bagaimana mereka
+[3561.3s] bikin detailnya lscm detail nyarenan
+[3564.4s] kita akan basti pertemuan berikutnya oke
+[3567.2s] nah untuk bikin lanjut model kita
+[3569.7s] inputnya kita terpakai Oh
+[3573.9s] tradisional new lanjut model itu ya
+[3576.9s] dengan What embedding kita masukkin
+[3580.1s] penjual Network untuk kita cari tahu Oh
+[3584.2s] padanannya ya kita udah belajar banyak
+[3587.0s] out MB dinginnya onehotencoder ding
+[3589.4s] waktu fake love dan lain-lain ini
+[3591.1s] dipakai sebagai input nanti dimasukkan
+[3593.7s] nanti dia akan mencari polanya eh
+[3599.5s] prestasinya Kompleks banget nggak bisa
+[3602.2s] digambarin ya Nanti pada saat belajar
+[3604.8s] Baik saya coba tunjukin itu sekarang
+[3607.8s] neural Network diagram Ya udah besar
+[3609.6s] banget sgpt three Euro architecture
+[3621.1s] Yaudah pakai Transformers Ya
+[3624.7s] udah
+[3626.9s] sangat-sangat Kompleks sekarang
+[3629.8s] Oke kita akan belajar Batam up jadi
+[3634.2s] banyak kata-kata Pasti kalian belum
+[3635.9s] ngerti di sini ya kayak lscm are meant
+[3639.7s] dan lain-lain
+[3640.9s] nanti pertemuan-pertemuan berikutnya
+[3643.6s] kita akan bahas Oke Jadinya pakai jual
+[3646.3s] Network Hai dan dia pelajari Bagaimana
+[3649.5s] caranya dia mengucapkan nuansa di dalam
+[3652.4s] kata-kata itu didalam Network dan dia
+[3655.5s] buat model namanya Land Which model itu
+[3658.2s] asal muasalnya dari ilmu ini bahwa
+[3661.0s] setelah ditraining mineral networknya
+[3663.5s] kalau saya kasih dia kata ke dalam situ
+[3665.6s] dia kasih tahu saya Berapa besar
+[3667.6s] probabilitas kalimat tersebut Vallen
+[3673.6s] Oke dia pakai white representation atau
+[3676.5s] embedding Ya macam-macam sangat-sangat
+[3679.7s] beda arsitektur beda embedding jadi
+[3683.0s] nggak usah dihafalin ya Biasanya kita
+[3685.1s] nggak ngeliat ke arsitektur ilmu ini
+[3688.3s] menjadi basis eksplorasi ke dalam lanjut
+[3691.5s] model yang kita ngerti sekarang ini ya
+[3693.9s] ini pepper awalnya tahun 2018 setelah
+[3697.2s] itu lain with models banyak sekali
+[3699.5s] dikembangkan orang oke dengan banyak
+[3702.7s] sekali perubahan arsitektur ada Jeffrey
+[3705.3s] ada bet dan lain Hai dan sampai sekarang
+[3709.0s] kita pakai modern ilmu ya tapi awalnya
+[3712.6s] dari ilmu setelah kita punya lain guys
+[3715.1s] model seperti ilmu dan kita bisa bikin
+[3717.3s] ksystem sentimen analisis banyak sekali
+[3721.1s] tas-tas NLP bisa kita lakukan wants kita
+[3723.9s] punya lain this model link-nya
+[3726.2s] Oke soft
+[3729.7s] method sebelumnya yang glove itu agak
+[3732.7s] beda ya yang BMW juga agak beda intinya
+[3735.4s] ini Elmo membuka era baru di dalam
+[3738.6s] WordPress Sensation menjadi lain
+[3741.1s] blitzmodder polindes model itu adalah
+[3744.1s] suatu struktur neural Network yang udah
+[3747.2s] diprint yang kalau saya kasih dia input
+[3750.0s] kata-kata kalimat dia akan keluarin
+[3753.3s] probabilitas bahwa kata-kata itu bisa
+[3755.6s] terjadi
+[3756.5s] Nah kalau buat embedding yang besar
+[3759.0s] seperti bibit ribet itu mahal sekali ya
+[3762.1s] dari shinki data collection nya aja
+[3764.9s] mungkin udah terabyte mereka ngumpul Hai
+[3767.3s] ada banyak opportunity domain-specific
+[3770.4s] World MP3 dan lanjut mother.ok contoh
+[3773.6s] yang dilakukan nama Microsoft health
+[3775.2s] Bottle mereka sebenarnya mengumpulkan
+[3778.0s] semua kata-kata help
+[3780.8s] diskusi dokter artikel semua kata-kata
+[3785.3s] yang ada di dataset yang ada di internet
+[3787.4s] misalnya kayak artikel-artikel kesehatan
+[3790.7s] dan Swedia bikin lanjut modelnya dan wan
+[3794.7s] selanjut modelnya ada dia bisa bikin
+[3797.1s] konvensional apa konvensional sieang
+[3800.5s] kayak chatbot dan lain-lain dari kalau
+[3804.2s] lihat dipepes papers misalnya contoh
+[3806.4s] kayak biofert ya Ini dari Korea riset
+[3810.8s] center dari never research center mereka
+[3813.6s] bikin print by medical lanjut seventyone
+[3816.2s] modem untuk biomedical text mining
+[3818.8s] ini juga ada yang bikin pria Thailand
+[3821.1s] lanjut model untuk medical teks
+[3822.8s] inversion ya Nah dengan misinya diversen
+[3826.3s] ini kalau dia clandys model yang paling
+[3828.2s] besar maka dia bisa doing medical help
+[3830.9s] bisnis jauh lebih baik dibanding orang
+[3832.9s] yang tidak punya yang basecamp
+[3834.8s] begitupun dengan Indonesia ini
+[3836.7s] oportunitas apa kesempatan besar ya
+[3839.0s] untuk kita bikin oleh guys model Yang
+[3841.3s] domain-specific
+[3842.7s] kalau yang domain yang terlalu besar
+[3844.9s] kayak Bahasa inggris-bahasa Indonesia
+[3847.0s] itu cost-nya besar sekali tapi dengan
+[3850.0s] kemajuan model-model lanjut apa jual
+[3853.6s] netbook sekarang terbuka kesempatan
+[3855.2s] untuk yang domain-specific oke
+[3859.9s] oke ya hari ini kita sudah selesai
+[3865.2s] belajar tentang wedding website ion
+[3868.6s] mulai dari onehotencoder ding Depok
+[3870.8s] worth continuous Blackout full ya nsq
+[3874.6s] pangram yang kadang disebut What the
+[3876.5s]  spray kita belajar glove kita
+[3879.9s] belajar ilmu-ilmu itu adalah cikal bakal
+[3883.5s] lanjut model kita akan lanjutin tentang
+[3886.4s] najis mod Va minggu depan ya itu baru
+[3889.8s] kita masukkan returned model pembicaraan
+[3892.6s] iurannya the Tension download
+[3894.1s] Transformers sama baru masuk ke
+[3896.2s] printlest langit-langit modern ini
+[3898.8s] adalah BKN dari NLP eh
+[3902.2s] ah
+[3903.9s] dari call sini kalian udah bisa masuk ke
+[3906.9s] sini mungkin chapter 83 grolet udah
+[3909.5s] lebih Make sense disaat kalian baca
+[3911.5s] misalnya stephens modal Oke
+[3916.3s] atau text Processing
+[3918.9s] Yah gimana caranya dari teks Kita
+[3921.8s] masukin ke sektor Oke dan sini juga ada
+[3925.7s] pendahuluan lanjut model di buku kita
+[3927.8s] jadi lanjut model tadi kita Divine kalau
+[3930.7s] given the text masukin ke lanjut model
+[3933.4s] dia akan keluarin saya
+[3935.1s] probabilitas bahwa
+[3937.5s] kata-kata dalam teks itu bisa terjadi
+[3939.7s] bersamaan dia akan kasih probabilitasnya
+[3942.7s] kalau probabilitasnya tinggi artinya dia
+[3945.1s] valid oke
+[3947.0s] Hai banyak sekali orang bikin langit
+[3949.8s] model sekarang ini jadi apa ya jadi tren
+[3953.0s] ya Bahkan ada cord spesifik untuk How to
+[3956.3s] build lars lanjut model di Stanford Ya
+[3959.7s] sebagian dari isi course-net kita ini
+[3961.9s] ambil dari sini bagian juga dari
+[3965.5s] k.h. Abdullah 24 natural language
+[3969.3s] processing
+[3970.2s] dapat dari Stanford cs24 Oke di
+[3975.6s] materinya nanti saya juga ngasih
+[3978.0s] recommended
+[3979.5s] reading ya di sini ada Stanford kos yang
+[3982.7s] bisa s-224 ini juga bagus dia lebih
+[3985.9s] jelasin lagi
+[3987.6s] Oke Kayak misalnya dari
+[3990.7s] bayangkan nih text book zaman dulu Nih
+[3994.6s] ilmu pengetahuan kita selama ribuan
+[3997.4s] tahun dipilih untuk of the books Nah
+[4000.6s] bisa enggak saya masukin semua saya
+[4003.3s] trend semua ini sehingga saya punya
+[4006.4s] satunya keyboard yang kalau saya tanya
+[4008.9s] dia tentang satu kalimat dikasih tahu
+[4011.2s] saya tuvalet apa enggak oke
+[4014.9s] Bisa jadi bukunya ini setiap rak
+[4018.8s] misalnya saya cuman Buk medical dan saya
+[4021.9s] bisa bikin domain-specific lanjut model
+[4024.1s] komedi atau disebelah kirinya buku
+[4027.3s] matematika bisa enggak saya bikin lanjut
+[4029.5s] mode for mathematical function atau
+[4032.5s] disebelah kanannya source code komputer
+[4034.8s] apa program algoritma bisa enggak saya
+[4037.0s] bikin lanjut model untuk algoritma
+[4039.1s] sehingga kalau saya butuh satu algorithm
+[4041.6s] nanti dikasih tahu stainy yang paling
+[4043.5s] bagus
+[4044.4s] Soleh Ismail model is not up bukan hal
+[4048.4s] sederhana karena opportunity nya untuk
+[4051.0s] dikembangin sangat tinggi dan impact nya
+[4053.9s] sangat besar oke sekarang udah pakai GP3
+[4057.7s] ya indardi oppenheimer Eka mikir free
+[4060.9s] besar sekali nilai this modelnya ya
+[4063.8s] Nanti kalian bisa lihat-lihat materi ini
+[4065.6s] bahwa untuk Oh kenapa lanjut model kita
+[4069.7s] butuhkan Oke dia juga cerita dari works
+[4073.8s] on hot encoding ya alur ceritanya mirip
+[4078.7s] Oke what the masuk ke glove masuk
+[4082.3s] ke ilmu dan lain-lain ada dua slide
+[4085.2s] tambahan saya taruh di Google Drive Ya
+[4087.3s] semua materinya nanti ada di Google
+[4089.6s] Drive kita
+[4090.9s] kalian coba lihat biasanya Shinta ngasih
+[4094.4s] dilink itunya ya videonya
+[4097.4s] tapi di sini ada ya
+[4101.1s] sini ada materinya kalau bisa
+[4103.2s] lihat-lihat sebagai penambahan dari sini
+[4105.7s] oke
+[4106.8s] mengenai implementasi
+[4108.6s] ti nanti mati bantu Mas Welly banyak
+[4111.7s] sekali contoh implementasi jeruk kalau
+[4114.2s] mau bikin sendiri juga rata-rata kita
+[4116.0s] ngambil quote yang udah proven contoh
+[4118.9s] misalnya implementasi blog pakai patch
+[4121.8s] atau What the tadi atau fasttext
+[4126.0s] yang jadi
+[4128.8s] ndak usah
+[4130.4s] implementation Biasanya kita juga pakai
+[4133.7s] pulpen model Apple pen code yang memang
+[4136.9s] udah jawab cuman kalau nggak ngerti nah
+[4139.5s] itu agak susah pakai kotoran juga nggak
+[4141.6s] ada gunanya nantinya Karen kadang2 kita
+[4144.4s] enggak mau trend kita download modelnya
+[4147.0s] yang udah jadi itu ya Misalnya ini ada
+[4149.1s] dari Wikipedia dan news eh dia udah
+[4153.3s] trend 1 miliar worth Factor on Wikipedia
+[4156.1s] oke
+[4157.7s] Banyak yang udah ngetrennya keren gitu
+[4160.1s] karena kalau kita tren lagi butuh GPU
+[4163.2s] lagi dan mahal lagi gitu ya
+[4165.5s] atau ini ada worth vektor dalam
+[4169.0s] 157 bahasa
+[4171.2s] ini bisa cek ada Bahasa Indonesia coba
+[4174.1s] cek
+[4177.2s] Nah ada
+[4180.4s] eh bisa di download Bob 1 Giga cancel
+[4184.6s] Oke so dirinya bisa kita bikin sendiri
+[4189.5s] kalau mau bikin sendiri missed call
+[4191.8s] title
+[4192.9s] apa Oh lanjut model atau medical What
+[4199.1s] the
+[4200.6s] oh atau pakai yang print nah tapi kalau
+[4204.6s] memang mau berbisnis tentu butuh
+[4206.7s] diferensiasi ya bagusnya bikin sendiri
+[4208.8s] lagi modelnya dan terus bisa dikembangin
+[4211.5s] khususnya udah banyak termasuk ini tapi
+[4214.6s] kalau ini fokusnya pastu teks ini lebih
+[4217.1s] cenderung ke teks classification eh
+[4220.4s] nanti kita akan belajar lebih jauh saya
+[4223.1s] akan komen juga dengan materi dari sini
+[4226.0s] untuk gimana membangun lanjut model yang
+[4228.5s] besar eh
+[4231.0s] stop sampai disini diesel pemaparan
+[4234.1s] materinya silahkan mulai lihat-lihat
+[4236.1s] waktu rfek
+[4237.6s] continue Specs of Work n g ya ilmu
+[4241.3s] minggu depan kita belajar lebih banyak
+[4243.7s] lagi soal Levis model ah ah Hai dan kita
+[4247.9s] close
+[4249.7s] Patcher mengenai
+[4251.9s] websentinel.net silahkan kalau semuanya
+[4257.8s] Bapak izin bertanya
+[4260.7s] om
+[4262.4s] kalau misalkan itu Pak ada kata
+[4267.3s] read sama reading itu kan sama kata
+[4271.0s] ininya sama disini Shinta kayak belum
+[4273.3s] lihat yang preprocessing gitu gua Pak
+[4275.4s] apakah enggak diperlukan atau pakai
+[4277.6s] relationship tadi Terima kasih Bapak oke
+[4280.2s] Ada beberapa model Jadi yang tadi kita
+[4282.2s] belajar yang wanchain puding yang paling
+[4284.4s] awal under Saya punya satu 1000 kata
+[4288.4s] unik gitu ya domain-specific setiap Tata
+[4292.3s] saya anggap saya kasih angka 1
+[4294.0s] selebihnya 0eh nah Tentu saja itu tidak
+[4297.9s] bisa capture Apa bedanya reading Amerika
+[4300.6s] gitu kan horrifying itu Maret itu
+[4303.6s] ternyata berhubungan sangat very close
+[4306.4s] namun funkot help encoding tadi tuh
+[4309.1s] tidak bisa mengcapture itu kita harusnya
+[4312.2s] read model yang bisa tercuri itu leader
+[4314.6s] kita bisa menganggap dia sebagai konteks
+[4317.2s] dari kata Rip dan reading ditekan
+[4320.6s] on sekitar mop masukin konteksnya dan
+[4324.4s] opsi Kita tadi kan pake yang apa Oh
+[4327.8s] kontekstual kayak waktu fake itu ya
+[4330.1s] pakai yang What embedding bukan one hot
+[4333.0s] encoding oke nah tapi juga setiap model
+[4337.9s] itu kayak waktu fake glove ya itu pasti
+[4341.8s] ada problem yang dia bagus
+[4344.3s] penyelesainnya ada problem ini nggak
+[4346.4s] bisa hendel itu ya mungkin harus pakai
+[4349.2s] glove ternyata karena kalau glove itu
+[4351.3s] dia Tahun berapa jumlahnya Kalau waktu
+[4354.1s] VCD enggak counting tapi dia prediksi
+[4356.4s] gitu ya jadi kita harusnya reportase
+[4359.6s] yang tepat untuk kebutuhan kita kalau
+[4362.5s] yang Shinta tanya tadi misinya Rich sama
+[4365.0s] reading itu arti pentex Ayo kita mungkin
+[4368.1s] harus bisa pakai waktu fake
+[4371.8s] live paham kalau kalau misalkan di
+[4376.3s] bahasa Inggris tuh kan ada kayak retreat
+[4378.2s] apa ya kayak pas tanah yaitu What the
+[4382.1s]  Iya bapak Nah kalau misalkan mau
+[4384.5s] diimplementasikan di Indonesia sendiri
+[4386.2s] seperti apa babak kayak permasalahannya
+[4389.2s] dan B sejauhmana untuk kita bisa
+[4392.6s] mengembangkan dan lebih bahasa Indonesia
+[4395.5s] ya Selalu problemnya Ada orang enggak
+[4398.7s] yang kasih kita koller terbesar Jakarta
+[4402.4s] kalau saya harus bikin untuk Indonesia
+[4405.2s] lanjutnya dari Wikipedia gitu ya saya
+[4407.9s] train a call dari news semua berita
+[4411.4s] kalau bisa ada buku Keh Keh kumpulin
+[4415.1s] semua saya scan teksnya ambil teksnya
+[4417.2s] Setelah itu saya tren pakai What the
+[4419.6s]  yang pertama dilakukan waktu
+[4422.1s] fashion dia akan scan semua unit watch
+[4425.3s] Habis itu dia Hai setiap Boots dia
+[4428.2s] predict kira-kira konteks grupnya apa
+[4431.4s] aja gitu tadi akan bikin Wars matriks
+[4434.6s] vektor
+[4436.2s] menggunakan neural Network saya kayak
+[4439.0s] tadi yang kalian pelajari netscape
+[4440.8s] Garnier nah ujung-ujungnya mahal di sisi
+[4445.2s] koling kita butuh mungkin server banyak
+[4447.6s] sekali oke
+[4450.0s] manual data present kita butuh orang
+[4453.0s] banyak sekali untuk bersihin hasil call
+[4455.5s] gitu ya mungkin beberapa engineer kita
+[4457.5s] Put disitu berarti kita harus trend
+[4460.7s] jurnal Network kefir Saya butuh
+[4464.7s] peka lho saya pakai
+[4467.1s] buat embedding ya mungkin bisa pakai glo
+[4470.5s] atau waktu Factor Saya mau bikin lanjut
+[4472.9s] modelnya nih oke Ya mungkin saya pakai
+[4476.4s] GP3 pakai bet architecture set print
+[4479.7s] untuk bahasa Indonesia Nah itu
+[4481.9s] possible untuk kita lakuin Selama ada
+[4484.6s] yang biayain ya Dek Kenapa tadi saya
+[4488.7s] kasih contoh yang domain-specific
+[4491.0s] language model karena ongkosnya lebih
+[4492.7s] rendah kau siapa yang bisa bikin health
+[4495.8s] care oh artikel semua dikumpulin medik
+[4500.0s] medicine obat-obatnya terus kita bisa
+[4502.4s] bikin list mode untuk specific domain
+[4505.2s] itu jauh lebih possible untuk dipilih
+[4509.2s] Nah kalau yang lars lanjut model secara
+[4512.2s] saya biar Google aja ngelakuin emas
+[4515.9s] yang memang punya ciri punya JPU dan
+[4519.1s] punya apa punya computing risoles yang
+[4523.1s] besar ya kalau domain-specific itu masuk
+[4526.8s] masih sangat Persib
+[4528.7s] Ini kan udah ada yang beberapa entri ini
+[4531.1s] cinta kamu bisa check-in yang paste
+[4537.0s] Enggak gua pakai Terima kasih nih kayak
+[4540.4s] worth factory ini
+[4542.5s] Ini udah ada dalam 157 lain with dia
+[4546.3s] pakai Hai kawan roller ama Wikipedia Oke
+[4550.3s] dia pakai fasttext Nah model awet Factor
+[4555.0s] nih Nanti pada saat kita mau bikin
+[4557.7s] sentiment analysis skateboard kita butuh
+[4560.2s] worth vektornya Jangan karena itu yang
+[4562.3s] nanti masuk kedalam jurang Network
+[4563.9s] seperti dataset oke
+[4566.7s] nah kalau ada ya sebaiknya pakai atau
+[4570.3s] tambahin jadi banyak orang start
+[4572.1s] misalnya dari wooltex yang Indonesia nih
+[4574.5s] Oke nanti ditambahin data source yang
+[4577.6s] lain yang dia punya akhirnya dia bisa
+[4579.2s] bikin lebih baik lebih besar white
+[4581.4s] vektornya
+[4585.7s] oke Ada lagi ya
+[4592.6s] kalau Slank language Bagaimana Pak
+[4595.5s] Risman
+[4596.4s] selama diatrend dengan dataset yang ada
+[4599.7s] selain lanjutnya dan dia bisa represent
+[4602.7s] satu kata Slank yaitu kedalam mulutnya
+[4605.1s] itu bisa
+[4607.0s] Hai
+[4610.5s] Hoi indonesia-kanada kata Allah itu Pak
+[4614.4s] iya itu biasanya di itu harus jadi
+[4617.0s] pertimbangan tuntutan bikin Cepot ya
+[4620.1s] kayak di Indonesia kata Hai halo biarkan
+[4624.7s] itu Semar dimasukin
+[4628.7s] nah biasanya yang free begini tuh yang
+[4632.1s] mungkin belum sensitif terhadap yang
+[4634.2s] ketat Slank gitu ya tapi Oh ya itu harus
+[4640.4s] dikonsumsi the itu salah satu yang harus
+[4642.5s] dikonsumsi dari bahwa karena Hai sama
+[4645.9s] Halo atau halo gitu ya terutama
+[4658.8s] Oke so harapan saya dari pertemuan ini
+[4662.4s] kalian bisa bedain Apa itu World
+[4664.7s] embedding ya sama lain under kalau buat
+[4668.6s] embedding kata-kata itu sama
+[4670.3s] relationship nya minimnya semantik ya
+[4673.0s] kita masuk ke dalam satu Factor kalau
+[4675.6s] lain this model itu adalah
+[4678.7s] A1 struktur neuron Network yang
+[4682.5s] merepresentasikan semua probabilitas
+[4686.0s] bahwa kalimat itu bisa eksis dalam satu
+[4689.1s] bahasa
+[4690.3s] bisa yang generic domain kayak bahasa
+[4693.1s] Indonesia bahasa Inggris bahasa Arab dan
+[4695.2s] lain-lain specific domain
+[4699.5s] kefir jadi dalam bahasa matematiknya
+[4703.2s] dijelasin disini bahwa lanjut model itu
+[4705.8s] problemnya adalah given a text
+[4708.3s] screenshot teks misalnya X1 sampai XT
+[4712.6s] kata-katanya
+[4714.4s] maka lain this model bisa kasih saya
+[4717.3s] probabilitas bahwa kata-kata susunannya
+[4720.4s] ini
+[4721.8s] itu high probability atau lo probability
+[4725.4s] terjadi
+[4727.0s] the site yang di profile Edmodo jadi dia
+[4731.1s] bukan cuman sebatas representation atau
+[4734.7s] embedding tapi dia udah bawa mining
+[4738.5s] ya bahwa dia bilang kalau saya kasih
+[4741.7s] masuk kata kayak gini misalnya
+[4745.1s] manybooks.net kan jarang-jarang sekali
+[4749.1s] kita menggigit anjing yang yang kejadian
+[4753.2s] justru kebalikannya gitu kan bahwa
+[4754.8s] anjing baik semen gitu ya jadi
+[4757.8s] probabilitas dog semena-mena B begitu
+[4761.0s] lebih gede yang yang pertama gitu atau I
+[4764.3s] want to eat grenma
+[4766.6s] itu pastilles probable dibanding Iwan to
+[4770.2s] eat grenma pakai koma oke
+[4775.5s] pedas lanjut model nah itu yang sekarang
+[4777.8s] lagi rame di dibawa Google open eye
+[4782.8s] Facebook Builder Roads lanjut model di
+[4787.0s] hai oh mereka berlomba-lomba untuk bikin
+[4791.1s] the large lanjut model yang
+[4793.7s] merepresentasikan
+[4795.2s] ini sentence by Annie Land Which
+[4800.4s] Oke
+[4802.0s] nanti bisa lihat juga infonya disini
+[4804.8s] untuk yang minggu depan minggu depan
+[4807.9s] kita akan bahas dari sini tentang lanjut
+[4810.4s] model mungkin di bagian introduction Nah
+[4813.8s] kalau udah ngerti baru kita masuk ke
+[4815.6s] neural Network brikara neural networks
+[4818.3s] supaya tahu kenapa kita jadi butuh
+[4820.2s] penyegaran girl Network karena ada
+[4821.9s] problem-problem ini yang mau kita Sob
+[4827.6s] hehe
+[4833.0s] bapak Punten untuk Apa
+[4836.8s] pelajaran yang selanjutnya buka kalau
+[4839.4s] misalnya Bapak kemarin sempet
+[4840.5s] menyampaikan akan disampaikan ke ajaran
+[4843.9s] mengenai Transformers jawab
+[4847.0s] Oh
+[4848.3s] ya jadi Inex lecturer mungkin minggu ini
+[4851.9s] minggu keenam kalimaya mungkin saya
+[4854.0s] salah nomor yang minggu depan kita
+[4857.3s] belajar dulu lanjut modal supaya tau
+[4859.3s] problemnya ya baru kita lihat O bikin
+[4862.3s] lanjut model bikin apa ilmu tadi
+[4865.6s] ternyata pakai the gradual net menjadi
+[4868.7s] kita akan belajar live Roulette siang
+[4871.4s] habis itu baru modern rekaren Jones saya
+[4874.8s] lscm jeru baru attention Transformers
+[4879.2s] baru kita close dengan Let's pretend
+[4882.8s] lanjut model Oke karena ini basisnya NLP
+[4886.2s] apapun yang kita mau bikin tecet pot
+[4888.5s] sentimen analisis machine translation
+[4892.6s] kita butuhin
+[4895.1s] obyek Bapak
+[4897.2s] dan Saya pengin supaya kalian untuk
+[4899.5s] starla film domain-specific baik untuk
+[4902.6s] What embedding maupun lanjut model
+[4904.4s] karena ini opportunity besar untuk di
+[4907.0s] size bukan cuma Healthcare ya bayangan
+[4910.2s] kita punya enggak lanjut model for hukum
+[4915.0s] lainnya model for m banyak sekali bahkan
+[4918.3s] ada yang bikin untuk mathematical
+[4919.8s] function yang tersebut kemarin ah karena
+[4923.5s] kalau bikin yang sangat generic itu
+[4925.8s] kolornya besar sekali ya mending pakai
+[4929.3s] mudah Jadi kalau Google bikin mungkin
+[4933.4s] ataupun yay karena koskomputer aslinya
+[4938.2s] bisa mineral untuk bikin rollernya bayar
+[4942.4s] orang untuk preprocessing nya Tapi kalau
+[4945.6s] yang domain-specific itu sangat terbuka
+[4948.4s] kemungkinan
+[4956.4s] jadi harusnya di Indonesia ada kayak
+[4958.7s] gini nih Edwin
+[4960.4s] copot tapi yang bener-bener
+[4964.3s] Hah lanjut modelnya Agus gitu ya
+[4972.0s] di Indonesia belum ada ya Paris Mania
+[4974.7s] Pak belum Belum
+[4980.4s] sepertinya terbuka lebar lebih itu
+[4982.9s] detail care medicine
+[4986.1s] medicine itu kan sebenarnya
+[4990.5s] kayak misinya satu jenis obat itu kan
+[4993.8s] ada komposisinya
+[4995.6s] kalau saya punya lanjut model yang bisa
+[4998.2s] ngelihat kau komposisinya similiar
+[5001.7s] intinya dengan
+[5003.9s] itu kan pengen banget ya
+[5010.6s] untuk dipilih dan itu pasti possible
+[5013.7s] karena mungkin data-datanya enggak
+[5015.4s] sebesar kalau satu bahasa Indonesia
+[5017.2s] semua general generik domain gituin lo
+[5027.0s] belum ada so far saya lihat yang dijual
+[5029.5s] netbook yang domain-specific tapi yang
+[5032.1s] terakhir untuk bikin lanjut model akan
+[5034.0s] hendak dengan ekonomi Fighter bahwa itu
+[5036.5s] butuh color besar kini puluhan server
+[5040.8s] Processing yang juga besar manual untuk
+[5043.4s] preparing datasheetnya gitu ya kalau
+[5046.5s] arsitekturnya udah banyak Nanti waktu
+[5048.1s] kalian belajar Tension Transformers
+[5050.3s] bekicot Iya kayak computer Vision
+[5053.2s] jugalah ya kalau saya mau bikin lanjut
+[5056.1s] modal yang besar saya pakai ini kan
+[5059.0s] karena sudah proven jadi kita nggak akan
+[5062.6s] invent mural Netter arsitektur kita akan
+[5066.4s] rius dengan data kita
+[5074.3s] Oke
+[5076.0s] kalau enggak ada pertanyaan lagi mungkin
+[5078.4s] kita sudahi sampai di sini sampai ketemu
+[5080.7s] minggu depan di kita belajar lebih dalam
+[5083.2s] tentang lanjut mode

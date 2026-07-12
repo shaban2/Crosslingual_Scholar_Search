@@ -1,0 +1,159 @@
+[0.0s] If you want to turn words into numbers...
+[6.1s] ...and you want those numbers to make sense...
+[12.2s] ...then use word embeddings and similar words will have similar numbers! Hooray! StatQuest!
+[18.7s] Hello, I'm Josh Starmer and welcome to StatQuest! Today we're going to talk about
+[25.2s] Word Embedding and word2vec and they're going to be clearly explained. Lightning
+[31.0s] makes using the cloud just as easy to use as your laptop and that's cool! This StatQuest
+[36.9s] is also brought to you by the letters 'A', 'B', and 'C'. 'A' always, 'B' be, 'C'
+[44.2s] curious. Always be curious! Also, I want to give a special thanks to Alex Lavaee
+[50.6s] and the students at Boston University's Spark! for letting me test this StatQuest
+[55.1s] out on them. Note: This StatQuest is focused on how neural networks can be used to
+[62.1s] create word embeddings and assumes that you are already familiar with the basic ideas
+[67.3s] of neural networks and backpropagation, as well as the main ideas about the softmax
+[72.8s] function and cross entropy. If not, check out the Quests. Words are great. We can
+[80.1s] use them to communicate all kinds of cool ideas. For example:
+[84.8s] Hey Norm, isn't StatQuest awesome?
+[88.3s] It sure is Squatch!
+[90.2s] Unfortunately, a lot of machine learning algorithms, including neural networks, don't work well with words.
+[97.9s] Hey, Neural Network, isn't StatQuest awesome!
+[103.1s] So if we want to plug words into a neural network, or some other machine learning
+[108.5s] algorithm, we need a way to turn the words into numbers.
+[112.1s] 24. 0.3 5.1
+[115.0s] Yes, StatQuest is awesome!
+[118.6s] Bam!
+[121.0s] One super easy way to convert words into numbers is to just assign each word to a
+[126.5s] random number. For example, if someone just saw the hit movie Troll 2 and said, "Troll
+[133.3s] 2 is great!", we can just give each word a random number. Note: For the purposes
+[139.4s] of this StatQuest, were going to treat "Troll 2" as a single word. Anyway, if the
+[146.3s] next person said, "Troll 2 is awesome!", then we could reuse the random numbers that
+[151.9s] we already selected for "Troll 2" and "is", and assign a new random number to the
+[157.6s] new word, "awesome!". In theory, this is fine, but it means that even though "great!"
+[163.8s] and "awesome!" mean similar things and are used in similar ways, they have very different
+[170.5s] numbers associated with them, 4.2 and - 32.1, and that means the neural network will
+[177.9s] probably need a lot more complexity and training because learning how to correctly
+[183.0s] process the word "great!", won't help the neural network correctly use the word "awesome!".
+[189.2s] So it would be nice if similar words that are used in similar ways could be given
+[195.6s] similar numbers so that learning how to use one word will help learn how to use the
+[200.7s] other at the same time. And because the same words can be used in different contexts,
+[206.9s] or made plural, or used in some other way, it might be nice to assign each word more
+[212.6s] than one number, so that the neural network can more easily adjust to different contexts.
+[218.4s] For example, the word "great" can be used in a positive way, like "StatQuest is great!",
+[226.2s] and it can also be used in a sarcastic, negative way, like "My cell phone is broken,
+[232.4s] great", and it would be nice if we had one number that could keep track of the positive
+[237.6s] ways that "great" is used and a different number to keep track of the negative ways.
+[242.9s] Hey Josh, deciding what words are similar and used in similar contexts sounds like
+[248.8s] a lot of work. And using more than one number per word to account for different contexts sounds like even more work.
+[256.5s] Don't worry Squatch. The good news is that we can get a super simple neural network
+[262.3s] to do all of the work for us. Bam! To show how we can get a super simple neural network
+[269.3s] to figure out what numbers should go with different words. Let's imagine we have
+[275.4s] two phrases: "Troll 2 is great!" and "Gymkata is great!". Anyway, both phrases have
+[282.2s] two words, "Troll 2" and "Gymkata", in similar contexts, because someone, and I'm
+[288.7s] not going to name names, thinks that these two terrible movies are great! So, in
+[294.9s] order to create a neural network to figure out what numbers we should associate with
+[300.5s] each word, the first thing we do is create inputs for each unique word. In this case,
+[307.1s] we have four unique words in the training data, so we have four inputs. Now we connect
+[314.1s] each input to at least one activation function. Note: This activation function uses
+[320.7s] the identity function, and thus, the input value is the same as the output value.
+[326.1s] In other words, this activation function doesn't do anything except give us a place
+[332.7s] to do addition. The number of activation functions corresponds to how many numbers
+[339.0s] we want to associate with each word. And the weights on those connections will ultimately
+[345.2s] be the numbers that we associate with each word. Now, in this example, we want to
+[351.7s] associate two numbers with each word. So that means we'll use two activation functions.
+[358.4s] And the weights on the connections to the second activation function will be another
+[364.0s] number associated with each word. However, like always, these weights start out with
+[370.6s] random values that we will optimize with backpropagation. Now, in order to do backpropagation,
+[378.0s] we have to make predictions. So we'll use the input word to predict the next word
+[384.4s] in the phrase. So if the phrase is "Troll 2 is great", then we can use the word "Troll
+[391.5s] 2" to predict the word "is". In other words, if the input word is "Troll 2", and
+[398.7s] we indicate that by putting a 1 into the "Troll 2" input and 0s into all of the other
+[404.7s] inputs, then we want the output for the word, "is", to have the largest value. And
+[410.9s] if the input word is "is", which means that the input for "is" is is 1 and all of
+[416.8s] the other inputs are 0, then we want the output for the next word, "great!", to have
+[422.3s] the largest value. Lastly, if the input word is "Gymkata", which means that the input
+[429.4s] for "Gymkata" is 1 and all of the other inputs are 0, then we want the output for
+[435.4s] the next word, "is", to have the largest value. In order to make these predictions,
+[441.7s] we connect the activation functions to outputs and we add weights to those connections
+[447.3s] with random initialization values. And then we run the outputs through the softmax
+[453.6s] function because we have multiple outputs for classification. And that means we can
+[459.9s] use the cross entropy loss function for backpropagation. Again, the goal is to train
+[466.4s] this neural network so that it correctly predicts the next word in a phrase. And
+[472.4s] now, before training, if we plug the word "Troll 2" into the input and do the math,
+[478.5s] we get lucky and correctly predict the next word, "is", but just barely. However,
+[484.9s] when we plug the word "is" into the input and do the math, then we fail to correctly
+[490.7s] predict the next word "great!" and instead predict "is". So we need to train this
+[497.9s] neural network. However, before we optimize all of the weights, remember that I said
+[503.9s] that these weights would be the numbers associated with each word. And since, in
+[509.8s] this example, we have two weights for each word, we can plot each word on a graph
+[515.2s] that has the weight values to the top activation function on the x axis and the weight
+[520.3s] values the bottom activation function on the y-axis. For example, the word "Troll
+[526.9s] 2" goes here, because it's top weight is 0.38 and its bottom weight is 0.42. Likewise,
+[536.5s] the word "is" goes here, and the word "great" goes here, and "Gymkata" goes here.
+[543.4s] Now, with this graph, we see that the words "Troll 2" and "Gymkata" are currently
+[550.5s] no more similar to each other as they are to any of the other words. However, because
+[556.8s] both words appear in the same context in the training data, we hope that backpropagation
+[562.8s] will make their weights more similar. So we start with these weights and we end up
+[568.8s] with these new weights. The new weights on the connections from the inputs to the
+[574.4s] activation functions are the word embeddings. And when we plot the words using the
+[580.6s] new weights, which are now the embeddings, we see that "Troll 2" and "Gymkata" are
+[586.2s] now relatively close to each other compared to the other words in the training data. Bam!
+[595.6s] Now that we've trained the neural network, we can see how well it predicts the next
+[600.7s] word. For example, if we plug the word "Troll 2" into the input and do the math,
+[607.2s] then the output for the next word, "is", is 1 and everything else is 0, and that
+[612.6s] is exactly what we wanted. And when we plug the word "is" into the input and do the
+[619.0s] math, then the output for the next word in both phrases "great!" is 1 and everything
+[625.3s] else is 0. Lastly, when we plug the word "Gymkata" into the input and do the math,
+[631.5s] then the output for the next word, "is", is 1 and everything else is 0. Bam! Now,
+[638.0s] before we talk about a popular word embedding tool, word2vec, let's summarize what
+[644.3s] we've learned so far. First, rather than just assign random numbers to words, we
+[650.7s] can train a relatively simple neural network to assign numbers for us. The advantage
+[657.1s] of using a neural network is that it can use the context of words in the training
+[662.3s] data set to optimize weights that can be used for the embeddings. And this can result
+[668.6s] in similar words ending up with similar embeddings. Lastly, having similar words
+[675.1s] with similar embeddings means training a neural network to process language is easier
+[680.6s] because learning how one word is used helps learn how similar words are used. Double
+[687.1s] bam! Now, so far, we've shown we can train a neural network to predict the next word
+[693.4s] in each phrase. But just predicting the next word doesn't give us a lot of context
+[699.6s] to understand each one. So now let's learn about the two strategies that word2vec,
+[705.5s] a popular method for creating word embeddings, uses to include more context. The
+[712.7s] first method, called "continuous bag-of-words", increases the context by using the
+[718.3s] surrounding words to predict what occurs in the middle. For example, the continuous
+[724.4s] bag-of-words method could use the words "Troll 2" and "great!" to predict the word
+[731.0s] that occurs between them, "is". The second method, called "skip-gram", increases
+[736.9s] the context by using the word in the middle to predict the surrounding words. For
+[743.0s] example, the skip-gram method could use the word "is" to predict the surrounding
+[748.5s] words "Troll 2", "great!" and "Gymkata". Lastly, before we're done, just know that
+[755.4s] in practice, instead of using just 2 activation functions to create 2 embeddings
+[760.9s] per word, people often use 100 or more activation functions to create a lot of embeddings
+[767.1s] per word. And instead of using 2 sentences for training, they use the entire wikipedia.
+[773.9s] Thus, instead of just having a vocabulary of 4 words and phrases, word2vec might
+[780.7s] have a vocabulary of about 3 million words and phrases. Thus, the total number of
+[786.9s] weights in this neural network that we need to optimize is 3 million words and phrases
+[792.4s] times at least 100, the number of weights each word has going to the activation functions,
+[797.8s] x 2, for the weights that get us from the activation functions to the outputs, for
+[803.3s] a total of 600 million weights. So training can be slow. However, one way that word2vec
+[810.5s] speeds things up is to use something called Negative Sampling. Negative sampling
+[817.0s] works by randomly selecting a subset of words we don't want to predict for optimization.
+[823.1s] For example, say like we wanted the word "aardvark" to predict the word "a". That
+[830.8s] means that only the word "aardvark" has a 1 in it and all of the other words have
+[835.9s] zeros, and that means we can ignore the weights coming from every word but "aardvark",
+[841.3s] because the other words multiply their weights by zero. That alone removes close
+[847.6s] to 300 million weights from this optimization step. However, we still have 300 million
+[854.6s] weights after the activation functions. So, because we want to predict the word "a",
+[861.4s] then we don't want to predict "aardvark", "abandon", and all of the other words.
+[866.9s] So for this example, let's imagine word2vec randomly selects "abandon" as a word
+[874.7s] we don't want to predict. Note: In practice, word2vec would select between 2 and
+[881.7s] 20 words that we don't want to predict. However, in this example, we just select
+[888.2s] one, "abandon". So now word2vec only uses the output values for "a" and "abandon",
+[895.8s] and that means for this round of backpropagation, we can ignore the weights that
+[900.6s] lead to all of the other possible outputs. So, in the end, out of the 600 million
+[907.2s] total weights in this neural network, we only optimize 300 per step. And this is
+[913.9s] one way that word2vec can efficiently create lots of word embeddings for each word
+[919.5s] in a large vocabulary. Triple bam! Now it's time for some shameless self-promotion.
+[925.5s] If you want to review statistics and machine learning offline, check out the StatQuest
+[931.6s] PDF study guides and my book, The StatQuest Illustrated Guide to Machine Learning
+[937.6s] at statquest.org. There's something for everyone. Hooray! We've made it to the end
+[944.3s] of another exciting StatQuest. If you liked this StatQuest and want to see more,
+[949.9s] please subscribe. And if you want to support StatQuest, consider contributing to
+[956.1s] my patreon campaign, becoming a channel member, buying one or two of my original
+[961.5s] songs, or a t-shirt, or a hoodie, or just donate, the links are in the description
+[967.3s] below. All right until next time Quest on!

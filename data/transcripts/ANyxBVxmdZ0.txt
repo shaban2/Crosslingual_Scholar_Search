@@ -1,0 +1,1893 @@
+[0.0s] all right welcome back to lecture seven
+[1.7s] today we're going to talk about
+[3.0s] convolutional neural networks which is
+[4.7s] finally the major class of models that
+[7.2s] we'll use to process images going
+[8.5s] forward so if you'll recall at the last
+[11.6s] lecture we were talking about the back
+[13.2s] propagation algorithm which we could use
+[15.1s] to compute gradients in arbitrarily
+[17.2s] complex computational graphs in
+[19.7s] particular we saw that the use of this
+[21.5s] computational graph data structure made
+[23.8s] it very easy to compute gradients
+[25.8s] without having to use tons and tons of
+[27.7s] paper or lots of white board space or
+[29.8s] something to derive these complex
+[31.1s] expressions instead we were able to
+[33.4s] compute gradients in expressions of
+[35.8s] arbitrary complexity by implemented by
+[38.2s] using the back propagation algorithm to
+[40.2s] walk forward over the graph and then the
+[41.8s] forward pass to compute the outputs and
+[43.3s] then walk backward over the graph in the
+[44.9s] backward pass to compute the gradients
+[46.4s] and we had this local viewpoint of the
+[48.5s] back propagation algorithm where now in
+[50.8s] order to imp in order to add a function
+[52.9s] or use a function inside of a
+[54.6s] computational graph we needed to
+[56.4s] implement this little tiny local
+[58.0s] operator that would come that would know
+[60.5s] how to compute the app its outputs
+[62.1s] during the forward pass given the inputs
+[63.6s] and then in the backward pass would know
+[65.5s] how to compute the gradients with
+[67.3s] respect to its inputs given the upstream
+[69.7s] gradient of its out of the loss with
+[71.5s] respect to its outputs so now now all we
+[75.6s] need to do in order to plug in new types
+[78.1s] of functions into our computational
+[79.6s] graphs is just have them conform to this
+[81.8s] little modular gate API that we talked
+[84.2s] about last time and then at the end of
+[87.4s] last time we ran into a bit of problem
+[89.4s] so so far in this class we've talked
+[91.3s] many times about the linear classifier
+[93.4s] and now we've hopefully gotten some
+[95.6s] familiarity with these fully connected
+[97.3s] neural network classifiers we saw the
+[99.6s] book that especially the fully connected
+[101.5s] neural network classifier was a very
+[103.2s] very powerful model that could flexibly
+[104.9s] represent many different functions but
+[107.3s] both of these classifiers had a problem
+[109.7s] so far and that problem is that neither
+[112.7s] of these two classifiers worst respect
+[115.0s] the 2d spatial structure of our input
+[117.0s] images if you'll recall both of these
+[119.5s] classifiers required us to take our
+[122.1s] input image that has some spatial
+[124.4s] structure and has some color about some
+[126.8s] RGB color values at every point in space
+[128.7s] and now destroy all of that spatial
+[130.7s] structure by flattening our images
+[132.7s] this long vector that we could feed into
+[134.6s] our linear classifiers or our fully
+[136.1s] connected networks and this seems like a
+[138.7s] problem with we're going to work with
+[140.0s] image data that somehow whenever you
+[142.0s] build a machine learning model it's very
+[143.9s] useful to build models that somehow take
+[146.0s] advantage of the structure of the input
+[147.7s] data and now in order to make take
+[150.3s] advantage of this spatial image
+[152.9s] structure of our input image data the
+[155.7s] solution is relatively simple
+[157.2s] now that we've built up all this
+[158.7s] machinery around computational graphs
+[161.0s] and back propagation in order to build
+[163.3s] neural networks that respect the spatial
+[165.4s] structure of our input data all we need
+[167.5s] to do is define a couple of new
+[169.1s] operators that know how to operate on
+[171.8s] images or on spatially structured data
+[174.7s] so that's what we're going to talk about
+[176.7s] today is a couple new operators that we
+[179.2s] can introduce into our neural networks
+[180.9s] that will operate on this
+[182.5s] two-dimensional spatial data in
+[185.9s] particular so far when we talk about
+[188.6s] fully connected networks we're very
+[190.6s] familiar with these two basic components
+[192.4s] of fully connected networks we have the
+[195.0s] fully connected layer but gives the
+[196.8s] fully connected network its name which
+[198.9s] is a matrix multiply between the input
+[200.5s] vector that now produces an output
+[201.8s] vector and recall the other critical
+[204.1s] component of these fully connected
+[205.6s] neural networks was this nonlinear
+[207.8s] activation function I'm showing the the
+[210.2s] Ray Lu activation function here on the
+[211.8s] slide now when we move from fully
+[214.6s] connected neural networks to
+[215.8s] convolutional neural networks we need to
+[218.1s] introduce a couple extra basic
+[219.8s] operations that we can use inside the
+[222.1s] computational graphs or models in
+[224.4s] particular so then today we'll talk
+[226.0s] about three of these operations that let
+[228.4s] us move from fully connected to
+[230.5s] convolutional networks in particular we
+[233.1s] talked about convolution layers pooling
+[235.3s] layers and normalization layers so first
+[239.2s] let's see how we can extend the idea of
+[242.4s] the fully connected layer which as
+[244.0s] you'll recall destroyed all of the
+[245.4s] spatial information and input and move
+[247.7s] on to the convolution layer which will
+[249.8s] serve a similar role in that it will
+[252.0s] have learn above eight that will now
+[253.7s] respect the 2d spatial structure of our
+[255.9s] inputs so if you'll recall to look for
+[259.0s] the fully connected layer the one one
+[261.0s] way to look at what it's doing is that
+[263.0s] during the forward but it's in today's
+[264.8s] lecture and going
+[265.9s] forward we're only talking about forward
+[267.0s] passes and it's sort of up to you to use
+[268.7s] the machinery from last lecture to know
+[270.6s] how to figure how to derive gradients
+[271.9s] for all of these expressions so we'll be
+[273.7s] talking exclusively about four passes
+[275.4s] from this point on and now so then to
+[279.2s] recap a little bit one way to look at
+[280.8s] the fully connected layer is that during
+[282.6s] the forward pass it receives some vector
+[284.7s] if that vector is perhaps a flattened C
+[287.6s] far ten image then it would be a vector
+[289.6s] of 3072 scalar diamond elements being 32
+[292.4s] by 32 by 3 and now during the forward
+[295.0s] propagation operation of the fully
+[296.9s] connected layer we just simply multiply
+[298.6s] that vector with a weight with a weight
+[300.1s] matrix to produce an output vector now
+[303.1s] now the convolutional layer is still
+[305.2s] going to have this flavor of operating
+[307.4s] on an input use doing so that have it
+[309.8s] you have operating on it with a weight
+[311.1s] matrix in some way and then producing an
+[312.9s] output of the same general type in
+[316.0s] particular the convolution layer now
+[318.5s] will input a three-dimensional tensor
+[320.7s] that is a three-dimensional volume that
+[322.9s] is no longer a flattened vector so for
+[326.1s] something like CFR 10 image the in at
+[329.0s] the very first layer of a convolutional
+[330.7s] Network that's operating on a C part
+[332.4s] time image that input volume would now
+[334.9s] be a three dimensional tensor of three
+[337.0s] by 32 by 32 where that number three
+[340.1s] refers is is called the channel or depth
+[342.6s] dimension of the input tensor in the
+[345.1s] case of a C part n image it has three
+[348.0s] channels the red blue and green color
+[350.3s] channels for the raw input image and
+[352.7s] then we the 32 and a third the other two
+[354.9s] thirty twos are the height and the width
+[356.9s] of this three dimensional tensor and now
+[360.0s] the just as our input in our input
+[363.8s] tensor has some three-dimensional
+[365.5s] spatial structure with a convolution
+[367.7s] layer our weight matrix will also have
+[369.7s] some kind of three-dimensional spatial
+[371.4s] structure in particular the the weight
+[374.1s] matrix also called sometimes a filter in
+[376.8s] the terminology of a convolutional layer
+[379.4s] will be a little free dimensional chunk
+[381.5s] in one example it would be that we might
+[384.5s] have a convolutional filter of size 3 by
+[386.8s] 5 by 5 and here the idea is that we're
+[390.7s] going to take this little convolutional
+[392.3s] filter and we're going to slide it over
+[394.1s] all spatial positions in the input image
+[396.2s] to compute another three-dimensional
+[399.2s] but here first notice that there's a
+[402.1s] constraint here between the shape of the
+[404.2s] input sensor and the shape of one of
+[406.1s] these convolutional filters in
+[407.5s] particular the depth dimension of the
+[410.3s] the number of depth channels in the
+[411.9s] input tensor always has to match the
+[414.2s] number of depth channels in one of our
+[416.1s] convolutional filters that is to say
+[418.6s] that this that this that this
+[421.0s] convolution operation always extends
+[423.3s] over the full depth of the input tensor
+[425.4s] we'll see some examples of convolution
+[427.8s] operations that relax this and I think
+[429.9s] next lecture but for the purpose of
+[431.5s] today you should always consider the
+[433.1s] convolution as extending over the full
+[434.9s] depth of the input tensor and now in
+[438.1s] order to compute our output what we're
+[439.8s] going to do is take that little five by
+[441.6s] five by three filter and stick it
+[445.0s] somewhere inside the the input image and
+[448.2s] now that three by five by five chunk of
+[452.1s] filter will then align itself to some
+[454.3s] little three by five by five chunk of
+[456.1s] that input sensor and then once we've
+[458.9s] aligned the filter to some spatial
+[460.7s] position in the input tensor then we can
+[463.5s] compute a dot product between the filter
+[465.6s] and the corresponding elements of the
+[468.0s] input tensor and this is just a dot
+[470.7s] product just as we've seen in fully
+[472.4s] connected networks before where but now
+[474.9s] rather than taking an inner product
+[476.2s] between a row of a matrix and the entire
+[477.9s] vector now it's an inner product between
+[479.7s] one filter and a little tiny locally
+[482.8s] local spatial chunk of the input tensor
+[485.2s] and so in this example are three by a
+[488.3s] five by five chunk of the input image
+[490.0s] would result in a dot product of seventy
+[492.0s] five elements and it would also be
+[493.9s] common to add a bias as with most
+[496.6s] machine learning models it's very
+[497.8s] comments have a bias whenever you have a
+[499.2s] weight but for purposes of clarity on
+[502.4s] the slides will often omit biases but
+[504.2s] you should remember that they're usually
+[505.2s] there so then by by positioning this
+[508.9s] Spade this filter at one position and
+[510.6s] the input in computing this inner
+[511.7s] product we end up computing a single
+[513.7s] scalar number that tells us effectively
+[515.9s] how much does this position in the input
+[518.1s] tensor match up with this one filter
+[520.4s] that we've computed so that will give us
+[522.9s] one element of the output tensor and now
+[525.8s] to end now we will repeat this process
+[527.9s] and take this input filter and slide it
+[530.4s] around at every
+[531.5s] one of the every possible position in
+[533.5s] the input tensor and each one of those
+[535.5s] positions will result in a single number
+[537.7s] giving the dot product between the
+[539.8s] tensor the weight tensor and the local
+[542.4s] chunk of the input at that position so
+[546.0s] in this example if we had a 32 by 32
+[548.0s] input and a 5.5 filter if you kind of
+[550.5s] imagine how that's going to work in your
+[552.1s] head work it's going to result in 22 28
+[555.0s] by 28 grid of possible positions at
+[557.6s] which we could stick that filter and for
+[559.5s] each of those positions it results in a
+[560.9s] single number resulting from that dot
+[562.3s] product so the result of convolving this
+[564.5s] one convolutional filter or kernel with
+[567.2s] our input tensor will be an output
+[568.9s] tensor of shape one by 28 by 28 but of
+[573.1s] course it's never enough to just have
+[574.9s] one convolutional filter so in fact a
+[577.5s] convolutional layer will always involve
+[579.4s] convolving the input image with a set or
+[581.7s] a bank of a different filters with
+[583.8s] different weight values so we can
+[586.3s] consider convolving now our image with a
+[588.3s] second convolutional filter I'm shown
+[590.4s] here in green to represent that it has
+[592.3s] though maybe different values of the
+[593.4s] weights and but when we convolve with
+[595.7s] the second green convolutional filter we
+[597.8s] perform the exact same operation we take
+[599.8s] this five three by five by five
+[601.9s] convolutional filter and we slide it
+[604.1s] over all positions in the input and
+[605.5s] compute an inner product at each
+[606.6s] position and this produces a second one
+[610.0s] by 28 by 28 output plane giving all the
+[613.5s] responses of the input image to that
+[615.8s] second convolutional filter and of
+[618.9s] course and these these are these 28 by
+[621.2s] 28 output planes we sometimes refer to
+[624.1s] as activation maps of the neural network
+[626.2s] because these are somehow now
+[628.2s] two-dimensional maps showing how much
+[630.9s] does each position in the input response
+[633.6s] to each one of our convolutional filters
+[635.7s] in the in layer and of course we don't
+[638.5s] have to stop at two filters in general
+[640.8s] week will come a convolutional layer
+[642.8s] will involve convolving with some
+[645.4s] arbitrary number of filters that is a
+[647.2s] hyper parameter that you can set so in
+[649.7s] this example we're showing convolving
+[651.3s] our input tensor with six convolutional
+[653.5s] filters and now at the bottom you can
+[655.8s] see our six convolutional filters we
+[658.1s] have six convolutional fill
+[659.3s] each of those convolutional filters has
+[661.6s] size 3 by 5 by 5 3 being the number of
+[664.6s] inch input channels from the input
+[666.0s] tensor divided by 5 being the spatial
+[668.1s] size of the filter and now we can
+[669.8s] collect all six of our fill of our
+[671.6s] convolutional filters into a single four
+[674.1s] dimensional tensor that now has shaped
+[676.1s] six by three by five by five and now
+[678.7s] that and but this this four dimensional
+[680.7s] tensor has this particular structure
+[682.6s] this in particular interpretation as
+[684.3s] being a set of three a set of six three
+[687.8s] dimensional filters and then when we
+[690.0s] convolve each of those filters with the
+[691.9s] input image we get one activation map
+[694.3s] for each filter now so now we can
+[697.0s] consider concatenating all of those
+[698.9s] activation maps which are the responses
+[701.4s] of the input image to each of our six
+[702.9s] convolutional filters and we can
+[705.0s] concatenate all of those activation maps
+[706.7s] into a single three dimensional tensor
+[708.6s] which in this example has size 6 by 28
+[712.2s] by 28 so now this looks just like
+[715.5s] another input image because that mez
+[718.4s] convolutional layer has then taken a
+[720.7s] three dimensional tensor with some depth
+[722.8s] dimension 3 and some height and width 33
+[724.9s] by 32 and it's converted it into another
+[727.4s] 3-dimensional tensor where now maybe the
+[730.4s] height and the width have changed but
+[732.1s] the but the the spatial structure has
+[735.0s] been preserved and all of the
+[736.5s] computation inside the computational
+[738.2s] layer always written out respects the
+[740.3s] local structure of the image and of
+[743.8s] course I mentioned that these
+[744.8s] convolutional layers always have a bias
+[746.5s] so for completeness here we're showing
+[748.9s] it explicitly
+[749.6s] now the bias we always have one bias
+[752.8s] term per convolutional filter so in this
+[755.7s] example with six convolutional filters
+[757.6s] the bias is simply a vector of six
+[760.4s] elements that gives us a constant offset
+[763.2s] that we offset each of the feature maps
+[765.7s] in the output by each of the
+[767.3s] corresponding bias values and of course
+[770.1s] this can write so then the output is
+[772.6s] then a 28 by 28 grid and so far we've
+[776.3s] been there's there's kind of two useful
+[778.0s] equivalent ways to think about the
+[780.3s] output of a convolutional layer one is
+[782.9s] this note one is this notion of
+[784.7s] activation maps that we can think of
+[788.0s] these different 28 by 28 maps or slices
+[792.0s] of the
+[792.3s] output where each of those activation
+[794.3s] maps represents the degree to which the
+[798.0s] entire input image had responded to one
+[800.3s] of those filters and that's one useful
+[802.6s] way to think about the spatial structure
+[804.8s] of the output of a convolutional layer
+[807.5s] but a second way to think about the
+[810.5s] output of a convolutional layer is that
+[813.0s] it gives us a 28 by 28 grid which is a
+[817.0s] spatial grid get corresponds roughly to
+[820.1s] the same spatial grid of the input
+[821.8s] tensor and now at each position in that
+[824.1s] spatial grid the convolution layer
+[826.0s] computes a feature vector in this Dement
+[828.4s] in this example a six dimensional
+[830.3s] feature vector which tells us something
+[832.3s] about the structure of the structure or
+[835.0s] the appearance of that input tensor at
+[837.3s] each position in the spatial grid this
+[839.9s] maybe seems kind of trivial about
+[841.6s] whether you're slicing it this way or
+[842.9s] slicing it this way but depending on
+[844.7s] whet how you're thinking about
+[845.9s] convolution in different contexts it's
+[848.1s] sometimes useful to think of it either
+[849.7s] as a collection of feature Maps or as a
+[851.9s] grid of feature vectors so it's useful
+[854.0s] to have both of those concepts in mind
+[856.2s] when you think about the output of a
+[857.9s] convolutional layer and of course we
+[861.7s] will almost we it's very common when
+[864.1s] actually performing convolution in
+[865.7s] practice to perform it on batches of
+[868.4s] images so then rather than having rather
+[871.6s] than operating on just a single three
+[873.5s] dimensional tensor giving us a single
+[875.8s] input image instead it'll be common to
+[878.3s] operate on a batch of three dimensional
+[880.1s] tensors and of course given a collection
+[883.3s] of three dimensional tensors we can
+[885.4s] group them into a single four
+[887.0s] dimensional tensor where the batch
+[889.1s] dimension at the beginning a corresponds
+[891.6s] to independent images that were
+[893.2s] processing in this convolution layer so
+[895.8s] the general form of a convolution layer
+[898.1s] looks something like this the it will
+[901.2s] receive a four dimensional input a four
+[904.3s] dimensional tensor as input and that
+[906.4s] four dimensional tensor as input will
+[908.5s] have shape n for the batch dimension the
+[910.8s] number of elements in our mini batch by
+[912.7s] CN is the number of channels in each of
+[915.8s] those input images in the batch then by
+[918.8s] it we'll have two spatial dimensions HW
+[921.3s] that will give us the spatial size of
+[923.2s] each of the input elements and
+[924.8s] and then the output will always have the
+[927.6s] same batch dimension because this
+[929.4s] convolution layer processes each
+[931.1s] elements in the batch independently and
+[932.8s] now the output will have a Willis that
+[935.2s] will have a channel dimension see out
+[937.2s] and the see out channel dimension might
+[939.4s] be different than the C in channel
+[941.1s] dimension and the output will of course
+[943.3s] also have some new spatial extent H
+[945.7s] Prime and W Prime which might be
+[947.9s] different from the spatial extent of the
+[949.8s] input image is this operation of what's
+[953.1s] happening inside the convolution layer
+[954.6s] I'll clear very good so now because this
+[959.3s] convolutional layer it takes as input a
+[962.2s] three dimensional or four dimensional
+[963.8s] tensor and then produces a four
+[965.9s] dimensional tensor as output so we can
+[968.3s] imagine stacking a whole sequence of
+[970.2s] these convolutional layers all ends to N
+[972.3s] and by doing so build up a neural
+[974.7s] network whose basic elements are now no
+[977.1s] longer fully connected layers but are
+[979.0s] instead convolutional layers so here's
+[981.7s] an example of what that might look like
+[983.4s] for a little cartoon convolutional
+[985.7s] network with three convolutional layers
+[987.7s] here we're imagining working on C part n
+[991.1s] so the input image has three channel
+[993.4s] dimensions for red green and blue and 32
+[995.9s] height and width spatial dimensions then
+[998.2s] we will operate on it with our first
+[1000.0s] convolutional layer that we'll have now
+[1002.5s] the weight matrix here is six by three
+[1005.0s] by five by five you should interpret
+[1006.9s] that recall as a set of six
+[1008.9s] convolutional filters each of which has
+[1011.0s] an input channel dimension of three to
+[1012.7s] match the input image and each of which
+[1014.3s] has a local spatial size of five by five
+[1016.3s] so then we will convolve each of those
+[1018.4s] five by five filters with the input to
+[1020.2s] get our 28 by 28 spatially sized output
+[1023.0s] and the depth channel of that output
+[1024.7s] will now be 6 for those six filters in
+[1027.0s] that first convolutional layer and then
+[1029.4s] we can repeat the process so now we've
+[1031.2s] just got another three dimensional
+[1032.5s] tensor we can pass it on to another
+[1033.9s] another convolution operation and now
+[1036.5s] for the second convolution operation we
+[1038.5s] can see the weight the weight matrix has
+[1040.3s] shaped ten by six by three by three
+[1043.1s] which again means that we have ten
+[1045.5s] convolutional filters each of those
+[1047.2s] convolutional filters has a depth
+[1048.8s] dimension of six to match that that
+[1050.6s] input tensor and the spatial size of
+[1053.1s] these filters is now three by three and
+[1055.6s] that would produce another output and
+[1057.0s] then that then we
+[1057.8s] stacking more and more convolutions on
+[1059.8s] top of each other and there's of course
+[1061.9s] many and just as we use this terminology
+[1064.8s] of hidden layers when we were talking
+[1067.3s] about fully connected networks we can
+[1069.1s] use the exact same terminology with
+[1070.8s] respect to these convolutional networks
+[1072.4s] so here this would be a 3 layer
+[1074.4s] convolutional network with our input in
+[1077.3s] red our first hidden layer in blue and
+[1079.3s] our second hidden layer in green but
+[1082.6s] there's actually a problem with this
+[1084.5s] convolutional network that I've written
+[1086.3s] down on this slide can anyone spot what
+[1088.6s] might be a bad thing about this
+[1090.2s] particular design yeah so what happens
+[1096.2s] if we stack multiple convolution layers
+[1098.4s] directly on top of each other it's well
+[1101.2s] Egypt convolution operation is itself a
+[1103.6s] linear operator so when we stack one
+[1105.9s] convolution directly with another
+[1107.7s] convolution it actually is another
+[1109.9s] convolution so just as just as you might
+[1113.5s] recall from the example of a linear
+[1115.1s] classifier when we sorry of a fully
+[1117.7s] connected Network if we had tried to
+[1119.4s] build a fully connected Network by
+[1121.3s] stacking two fully connected layers
+[1123.1s] directly on top of each other then it
+[1125.1s] had the same representational power as
+[1126.8s] just a single fully connected layer and
+[1129.2s] the same thing happens with convolution
+[1131.4s] layers because they are also linear
+[1132.8s] operators so if we stack two
+[1134.9s] convolutional layers directly on top of
+[1137.0s] each other the result is still has the
+[1139.4s] same representational capacity as
+[1141.1s] another convolutional layer although
+[1143.1s] perhaps with a different filter size or
+[1144.8s] a different number of channel dimensions
+[1146.2s] but it's still a convolutional layer so
+[1148.9s] then to overcome this problem we use the
+[1151.0s] exact same solution that we saw with the
+[1152.7s] fully connected networks which is that
+[1154.4s] we in between each of our linear
+[1156.3s] convolution operations we need to insert
+[1158.7s] some kind of nonlinear activation
+[1160.2s] function so we will very commonly use
+[1162.5s] the rate of activation function that
+[1164.5s] operates element-wise on each element of
+[1166.7s] this three dimensional tensor just as we
+[1169.2s] did in the exact same way for our fully
+[1170.9s] connected networks yeah question the
+[1174.3s] question was why are there five bias
+[1176.2s] terms for the first convolutional layer
+[1178.0s] and the answer is because I have a typo
+[1180.6s] on the slide
+[1182.2s] so thank you for pointing that out right
+[1187.7s] so a very student that maybe I was
+[1189.6s] testing you that was supposed to have
+[1191.2s] sixth bias terms for each of the six
+[1193.8s] filters in that first convolutional lair
+[1195.5s] good that hopefully means that it's been
+[1197.4s] very clear what these what these layers
+[1198.7s] are supposed to do so then another
+[1202.0s] question you might ask is that as you
+[1203.9s] recall from our study of linear
+[1205.9s] classifiers and fully connected neural
+[1208.0s] networks we always were able to somehow
+[1210.0s] visually inspect the weights that were
+[1212.2s] learned at the first layer of the
+[1213.9s] network so we might ask the same
+[1216.7s] question for a convolutional Network
+[1218.8s] is there some way that we can visually
+[1220.5s] inspect or visually interpret what the
+[1223.0s] weights at that first layer of the
+[1224.5s] convolutional neural network are so
+[1226.8s] you're I think you've seen this many
+[1228.3s] times now the linear classifier we had
+[1230.1s] this interpretation a learning a bank of
+[1232.4s] templates one template per class and
+[1234.1s] then the this was expanded with our
+[1236.8s] fully connected neural networks but now
+[1238.6s] learned a set of a set of templates in
+[1241.3s] the first layer which were not tied to
+[1243.9s] any particular class but the each of the
+[1247.1s] templates in the fully connected network
+[1249.0s] expanded extended over the full size of
+[1251.8s] the input image so the fully connected
+[1253.9s] Network and the first layer learned this
+[1255.9s] Bank of templates each having the same
+[1258.5s] size as the input image
+[1260.3s] well the convolutional network has a
+[1263.4s] very similar interpretation that except
+[1266.2s] that now rather than learning a set of
+[1268.1s] templates that are the same size as the
+[1270.6s] full input image instead now it's
+[1272.7s] learning a set of templates that are
+[1274.6s] small and local in size so here I'm
+[1278.0s] showing some learned templates from Alex
+[1280.2s] net trained on image net and in the
+[1283.4s] first layer of alex net it actually has
+[1286.0s] an 11 by 11 convolution on the outputs
+[1289.0s] with 64 filters so then we can visualize
+[1292.2s] each of those 64 filters as a little 11
+[1295.4s] by 11 RGB image and then we can get some
+[1298.4s] sense for what these filters are
+[1301.0s] learning and these filters from Alex
+[1303.7s] that are very typical of what you tend
+[1305.6s] to expect to learn in the first layer of
+[1307.7s] a convolutional network we can see that
+[1310.0s] many of these filters learn something
+[1312.2s] like an oriented edge
+[1313.3s] detector that they learn maybe edges
+[1316.0s] that detect maybe vertical horizontal
+[1317.7s] edges or vertical edges in different
+[1320.0s] orientations and with different
+[1321.8s] frequencies so you they they look sort
+[1324.5s] of like local edge edge detectors or
+[1326.7s] local wavelets another thing that's very
+[1329.4s] common to see in convolutional network
+[1331.5s] filters is this notice these opposing
+[1334.0s] colors so we can see that some of these
+[1336.4s] filters have like a green blob next to a
+[1338.6s] red blob and that's somehow looking for
+[1341.4s] up opposing colors in a particular
+[1343.3s] orientation in the image so then the
+[1345.7s] interpretation of what is the feature
+[1348.1s] map at the second after we apply this
+[1351.3s] first convolution operation each of the
+[1353.8s] maps in each of the activation maps in
+[1356.0s] that 3d output tensor gives the degree
+[1358.4s] to which each position in the input
+[1361.1s] image responds to each of these 64 by 64
+[1363.8s] filters or equivalently when we had this
+[1367.3s] viewpoint of the output of the
+[1368.6s] convolution as a grid of feature vectors
+[1370.7s] then that tells us that maybe for Alex
+[1374.1s] net it gives us a 64 dimensional feature
+[1376.2s] vector at every position in the input
+[1378.3s] image and the court and the elements of
+[1380.4s] that feature vector corresponds to the
+[1382.9s] degree to which the corresponding chunk
+[1384.5s] of the input matches up with each of
+[1386.5s] these templates that's learned in the
+[1387.7s] first layer and if you'll recall back to
+[1390.5s] Hubel and Wiesel experimenting on the
+[1391.8s] cat they found that the cat visual
+[1394.2s] system tends to be tended to respond to
+[1396.4s] these local regions of edges local
+[1399.0s] patterns in the visual field of the of
+[1401.1s] the cat's eyes and that's kind of a
+[1403.5s] similar effect that's going on with
+[1405.4s] these learned convolutional filters in
+[1407.1s] the first layer of a convolutional
+[1408.3s] network so then we can dive in and look
+[1412.8s] a little bit in a little bit more detail
+[1414.2s] at the exact spatial dimensions of a
+[1415.9s] convolution operation so here we have an
+[1418.5s] input image that so now I've kind of
+[1420.4s] Trant transposed it and dropped the
+[1422.3s] depth dimension so now the depth
+[1423.8s] dimension is going into the white into
+[1425.6s] the into the screen and I'm hiding it
+[1427.7s] because that's kind of it's not relevant
+[1429.2s] on your thinking about the spatial
+[1430.3s] dimensions so here we have an input
+[1432.7s] image of spatial size seven by seven and
+[1435.7s] we imagine convolving with a
+[1437.5s] convolutional filter of size three by
+[1439.5s] three so then to see what spatial size
+[1442.6s] the output should be we just need to
+[1444.5s] count the number of spots that we can
+[1445.7s] drop down that fill
+[1446.7s] in this input image so we've got one two
+[1448.8s] three four five so that means that there
+[1453.1s] were five positions that we could have
+[1454.6s] dropped a 3x3 filter into a 7x7 image
+[1457.1s] which means that the spatial size of our
+[1459.2s] output should be will be five by five
+[1462.8s] and in general if our input has some
+[1466.7s] size W and the filter has a kernel size
+[1469.8s] of K then the size of the output will be
+[1472.8s] w minus k plus 1 right the idea is that
+[1476.1s] we've been right that the number of
+[1479.4s] positions we can drop the filter is
+[1480.8s] actually less than the number of
+[1482.8s] positions in the input because it we
+[1485.3s] bump up against the edge of the input
+[1486.8s] along the edges and corners of the input
+[1488.8s] image now this seems like potentially a
+[1491.8s] problem this means that every time we
+[1494.1s] perform a convolution operation in this
+[1496.1s] way every convolution operation is going
+[1499.0s] to reduce the spatial dimensions or
+[1500.7s] input tensor so then that puts some
+[1503.1s] constraints on the depth of the networks
+[1504.9s] that we might be able to train that for
+[1506.8s] example if we use a three by three
+[1508.5s] convolution we're going to lose two
+[1510.7s] pixels of resolution every time we do a
+[1512.9s] convolution which puts an upper bound on
+[1515.1s] the number of layers that we could
+[1516.6s] potentially put in our network because
+[1518.3s] eventually the spatial Dement the
+[1519.6s] spatial size of our image would just
+[1521.0s] evaporate away to nothing if we used
+[1522.8s] enough convolutional layers and that
+[1524.7s] seems like a problem we don't want the
+[1526.9s] number of layers in our model to be
+[1529.0s] constrained by this evaporative nature
+[1531.4s] of the convolution operation so to fix
+[1534.0s] that we often introduce padding around
+[1536.7s] the borders of the image before we apply
+[1539.0s] the convolution operation so here's an
+[1542.3s] example where we're applying a padding
+[1544.6s] of a padding of one which means that
+[1547.0s] before we do the cut before we perform
+[1548.7s] the convolution operation we add a extra
+[1551.8s] of pixels around that around the border
+[1554.6s] of the image and fill them all with
+[1556.1s] zeros this is called zero padding
+[1558.4s] there's very you might imagine there's
+[1560.3s] different strategies you might use for
+[1562.3s] how you might pad out the input you for
+[1565.7s] example you might think to maybe pull
+[1568.8s] the nearest neighbor value from the
+[1570.4s] border of the image or you might imagine
+[1572.4s] a circular padding value or you know you
+[1574.8s] you take as you go up the right-hand
+[1576.5s] side of the image maybe you start
+[1578.1s] copying values over from the left
+[1580.0s] or other other schemes like that but it
+[1582.9s] turns out in practice the most common
+[1584.9s] thing that we do when training
+[1586.2s] convolutional neural networks for
+[1587.4s] padding is simply to add zeros it's
+[1589.8s] simple it's easy and it seems to work
+[1591.6s] quite well so that's this now introduces
+[1595.8s] an additional hyper parameter into a
+[1597.8s] convolution layer so now when we're
+[1600.3s] building a convolution layer we need to
+[1602.5s] choose both the number of both the
+[1604.7s] filter size and the number of filters in
+[1607.1s] the layer and also the amount of padding
+[1608.8s] that we're going to apply in inside the
+[1611.0s] convolutional layer and now once we've
+[1613.3s] generalized our convolution layer in
+[1614.9s] this way to accept padding then the
+[1617.1s] output size now becomes W minus K + 1 +
+[1620.9s] 2 P where P is the padding value and a
+[1623.6s] very common way to set that high per
+[1626.2s] parameter P is to set it equal to the
+[1629.3s] kernel size minus 1 over 2 that means
+[1631.8s] that suppose we're doing a 3x3
+[1633.4s] convolution then we pad with 1 if we do
+[1635.5s] a 5x5 convolution you pad with 2 on each
+[1637.3s] side and that that is called same
+[1639.6s] padding because it means that when we
+[1642.0s] apply the convolution the output will
+[1644.1s] now have the exact same spatial size as
+[1646.2s] the input so even though padding is an
+[1648.9s] extra hyper parameter technically that
+[1650.5s] you can play around with the the most
+[1652.3s] common thing to do for padding is
+[1654.6s] actually same padding so this this just
+[1657.2s] makes it easier to reason about the
+[1658.5s] spatial sizes because it means that the
+[1660.3s] spatial size tends not to change when we
+[1662.9s] perform our convolution operation now
+[1666.7s] another thing another useful way to
+[1668.8s] think about what the convolution is
+[1670.8s] doing is this notion of a receptive
+[1673.4s] field so here we're showing an input
+[1676.0s] grid I'm showing our input image and
+[1678.6s] then the output grid the spatial grid of
+[1681.0s] the output after performing a
+[1682.3s] convolution operation and recall that we
+[1684.5s] had this interpretation of the
+[1685.9s] convolution as taking our convolutional
+[1688.1s] filter matrix and sliding it around and
+[1690.1s] taking inner product sliding it around
+[1691.4s] every position of the input what this
+[1693.4s] means is that each spatial position in
+[1695.9s] the output image now depends only on a
+[1698.7s] local region of the input image in
+[1700.6s] particular for a three day 3x3
+[1703.1s] convolution here one element of that
+[1705.7s] output tensor now only depends on a 3x3
+[1708.8s] region in the input tensor and this 3x3
+[1712.0s] region is often called the
+[1713.7s] cept afield of the convolution or of the
+[1717.2s] or of the receptive field of the value
+[1719.6s] in the output tensor this is relatively
+[1722.9s] a relatively straightforward and easy
+[1724.7s] thing to think about in the context of
+[1726.3s] one convolution layer but it's also
+[1728.5s] interesting to think about what happens
+[1730.4s] these receptive fields as we start
+[1732.2s] stacking convolution layers together so
+[1735.0s] what we can see is that here we're
+[1737.7s] showing a stack of three convolution
+[1739.4s] layers and now on the very right hand
+[1741.1s] side we see that one element in the very
+[1744.2s] rightmost output tensor depends on a
+[1746.8s] three by three region in the
+[1748.7s] second-to-last activation map but and
+[1751.8s] each of those elements in that
+[1752.9s] second-to-last activation map it in turn
+[1755.5s] depends on a three by three region in
+[1757.0s] the input in the in the second
+[1759.2s] activation map with so that and that
+[1761.2s] which in turn depends on a three by
+[1762.3s] three region in the beginning activation
+[1763.9s] map so that means that transitively
+[1766.2s] this act this green region in the final
+[1769.2s] output actually depends on a fairly
+[1771.2s] large spatial region in the input in
+[1773.7s] there in this input tensor on the far
+[1775.4s] left so in this example with three by
+[1779.4s] three convolutions you can sort of
+[1781.5s] visually see that when we stack to three
+[1784.1s] by three convolutions on one after
+[1786.1s] another then the output of those two
+[1788.5s] three by three convolutions now depends
+[1790.7s] on a five by five spatial region in the
+[1793.3s] original input and if we stack three
+[1795.3s] convolute three three by three
+[1796.9s] convolutions it now depends on a seven
+[1799.2s] by seven region in the input state
+[1801.2s] feature map so then this is another this
+[1805.2s] is a but then the term receptive field
+[1807.1s] is sometimes overloaded a little bit to
+[1809.3s] mean maybe two different things so then
+[1811.9s] the receptive field of a neuron in the
+[1813.9s] previous layer would be equal to the
+[1816.2s] kernel size of the convolution and
+[1818.3s] sometimes you'll also talk about the
+[1820.4s] receptive field of an activation all the
+[1823.0s] way in the original image which is the
+[1825.8s] spatial size in the input image that has
+[1829.3s] the potential to affect the value of
+[1831.1s] that neuron after however many
+[1832.4s] convolution layers and what we can see
+[1834.6s] from this diagram is that as we stack
+[1837.0s] convolution layers on top of each other
+[1838.5s] the effective receptive fields in the
+[1841.0s] input is going to grow linearly with the
+[1843.5s] number of convolution layers that we
+[1845.7s] we add but now this is maybe a slight
+[1849.2s] problem because suppose we want to work
+[1851.7s] with very very high resolution images
+[1853.6s] maybe we will want to work with 1024 by
+[1856.0s] 1024 images now that means that in order
+[1859.9s] for our out the values in that output
+[1862.1s] tensor to actually have the ability to
+[1864.1s] see a large region in that high
+[1866.9s] resolution input image the only way that
+[1869.0s] we can do that is by stacking up a very
+[1871.2s] very very large number of convolution
+[1873.0s] layer a convolutional layers so then if
+[1875.8s] maybe we have a 1024 by 1024 image then
+[1879.0s] every 3x3 convolution only adds two
+[1880.8s] pixels to the receptive field so we
+[1882.7s] would need something like 500
+[1883.7s] convolutions in order to allow the out
+[1886.5s] those final output features to depend on
+[1889.2s] the full input image and it is having
+[1892.3s] these large receptive fields in the
+[1893.8s] input image maybe seems like a good idea
+[1895.7s] because the neural network needs to be
+[1897.6s] able to get some global context about
+[1899.3s] what is the full image that it's looking
+[1900.9s] at so then a solution to this problem is
+[1905.2s] to add another hyper parameter to our
+[1907.3s] convolution operation yeah was there
+[1909.4s] yeah the question is it's the zero
+[1911.7s] padding it doesn't seem like it's adding
+[1913.0s] any information to the network well it's
+[1915.7s] actually not meant to add any
+[1917.3s] information it's it's more about
+[1918.7s] notational convenience to prevent the
+[1921.3s] shirt the features from shrinking inside
+[1923.7s] the network although there is actually a
+[1926.1s] type of implicit way the zero padding
+[1927.9s] does actually add some information to
+[1930.0s] the network and that's that it actually
+[1931.9s] breaks translation invariance so with a
+[1934.2s] convolution it's it should be
+[1935.8s] translation invariant right if you
+[1937.3s] imagine shifting the whole image a
+[1938.7s] translation equivariance to be more
+[1940.8s] technical if we shift the entire image
+[1942.5s] then the output should shift
+[1944.0s] correspondingly but once you add a
+[1946.5s] convolution layer it actually gives the
+[1948.3s] network the ability to kind of count out
+[1950.0s] from the border that you could imagine
+[1951.6s] it learns a convolutional filter that it
+[1955.2s] looks for that row of zeros to know
+[1956.9s] where it is in the input image so
+[1959.6s] actually I think that adding zero
+[1961.4s] padding in this way somehow breaks the
+[1964.4s] translational equivariance of the
+[1966.0s] convolution operation and gives the
+[1968.1s] network some latent or implicit ability
+[1971.1s] to know exactly where it is in the input
+[1973.7s] image I don't know if that's a bug or a
+[1976.4s] feature but how
+[1978.0s] punch that that's something that the
+[1979.7s] zero padding actually is adding the
+[1981.3s] representational power of the network
+[1984.8s] but then back to this back to this
+[1987.0s] problem we had this problem that in
+[1988.5s] order to achieve these very large
+[1990.1s] receptive fields we need to stash many
+[1992.1s] many convolution layers and now we can
+[1994.1s] open we can overcome that by adding
+[1996.5s] another hyper parameter to our
+[1997.6s] convolution called stride so now we now
+[2000.9s] we go back to our example of a seven by
+[2002.8s] seven input with a three by three
+[2004.3s] convolutional filter but now we want it
+[2006.5s] to have a stride of two that means that
+[2008.9s] rather than placing the convolutional
+[2011.5s] filter at every possible position in the
+[2013.7s] input image instead we're going to place
+[2015.8s] it every two possible positions in the
+[2018.2s] input image so then the output now then
+[2020.9s] are our first place we can stick it is
+[2022.8s] in still in the upper left-hand corner
+[2024.0s] and now we actually skip over one
+[2026.3s] percent shil one potential position to
+[2028.2s] place the filter because our stride is
+[2029.6s] two and now we place it again
+[2031.9s] so then with a stride of two we can see
+[2034.1s] that there are only three positions in
+[2036.1s] the input where we can place the
+[2037.6s] convolutional filter which means that
+[2039.5s] when we use a stride of two then we are
+[2043.3s] our output is now is quite a lot
+[2045.2s] spatially down samples and once we add
+[2047.9s] stride to the network that means it can
+[2049.9s] build up receptive fields much more
+[2051.4s] quickly because that that effectually
+[2054.3s] expected adding a layer of the stride of
+[2056.5s] two effectively doubles that receptive
+[2059.0s] field at every layer in the network well
+[2061.7s] rather at the layer in which we have
+[2063.3s] astride of two so now for a little bit
+[2066.2s] of this this more general formulation of
+[2068.7s] how to compute the output shape or size
+[2070.4s] of a convolution if our input has size W
+[2073.4s] our filter has size K our padding is P
+[2075.6s] and we have a stride of s then we have
+[2077.5s] this expression for computing the size
+[2080.1s] of the output and you might ask here
+[2083.2s] where you can see that the size is
+[2084.7s] dividing by the stride and you might
+[2086.7s] wonder what happens if that integer
+[2088.4s] that's not an integer that's actually
+[2089.9s] divisible by the stride well that's kind
+[2091.7s] of people pay implementation independent
+[2093.2s] but usually you just like trunk you
+[2095.6s] usually will truncate it or round down
+[2097.3s] or round up I don't know it depends on
+[2098.9s] the application
+[2099.6s] but usually we don't do that and usually
+[2102.1s] we set up our convolutional layers in
+[2103.9s] such a way that the stride always
+[2105.7s] divides that that expression that we're
+[2108.2s] dividing W minus K plus two beats
+[2111.3s] so now here's a little excuse kind of
+[2113.8s] recap all of that here's an example of a
+[2115.8s] convolution that you might use in a C
+[2118.1s] part n network with our input volume of
+[2120.2s] size three channels 32 by 32 spatial
+[2122.7s] size and now we might imagine a
+[2124.7s] convolutional filter with ten filters of
+[2126.8s] five by five with stride one and pad two
+[2129.7s] so what we've given given these settings
+[2132.9s] for the convolutional layer what should
+[2134.6s] the output size of this of this out of
+[2137.7s] this tensor be after the convolution
+[2142.5s] well here we can apply the formula on
+[2146.0s] the previous slide and it turns out that
+[2148.8s] in this case the spatial size is the
+[2151.2s] same because we're using stride of one
+[2153.2s] and same padding and the number of
+[2155.8s] channel dimensions is equal to the
+[2157.3s] number of filters so now the output size
+[2159.0s] is 10 by 32 by 32 and now as a recap
+[2162.5s] what would be the number of learn about
+[2164.7s] parameters in this layer well we have
+[2170.1s] our format we have our we have now ten
+[2173.8s] convolutional filters each of those
+[2175.5s] filters has size three by five by five
+[2177.5s] and each of those filters has an
+[2179.5s] Associated bias so that means each of
+[2181.5s] the filters has 76 throwable parameters
+[2183.5s] since we've got ten filters we've got
+[2185.2s] 763 little parameters and now another
+[2188.4s] question how many multiply adds does
+[2190.4s] this convolution operation take to
+[2192.2s] compute well to compute this you can
+[2196.3s] think that the network that the output
+[2199.2s] tensor has shaped 10 by 32 by 32 and in
+[2203.5s] order to compute each of those elements
+[2205.1s] at the output we need to compute an
+[2207.2s] inner product between two tensors each
+[2209.3s] of shape three by five by five so then
+[2211.6s] if you multiply all that together you
+[2213.3s] can see that this convolution operation
+[2214.5s] takes quite a lot of multiply add
+[2216.5s] operations in order to compute its
+[2218.0s] output and also by the way this is
+[2221.8s] something that sometimes trips people up
+[2223.3s] but one thing that's actually used
+[2225.3s] sometimes is a one by one convolution
+[2227.6s] where the kernel size is just one by one
+[2229.9s] and this seems kind of weird but it
+[2232.2s] actually makes perfect sense so for a
+[2234.1s] one by one convolution we might have in
+[2236.0s] this case a spatial input tensor with 32
+[2239.1s] channels and 56 by 56 in the spatial
+[2241.5s] dimension and now a one by one combo
+[2244.2s] where would have a convolutional kernel
+[2246.4s] where each with 32 filters each of those
+[2249.2s] filters would be one-by-one and spatial
+[2252.0s] size and 60 and extent over the full 64
+[2255.0s] channels of the input depth and what
+[2258.7s] this basically means is that we're doing
+[2260.1s] independent dots and then remember we
+[2262.5s] had this interpretation of this these
+[2265.2s] three dimensional tensors as being a
+[2267.1s] grid of feature vectors well when you
+[2269.3s] apply a one-by-one convolution that
+[2271.5s] basically looks like a linear layer that
+[2274.3s] operates independently on each of the
+[2276.4s] feature vectors in our one by one grid
+[2278.3s] in our in our three dimensional grid and
+[2281.1s] because of that interpretation
+[2283.0s] sometimes it you might see neural
+[2286.9s] network structures where we have a one
+[2288.8s] by one convolution and then array Lu and
+[2290.3s] another one by one convolution and
+[2291.6s] another Ray Lu some sequence of one by
+[2293.5s] one convolutions and Raley's and that's
+[2295.4s] sometimes called a network in network
+[2297.1s] structure because it's effectively a
+[2299.0s] fully connected neural network that
+[2301.2s] operates independently on each of the
+[2303.3s] feature vectors that appear at every
+[2304.7s] position in space so this is seems like
+[2307.5s] kind of a weird thing to do but actually
+[2309.2s] you'll see it in practice used sometimes
+[2311.9s] so then the recap of a convolution is
+[2314.7s] that it takes this three-dimensional
+[2316.3s] input it has hydro parameters the kernel
+[2319.1s] size in general you might imagine
+[2320.8s] actually non-square kernels that they do
+[2323.0s] show up sometimes but the overwhelming
+[2325.0s] majority is for kernels to be square a
+[2327.2s] number of filters of padding and stride
+[2329.2s] we have a four-dimensional weight matrix
+[2330.9s] and a single bias factor and then it
+[2333.7s] produces an output of four of
+[2335.9s] three-dimensional output according to
+[2337.1s] this particular formula then a couple
+[2339.2s] very common settings to see with
+[2340.7s] convolutions because a lot of hyper
+[2342.0s] parameters here would be to set oh it's
+[2344.6s] very common to use square filters
+[2345.9s] there's some applications where you
+[2347.0s] might see non square filters it's very
+[2349.4s] common to use same padding to of course
+[2351.2s] the output have the same size as the
+[2352.8s] input and a couple very common patterns
+[2355.2s] in convolution would be it be very
+[2357.4s] common to use like a three by three
+[2358.6s] stride one convolution or a three by
+[2360.4s] four or five by five or one by one
+[2362.0s] stride one convolution you'll see these
+[2363.7s] types of configurations very commonly
+[2365.3s] and you'll it's also very common to see
+[2367.7s] a convolution layer with three by three
+[2370.0s] kernels padding of one and astride up to
+[2372.5s] that then is a sort of a spatial down
+[2375.6s] sampling by a factor of two using a comm
+[2377.8s] solution layer so these are all settings
+[2379.9s] that you'll see very commonly in
+[2382.3s] convolution yeah the question is would
+[2385.7s] it be preferable to use a one by one
+[2387.1s] convolution instead of a fully connected
+[2388.6s] layer and I think those have slightly
+[2391.3s] different interpretations a one by one
+[2393.3s] convolution has the interpretation of
+[2395.5s] changing the number of channel
+[2396.8s] dimensions in our three dimensional
+[2397.9s] tensor whereas a fully connected layer
+[2399.9s] has the interpretation of flattening
+[2402.1s] that whole tensor into one and then
+[2403.9s] producing a vector output so that fully
+[2406.3s] connected layer is for cases where you
+[2407.9s] want where you want to destroy the
+[2409.5s] spatial structure in the input so would
+[2411.4s] be common to see that at the end of the
+[2412.7s] network when you need to produce
+[2413.5s] category scores whereas the one-by-one
+[2415.8s] convolutions are very common when you
+[2417.7s] need to like when you need to they're
+[2419.8s] often used as a kind of adapter inside
+[2421.5s] of a neural network when you need to
+[2422.8s] have a convolutional a 3-dimensional
+[2424.9s] chunk of activation kind of match up
+[2426.8s] with something else that expects a
+[2428.3s] different input number of input channels
+[2429.8s] then it's very common to use a one by
+[2431.3s] one convolution to kind of adapt or
+[2433.1s] change the number of input channels
+[2434.4s] enhancer so they're not they're not
+[2436.1s] often used in the same way so they also
+[2440.9s] I should point out that so far we've
+[2442.6s] talked about two-dimensional convolution
+[2444.8s] because we had the notion of this
+[2446.6s] convolutional kernel so we have three
+[2448.8s] dimensional input and we had a
+[2450.4s] convolutional kernel that we moved
+[2451.8s] around at every position in that 2d
+[2454.3s] space but there are other types of
+[2456.8s] convolutions that you'll see used out
+[2458.7s] there sometimes so you might imagine a
+[2461.1s] one-dimensional convolution with a
+[2463.1s] one-dimensional convolution our input
+[2465.1s] would be two-dimensional the input would
+[2467.2s] then be a number of channel a channel
+[2469.0s] dimension and one spatial dimension and
+[2471.5s] now the weight matrix would be true of
+[2473.8s] the weight matrix would then be three
+[2475.1s] dimensional so we would have again a
+[2477.6s] bank of filters so we might have C out
+[2480.4s] filters and each of the independent each
+[2482.4s] of the individual filters would be CN so
+[2485.3s] extend the full depth dimension and then
+[2487.1s] K would be the kernel size again so then
+[2489.4s] it has the interpretation of plopping
+[2490.7s] down this filter and positioning it at
+[2493.0s] every position in 1d space and moving it
+[2495.7s] sliding it over the input and these 1d
+[2498.0s] convolutions are sometimes used to
+[2499.9s] process textual data that might occur as
+[2502.9s] a sequence or they also will use it
+[2505.1s] sometimes to process audio data like if
+[2507.2s] you have an audio waveform that you want
+[2508.9s] to process with the convolutional
+[2510.0s] Network
+[2510.5s] you might use a one-dimensional
+[2511.8s] convolution and we can go the other way
+[2514.7s] and it's sometimes you'll sometimes see
+[2517.2s] a three-dimensional convolution so with
+[2519.5s] a three-dimensional convolution the each
+[2522.0s] element of the batch will be a
+[2524.0s] four-dimensional tensor so now I can't
+[2526.4s] really draw a four-dimensional tensor on
+[2528.2s] a two-dimensional whiteboard but what
+[2530.7s] then then we had this interpretation of
+[2532.4s] the three dimensional tensor as a three
+[2534.5s] dimensional grid where at every point in
+[2536.6s] the grid we have a feature vector of
+[2538.8s] size C in and then the freedom and
+[2541.4s] become the three-dimensional convolution
+[2543.2s] the filter is then a four dimensional is
+[2547.2s] then a three dimensional thing that's
+[2548.4s] expended
+[2549.2s] sorry a five dimensional thing where the
+[2551.7s] kernel has three spatial dimensions it
+[2553.5s] extends over the full number of feature
+[2554.9s] dimensions of the input vector and then
+[2557.4s] we have a collection of those things so
+[2558.6s] it's been a five dimensional weight
+[2560.0s] matrix and then each of those three
+[2561.8s] dimensional filters gets Lud's sled at
+[2563.9s] every position in 3d space over that 3d
+[2566.0s] input tensor and these 3d convolutions
+[2569.3s] are sometimes used in maybe to process
+[2571.8s] point cloud data or other types of 3d
+[2573.7s] data where you actually where data
+[2575.9s] actually lives in some native 3d space
+[2579.0s] and it's so then we've seen that these
+[2582.0s] convolution layers come with quite a lot
+[2583.7s] of hyper parameters to set their inputs
+[2585.4s] and their outputs and their padding and
+[2587.1s] their strides and whatnot so if you look
+[2589.1s] up for example the PI torch in PI torch
+[2591.7s] if you look up the convolution operation
+[2593.3s] there you'll see that you can have all
+[2595.2s] these settings to change all these
+[2596.4s] different settings in the convolutional
+[2597.9s] layer and of course you'll find 1d and
+[2600.1s] 2d convolutions as well so that brings
+[2604.4s] us so then we can see that convolution
+[2606.7s] is this layer that has these learn about
+[2608.7s] weight matrix matrices that are somehow
+[2610.5s] transforming as we go along which brings
+[2613.2s] us to our next layer that's a key
+[2614.8s] ingredient of a convolutional Network
+[2616.3s] which is a pooling layer and with the
+[2619.2s] way that you should think about pooling
+[2620.2s] layers is that they are a way to down
+[2622.5s] sample inside your neural network in a
+[2624.6s] way that does not involve any learn
+[2626.0s] about parameters we have already seen
+[2628.2s] that we can spatially down sample our
+[2630.2s] inputs in a convolutional Network by
+[2632.2s] using a convolution layer with a stride
+[2634.1s] greater than one well another way to
+[2636.2s] downsample our spatial data our spatial
+[2639.9s] dimension dimensions of our tensor would
+[2641.9s] be instead to use a pooling
+[2643.8s] fooling there so here it involves no
+[2646.7s] learn herbal parameters we just have
+[2648.9s] hyper parameters which would be the
+[2650.2s] kernel size there's also this the way
+[2652.8s] that this pooling layer is going to
+[2654.2s] function is very similar to a
+[2655.9s] convolutional layer where we're going to
+[2657.9s] operate on we're going to imagine look
+[2660.3s] local receptive fields in the input
+[2662.3s] tensor of some local spatial size of
+[2665.2s] given by the kernel size and then within
+[2667.2s] each of those local regions we will have
+[2669.4s] some pooling function which is some way
+[2671.3s] to collapse those those set of input
+[2673.4s] values into one output value and then we
+[2676.1s] will apply this this operation at every
+[2678.6s] slice of our input tensor that will then
+[2680.6s] result in some spatially downsample
+[2682.5s] output and one very so one very common
+[2686.9s] way to set up pooling that maybe makes
+[2688.8s] this more concrete would be an example
+[2690.8s] of two by two max pooling with a stride
+[2693.5s] of two which means that our which means
+[2696.3s] now the stride and the kernel size mean
+[2699.1s] the exact same thing as they did in
+[2700.9s] convolution it means that we're going to
+[2702.7s] consider carving up our input tensor in
+[2705.4s] two spatial regions each of psiy each of
+[2708.2s] size 2 by 2 and we will stride those
+[2710.7s] spatial regions with they'll move by by
+[2713.9s] 2 pixels each unit and now when the
+[2716.7s] stride and the kernel size are equal to
+[2718.6s] each other that means that the the
+[2720.3s] pooling regions will be non overlapping
+[2721.8s] so it's very common to use this setting
+[2724.9s] of stride to kernel size to pooling and
+[2729.6s] now the now we use the maps so then that
+[2732.2s] now we have this interpretation of if we
+[2734.2s] have a four by four spatial input then
+[2736.5s] it gets carved up into two by two
+[2738.0s] regions given by the different colors
+[2740.5s] here and then within each of those 2 by
+[2742.7s] 2 regions we want to compute a single
+[2745.1s] output number that summarizes the values
+[2747.4s] within that 2x2 spatially a spatial
+[2749.3s] region and when we use max pooling we
+[2751.8s] use the max function to compute that one
+[2754.0s] number so then within that 4x4 spatial
+[2756.3s] region we pick the biggest one and that
+[2758.1s] ends up as the the corresponding bin in
+[2760.5s] the output so then the this what that
+[2763.0s] means is that this this red region in
+[2764.6s] the input gets collapsed into this
+[2766.1s] single number six because if the largest
+[2767.8s] the green region gets collapsed into the
+[2769.7s] eight and so on so on and so forth and
+[2771.9s] one reason why we might prefer pooling
+[2775.2s] over a strata convolution
+[2776.9s] one is that it's very it doesn't involve
+[2779.5s] any learn about parameters and a second
+[2781.7s] is that it introduces some amount of
+[2783.5s] invariance to translation especially in
+[2786.7s] the case of max pooling so then you can
+[2788.9s] imagine that because the max operation
+[2791.1s] selects the largest value within each of
+[2792.9s] these regions that if somehow the input
+[2795.2s] image would have been some of some of
+[2797.2s] the stuff in the input image would have
+[2798.3s] moved around a little bit then it's
+[2801.2s] conceivable that the max value might not
+[2803.3s] have changed within the region even if
+[2805.5s] the exact position of something in the
+[2807.7s] image would have changed a little bit
+[2808.8s] what that means is that when we use max
+[2811.0s] pooling it introduces some amount of a
+[2814.3s] small amount of translational invariance
+[2815.8s] model which might be useful for four
+[2818.9s] different types of problems so then
+[2821.9s] pooling has a very similar summary oh
+[2823.8s] and by the way this is max pooling
+[2825.2s] another thing that's very common to see
+[2826.8s] would be average pooling so here we're
+[2829.6s] computing that output by taking the max
+[2831.2s] in the region it would also be common to
+[2833.2s] take the average of in the region so in
+[2836.7s] this summary for pooling is that it ends
+[2838.6s] up looking quite similar to convolution
+[2840.1s] that we have this V stride and kernel
+[2841.8s] size parameters but now rather than
+[2843.5s] taking inner products instead we apply
+[2845.4s] some kind of fixed pooling function
+[2847.2s] within each of those receptive fields to
+[2849.3s] compute sync our output values so now we
+[2852.9s] now we've got fully connected layers
+[2854.3s] we've got activation functions we've got
+[2856.3s] convolutional layers and we've got
+[2857.6s] pooling layers and given all of these we
+[2860.2s] can now build a classical combat so
+[2862.4s] given it's now a convolutional network
+[2864.7s] is some kind of neural network that is
+[2866.7s] us that is a composition or combination
+[2869.0s] of all these different operations but
+[2871.3s] you've got a lot of freedom in how you
+[2872.8s] might choose to hook these things up
+[2874.1s] right because a lot of hyper parameters
+[2875.8s] there's a lot of different types of
+[2876.7s] layers but now a very classical design
+[2879.8s] that you'll see in a convolutional
+[2881.4s] network is that we'll have some amount
+[2883.7s] of of comrade liu pool comm really cool
+[2886.5s] Comrie little pool followed by some
+[2888.2s] number of fully connected layers and
+[2890.2s] that's a very very classical design that
+[2892.2s] you'll see in in convolutional networks
+[2894.0s] and there's a concrete example of that
+[2896.2s] classical ComNet design we can look at
+[2898.6s] the Linette v network from jung that
+[2901.5s] Yamla khun used for character
+[2902.9s] recognition back in 1998 so here
+[2906.7s] with the Lynette five it takes as input
+[2908.8s] a single grayscale image that is 28 by
+[2911.4s] 28 in spatial size and because it's
+[2913.7s] grayscale there's only one input channel
+[2915.5s] which is the intensity of each pixel the
+[2918.2s] first thing is a convolutional layer
+[2919.8s] with 20 convolutional filters each of
+[2924.0s] 5x5 spatial size and here they're not
+[2928.0s] using a with with same padding and so
+[2931.7s] then our output of after the
+[2933.1s] convolutional layer is then 20 by 28 by
+[2935.1s] 28 and after the convolution we put we
+[2937.3s] put a rail ooh it's pretty common to put
+[2938.7s] that's non-linearity right after a
+[2940.2s] convolution layer and then the next
+[2942.2s] thing would be to apply this 2x2 stride
+[2944.1s] to max pooling that halves the spatial
+[2946.7s] size of that tensor moving it from 20 by
+[2949.4s] 28 by 28 down to 20 by 14 by 14 then if
+[2953.3s] then we apply another convolutional
+[2954.9s] layer that it has now has 50 filters so
+[2958.6s] now our output after that second
+[2960.0s] convolutional layer and it's
+[2961.3s] corresponding gray liu would be 50/50
+[2963.6s] filter 50 depth dimensions and 14 by 14
+[2965.9s] spatial dimensions then we have another
+[2968.7s] max pooling that again halves the
+[2970.2s] spatial dimensions putting us down to 50
+[2971.9s] by 7 by 7 then we'll then before we go
+[2975.4s] into these fully connected layers we
+[2977.4s] have this flatten operation that takes
+[2979.3s] this three dimensional tensor and then
+[2981.2s] flattens it out into a vector like we've
+[2982.7s] done in CFR ten perfectly connected
+[2985.0s] networks so this flattens out this 50 by
+[2987.3s] seven by seven tensor into a single
+[2989.5s] vector of size 24 50 then we have a
+[2992.7s] fully connected layer with 500 output
+[2996.2s] channels followed by another ray loop
+[2997.5s] that converts us to a vector of size 500
+[3000.0s] yeah what's your question
+[3001.1s] yeah so the question is what happens
+[3003.0s] with a max pooling if their max is not
+[3005.1s] unique is I think the question then it's
+[3008.8s] kind of implementation dependence so
+[3011.0s] often you'll just pick one and which one
+[3013.9s] you pick will kind of depend on the
+[3015.1s] implementation but it's also I think
+[3017.8s] it's also not very common for that to
+[3019.8s] happen in practice because I guess for
+[3023.4s] that to happen it might be like the
+[3025.0s] entire region is zero from all Ray lose
+[3027.0s] being zero I think that's real I think
+[3029.4s] that's quite rare to actually happen in
+[3030.7s] practice so even if it happens once in a
+[3032.8s] while it probably shouldn't be a problem
+[3034.7s] yeah yeah that's a good question
+[3037.2s] the question
+[3037.8s] as max cooling introduces some kind of
+[3039.5s] non-linearity so why do we need the Ray
+[3041.6s] Lu here and I think you're right that
+[3043.6s] you actually don't need the Ray live
+[3044.8s] here and if you actually I kind of put
+[3047.2s] it in here because I think it's it's
+[3048.2s] common to use Ray Lou
+[3050.3s] in modern convolutional networks and
+[3052.0s] everywhere but if you actually look and
+[3053.8s] at Yamla Queens paper they actually
+[3055.3s] didn't use any non linearity in those
+[3057.0s] layers they just use the max the max
+[3058.6s] cooling as the company arity so I think
+[3061.4s] you're right
+[3062.6s] but in more modern networks it's common
+[3065.5s] to put the rail ooh even when you do
+[3067.2s] have a max pool and even if it might not
+[3068.6s] be strictly necessary which kind of
+[3070.9s] gives you just more regularity in your
+[3072.4s] in your network design and then of
+[3075.4s] course at the end we have another flame
+[3076.9s] fully connected network to produce 10
+[3078.8s] class scores because we wanted to digit
+[3080.6s] classification and recognized in the
+[3081.9s] cleavage of zero nine and one thing you
+[3084.6s] can notice about this classical ComNet
+[3086.7s] design is that as we go through the
+[3088.5s] network we tend to have the spatial size
+[3090.5s] decreasing either through pooling layers
+[3093.2s] or through strata convolution layers and
+[3094.9s] the depth at the depth channel the
+[3097.1s] number of filters is increasing which
+[3099.4s] means that as the spatial size decreases
+[3101.6s] the depth increases so somehow this the
+[3103.9s] total volume is always sometimes
+[3105.8s] preserved exactly we're just like
+[3107.7s] squeezing it down this way and
+[3108.7s] stretching it out this way and that's a
+[3110.9s] very common paradigm to see in in
+[3113.2s] convolutional networks yeah yeah the
+[3115.9s] question is how the hell'd you come up
+[3117.5s] with one of these things right I think
+[3119.2s] that's there's that bassy of the
+[3119.9s] question yeah well I think it's a lot of
+[3122.2s] trial and error but actually I think
+[3123.9s] next lecture to save you that pain I
+[3126.0s] want to I'm going to talk about in
+[3127.0s] detail the history of many convolutional
+[3128.8s] architectures and how they've evolved
+[3130.0s] over the time so that but for the
+[3132.9s] purpose of today's lecture that you
+[3134.2s] should just think of this as magic that
+[3135.5s] yah McCune handed to you in 1998 it
+[3137.2s] happens to work pretty well um but now
+[3140.8s] there's a problem with this classical
+[3142.5s] design we've seen that it's very common
+[3144.4s] to stack up like calm cool ray lucam
+[3146.4s] cool ray Lujan cool ray Lou and you can
+[3148.1s] imagine writing down networks that are
+[3149.2s] arbitrarily deep and arbitrarily big and
+[3151.1s] you'll be excited about your training
+[3152.4s] deep networks on big data it's awesome
+[3154.1s] but you'll run into a problem that if
+[3156.3s] you use this very classical design of a
+[3158.2s] comm net you'll find that it's very
+[3159.5s] difficult to get networks to converge
+[3161.3s] one thing once they become the very deep
+[3162.9s] so to overcome that it's this then this
+[3166.3s] is actually a more common in a more
+[3167.8s] recent innovation is that we add some
+[3169.8s] kind of
+[3170.3s] zatia layer inside the network that
+[3173.0s] makes it easier for us to train very
+[3175.2s] deep networks and the bat the very most
+[3178.4s] common of these is called batch
+[3180.1s] normalization so the idea is that we
+[3183.7s] want to receive the outputs from some
+[3186.5s] previous layer and we want to normalize
+[3188.7s] those outputs in some way so that they
+[3191.5s] have a zero mean and unit variance
+[3193.3s] distribution why that's a great question
+[3197.1s] if you read the original paper they say
+[3199.8s] that it reduces something called
+[3201.2s] internal covariant shift which is not
+[3204.1s] well understood exactly what that is or
+[3205.7s] exactly what they were trying to say but
+[3207.5s] the rough idea is that when you're
+[3209.2s] training a deep neural network each
+[3211.1s] layer is looking at the outputs of the
+[3213.7s] previous layer and because all these
+[3215.6s] different weight matrices are training
+[3217.4s] simultaneously that means that as this
+[3219.9s] way as the weight matrix from the
+[3221.7s] previous layer changes over the course
+[3223.5s] of optimization the distribution of
+[3225.5s] outputs that the next layer will see is
+[3227.5s] also going to change over the process of
+[3229.6s] optimization and somehow the fact that
+[3231.9s] this second layer sees a changing
+[3234.5s] distribution of inputs over the process
+[3236.4s] of training might be bad for
+[3238.3s] optimization in some way is the very
+[3241.2s] course non rigorous idea of what they
+[3243.7s] mean by internal barriers shift so then
+[3246.7s] to overcome this potential problem of
+[3249.1s] internal covariant shift the idea is
+[3251.5s] that we want to standardize all of the
+[3253.2s] layers to all fit some target
+[3255.5s] distribution in particular we want to
+[3257.4s] force all that the outputs from every
+[3259.1s] layer to have some to be distributed
+[3261.4s] with zero mean and unit variance as that
+[3263.6s] means that the next layer consuming
+[3265.3s] those activations is then hopefully
+[3267.1s] seeing inputs that are from a more
+[3269.1s] stationary distribution over the process
+[3271.3s] of training and this can hopefully
+[3272.9s] stabilize or accelerate the optimization
+[3275.4s] process of these deep networks in some
+[3277.0s] way so then how exactly can we do this
+[3280.5s] well we know that we can normal we can
+[3283.2s] given a set of samples XK from some
+[3286.1s] distribution X we can normalize them by
+[3289.5s] we can empirically normalize them by
+[3292.6s] reduce subtracting off the mean and
+[3295.1s] dividing by the standard deviation and
+[3296.7s] it turns out that computing and
+[3299.6s] subtracting the mean and dividing by the
+[3301.3s] standard deviation is itself a
+[3303.2s] differentiable
+[3303.8s] function and we know from the idea of
+[3306.4s] computational graphs that when you have
+[3308.5s] a differential function you can just
+[3309.9s] slide it as a layer into your neural
+[3311.4s] network so what we will do with batch
+[3313.1s] normalization is just insert a layer
+[3315.3s] into the network whose purpose is to
+[3317.9s] convert the inputs to have this more
+[3320.4s] standardized distribution more
+[3322.8s] concretely you can imagine a fully
+[3324.6s] connected version of batch normalization
+[3326.3s] that receive an input of size n for the
+[3329.1s] batch dimension and size D for the
+[3331.3s] vector for the number of dimensions each
+[3333.0s] vector so it's a batch of n vectors each
+[3335.1s] of each of size D and now what we're
+[3337.3s] going to do is along each element of the
+[3340.0s] vector dimension we want to compute an
+[3342.0s] empirical mean over the batch dimension
+[3344.4s] then we use the different samples in the
+[3346.6s] batch to compute what is the average
+[3348.4s] value for each slot in that vector so
+[3351.8s] then we simply compute the empirical
+[3353.5s] mean over the batch dimension to get
+[3354.9s] this vector mu of size D then given
+[3358.5s] given that we can then look a look and
+[3360.9s] remember the expression for computing
+[3362.6s] the standard deviation of variance and
+[3364.1s] then we know that we can compute the
+[3365.7s] standard deviation in this way that will
+[3367.8s] then give us the the standard deviation
+[3369.8s] of variants per channel for each of
+[3372.0s] those D slots and our input again
+[3373.7s] averaging over the batch dimension and
+[3375.8s] then finally we can normalize to give us
+[3378.9s] 0 mean unit variance by subtracting the
+[3381.4s] empirical mean and dividing by the
+[3383.1s] empirical standard deviation of course
+[3385.6s] you'll notice that in the denominator we
+[3387.3s] have this plus epsilon term that's to
+[3389.4s] avoid dividing by 0 and that's a small
+[3391.5s] constant it's a hyper parameter but
+[3393.3s] people don't usually play with too much
+[3396.8s] so now there's a slight problem that you
+[3400.3s] know we said we wanted to make our
+[3402.1s] inputs unit mean 0 variance and maybe
+[3403.8s] that will be a good thing for
+[3404.6s] optimization but that's actually quite a
+[3406.7s] stiff constraint to place on the network
+[3408.3s] to force all of these layers to always
+[3410.9s] have the exactly fit this unit normal to
+[3413.5s] fit this is your mean unit variance of
+[3416.4s] constraint so in so in practice it's
+[3419.8s] common to add an additional operation
+[3422.0s] after this normalization where we add
+[3424.5s] learn about scale and shift parameters
+[3426.5s] gamma and beta into the network where
+[3428.8s] each of these will now be vectors of
+[3430.3s] dimension D that we will take our
+[3433.0s] normalized outputs in the X hat that now
+[3436.2s] the X hat
+[3437.1s] have 0 mean unit variance then we'll add
+[3439.5s] back in this learn about bias and
+[3441.3s] multiply it by this learn about learning
+[3445.4s] will shift a learnable scale parameter
+[3447.5s] and those are basically allowing the
+[3449.3s] network to learn for itself what are the
+[3451.6s] means and variances that it wants to see
+[3453.7s] in each of those elements of the vector
+[3455.7s] and in particular if the network now has
+[3459.0s] the capacity to learn gamma equals Sigma
+[3461.3s] and beta equals mu which will requite n
+[3464.5s] caused the batch normalization layer to
+[3467.1s] recover the identity function in
+[3468.7s] expectation so that's one intuition
+[3471.2s] about why we want to add these learn
+[3473.4s] about scale and shift parameters back
+[3475.2s] into the network but now there's a
+[3478.4s] problem here with batch normalization
+[3480.3s] which is the batch part right so then
+[3483.4s] this this mu and this Sigma we were
+[3485.9s] computing by averaging over the batch
+[3487.9s] dimension of our input tensors and
+[3490.0s] that's a very very weird thing to do
+[3492.4s] that's something that we have not seen
+[3494.2s] so far in any operation that we've
+[3496.0s] talked about in neural networks thus far
+[3497.5s] so far whenever we've had a batch of
+[3500.0s] inputs all of our operations always work
+[3502.5s] acting independently on every element to
+[3504.4s] the batch what that meant is that we
+[3506.4s] could stuff whatever we wanted into a
+[3508.1s] batch and it wouldn't like having a
+[3510.8s] picture of a cat in the same batch as a
+[3512.4s] picture of a dog would not cause them to
+[3514.4s] have different classification scores and
+[3516.0s] now once we have batch normalization
+[3518.3s] that's no longer the case that now the
+[3520.8s] the outputs that you produce for each
+[3522.8s] element in the pack in the batch now
+[3524.7s] depend on every other element in the
+[3526.9s] back and that is a very bad property to
+[3529.5s] have a test time because suppose maybe
+[3531.9s] you're running a web service and you
+[3533.1s] want to like compute like what users are
+[3535.8s] uploading at every point in time then it
+[3537.7s] would be really bad if you had a network
+[3539.2s] that whose predictions now depended on
+[3541.9s] what different users happen to be
+[3543.4s] uploading at the same time well that
+[3545.1s] would be a very bad property to have in
+[3547.2s] a machine learning model that you're
+[3548.3s] building so in any kind of test time
+[3551.7s] setting it's always preferable to have
+[3553.8s] your models again become independent
+[3556.0s] over the over the elements in the batch
+[3557.3s] so we need to find some so in batch
+[3559.8s] normalization we do that by having the
+[3562.0s] layer actually operate differently
+[3564.1s] during training and during testing so
+[3566.7s] during training
+[3568.6s] the batch normalization layer is going
+[3570.2s] to take these empirical means and
+[3572.0s] standard deviations over the batch of
+[3573.5s] the data that it sees
+[3574.6s] but during testing it will not compute
+[3578.0s] element it will not compute empirically
+[3579.8s] over the batch instead over the course
+[3582.2s] of training we will keep track of some
+[3584.4s] running exponential mean of all of the
+[3586.9s] average of all of those new vectors and
+[3588.9s] Sigma vectors that we had seen during
+[3591.4s] training and then we will that will
+[3593.6s] become now a fixed scalar that is kind
+[3595.7s] of like the average mu and the average
+[3597.8s] Sigma that had been seen over the course
+[3599.7s] of training and those are now constants
+[3602.1s] so then at test time we rather than
+[3604.9s] using the empirical means over the batch
+[3606.6s] instead we will use those constant mu
+[3609.0s] and sigmaz which are the the average
+[3611.0s] means and standard deviations over the
+[3612.5s] course of training and in doing that it
+[3614.6s] will allow us to again recover this
+[3616.9s] independence among elements in the batch
+[3618.4s] a test time which is a very good
+[3619.9s] property and there's actually another
+[3622.5s] really really nice property of these
+[3626.3s] using these empirical rather using these
+[3629.9s] running means and very and variances at
+[3632.8s] test time and that's that if now mu and
+[3636.2s] Sigma are actually constants then this
+[3640.2s] batch normalization operation becomes a
+[3642.2s] linear operation right if you look that
+[3644.6s] now we have our excise we're subtracting
+[3646.9s] a constant and we're dividing by a
+[3648.8s] constant and then we're further for the
+[3651.3s] normalization step and then for the
+[3652.9s] scale and shift step we're multiplying
+[3654.2s] by a learn weight and we're shifting by
+[3656.5s] a learned weight so then a test time the
+[3658.5s] batch normalization operator becomes a
+[3660.2s] linear operator which means that if we
+[3662.8s] put if we if in our convolutional
+[3664.7s] Network we had a design that had
+[3666.4s] convolution followed by batch
+[3668.2s] normalization then we know that two
+[3670.7s] linear operators can be fused into one
+[3672.3s] linear operator so then actually what's
+[3674.3s] very common to do in practice is to
+[3676.4s] actually perform that fusion in
+[3678.6s] inference time and then actually fuse
+[3681.8s] these these empirical meet these running
+[3684.9s] means running standard deviations and
+[3686.2s] learned scale and ship parameters and
+[3688.2s] actually fuse them into the previous
+[3690.4s] convolution operator in the network what
+[3692.8s] that means is that now batch
+[3694.1s] normalization becomes free at test time
+[3696.3s] it then has the zero computational
+[3699.0s] overhead at test time because we can
+[3700.7s] just fuse
+[3701.3s] at test time into the the previous
+[3703.1s] linear operator so it's a very nice
+[3705.0s] thing about batch paralyzation that
+[3706.7s] makes it very nice in practice so then
+[3710.5s] we've seen batch normalization in the
+[3712.1s] context of fully connected networks it's
+[3714.2s] also very common to use batch
+[3715.5s] normalization in convolutional networks
+[3717.2s] to see how that works in the context of
+[3720.2s] convolutional networks in the context of
+[3722.1s] fully connected networks we were
+[3723.7s] averaging over we had this input X of
+[3725.6s] size n by D and then we were averaging
+[3727.9s] all over the batch dimension to produce
+[3730.0s] these empirical means up size one by D
+[3733.0s] and then we at me scale and shift to
+[3735.1s] produce the output now for convolutional
+[3737.2s] networks it looks very much the same
+[3739.3s] except now rather than averaging only
+[3741.9s] over the batch dimension we will average
+[3743.9s] over the batch dimension as well as over
+[3745.7s] both the spate both the spatial
+[3747.4s] dimensions of the input which means that
+[3749.6s] now our our scale our mean and standard
+[3754.0s] deviation will be vectors of size C on
+[3755.9s] our scale of shift learned scale and
+[3757.7s] shifts will also be vectors of size C
+[3759.3s] and then we can compute these outputs
+[3761.6s] using this broadcast functionality that
+[3763.5s] you're familiar with in pipe works by
+[3764.7s] now so then it's very common to add
+[3768.1s] batch normalization in your networks
+[3770.2s] directly after a convolutional or a
+[3772.4s] fully connected layer and what's very
+[3775.5s] nice empirically about batch
+[3777.4s] normalization is that it makes your
+[3779.1s] network strain a lot faster so here's a
+[3782.0s] plot from the paper that introduced
+[3783.7s] batch normalization so here the the
+[3786.3s] black dashed line is this baseline
+[3788.5s] network that is has it hosing only
+[3791.0s] convolution and pooling and these other
+[3792.4s] operations with no batch normalization
+[3794.0s] and now the the the red dashed line is
+[3798.0s] simply adding Bachelor malaysian after
+[3799.7s] all the convolution layers and making no
+[3801.0s] other changes so the training or the
+[3802.5s] architecture of the network and you can
+[3804.2s] see that simply by throwing bash
+[3805.6s] normalization into this model it trains
+[3807.7s] much much faster but another property
+[3810.4s] another nice property about batch
+[3811.9s] normalization is that empirically when
+[3814.3s] you are training networks that have
+[3815.9s] batchman with normalization then you can
+[3818.0s] tend to increase the learning rates much
+[3820.2s] much higher without diverging during
+[3822.2s] convert during during training so then
+[3824.5s] here the then this other this blue solid
+[3828.5s] line is then the same network with the
+[3831.6s] higher learning rates during training
+[3833.2s] and bash colonization and
+[3834.9s] you can see that by combining batch
+[3836.3s] normalization in the model and higher
+[3838.2s] learning rates were able to train this
+[3839.9s] deep network much much money master and
+[3842.6s] this is actually a very robust finding
+[3844.5s] that occurs across many many different
+[3846.6s] convolutional network architectures but
+[3849.8s] there are some big downsides in batch
+[3851.4s] normalization one is that it's really
+[3853.6s] not very well understood theoretically
+[3855.7s] there's this kind of hand waving around
+[3858.1s] internal covariant shift but I think it
+[3860.9s] there's not really a clear understanding
+[3862.6s] of exactly why it helps optimization in
+[3865.9s] the way that it seems to and another
+[3868.1s] problem with batch normalization is that
+[3870.8s] it actually does something different
+[3872.2s] between training time and test time and
+[3874.4s] that seems like a problem that actually
+[3877.5s] is a source of bugs in like many many
+[3879.7s] applications and like myself personally
+[3882.2s] on like multiple different research
+[3883.9s] projects I've gotten bitten by this by
+[3886.0s] this the fact that that penalisation
+[3887.1s] does different things during training at
+[3888.6s] test time sometimes it's just like a bug
+[3891.0s] in your code and you forget to flip the
+[3892.7s] mode between train and test and then
+[3894.1s] you're very sad or sometimes if your
+[3896.8s] data is somehow imbalanced in a way that
+[3899.1s] it might actually be inappropriate for
+[3901.2s] your model to be forcing this
+[3902.4s] normalization constraint on your data so
+[3904.6s] then for maybe problems versus looming
+[3906.3s] like image classification with balanced
+[3908.0s] image classes maybe this unit may be
+[3910.2s] this couch or this 0 main unit variance
+[3912.8s] normalization is appropriate but for
+[3915.1s] other types of models where you expect
+[3916.5s] very imbalanced inputs or very
+[3918.1s] imbalanced data sets that can actually
+[3919.7s] be a big problem and I've been bitten by
+[3921.7s] batch normalization multiple times but
+[3923.8s] for a code of feed-forward convolutional
+[3925.5s] networks that tinia set it to work
+[3926.6s] really really well
+[3929.3s] now one variant on batch normalization
+[3932.5s] that you'll sometimes see right so we
+[3934.6s] said that one of the problems with batch
+[3935.8s] normalization is that it behaves
+[3937.1s] differently during training time at test
+[3938.9s] time and that's maybe bad for a lot of
+[3941.4s] reasons right you're because you want
+[3944.0s] your network to do the same thing at
+[3945.0s] training and testing during training it
+[3946.7s] was trained to do this thing and now at
+[3948.7s] test time if you swap out the way the
+[3950.7s] one of the layers functions then it the
+[3953.2s] rest of the model wasn't trained to to
+[3955.7s] operate productively with that moat that
+[3958.0s] layer in another mode so in general you
+[3960.3s] we generally prefer layers that operate
+[3962.5s] the same way a training end test time so
+[3964.9s] one variant of batch normalization
+[3967.0s] that's been proposed
+[3968.0s] that operates the same at training and
+[3970.1s] test time is called lair normalization
+[3972.3s] and here the idea is very similar that
+[3974.7s] we're still going to compute some means
+[3976.8s] and standard deviations and do this
+[3978.4s] empirical normalization but the
+[3980.0s] difference is that rather than computing
+[3981.9s] the average over the batch dimension
+[3983.3s] instead we'll compute the average over
+[3985.2s] the the feature dimension D and now this
+[3988.2s] that now this this normalization no
+[3991.0s] longer depends on the other amount all
+[3992.4s] our other elements in the batch so we
+[3994.6s] can use the same operation at training
+[3996.3s] and test time and this layer
+[3998.1s] normalization operator is actually used
+[4000.0s] fairly commonly in recurrent neural
+[4001.6s] networks and transformers that we'll
+[4003.7s] talk about in later lectures another
+[4007.1s] kind of a kind of equivalent one one
+[4010.7s] version of lair and of equivalent thing
+[4012.8s] to layer normalization that you'll see
+[4014.1s] in images is called instance
+[4015.6s] normalization here rather than averaging
+[4018.2s] over the batch and spatial dimensions we
+[4020.2s] averaged only over the spatial
+[4021.5s] dimensions and then again we only buy it
+[4024.0s] because our means and standard
+[4025.4s] deviations don't depend on the batch
+[4027.2s] dimension we could do the same thing at
+[4028.8s] training a test time there's this
+[4030.8s] beautiful figure that kind of gives us
+[4032.6s] some intuition of the under the the
+[4034.6s] relationship between these different
+[4035.6s] types of normalization that if we have a
+[4039.0s] tensor with a batch dimension a channel
+[4041.8s] dimension and some spatial dimensions
+[4043.6s] then you can see that Bosch
+[4044.8s] normalization averages only over the bat
+[4047.0s] over the batch and spatial dimensions
+[4048.9s] layer normalization is averaging over
+[4050.9s] the spatial and channel dimensions and
+[4052.5s] instance normalization is averaging only
+[4054.9s] over the channel dimension and because
+[4057.9s] there's an empty slot on the slide you
+[4059.4s] should expect that there's another type
+[4060.8s] of normalization that was proposed to
+[4062.9s] this paper are called group
+[4063.9s] normalization a couple years a year or
+[4066.3s] so ago and here the idea is that you
+[4068.4s] split the channel dimension into some
+[4070.2s] number of groups and you normalize over
+[4072.1s] different subsets of the channel
+[4073.7s] dimension and that actually tends to
+[4075.3s] work quite well in some applications
+[4076.9s] like object detection so now we've seen
+[4080.9s] these different components of a
+[4082.9s] convolutional Network and you might be
+[4084.8s] wondering um do you have a lot of
+[4086.7s] freedom here and how you can recombine
+[4088.1s] these things I've kind of given you a
+[4089.9s] set of ingredients that you can use to
+[4091.5s] build neural network models that are
+[4093.2s] aware of the 2d structure of images but
+[4095.4s] I haven't really told you any best
+[4096.5s] principles about how actually to combine
+[4098.2s] them and go about
+[4099.7s] building neural networks that actually
+[4101.9s] work well so that will be the topic of
+[4103.9s] next week's lecture so come back and
+[4105.9s] actually learn how to build neural
+[4107.9s] networks I have a lot of other stuff
+[4109.6s] here that we're not going to be able to
+[4110.9s] get to maybe that'll come some other
+[4112.9s] time so let's skip to here and the
+[4115.0s] problem is how do we actually build
+[4116.4s] these things in a way that makes sense
+[4117.8s] and then we'll talk about that in next
+[4120.6s] next week's lecture

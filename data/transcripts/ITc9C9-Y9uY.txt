@@ -1,0 +1,396 @@
+[1.1s] I love you
+[3.8s] Hai materi channel ini belum saya share
+[9.6s] ya besok aja intinya Hai convert
+[19.6s] convolutional neural Network by dulu
+[24.8s] tahun 2008 part 2007 ke saya persis
+[30.0s] syarat tiruan itu kan ada problem itu
+[33.6s] dia kurasa di prosesornya berat-berat
+[37.0s] gitu ya karena dulu itu belum kenal saya
+[40.9s] di perning apalagi cnn.com ada ini
+[46.7s] bentuknya tuh dulu biasa kaya yang mata
+[50.1s] kuliah Sebelumnya saya abshar Irwan itu
+[52.7s] ya tinggal layer the prophecy and
+[56.5s] training betul kamu modelnya dipakai
+[59.7s] misalnya yang seandainya orang Network
+[62.4s] Biasa disingkat
+[63.8s] Hai nah begitu ukuran saya tanda tangan
+[68.2s] ukuran karena tangannya saya jadikan
+[70.7s] Factor yaitu sekitar berapa itu ya
+[73.7s] banyak gitu engkok butternya pegang dan
+[78.1s] waktu saya gak kenal juga isi lagi
+[80.1s] puas2in itu kan Apalagi waktu itu
+[83.5s] Celeron kuat sejalan nah CNN ini untuk
+[90.9s] mengatasi ukurannya yang besar itu yang
+[94.0s] matriks gambar yang besar itu dia bisa
+[97.0s] diatasi dengan konvolusi nah disini
+[101.5s] letaknya itu ini gambaran umumnya CNN
+[104.6s] itu mungkin ada beberapa yang kesini ya
+[108.5s] sayang Mbak ZA
+[113.2s] Hai banget yang masker itu ya Muliana di
+[122.6s] sini ada 28 usir isinya Kenapa dia bisa
+[125.7s] turun jadi segini terus kemudian sini
+[127.6s] ada berapa adalah melapisi Maksudnya apa
+[129.8s] kita bahas wuling ini akhirnya Oh di
+[138.1s] sini ada Softex kode 10 kita bahas
+[143.9s] kemudian convolution jadikan tulisan itu
+[148.0s] [Musik]
+[150.7s] mengkonversi dari fungsi-fungsi Konversi
+[154.5s] fungsinya itu pakai apa ya paket
+[156.9s] internet Anya namanya filtermist Piter
+[159.7s] Piter vertikal gitu ya kanan dan kiri
+[164.9s] plus ada mint jadi mempertegas
+[168.5s] istilahnya kubu hpeku B
+[173.2s] SR pakai deteksi tepi berwarna jadi ini
+[178.2s] Ini gambar aslinya misalnya ukurannya
+[181.3s] akan empat kali empat Jadi nanti dia ini
+[184.9s] Depok disini bergeser ke kanan terus ke
+[187.9s] bawah itu ya jadi dia dihitung satu
+[192.8s] persatu
+[197.0s] Hai ini contoh hitungan ini hitungan
+[200.3s] yang atas Ini pertama tekan yang
+[204.3s] menghitung 29 ini Nah itu entar ini
+[207.4s] noldy kali kemarin kabar nol dikali min
+[212.5s] patokan
+[215.0s] 2003 s50d kali
+[218.4s] 10 50 kali yang ini jadi nih kayak
+[221.8s] dicekokin ke sini terus di kali gitu ya
+[224.1s] pokoknya Kalian nonton pasien non Oh
+[230.8s] terus ada 3131 ini dikali 26 2 33 dikali
+[237.3s] min satu ini satu itu mint 33 nanti ini
+[244.1s] totalnya total hps banyak total
+[248.1s] jumlahnya gitu ya 6 2 dikurang 33 itu 29
+[256.3s] neurindo 99 Terus yang ini geser ke
+[260.2s] kanan Eh kamu ini ke sini ketemu 35
+[263.8s] minus minus 2 kita konsumsi sebenarnya
+[271.1s] metode-metode itu udah ada dari dulu
+[273.1s] konflusin Maret mata kuliah ini memang
+[277.4s] trik jelasin
+[278.4s] statistik itu tak cuma Entah kenapa
+[281.8s] penduduk orang-orang gak kepikiran bisa
+[284.2s] dipakai pertama kali dipakai teruntukmu
+[288.6s] Processing banget Terus pakai namanya
+[292.4s] sobel Viper tipe-tipe seperti ini ya ada
+[296.7s] dua ada yang vertikal ada yang
+[298.5s] horizontal kalau yang Tapi kalau ini
+[303.4s] hidungnya kebiasaan deh kalau hari
+[305.7s] sekali nanti ada lagi yang nyanyi tidak
+[308.1s] yang ini kelihatannya ini enggak ada dua
+[311.4s] jenis Melian ada istilah berikutnya ke
+[316.9s] teh wedding wedding itu ada dua jenis
+[320.4s] kalau yang tadi ini kita namanya
+[324.0s] nyebutnya valid adding Kenapa namanya
+[326.7s] itu disini gading-gading tapi ada lagi
+[330.3s] pending yang supaya menjaga ukurannya
+[333.4s] tetap sama namanya Sim tray bener
+[337.0s] sampai-sampai dingo
+[338.4s] Hai jadi antara ini ukurannya sama
+[342.2s] Tadinya itu akalin faktor yang ikan 4
+[347.0s] dikurang 3
+[349.4s] e2e tadinya untuk inilah ini Eva Gem
+[356.3s] pasti kurang tidak ya tempat-tempat
+[362.1s] ringan tiga kali tiga Jadinya kalau
+[365.0s] ditambah r0 bingkai lukanya saya sempet
+[367.8s] waktu makhluk setan Bah bingkai gitu kan
+[371.3s] Ya di sekitarnya itu kan nanti nih yang
+[376.4s] apa namanya seri ini filternya cenelnya
+[380.6s] nggak disini tapi di ujung dengan
+[383.6s] talentanya di ujung kalau menyelidiki
+[385.5s] rahim terus ke bawah ini ukurannya
+[387.9s] amagine sama ringan atau ya dengan
+[395.0s] ukuran aslinya hitamnya tekan mungkin
+[399.6s] jadinya 1234566 dikurang fotonya nanti
+[404.5s] gaet kurang
+[409.4s] Hai benarkan Dia 12341 bener ketika 4234
+[416.6s] kayaknya tapi kalau yang ini yuk 234 ini
+[422.6s] jadi dua ya sekali 22234 dia jadi kecil
+[431.1s] ya kalau yang padding tergantung nanti
+[435.5s] penerapannya boleh pakai nyata yang
+[437.8s] bawah nanti kita praktek kayaknya sih
+[440.6s] pakai yang bawah orif.pdf makan kursi
+[445.9s] nah layer ini kan contoh ada gambar itu
+[450.3s] kurangnya 28 kali 2828 kali 28 nah pakai
+[458.5s] filter tiga kali 380
+[469.4s] akhir-akhir katanya chapter 268 filter
+[474.6s] berarti dia A88 seperti ini kalau ini
+[481.6s] contohnya Ini gambarnya kurangnya empat
+[483.4s] kali empat puluh empat kali empat
+[488.9s] filternya ada satu ya ini jadi bakal 4
+[492.8s] kalau empat kali empat pinternya 18 ini
+[497.0s] adalah panji seperti ini untuk dokternya
+[502.1s] 88 filter Biarin nanti ambrosini untuk
+[515.7s] Hai digoreng level kalau empat ini dia
+[528.9s] jadi dua kali dua kali dua ya tapi dua
+[533.6s] kali
+[535.5s] Oke filter.ac 111 ini dua kali dua ya
+[543.5s] ntar jual Avanza 28 dipakai filter 3
+[555.2s] kali 3 berarti iya paket pallete dengan
+[562.3s] Papa minta yang ukurannya tadinya dua
+[567.9s] kok 28 jadi 2628 itu berkurang Benarkah
+[573.4s] teguran
+[576.8s] di belakang berkurang 4 ya
+[582.3s] ke-4 nelpon ke sini ada 8 biji jadi
+[594.3s] kayak kayak kartu kartu bridge tekan
+[598.5s] kartu kredit ada lapan biji Jejer kearah
+[602.8s] sana itu masing-masing kartu itu hasil
+[605.9s] dari konvolusi ini 28 kali 28 itu habis
+[611.4s] ya nyari contohnya tadi berapa ya ini eh
+[616.7s] filternya ukuran Twitternya itu setelah
+[619.6s] bebas lagi bisa ambil dari internet
+[622.9s] tayang bagus tuh dari zona amannya Cina
+[625.4s] itu gini Oh tadi kan empat kali empat
+[630.7s] empat kali empat itu hasil keluarannya
+[634.6s] dua kali dua berkali2 dengan filter nyoy
+[642.2s] Hai tiga kali tiga jadi yang tadinya 4
+[649.1s] dikurangi karena gimana ya pasti kurang
+[654.4s] menang
+[656.0s] Hai tadi kurang 31 siapanya gitulah the
+[662.4s] saya lupa tadi ngitungnya gimana itu
+[665.9s] jadi 26 kali 26 ini tanya si tidak
+[669.8s] maskernya tiga kali tiga ini ukurannya 8
+[673.4s] biji-biji Berikutnya ini wuling wuling
+[677.8s] itu similarity ya jadi dia mencari nah
+[687.5s] Biasanya sih pixel itu tetangganya itu
+[690.5s] ya mirip sama yang utama kayak Jalan
+[694.3s] Raya itu kan kalau kita lihat bisa jadi
+[700.0s] garis bisa juga jadi kayak batangnya
+[704.6s] uling itu dia mengekstrak yang tadinya
+[707.7s] batang ini jadi kecil gitu Jadi yang
+[711.4s] tadinya ukurannya empat kali empat ia
+[715.4s] bisa
+[716.0s] Hai langsung dihajar habis jadi
+[718.9s] setengahnya ini bagi dua caranya dia
+[722.8s] cuma mencari ada tiga berapa ke-33
+[726.9s] beberapa itu kalau yang ini paling
+[728.8s] ganteng nih dicari Maxim murni
+[730.6s] maksimalnya aja ini 8480 Yang biasa satu
+[736.0s] yang 2950 seperti ini dan biasanya sih
+[742.8s] emang bener itu jadi disekitar ini itu
+[745.2s] yang fokus utamanya kan yang kemudian di
+[750.0s] yang sebelah sini deh Fokus utama yang
+[751.6s] ini aku sama yang ini yang ini fokus
+[756.1s] utamanya yang 95 ini lebih akrab ini
+[758.5s] tidak jadi yang tadinya gendut jadi
+[761.3s] kurus kurus tapi gitu Emang bener
+[764.0s] ekstraknya semangkanya nanti Bentuknya
+[769.4s] itu Nah kalau contohnya Ini dia
+[773.5s] separuhnya nih 26 ketika
+[776.0s] full boleh biar Quran itu separuhnya
+[779.4s] dari ini dan 8 biji kemudian ini baru di
+[787.4s] Seperti biasa lah tadi aja P namanya ya
+[796.0s] feedforward maju ya maju kemudian di
+[800.5s] klasifikasi nanti menjadi 10 karena
+[804.9s] gambarnya itu contohnya ada 10 kelas
+[807.8s] dipakai soft Mac enaklah 1234 dan
+[812.3s] seterusnya nah ini nanti kelas yang
+[814.6s] tertinggi itulah yang hasilnya
+[817.0s] pasifikasi hanya di sini ada
+[820.5s] implementasi software
+[825.6s] ia mencoba Ivana itunya mau digantiin
+[830.2s] Iya metode lain Silahkan coba kemudian
+[835.5s] di sini sok teh itu silakan Langsung aja
+[839.8s] cari yang terbesarnya atau juga bisa
+[841.7s] digunakan untuk minyak probabilitas Jadi
+[845.9s] kalau misalnya klasifikasinya itu bukan
+[849.9s] jenis-jenis gambar misalnya baik Cukup
+[852.5s] kurang jelek sangat jelek ditekan atau
+[856.2s] mengukur kinerja nanti kalau misalnya
+[859.0s] sangat bagus itu warnanya merah tekan
+[862.2s] bagus merahnya agar dub Bruce babi itu
+[866.0s] bagus dibanding hasilnya tuh langsung Oh
+[871.2s] bagus atau nggak itu
+[876.3s] Hai yang dihitung Anda menggunakan
+[878.1s] namanya Cross entropi Los Jadi kalau
+[883.9s] misalnya ketemu Ahmadnya itu 0,8 nanti
+[891.1s] minus loan ketemu ngapain ya
+[897.5s] file-nya akurasi yang error jadi
+[902.0s] errornya ini kalau mau Kumala pantai nya
+[906.0s] errornya 20% 2012 atau akurasinya
+[911.5s] 80070020 8 berapa detik set dan ini
+[921.1s] enggak naik kelihatannya 80% ini monyet
+[924.3s] tapi ternyata konsentrasi itu diluangkan
+[927.1s] jadinya 79 berapa gitu ya enggak 80%
+[933.4s] nanti kita coba nih saya saya share data
+[938.2s] dari nih sifar parkirkan searching aja
+[942.3s] di ada 50.000 gambar sih 60.000 60.000
+[949.3s] gambar ada 10 kelas setiap kelas itu
+[957.5s] Apa itu Rp6.000 6000 kalian harus 10
+[962.3s] 60.000 ya 6000 gambar dan gambar pesawat
+[966.2s] ada gambar mobil burung ngetesnya nanti
+[971.8s] dia dimasukkan ke JNE ada paket
+[976.3s] tensorflow enak bisa jadi ketemu seperti
+[981.3s] ini udah kita coba aja gitu ya ini
+[989.4s] itunya apa
+[993.6s] Hai Sasuke share aja deh ya Sambil nyoba
+[1001.2s] nih download Saint Seiya juga download
+[1016.5s] nih dari internet juga paling gampang
+[1020.0s] sih beberapa yang tinggal di Google
+[1022.7s] Kalau enggak jalan gitu ya ngerti aku
+[1025.9s] atau Nyi local.id
+[1048.4s] hai hai
+[1050.8s] ngomong-ngomong ekstrimnya tidak pasti
+[1057.1s] empat pilihan saya paste pilihan sumber
+[1062.7s] ya seneng sama impor impor listrik yang
+[1073.2s] cukup untuk yang slow qeras nothing tapi
+[1078.8s] kemudian kita mengunduh super dataset
+[1082.8s] ini
+[1084.2s] forum tokoh udah punya bisa BlackBerry
+[1087.0s] sini tapi mendingan nggak dari internet
+[1090.0s] aja langsung Kalau ukurannya lumayan
+[1095.3s] berarti kek tapi sepertinya sih kalau
+[1100.0s] download ke aku ke Google koleksi itu
+[1104.5s] lebih ringan karena dia enggak kita
+[1107.0s] gituin diantara Google karena mereka itu
+[1109.6s] hanya cepatnya tinggi banget enggak
+[1113.5s] Kalau download atau upload dari sini Kok
+[1116.2s] tidak itu sore saya tuh berarti ini
+[1118.7s] repot kita di jelek banget dibanding
+[1121.0s] rekan kita Google ke Ciparay ini seperti
+[1125.3s] ini tulisannya kemudian ini kita mau
+[1128.5s] lihat sudah didownload belum Ini plase
+[1131.9s] namanya 10 kelas kedua 345 N9 loh
+[1143.9s] di sini ada cepet 5baris 12345
+[1153.7s] sekolahnya itu sampai lima juga keluarga
+[1158.8s] Padma merek ada
+[1162.1s] dowload gambar ini kurang jelas karena
+[1166.3s] Emang untuk bayi kecil ya kalau jernih
+[1169.0s] kurangnya itu 32 kali 32 gitu ya kalau
+[1174.5s] pengen lihat ukurannya itu seharusnya
+[1181.2s] akhir-akhir ini
+[1185.1s] Hai 32 yang ininya Pokoknya besok siang
+[1192.3s] sini nih 32 33 Jadi kurangnya 32 kali
+[1195.9s] tiga puluh dua terus ada RGB tidak warna
+[1201.0s] panduan-panduan tiga warna rt2 Berarti
+[1203.7s] ada tiga Jadi selain satu gambar Ini dia
+[1208.7s] ada kalau kartu ada tiga kartu gitu ya
+[1212.0s] setiap gambar ketiga kartu kartu kartu
+[1215.2s] Matrix seretnya Madrid Green ya masih
+[1219.7s] punya kartu masih punya saudara
+[1222.7s] petingkat jadi seperti ini ini selain
+[1225.8s] pola ada juga RGB warnanya jadi dia
+[1229.2s] kalau di kalau pengen dilihat n pengen
+[1239.6s] pengen pengen pengen lihat satu aja kita
+[1246.2s] 22 April yang satunya gede bentuknya
+[1251.9s] seperti ini RGB clean tadi kan Gimana
+[1257.9s] nih Red Wine enggak enggak lengkap ya
+[1264.2s] karena ini dia dipotong itu ya satu
+[1268.2s] gambarnya ini ada satu r-drive vr32 kali
+[1273.3s] 32 merah 32 ukuran 30 kali di 32 biru
+[1277.8s] sama hijau itu ya dekatnya kita melempar
+[1282.7s] panduan ini Silakan baca ini di ngomong
+[1287.0s] apa help atau standar ininya ya
+[1292.4s] sintaknya ini harus belajar ini juga
+[1295.5s] kalau pengen tahu jelas itunya wedding
+[1298.7s] on Halid nih yang mengecil Jadi tiap
+[1301.8s] weddingnya terus ada lagi
+[1305.1s] box filter tadi udang ini banyak sekali
+[1309.3s] istilahnya Silahkan baca nih kamu yang
+[1311.1s] mau hocus ke Shenzhen itu ya nyuri
+[1316.2s] Network tinggal nyontek aja panduan nih
+[1320.8s] nggak perlu dihafal yang penting kalau
+[1323.4s] orange tim dalam kita lihat manualnya
+[1326.8s] terus Ikutin terus kalau manualnya Kok
+[1330.2s] aneh ya jangan pakai sama manual gitu ya
+[1332.7s] itu kan udah aturan dari pembuat
+[1335.2s] inginkan akan solonya ituin nya
+[1340.9s] arsitekturnya itu grip beberapa layer
+[1347.1s] Adek hidden layer juga hidden layer
+[1349.4s] metode konvensional juga gitu ya di sini
+[1353.5s] untuknya itu ukuran gambar kali 30032
+[1358.7s] ada tiga warna RGB taksi yang travelokq
+[1362.7s] biasa standar dipernis
+[1365.1s] ndari pompa itu namanya overfitting
+[1371.0s] kemudian yang ada maksudku Line
+[1374.2s] maksudnya itu Ini berarti paruhnya
+[1379.7s] [Musik]
+[1380.8s] kemudian pas ini kalau pengen jelas
+[1390.5s] nanti di model Sabrina saya kelihatan
+[1396.1s] struktur kita lihat ini Negeri ternyata
+[1403.7s] jadi enggak konvolusi itu sampai
+[1409.1s] ukurannya 40 jelasin banget tempatnya
+[1415.5s] tadinya hujan 2015 13.13 ternyata
+[1424.1s] ditambah
+[1425.1s] Aji untuk terakhir nyanyi mungkin yang
+[1432.3s] bisa diganti dengan apa gitu ya msok
+[1435.8s] next jadi di sini ada angkot 10 itu 10
+[1443.9s] kelas Binter hasilnya ada 10 angka
+[1446.4s] disini nanti probability kau Dek
+[1449.4s] quiet media cetak ini tuh dari yang 32
+[1455.5s] kali 32 ke-10 yang bisa ditinggal 10 10
+[1459.5s] angka itu senangnya 10 restore harusnya
+[1468.0s] 1020 tidak
+[1471.7s] Mbok ponselnya mengecil ya mungkin Nah
+[1478.8s] setelah itu di komsel nangis di komsel
+[1481.0s] di Trans rektornya dia 10 Jadi kalau
+[1485.6s] Glutera segitu yang menjadi perhatian
+[1487.9s] Pak ini dia Los pas pakai Duri kalau
+[1496.1s] enggak Vidia mutu kelas kalau cuma dua
+[1500.1s] pasti bisa pakai Barry disini dia
+[1507.6s] menghasilkan ketika spitting doa dia
+[1515.6s] [Musik]
+[1523.3s] sadap fall akurasi valos Quraisy sama
+[1529.5s] bos
+[1531.7s] like
+[1532.5s] Kyuhyun infonya ototnya ini dapat kita
+[1537.2s] nanti di pasukan ke sini kalau mau
+[1542.0s] diplot ini ada akurasi yang harus
+[1545.8s] samanya akurasi labelnya kasih yang
+[1548.0s] walau akurasi kalau akurasi Udah 10
+[1553.8s] Kalau saya lihat enggak pictnya kita
+[1559.1s] nanti muncul ini yang oranye itu fall
+[1564.9s] akurasi kepalaku rasanya Dia akan naik
+[1570.9s] ke situ Kalau yang biru Ini akurasi
+[1579.0s] kalau udah kemudian ini untuk
+[1588.6s] Mbok akurasinya 70% dan enggak jadi
+[1591.9s] kekerasan di Pulau satunya maunya kalau
+[1599.1s] dia nyaranin lihat di sini kalau untuk
+[1602.1s] [Musik]
+[1603.7s] naikin bodyline kemudian di sini Oh ini
+[1610.1s] masa iseng Ya udah sini Sebenarnya saya
+[1612.6s] iseng untuk testing Soalnya disini nggak
+[1615.2s] dijelasin ngetes ngetes bener nggak sih
+[1620.0s] gambarnya ada ngomong gambar-gambar yang
+[1628.3s] ke-111 ini kan pesawat terbangnya
+[1633.5s] pesawat banget nanti ini mau saya teknik
+[1640.3s] itu terjaga pesawat terbang Iyan
+[1648.6s] Hai Scorpio ini hasil dari Softex yang
+[1651.9s] yang 10 kali satu itu 23456789 10 vs 10
+[1660.0s] nah kelasnya itulah yang terletak ini
+[1665.9s] berpindah lagi Maret bantu untuk ini aja
+[1672.2s] ya untuk maksudnya gitu ternyata ini
+[1680.6s] tertinggi dan kalau kita lihat itu kan
+[1684.7s] airclean Benar berarti ya Coba 100
+[1689.8s] datanya
+[1694.4s] [Musik]
+[1696.5s] Mbok ini saya dingin dia kenapa kalau Eh
+[1700.9s] ini 150 doang itu saya juga bingung
+[1704.4s] kenapa erotis melanggar standar
+[1708.5s] matriknya kali ini kalau saya tes coba
+[1712.1s] tanya Ron BT dia maunya itu Friends dia
+[1716.3s] 10 1-141 ini banyak juga yang belum
+[1723.9s] dijelasin di sampai tadi kan aku
+[1727.8s] Hai Neng kalau saya lihat Mask itu
+[1732.1s] enggak mana ini 3,7 tiga itu nomor 9 ya
+[1739.7s] 1234567899 itu 23456789 sip Oh ini jam
+[1753.6s] selain ya gosip gitu ya ngaco likenya ya
+[1764.5s] coba ngetik HP mobil saya tidak
+[1774.7s] ndak ndak dia ottomobile yang nomor
+[1784.9s] Hai 0,9 Madrid dan 36 with 234567 234567
+[1810.4s] macam-macamnya yang ngajak juga Dia
+[1816.4s] nyuruh tahu Perahu
+[1820.7s] kepo Setia Sidney
+[1831.9s] 299 itu nomor dua dari bawah 12 ngapain
+[1845.9s] ngaji kucing yang tadinya 1290 SMA 12
+[1853.0s] dan 13 gagal
+[1860.3s] Hai kamu lagi apa 2,7 23456 23456 dog
+[1872.0s] banyak cerpen anjingnya ilang begitu aja
+[1878.0s] nanti kita lanjut ke bisa karya yang rnn
+[1884.6s] yang mereka rame bener banget tuh sama
+[1889.1s] saya minta informasi ininya Adik
+[1892.7s] sentiment itu ya klubnya masih sama yang
+[1895.2s] kayak dulu
+[1898.0s] Hai boleh ketemu aja ya sampai ashar
+[1903.2s] silakan deh yang mau istirahat kita
+[1905.8s] gimana saya stop dulu sebentar
+[1909.8s] salamualaikum warahmatullahi wabarakatuh
+[1914.9s] Waalaikumsalam nifas saat orang-orang
+[1927.8s] I love you

@@ -1,0 +1,1094 @@
+[0.9s] Halo semuanya asalamualaikum
+[2.9s] warahmatullahi wabarakatuh jumpa lagi di
+[5.7s] seri perkuliahan soft computing Bersama
+[8.6s] saya Muhammad Fahri pada video kali ini
+[12.2s] kita akan membahas mengenai salah satu
+[15.4s] metode dari soft computing yakni neural
+[19.4s] networks nah pada video yang lalu kita
+[22.6s] pernah membahas bahwasanya Eh neural
+[26.0s] networks ini merupakan salah satu teknik
+[28.8s] yang ada di computing dan juga di
+[31.2s] machine learning yang mana kita tahu
+[33.7s] bahwa soft computing ini dan juga
+[35.8s] machine learning merupakan bagian dari
+[39.2s] suatu wadah besar yang disebut dengan
+[41.0s] artificial intelligence ya Nah di sini
+[44.8s] neural networks atau jaringan saraf
+[47.2s] tiruan merupakan suatu teknik yang
+[50.2s] sama-sama dimiliki oleh machine learning
+[52.4s] dan juga oleh soft computing ya jadi dia
+[55.2s] ada di area irisan nah eh menariknya di
+[60.1s] sini neural networks ini berbeda dengan
+[62.4s] F logic yang pernah kita bahas
+[65.2s] sebelumnya ya Oke kita akan Perlihatkan
+[68.0s] Seperti apa kemampuan dari neural
+[69.7s] networks ini Nah di sini eh kemampuan
+[74.0s] neural networks yang pertama adalah
+[77.1s] classification jadi neural networks atau
+[79.8s] jaringan saraf ti one ini mampu
+[81.6s] melakukan klasifikasi data ya Misalkan
+[85.1s] begini Eh mengklasifikasikan Mana email
+[88.3s] yang spam dan mana email yang bukan spam
+[91.4s] atau misalkan mengklasifikasikan ya
+[94.0s] berita berdasarkan jenis-jenisnya ada
+[96.9s] Berita politik berita pendidikan
+[99.2s] Misalnya berita ekonomi ya dan
+[102.2s] seterusnya ya nah jadi mengelompokkan
+[105.4s] berdasarkan kategori-kategori Nah yang
+[108.6s] kedua kemampuan dari neural networks ini
+[111.4s] adalah melakukan prediction atau
+[113.4s] prediksi yakni memperkirakan ya
+[116.2s] memperkirakan suatu nilai misalkan ya
+[119.0s] memprediksi suhu ya memprediksi harga
+[122.6s] emas misalnya atau
+[124.4s] memprediksi harga rumah ya harga jual
+[127.5s] rumah misalnya
+[129.2s] nahah prediksinya akan dilakukan
+[131.7s] berdasarkan
+[132.9s] parameter-parameter tertentu ya Nah
+[136.1s] bedanya dengan klasifikasi ya kalau
+[138.8s] klasifikasi ya outputnya berupa
+[141.9s] kategori-kategori ya
+[143.7s] kelompok-kelompok sedangkan prediksi
+[146.2s] outputnya berupa sebuah bilangan sebuah
+[148.7s] nilai yailai perkiraan ya nilai prediksi
+[152.8s] nah yang ketiga Kemampuan neural
+[155.4s] networks adalah clustering yni
+[157.9s] pengelompokan Nah apa bedanya cltering
+[160.7s] dengan klasifikasi Nah kalau pada
+[163.2s] klasifikasi kelompok atau kategorinya
+[166.1s] sudah jelas sudah
+[168.0s] ditentukan ya misal tadi ada berita
+[170.8s] politik ya ekonomi olahraga dan
+[173.4s] seterusnya Nah kalau di kelas string
+[176.3s] kategori-kategori ini belum ada dan
+[178.7s] belum bisa ditentuk kan Ya nah jadi
+[181.8s] nanti eh neural networks akan
+[184.4s] mengelompokkan data-data berdasarkan
+[187.8s] kemiripan data tersebut nah akan tetapi
+[191.5s] di video ini kita hanya akan fokus
+[193.6s] membahas dua yang pertama saja yakni
+[196.5s] klasifikasi dan prediksi Nah sekarang
+[200.1s] untuk lebih memahami apa itu klasifikasi
+[202.5s] kita lihat beberapa contoh berikut ini
+[204.6s] ya nah salah satu penggunaan dari teknik
+[208.7s] klasifikasi dengan jaringan saraf tiruan
+[211.0s] adalah untuk mengklasifikasikan atau
+[213.9s] mengelompokkan ya email ya berdasarkan
+[217.8s] eh kontennya ya Mana email yang spam
+[220.6s] Yakni email yang sampah gitu ya biasanya
+[223.8s] berisi penipuan iklan dan yang enggak
+[226.2s] jelas begitu ya Nah dan juga
+[228.6s] mengklasifikasikan Mana email yang
+[230.6s] memang email yang benar gitu ya yang
+[232.6s] bukan spam ya Nah contoh yang kedua Nah
+[236.9s] teman-teman pasti sering melihat benda
+[238.6s] ini ya terutama di masa pandemi ini
+[241.3s] namanya genus c19 ya Ee yakni Sebuah
+[245.9s] alat yang diciptakan oleh EE apa
+[249.4s] UGM yang bisa dipakai untuk apa
+[252.6s] mengklasifikasikan ya Apakah seorang
+[254.9s] Pasien itu eh positif covid ataukah dia
+[258.9s] negatif covid nah mengklasifikasikan ya
+[261.7s] Apakah si A itu positif atau negatif
+[264.9s] covid-19 Nah ada kategorinya di situ Ini
+[268.2s] klasifikasi
+[269.8s] yang ketiga misalnya pengenalan wajah ya
+[272.6s] Nah pengenalan wajah ini merupakan salah
+[274.7s] satu dari contoh teknik klasifikasi ya
+[278.3s] misalkan ya kita membedakan Oh ini wajah
+[280.8s] si a ini wajah si B ini wajah si C Nah
+[284.3s] itu adalah contoh dari klasifikasi
+[286.2s] mengelompokkan ya berdasarkan
+[288.6s] kategorinya kategori di sini adalah
+[290.6s] orangnya personnya ya A B C ya si A si B
+[294.7s] si C Nah contoh lain misalkan ee
+[298.1s] Pengenalan ucapan ya Ee jadi komputer
+[301.5s] itu kan bisa mengenal ucapan kita gitu
+[303.6s] ya n ini juga merupakan contoh dari
+[305.8s] klasifikasi ya dia bisa membedakan Oh
+[308.6s] ini huruf a Oh ini fonem Huruf apa
+[311.1s] misalnya Oh ini dia mengucapkan kata X
+[313.6s] ya kata a kata B kata C begitu ya nah
+[316.4s] jadi itu bagian dari klasifikasi juga
+[318.5s] Nah di sini jadi yang perlu ditekankan
+[321.2s] adalah output dari klasifikasi itu ya
+[324.8s] merupakan kategori kategori ya spam atau
+[329.2s] bukan spam covid atau bukan covid ya
+[333.0s] wajah si A wajah si B atau wajah si C
+[335.8s] Nah nanti harus Kita bedakan antara
+[338.5s] klasifikasi dan prediksi Apa bedanya
+[341.6s] gitu ya Nah kalau diprediksi contohnya
+[344.5s] begini ya Ee Kita memprediksi usia
+[347.8s] seseorang berdasarkan wajahnya ah ingat
+[350.8s] ya lihat bedanya nih kalau diklasifikasi
+[353.2s] tadi kita mengelompokkan atau
+[356.3s] mengklasifikasikan wajah ya wajah si A
+[358.8s] si B si C atau si d hanya
+[361.2s] mengklasifikasikan wajahnya Nah kalau
+[363.4s] diprediksi ini ya salah satu contohnya
+[365.6s] adalah kita memprediksi usia Jadi bukan
+[368.6s] menebaknya Wajah siapa ya tapi
+[371.4s] memprediksi usianya nilai usianya Oh ini
+[375.4s] wajahnya ini sepertinya ini 32 tahun
+[378.0s] misalnya wajah seperti ini misalnya 17
+[380.6s] tahun gitu ya Dan Seterusnya jadi output
+[383.7s] dari prediksi itu adalah nilai sebuah
+[386.3s] nilai contoh lain misalnya stock market
+[389.1s] predik
+[390.4s] Saya ingin E apa saya berdagang misalnya
+[392.9s] ya Berniaga
+[394.0s] ee kemudian saya pastinya ingin meraup
+[397.0s] untung yang sebesar-besarnya dengan
+[398.8s] modal yang sekecil-kecilnya jadi saya
+[400.7s] enggak boleh rugi di sini jadi ketika
+[402.8s] saya memproduksi suatu barang saya harus
+[405.2s] tentukan dulu nih saya harus prediksi
+[407.8s] kira-kira Berapa banyak barang yang
+[410.0s] harus saya produksi untuk besok misalnya
+[412.8s] ya untuk besok ya tidak boleh terlalu
+[415.8s] banyak tidak boleh juga terlalu sedikit
+[418.0s] gitu ya terlalu banyak kalau enggak laku
+[420.3s] yang mubazir kalau terlalu sedikit
+[422.5s] ternyata ramai yang beli ya rugi juga
+[424.6s] gitu kan maka harus diprediksi dulu Nah
+[427.9s] nanti prediksinya berdasarkan tren
+[430.6s] market sebelumnya ya Tren penjualan pada
+[433.1s] hari-hari sebelumnya jadi outputnya
+[435.9s] berupa jumlah yang harus e diproduksi
+[439.4s] gitu ya bilangan outputnya contoh lain
+[442.8s] misalnya eh peramalan atau forecast ya
+[445.8s] prediksi harga emas ini juga sama ya
+[448.5s] outputnya berupa up bilangan ya harga
+[450.8s] emas outputnya itu jadi memprediksi
+[453.6s] harga emas berdasarkan tren harga pada
+[456.5s] waktu-waktu sebelumnya ya contoh lain
+[460.2s] juga misalnya memprediksi e suhu udara
+[463.1s] ya suhu udara kira-kira nanti malam suhu
+[466.2s] udara bakal berapa derajat gitu ya atau
+[468.7s] besok pagi kira-kira suhu udara
+[470.8s] kira-kira berapa derajat Celcius
+[472.6s] misalnya nah ini Jadi prediksi outputnya
+[476.1s] adalah bilangan ya sedangkan kalau
+[478.6s] klasifikasi output-nya adalah Eh
+[482.2s] kategori-kategori ya Nah kemudian Nah
+[485.0s] kita lihat di sini karena kita bicara
+[488.0s] tentang jaringan saraf tiruan atau
+[490.4s] neural networks Nah maka eh kita perlu
+[493.6s] bahas dulu nih latar belakangnya ya
+[495.9s] kenapa sampai ada eh teknik yang namanya
+[499.2s] neural networks atau jaringan saraf
+[501.4s] tiruan nah ternyata latar belakangnya ya
+[505.7s] diadopsi dari atau inspirasinya dari
+[508.7s] jaringan
+[510.3s] biologis pada manusia ya yang pernah
+[513.1s] belajar biologi mungkin pernah lihat
+[514.8s] gambar ini ya Ini adalah gambar dari e
+[518.0s] sebuah sel saraf ya sel saraf dari
+[520.2s] manusia nah sebuah sel saraf itu
+[522.8s] memiliki body punya badan ya punya badan
+[526.4s] di tengahnya ada yang warna kuning itu
+[528.2s] adalah inti selnya nukleus gitu ya
+[531.4s] kemudian dia punya tangan yang panjang
+[534.6s] itu ya tangan yang panjang itu namanya
+[537.0s] akson ya akson ini nanti bisa bisa
+[539.6s] nyambung e apa ke sel apa namanya sel
+[543.0s] saraf lainnya melalui sinapsis yang di
+[546.0s] ujungnya itu nah ee kemudian kalau kita
+[549.1s] lihat di badan sel itu juga ada seperti
+[552.1s] rambut eh seperti akar begitu ya itu
+[554.5s] juga tangan tangan pendek ya disebut
+[557.2s] juga dengan dendrd gitu ya drd Nah nanti
+[560.6s] dendrd ini akan eh apa namanya bisa e
+[563.9s] terhubung e melalui sinapsis ya dengan
+[567.8s] neural networks yang lainnya sel saraf
+[569.8s] lainnya ya Jadi ini adalah gambar
+[573.1s] ilustrasi sebuah ya sebuah sel saraf
+[576.9s] biologis pada manusia nah nanti ya satu
+[579.9s] sel saraf ini bisa terkoneksi dengan sel
+[582.0s] saraf yang lainnya ya Ada mungkin jutaan
+[585.9s] bahkan miliaran sel saraf dalam tubuh
+[588.0s] kita ini ya itulah Kenapa ee kita ya
+[592.1s] bisa memiliki kecerdasan ya bisa
+[594.5s] berpikir bisa ee mencium bau membedakan
+[597.5s] bau ya bisa membedakan rasa membedakan
+[601.1s] objek yang kita lihat ya dan seterusnya
+[604.8s] Nah dari sinilah ya Ee awal bermulanya
+[608.6s] jaringan saraf tiruan nah terus
+[610.9s] bagaimana sih cara kerja ee jaringan
+[613.6s] saraf biologis itu nah ibarat begini ee
+[616.8s] misalkan kita makan cokelat ya kita
+[619.0s] makan cokelat nah di lidah kita itu ada
+[621.7s] sel saraf ya di lidah kita ada sel saraf
+[624.8s] yang bisa merasakan eh empat jenis rasa
+[627.9s] ya mungkin masih ingat ya pelajaran
+[629.8s] biologi mungkin SD atau SMP itu ya Ada
+[632.8s] Rasa manis rasa pahit ya asin dan asam
+[636.3s] ya nah eh sel saraf di lidah itu dia
+[640.4s] terhubung ya nyambung dia dengan sel
+[642.6s] saraf yang ada di otak nyambung dia itu
+[645.4s] maka ketika kita makan cokelat misalnya
+[648.1s] ya maka cokelat tadi akan dirasakan oleh
+[650.7s] sel saraf di lidah ya kemudian inputnya
+[654.4s] atau ee rangsangan yang diberikan oleh
+[656.8s] makanan tadi ya rasa yang dikecap oleh
+[658.9s] lidah tadi itu akan dikirimkan dalam ee
+[662.5s] berupa sinyal ya dalam bentuk sinyal
+[664.7s] dikirimkan dari lidah menuju otak nah
+[668.4s] menuju otak nah ketika otak merasakan
+[670.8s] Wah ini rasa manis coklat manis maka
+[674.3s] otak akan merespon dengan memberikan
+[676.0s] rasa bahagia ya kan biasanya kan kalau
+[678.4s] kita makan cokelat itu kan bahagia ya
+[680.4s] manis soalnya nikmat Nah itu cara t itu
+[683.6s] salah satu cara kerjanya ya dia menerima
+[686.2s] input berupa makanan makanan itu di
+[689.4s] rasakan oleh eh reseptor atau eh saraf
+[693.2s] yang ada di lidah tadi ya diterima
+[695.8s] sebagai input diteruskan sampai ke otak
+[698.9s] otak memberikan respon atau output ya
+[701.8s] berupa rasa rasa bahagia tadiah ini
+[705.0s] senang makan cokelat gitu kan Nah contoh
+[707.6s] lainnya misalnya kita
+[709.7s] eh mata ya ketika Mata melihat suatu
+[713.8s] objek di depannya ya kita tahu bahwa
+[716.1s] mata itu juga punya sel syaraf yang mana
+[719.0s] sel syaraf mata itu juga terhubung ke
+[722.0s] otak jadi ketika mata menerima pantulan
+[725.1s] cahaya dari sebuah objek ya maka
+[727.9s] pantulan cahaya itu akan diterima
+[729.8s] sebagai input ya oleh sel saraf di mata
+[733.0s] dan diteruskan ke otak ya jadi Sel serf
+[736.2s] Kan berhubungan ya diteruskan ke otak
+[738.8s] otak merespon dan membuka database di
+[741.6s] kepala kita ya Oh ini buah apel misalnya
+[745.0s] jadi otak bisa merespon dan dia bisa
+[747.8s] meng-outputkan ya ya mengoutputkan Oh
+[750.2s] ini buah buah apel Oh ini buah rambutan
+[752.7s] Oh ini buah durian misalnya nah ini juga
+[755.8s] salah satu contoh cara kerja sel saraf
+[758.5s] biologis pada manusia dia menerima input
+[761.6s] Ya baik melalui mata misalnya atau dari
+[764.8s] lidah dari panca indra kita ya dari
+[767.8s] kulit Juga misalnya atau dari hidung
+[769.8s] berupa e aroma atau bau ya input tadi
+[773.8s] diteruskan ya diteruskan sampai ke otak
+[777.0s] otak memberikan output ya berupa respon
+[779.6s] gitu nah ini yang ditiru oleh para
+[781.9s] ilmuwan sehingga mengembangkan suatu
+[783.9s] teknik suatu algoritma yang namanya
+[786.2s] neural Network ya artificial neural
+[789.1s] networks atau kalau kita nyebutnya eh
+[791.5s] jaringan saraf tiruan Nah karena ini
+[795.9s] tiruan maka pastinya tidak sekompleks
+[798.7s] yang aslinya ya tidak sekompleks yang
+[801.0s] aslinya karena aslinya ciptaan tuhan
+[803.2s] gitu ya Nah tirunya seperti ini gitu
+[805.9s] teman-teman jadi kita punya input di
+[808.2s] sini teman-teman ya ya Jadi ada bagian
+[810.4s] input ya kita nyebutnya input layer atau
+[812.6s] e lapisan input sebelah kiri itu ya
+[816.0s] kemudian di tengah-tengah itu kita sebut
+[818.1s] sebagai hidden layer ya lapisan
+[820.8s] tersembunyi nah lapisan tersembunyi ini
+[823.5s] fungsinya apa fungsinya sebagai jembatan
+[826.2s] atau penghubung antara input dengan
+[828.8s] output penghubung ya outputnya mana yang
+[831.8s] paling kanan warna hijau itu itu
+[833.4s] outputnya ya itu outputnya jadi ada
+[836.0s] input layer ada e apa namanya hit layer
+[839.7s] dan ada output layer di mana di sini
+[841.8s] hidden layer merupakan penyambung ya
+[844.2s] penghubung antara input dengan outputah
+[847.1s] input tadi ya seperti peran lidah tadi
+[849.3s] ya dia menerima input ya E apa berupa
+[852.9s] makanan atau rasa ya atau mata tadi sama
+[855.9s] ya menerima input berupa pantulan cahaya
+[858.3s] diteruskan sampai ke otak Nah di sini
+[861.2s] otaknya berupa output layer itu ya saraf
+[863.9s] di otak diwakilkan oleh output layer dia
+[866.5s] akan memberikan respon gitu ya nah Nah
+[869.3s] nanti pada jaringan saraf tiruan ini
+[871.4s] inputnya bisa beragam teman-teman ya
+[874.0s] inputnya bisa beragam ya bisa berupa
+[877.6s] data tabular ya data tabular ya atau
+[881.4s] juga bisa berupa Citra atau gambar jadi
+[884.6s] dia bisa mengenali wajah si A wajah si B
+[886.9s] atau dia bisa mengenal objek ya Oh ini
+[889.8s] objek kucing misalnya Oh ini objek e
+[891.9s] anjing misalnya Oh ini objek yang
+[893.4s] lainnya ya E dan juga dia juga bisa
+[896.7s] menerima input berupa suara ya ya
+[899.2s] sehingga dia bisa melakukan yang kita
+[901.1s] sebut tadi speech recognition ya Atau eh
+[904.8s] Pengenalan ucapan jadi inputnya bisa
+[907.5s] beragam ya Tergantung problem atau studi
+[910.0s] kasus apa yang kita ee ingin selesaikan
+[912.8s] ya Jadi bisa berupa data tabular bisa
+[915.4s] berupa data gambar dan juga bisa berupa
+[918.1s] data ee sinyal suara teman-teman ya Oke
+[923.0s] next nah sekarang kita lihat dulu studi
+[925.0s] kasus dari newur networksnya seperti apa
+[927.3s] ya dia dipakai di mana sih gitu ya Nah
+[930.6s] sekarang kita lihat dulu studi pertama
+[932.4s] yakni ee pada permasalahan rekrutmen
+[935.6s] pegawai ya jadi gini
+[939.5s] ceritanya kita mau bikin sistem ya
+[942.2s] sistem yang bisa
+[944.2s] mengautomatisasi proses rekrutmen
+[946.4s] pegawai di sebuah perusahaan artinya
+[948.3s] gini e artinya nanti Bidang SDM akan
+[951.5s] terbantu dengan sistem ini ya jadi dia
+[953.7s] enggak perlu ngecek manual satu-satu ya
+[956.6s] sistem nanti bisa memberikan rekomendasi
+[958.4s] kira- kira pegawai ini e cocoknya
+[961.4s] diterima atau ditolak gitu ya Nah di
+[964.2s] sini Misalkan rekrutmennya didasarkan
+[967.2s] pada EMP parameter ya EMP input ini IPK
+[971.5s] wawancara ya nilai wawancara lalu nilai
+[974.6s] tes e psikotes dan ada nilai skor
+[977.8s] pengalaman misalnya ya misalnya nanti e
+[981.5s] IPK wawancara sikotes dan pengalaman ini
+[984.6s] dijadikan sebagai input ya sebagai input
+[987.4s] Nah nanti kita sebut dia sebagai X1 x2
+[991.0s] x3 dan X4 nah ini inputnya Nah nanti
+[996.1s] input ini akan tersambung ke hidden
+[998.4s] layer gitu ya nanti hidden layer-nya ini
+[1001.2s] kita wakilkan dengan eh Z1 Z2 sampai ZN
+[1004.9s] Nah kenapa ZN karena di sini jumlah
+[1009.0s] neuron ya kita nyebutnya neuron Jadi
+[1011.6s] yang bulat-bulat tadi itu adalah
+[1013.8s] neuronnya gitu ya nanti bagian-bagian
+[1016.4s] dari jst atau Jar sftiron ini kita akan
+[1018.9s] bahas berikut nanti di slide berikutnya
+[1020.6s] ya jadi Z1 sampai ZN ini mewakili neuron
+[1026.2s] ya yang ada di lapisan tersembunyi
+[1029.4s] teman-teman ya Nah kenapa sampai ZN
+[1032.6s] Karena gini jumlah neuron pada lapisan
+[1035.3s] tersembunyi ini memang tidak bisa
+[1037.6s] ditentukan ee secara pasti Berapa
+[1040.4s] jumlahnya gitu ya kalau inputnya pasti
+[1043.4s] gitu ya inputnya misalkan di sini ada
+[1045.5s] empat gitu ya inputnya pasti jumlahnya
+[1048.1s] tapi kalau dan layernya kita belum bisa
+[1050.8s] pastikan Berapa jumlah neuronnya ya
+[1053.8s] nanti caranya gimana caranya adalah
+[1056.0s] trial and error coba-coba gitu nah
+[1059.8s] kemudian nanti hidden layer ini ya
+[1062.1s] setiap neuronnya akan tersambung dengan
+[1064.1s] neuron yang ada di output layer gitu y1
+[1068.8s] ya Kenapa cuma satu input e outputnya
+[1071.4s] kok cuma satu karena di sini kita hanya
+[1073.7s] ingin menentukan apakah seorang pegawai
+[1076.0s] atau calon Pegawai itu akan diterima
+[1078.2s] atau di ditolak nah dalam hal ini ya y1
+[1083.1s] itu bisa mengeluarkan dua buah nilai ya
+[1086.2s] dua ee salah satu dari dua nilai maksud
+[1088.8s] saya ya dia bisa mengeluarkan nilai sat
+[1091.7s] kalau satu itu berarti ee pegawai itu
+[1095.2s] atau calon Pegawai itu diterima tapi
+[1097.8s] kalau outputnya adalah 0 maka dia
+[1100.8s] sebaliknya dia akan ditolak gitu jadi ee
+[1104.3s] y1 ini 1 newuron Ini bisa mengeluarkan
+[1106.8s] nilai ee 1 atau nol tergantung nanti
+[1110.9s] perhitungan matematisnya Seperti apa ya
+[1113.2s] teman-teman ya Nah ee kemudian ee contoh
+[1118.2s] lainnya gitu ya contoh lainnya Begini
+[1120.7s] Nah pada kasus klasifikasi email ya spam
+[1125.0s] ya Mana yang spam dan mana yang bukan
+[1126.7s] spam Nah nanti apa yang dijadikan input
+[1130.3s] nah yang dijadikan input nanti adalah
+[1133.3s] kata-kata ya kata-kata yang sering
+[1136.1s] muncul dalam sebuah email misalnya kata
+[1138.3s] Sam
+[1139.3s] kata donasi kata hadiah kata dokumen
+[1141.6s] jadi kata-kata yang biasa muncul di
+[1144.0s] email ya baik email yang spam dan juga
+[1146.4s] email yang real gitu ya email yang benar
+[1148.7s] gitu ya kita koleksi ya kita data kita
+[1153.0s] olah ya sehingga kita bisa menentukan
+[1155.9s] kata-kata apa saja yang bisa dijadikan
+[1157.7s] input di sini ya kata yang EE biasa
+[1161.3s] muncul di email spam gitu ya dan juga
+[1163.7s] yang EE kata-kata lain yang juga ada di
+[1166.2s] email yang nonspam gitu nanti Nti
+[1168.9s] kata-kata ini ya Ee akan punya skor
+[1172.4s] punya nilai ya artinya gini ee Misalkan
+[1175.9s] kata selamat itu muncul atau ada di
+[1178.4s] dalam sebuah email Maka nanti kata
+[1180.4s] selamat ini nilainya e lebih dari l ya
+[1183.4s] mungkin sat atau du misalnya gitu tapi
+[1186.0s] misalkan kata hadiah kata hadiah ini
+[1188.1s] enggak muncul dalam sebuah email
+[1189.8s] misalnya nanti nilainya nol gitu ya
+[1191.7s] nilainya no nah kata-kata ini dijadikan
+[1195.1s] sebagai input ya kita sebut sebagai X1
+[1198.0s] X2 sampai XM ya XM artinya nanti berapa
+[1202.0s] m itu ya Tergantung berapa kata yang
+[1204.0s] kita dapatkan ya berapa kata yang kita
+[1206.3s] miliki sebagai input gitu nanti dia akan
+[1209.4s] terkoneksi ke apa namanya ke hidden
+[1212.2s] layer di situ sudah ada neuronnya ya
+[1214.3s] sebanak n ya ZN kemudian nanti akan
+[1217.8s] tersambung ke output layer-nya y1 juga
+[1220.8s] Sama ya outputnya cuma satu neuron di
+[1223.8s] sini ya Jadi teman-teman ada istilah
+[1226.6s] layer ada istilah neuron nanti kita akan
+[1229.1s] bahas lebih lanjut ya Nah yang penting
+[1232.0s] kita akan Ee kita tahu dulu nih buat apa
+[1233.9s] ya Ee Apa kegunaan dari ee neural
+[1237.1s] networks ini supaya kita punya
+[1238.9s] gambarannya ya Nah di sini output-nya
+[1242.0s] adalah satu buah neuron yang bisa
+[1244.3s] mengeluarkan nilai 1 atau 0 kalau nilai
+[1247.6s] outputnya 1 berarti email itu kita sebut
+[1250.6s] spam Ya tapi kalau outputnya nol berarti
+[1254.8s] email tersebut ya email yang benar ya
+[1257.3s] bukan spam gitu ya memang email yang
+[1259.5s] real gitu nah dalam hal ini teman-teman
+[1264.0s] ya karena kita mau mengelompokkan spam
+[1266.3s] atau bukan spam ya kita sebetulnya bisa
+[1269.4s] membuat outputnya itu ke dalam 2 neuron
+[1272.2s] misalnya kayak gini ya Jadi bisa dalam 1
+[1275.7s] neuron ya Atau bisa juga dalam dua
+[1279.0s] neuron seperti ini y1 dan Y2 Kenapa du
+[1282.8s] neuron karena kita punya dua kategori di
+[1285.4s] sini ya Ee yakni spam dan bukan spam
+[1288.6s] gitu nah jadi baik cara yang ini maupun
+[1291.7s] yang sebelumnya tadi yang cuma satu
+[1293.1s] newuron di outputnya ini bisa dipakai
+[1295.3s] bisa dipakai ya cuma biasanya
+[1299.1s] eh trennya ya atau apa namanya eh untuk
+[1303.7s] performa yang lebih baik Biasanya kita
+[1305.8s] menggunakan cara yang kedua ini ya kalau
+[1308.8s] kita punya dua kategori untuk
+[1310.9s] diklasifikasi maka kita pakai e du
+[1313.7s] neuron pada output layernya nanti kalau
+[1316.4s] misalkan e apa kifikasi atau kategorinya
+[1319.9s] itu ada 3 ada 5 ada 6 ya berarti jumlah
+[1323.3s] nyurnya ngikutin jumlah kategorinya itu
+[1325.6s] gitu Nah nanti ini eh misalkan ya Eh
+[1329.7s] nanti ketika kita inputkan diproses
+[1333.6s] keluar outputnya y1 bernilai 1 misalnya
+[1337.2s] ya ketika y1 bernilai 1 maka nanti Y2
+[1341.6s] atau newuron output yang lainnya itu
+[1343.8s] akan bernilai nol gitu jadi ketika ada
+[1346.4s] satu nyuran output itu bernilai S
+[1349.2s] maka nantion yang lain akan bernilai 0
+[1352.6s] Jadi kalau y1nya sama 1 maka kita
+[1355.8s] kategorikan dia spam ya Tapi sebaliknya
+[1359.8s] kalau yang bernilai 1 itu adalah Y2
+[1364.0s] kalau y2nya 1 berarti y1 0 gitu ya
+[1366.6s] sebaliknya gitu maka dia bukan spam ya
+[1369.2s] kalau y2nya sama 1 Nah ini bisa pakai
+[1372.6s] cara pertama tadi atau cara kedua ini ya
+[1375.6s] tapi saya pribadi lebih dua ini ya Sama
+[1380.4s] halnya dengan kasus ee tadi ya
+[1382.2s] sebenarnya Kasus apa namanya ee
+[1384.1s] rekrutmen pegawai tadi juga bisa dibuat
+[1386.1s] seperti tadi ya seperti ini ya bisa
+[1388.8s] dibuat y1 Y2 ya y1 nanti untuk kategori
+[1392.4s] ee pegawai yang diterima dan Y2 untuk
+[1395.8s] kategori pegawai yang ditolak yang tidak
+[1398.1s] diterima gitu ya
+[1400.1s] Oke mudah-mudahan Paham ya contoh lain
+[1403.6s] misalnya untuk ee klasifikasi penyakit
+[1406.4s] ya penyakit jadi inputnya apa inputnya
+[1409.2s] gejala yang dirasakan oleh pasien gejala
+[1411.9s] 1 2 3 dan seterusnya sampai gejala ke m
+[1415.5s] ini kita sebut sebagai inputnya X1
+[1417.6s] sampai XM ini inputnya kemudian nanti
+[1420.2s] dia akan e tersambung ke hidden layer ya
+[1423.7s] hidden layer nanti hidden layer akan
+[1425.7s] nyambungkan ke output-nya ini misalkan e
+[1429.3s] penyakit yang mau kita klasifikasi ada
+[1431.3s] banyak penyakitnya ya Ada banyak
+[1433.4s] penyakitnya penyakit 1 2 3 dan
+[1436.0s] seterusnya sampai penyakit ke k gitu ya
+[1439.0s] Maka nanti di output layernya yang warna
+[1441.4s] hijau ini ya kita buat neuron sejumlah
+[1445.4s] kategori penyakitnya tadi gitu ya kalau
+[1448.3s] penyakitnya ada 10 ya berarti neuronnya
+[1450.7s] pada output layernya ada 10 ya yang
+[1452.9s] warna hijau
+[1454.4s] itu di sini saya simpbolkan dengan y1 Y2
+[1457.5s] sampai YK Nah nanti kalau y1-nya
+[1461.4s] outputnya berupa 1 ya outputnya bernilai
+[1464.2s] 1 maka nanti kita katakan Oh dia punya
+[1467.4s] penyakit a nah sama dengan e apa pada
+[1470.4s] klasifikasi email tadi ketika sebuah
+[1473.0s] neuron bernilai 1 maka neuron yang lain
+[1476.5s] yaon yang lain pada output layer itu
+[1480.0s] akan bernilai 0 nah Teknik ini kita
+[1483.1s] sebut sebagai one hot encoding namanya
+[1485.7s] one hot encoding nanti teman-eman bisa
+[1488.0s] baca dulu ya atau nyari di YouTube
+[1489.5s] banyak itu Nah misalkan kalau yang
+[1493.8s] bernilai 1 itu adalah Y2 berarti nuron
+[1496.7s] yang lain di output layer itu ya
+[1498.8s] nilainya Jadi kalau y2-nya 1 berarti dia
+[1502.1s] penyakit B misalnya gitu atau kalau
+[1504.8s] misalkan y3-nya yang bernilai 1 berarti
+[1507.6s] y1 Y2 dan Sain selain Y3 itu akan
+[1511.1s] bernilai 0 ya jadi ketika Y3 = 1 maka
+[1515.2s] kita kategorikan Oh ini penyakit C gitu
+[1518.0s] begitu seterusnya sampai penyakit yang
+[1519.8s] terakhir jadi di sini ya Tem yang perlu
+[1523.0s] perhatikan di sini adalah ee di e output
+[1525.7s] eh layer-nya ya jadi ee setiap neuron
+[1529.5s] itu ketika dia bernilai sat maka neuron
+[1532.6s] yang lain itu akan bernilai 0 ini one
+[1535.9s] hot ncoding namanya
+[1538.3s] ya Nah contoh lain misalnya pada problem
+[1542.2s] digit recognition pengenalan angka angka
+[1545.6s] itu kan Biasanya berupa gambar ya
+[1547.8s] inputnya berupa gambar misalkan gini
+[1550.2s] kita punya gambar ukuran 13* 10 piksel
+[1553.5s] ya 13 baris dan 10 kolom nah ini ada
+[1556.8s] angka 7 ya di sini angka tu eah gambar
+[1559.8s] ini adalah gambar Black and White ya
+[1562.4s] black and white yang warna putih itu
+[1565.0s] nilainya satu yang warna hitam nilainya
+[1567.9s] 0 Nah nanti gambar ini akan jadi input
+[1571.8s] ya jadi input bagi neural networks
+[1574.3s] sehingga dia bisa mengklasifikasikan ini
+[1576.1s] gambar apa gitu nanti inputnya begini
+[1579.6s] yang jadi input bagi neural networks itu
+[1582.0s] adalah piksel-pikselnya ya nilai dari
+[1585.1s] setiap piksel di gambar itu ya yang
+[1587.7s] belum tahu Apa itu piksel jadi pikel itu
+[1589.9s] adalah kotak-kotak kecil itu ya piksel
+[1592.4s] itu adalah kotak-kotak kecil yang
+[1594.1s] membangun yang menyusun gambar tersebut
+[1597.0s] ya kotak kecil namanya pikel atau
+[1599.0s] picture elementen itu singkatannya ya
+[1601.2s] pikel Nah pikel 1 itu Yang mana Yang ini
+[1605.5s] ya pojok kiri atas itu piksel 1 ya dan
+[1609.5s] pojok kanan bawah itu adalah piksel yang
+[1611.3s] terakhir yakni piksel ke-130 ya karena
+[1614.7s] ukurannya kan 13 * 10 pikel ya kalau
+[1617.2s] dikalikan jadi kan 100 130 total
+[1619.1s] pikselnya ya nah
+[1621.2s] eh semuanya ini ya 130 piksel ini itu
+[1624.9s] jadi input ya jadi input bagi neural
+[1628.3s] networks kemudian akan diteruskan ke apa
+[1631.4s] namanya hidden layer sehingga
+[1633.4s] menghasilkan output nah yang namanya
+[1636.5s] angka atau bilangan itu kan ada dari 0
+[1639.6s] sampai 9 ya 0 sampai 9 ya atau 1 sampai
+[1644.8s] 9 ditambah angk 0 misalnya ya total ada
+[1647.6s] 10 ya
+[1649.5s] maka di output layernya kita berikan
+[1652.4s] neuron sebanyak 10 ya dari y1 Y2 sampai
+[1656.7s] y10 karena ada 10 bilangan atau 10 angka
+[1660.5s] ya yang akan kita
+[1663.8s] klasifikasikan sama kayak tadi Kalau y1
+[1666.9s] yang bernilai 1 oh ini berarti outputnya
+[1669.3s] adalah angka 1 ya kalau Y2 yang bernilai
+[1673.4s] 1 berarti Oh ini angka 2 gitu ya kalau y
+[1678.4s] yang bernilai S oh ini berarti angka t
+[1681.1s] begitu seterusnya sampai yang1 ya y1
+[1686.0s] yang bernilai S berarti ini angka 0 gitu
+[1688.3s] ya angka 0 teman-teman ya ini kalau
+[1691.4s] studi kasusnya adalah digit recognition
+[1694.5s] pengenalan angka angka ber gambar
+[1698.3s] ya contoh lain ya Banyak contohnya nih
+[1701.7s] ya spe recogn jadi kita punya sinyal
+[1704.8s] suara sebagai input nanti sinyal suara
+[1707.6s] ini kita kita potong-potong ya
+[1709.8s] dibagi-bagi menjadi beberapa segmen atau
+[1712.4s] beberapa Frame ya kita nyebutnya frame
+[1715.1s] jadi sinyal suara yang panjang itu kita
+[1717.2s] bagi-bagi menjadi beberapa segmen atau
+[1719.8s] beberapa Frame ya nanti setiap frame ini
+[1723.5s] akan diolah dulu diproses menghasilkan
+[1726.7s] nilai ya kita nyebutnya feature ya
+[1729.7s] feature atau nilai gitu nah eh feature
+[1733.6s] atau nilai dari potongan-potongan frame
+[1736.3s] ini itu akan dijadikan sebagai input ya
+[1740.4s] frame 1 nilainya berapa ya Frame 2
+[1743.5s] nilainya berapa begitu seterusnya ya Nah
+[1747.1s] kalau di speech recognition ini
+[1749.2s] prosesnya agak kompleks memang ya di eh
+[1752.0s] tahapan inputnya agak kompleks Kenapa
+[1754.4s] karena kita enggak bisa langsung
+[1755.8s] memasukkan sinyal suaraanya
+[1757.4s] mentah-mentah gitu enggak bisa ya kita
+[1759.9s] harus olah dulu sinyalnya ya kemudian
+[1762.9s] mendapatkan yang disebut dengan feature
+[1765.0s] atau ciri ya nanti ciri ini nanti setiap
+[1768.7s] apa setiap frame Itu punya nilai punya
+[1770.9s] ciri ya setiap frame punya ciri gitu
+[1773.4s] Narti ciri ini yang dimasukkan sebagai
+[1776.1s] input ya sebagai input bagi neural
+[1779.0s] networks
+[1780.4s] N nanti sehingga dia bisa menghasilkan
+[1783.4s] misalkan kita mau apa namanya
+[1787.7s] eh output-nya misalkan huruf ya jadi Ini
+[1791.6s] huruf apa ya Huruf apa dan seterusnya
+[1794.1s] atau Ini kata apa kata apa dan
+[1796.1s] seterusnya nah ini contoh contohnya
+[1798.3s] misalkan kita pun E mau
+[1800.0s] mengklasifikasikan 10 kata misalnya 10
+[1802.8s] kata ya Maka nanti bisa saja outputnya
+[1806.0s] y1 itu kata apa misalnya ya Y2 itu kata
+[1809.1s] apa dan
+[1810.4s] seterusnya ini lupa diedit
+[1813.1s] nih diedit gitu ya misalkan kita
+[1816.4s] nyebutkan angka ya angka 1 angka du kita
+[1819.1s] ngomong nanti eh apa outputnya seperti
+[1821.8s] itu ya Jadi kalau y1 yang EE bernilai
+[1826.3s] sat Oh berarti kita sedang ngomong angka
+[1828.4s] S misalnya ya kalau Y2 yang bernilai S
+[1832.0s] Oh kita sedang ngomong angka 2 misal dan
+[1834.5s] begitu seterusnya teman-teman
+[1836.9s] ya kalau misalnya kita mau apa namanya
+[1840.8s] outputnya berupa huruf ya berarti nanti
+[1844.2s] apa output layernya ada 26 Ya ada 26 e
+[1849.1s] apa namanya neuron ya mewakili huruf
+[1853.0s] yang ada di abjat ya dari a b c sampai z
+[1858.2s] kita mau klasifikasi berdasarkan apa ya
+[1860.4s] mau klasifikasi kata yang diucapkan atau
+[1862.9s] mengklasifikasi huruf-huruf tiap ee yang
+[1865.6s] diucapkan itu ya oke nah yang kita bahas
+[1871.0s] tadi itu masih masalah klasifikasi Nah
+[1874.0s] sekarang bagaimana pada masalah prediksi
+[1877.1s] ya ingat tadi klasifikasi itu outputnya
+[1880.5s] berupa kategori sedangkan prediksi
+[1882.6s] outputnya berupa nilai ya bilangan
+[1886.2s] oke di sini misalnya kita memprediksi
+[1888.5s] harga rumah berdasarkan luas tanahnya
+[1891.5s] luas rumahnya jumlah kamar tidur dan
+[1893.7s] seterusnya ini adalah inputnya ya
+[1896.6s] kemudian nanti e terkoneksi ke hidden
+[1899.2s] layer dan mendapatkan output Nah di sini
+[1902.2s] kalau prediksi itu output layernya pasti
+[1905.8s] hanya mengandung sat neuron kenapa ya
+[1908.9s] karena outputnya hanya berupa bilangan
+[1910.6s] sebuah bilangan saja Nah nanti outputnya
+[1914.5s] ini ya Eh kalau tadi klasifikasi output
+[1918.3s] adalah 0 atau 1 ya 0 atau 1 Nah kalau
+[1922.6s] diprediksi nanti nilainya berupa rentang
+[1925.3s] nilai dari 0 sampai 1 ya rentang nilai
+[1930.6s] nilai outputnya itu dari 0 sampai dengan
+[1933.6s] 1 jadi e outputnya bisa 0 bisa 0,2
+[1938.8s] 0,025 ya dan seterusnya sampai S
+[1941.6s] maksimal nah tentu karena ini mediksi
+[1945.6s] harga rumah ya rentang nilai 0 sampai 1
+[1949.3s] di output tadi harus diproses dulu ya
+[1952.1s] nanti ada istilah namanya
+[1954.7s] denormalisasi apa ini gampangnya gini
+[1957.3s] denormalisasi ini mengubah yang tadi itu
+[1960.3s] range nilainya 0 sampai 1 diubah menjadi
+[1963.0s] e angka bilangan e Nominal uang ya
+[1966.8s] berapa rupiah dan seterusnya nanti ada
+[1968.5s] rumusnya itu ya Ini hanya sekilas saja
+[1971.2s] dulu supaya teman-teman dapat gambaran
+[1974.0s] ya Oke ini kalau prediksi ya Kalau harga
+[1977.6s] emas Em gimana sama aja Biasanya
+[1980.5s] inputnya kalau kita prediksi harga emas
+[1982.6s] inputnya itu adalah tren harga pada
+[1984.9s] hari-hari sebelumnya h-1 h-2 h-3 dan
+[1988.3s] seterusnya Itu berapa Berapa harga
+[1990.0s] emasnya nanti jadikan input diproses
+[1993.3s] menjadikan output outputnya sama ya E
+[1997.4s] karena ini Prediksi outputnya dalam
+[1999.3s] rentang 0 sampai 1 nanti nilainya di
+[2003.2s] denormalisasi supaya berubah menjadi
+[2005.5s] nominal harga emas
+[2008.4s] ya nah oke teman-teman Ini contoh studi
+[2011.9s] kasus dari aplikasi neural networks ya
+[2015.8s] pada berbagai macam masalah ya
+[2017.3s] klasifikasi dan prediksi ya Oke Baik Nah
+[2021.5s] sekarang setelah kita mengetahui e e
+[2024.9s] berbagai macam studi kasus dan
+[2026.5s] contoh-contohnya tadi kita akan coba
+[2028.8s] lihat bagaimana sih ya prinsip atau cara
+[2031.8s] kerja dari neural networks ini ya Apakah
+[2035.4s] sesulit itu ya oke Nah gini yang harus
+[2039.8s] kita pahami pertama yang harus kita
+[2041.7s] ketahui adalah apa sih elemen-elemen
+[2044.4s] dari neural networks itu pertama ada
+[2048.0s] elemen yang namanya neuron ya kedua ada
+[2051.6s] elemen namanya koneksi dan yang ketiga
+[2054.6s] ada elemen namanya bobot ya bobot Oke
+[2059.4s] nih gambarnya nih neuron tuh yang mana
+[2062.3s] ya yang seperti saya sudah jelaskan tadi
+[2065.5s] neuron itu adalah yang bulat-bulat ya X1
+[2068.8s] X2 y1 itu adalah neuron ya kemudian
+[2072.8s] koneksi itu yang mana garis itu koneksi
+[2076.6s] Ya dan garis ini atau koneksi ini
+[2079.1s] memiliki nilai yang disebut dengan bobot
+[2082.8s] jadi koneksi itu ada bobotnya Dik ya
+[2085.6s] teman-teman Ada bobotnya ya jadi bobot
+[2087.9s] ini menyatakan kekuatan dari koneksi
+[2091.0s] tersebut ya kekuatan dari koneksi
+[2094.9s] tersebut semakin tinggi ya atau gini
+[2098.9s] semakin e apa namanya kalau nilai
+[2101.4s] bobotnya itu makin jauh dari no0 ya Jadi
+[2105.1s] bisa positif bisa negatif maka makin
+[2107.8s] besar ya nilai bobot tersebut makin kuat
+[2110.2s] dia tapi kalau nilainya semakin dekat
+[2112.8s] dengan 0 maka semakin eh lemah koneksi
+[2116.3s] bobot tersebut
+[2119.7s] ya misalkan Saya punya input Nih
+[2122.6s] misalnya nih jadi X1 X2 ini inputnya ya
+[2125.7s] input layer y1 ini ini kita katakan
+[2128.4s] sebagai output layer ya output layer
+[2131.1s] misalnya jadi enggak ada hidden misalnya
+[2132.7s] ya contoh aja J kita akan bahas
+[2135.0s] Bagaimana sih cara perhitungannya gitu
+[2137.0s] ya misal Saya punya input x1 = 1 dan x2
+[2142.2s] eh -1 itu itu inputnya kemudian x1 dan
+[2147.6s] x2 terkoneksi ke
+[2149.8s] y1 X1 dengan y1 bobotnya 2 X2 dengan y1
+[2154.7s] bobotnya -1 Nah maka nilai pada y1 bisa
+[2159.7s] kita hitung dengan cara input X1
+[2163.0s] dikalikan dengan bobotnya ya bobot yang
+[2165.8s] terkoneksi ke y1 jadi 1 * 2 =
+[2169.3s] 2 kemudian X2 juga dikalikan X2 nilainya
+[2174.2s] berapa dikalikan dengan bobot yang
+[2176.7s] terkoneksi ke y1 ya antara X2 dengan y1
+[2180.4s] jadi -1 * -1 = 1 nah hasil perkalian
+[2185.8s] dari masing-masing newuron input tadi
+[2187.6s] ini akan
+[2189.4s] dijumlahkan jadi 2 + 1 = 3 nah 3 ini
+[2195.8s] nanti akan menjadi kandidat output dari
+[2198.2s] y1 Nah jadi di sini karena kita tadi
+[2202.1s] sudah belajar bahwa ee output ataupun
+[2205.4s] input eh sori output dari neural
+[2207.8s] networks itu kan hanya bisa 0 atau 1 ya
+[2210.6s] atau 0 sampai dengan 1 nilainya ya
+[2213.5s] sedangkan di sini nilai 2 + 1 adalah 3
+[2217.6s] maka angka 3 ini gak bisa langsung
+[2219.6s] dijadikan sebagai output pada y1 kenapa
+[2223.2s] ya karena e neuron hanya bisa e
+[2226.3s] mengenali angka 0 sampai dengan 1 saja
+[2228.6s] gitu nah sehingga angka 3 ini harus kita
+[2233.0s] aktivasi dulu namanya ya jadi harus kita
+[2236.5s] konversi ke dalam rentang 0 sampai 1 ya
+[2240.4s] jadi angka 3 ini harus dikonversi dulu
+[2243.4s] ke dalam rentang 0 sampai dengan 1
+[2246.5s] caranya menggunakan yang namanya fungsi
+[2249.4s] aktivasi nanti fungsi aktivasi ini
+[2252.0s] banyak tapi yang biasa digunakan di
+[2254.3s] neural networks itu adalah fungsi
+[2256.6s] aktivasi yang namanya sigmoid ya Jadi
+[2260.2s] ada sebuah fungsi aktivasi namanya
+[2262.0s] sigmoid kalau kita visualisasikan
+[2264.8s] bentuknya S kayak gitu Jadi gini angka 3
+[2268.7s] kita proyeksikan ke grafik itu kemudian
+[2271.6s] nanti dia akan naik ke atas
+[2273.1s] diproyeksikan ke sumbu y-nya nah titik
+[2276.4s] hijau itulah merupakan hasil aktivasinya
+[2280.5s] yang akan kita pakai sebagai output dari
+[2282.9s] y1 jadi ee hasil penjumlahan tadi ya 2 +
+[2287.6s] 1 3 3 tadi kita aktivasi teman-teman ya
+[2292.5s] diaktivasi dengan sigmoid ya
+[2294.7s] diproyeksikan seperti itu menghasilkan
+[2297.3s] nilai pada sumbu y yang warna hijau itu
+[2299.4s] ya warna hijau itu nah nilai yang warna
+[2302.5s] hijau itulah yang kita pakai sebagai
+[2304.2s] output y1 ngitungnya gimana ada rumusnya
+[2308.4s] ini rumusnya jadi fungsi aktivasi
+[2311.4s] sigmoid itu rumusnya adalah y1 ya sama 1
+[2316.2s] di/ 1 + eksponensial dari
+[2320.6s] -x ya Nah X di situ apa X di situ yang
+[2324.6s] angka 3 tadi jadi kita masukkan 1 / 1 +
+[2329.4s] e^ - x-nya diganti 3 ya Hitung saja
+[2334.1s] pakai kalkulator ya jadi 0,9 53 itu
+[2338.6s] adalah output yang kita dapatkan untuk
+[2341.2s] neuron y1 jadi cara ngitungnya gitu ya
+[2345.1s] teman-teman ya jadi input kali bobot
+[2347.6s] input kali bobot dijumlahkan semuanya
+[2350.5s] lalu diaktivasi Mak itulah output pada
+[2354.7s] neuron yang berikutnya itu oke Ya
+[2357.2s] mudah-mudahan paham nih ini prinsip
+[2359.2s] dasar penghitungan ee nilai pada sebuah
+[2361.8s] neuron ya Oke
+[2364.0s] teman-teman next nah karena tadi sudah
+[2367.4s] tahu cara ngitungnya Nah kita coba nih
+[2370.0s] Saya punya sebuah ee jarangan saraf
+[2372.8s] tiruan ada input layer ada X1 X2 di situ
+[2375.9s] ya kemudian ada hidden layer ada neuron
+[2379.0s] Z1 dan Z2 di situ dan ada output layer
+[2382.0s] ada neuron y1 di situ outputnya 1 nuron
+[2385.8s] nah X1 nilainya 0,5 misalnya X2 nilainya
+[2390.8s] -0,1 Nah kita akan hitung ya
+[2394.3s] Ee berapa output yang kita dapatkan di
+[2397.6s] y1 jika x1-nya 0,5 dan x2-nya -0,1
+[2402.7s] Gimana cara ngitungnya prinsipnya
+[2404.8s] seperti yang sudah kita bahas di slide
+[2406.3s] sebelumnya tadi jadi sekarang kita
+[2409.2s] hitung dulu nih jadi sebelum Bisa
+[2411.9s] menghitung nilai y1 hitung dulu nilai di
+[2415.0s] Z1 teman-teman nilai di Z1 itu dapat
+[2419.2s] dari mana dapat dari
+[2421.4s] X1 ya dikalikan dengan bobot yang masuk
+[2425.6s] ke Z1 ya jadi bot antara X1 dengan Z1
+[2429.9s] nah 0,5 * 2 ya hasilnya 1 Nah nanti
+[2435.4s] dijumlahkan dengan X2 dikali dengan
+[2439.4s] bobot antara X2 dengan Z1 ya
+[2443.9s] -0,1 * -1 ya x2-nya
+[2448.2s] -0,1 ya bobot dari X2 ke Z1 adalah -1
+[2453.5s] kalikan aja ya dapat 0,1 lalu apa
+[2459.0s] dijumlahkan ya dijumlahkan 1 dan 0,1
+[2463.0s] jumlahkan dapatnya 1,1 nah kemudian 1,1
+[2467.2s] ingat di aktivasi dulu dengan tadi Apa
+[2471.4s] fungsi aktivasi sigmoid ya Nah rumusnya
+[2475.4s] sama nih ya Z1 = 1 1 +
+[2481.3s] e^-x tadi ya x-nya diganti dengan 1,1
+[2484.8s] ini dapatnya 0,75
+[2487.8s] 5 arti apa artinya di Z1 ya nilai di Z1
+[2493.0s] adalah
+[2495.0s] 0,75 dengan cara yang sama kita bisa
+[2498.1s] menghitung nilai di Z2 teman-teman ya
+[2502.2s] caranya sama X1 bobot yang masuk ke Z2
+[2505.7s] yakni 0,5 * 1 bobot yang masuk ke situ
+[2508.8s] ya kemudian ditambah X2 di* bobot yang
+[2513.4s] masuk ke Z2 itu ya -0 0,1* -2 bobotnya
+[2519.8s] -2 kan ya dapatnya 0,2 jumlahkan ya 0,7
+[2526.6s] aktivasi jadi
+[2529.2s] 0,67ga Z2 nilainya adalah
+[2532.2s] 0,6 nah Dengan cara demikian ya Z1
+[2536.7s] diketahui Z2 juga sudah diketahui
+[2539.2s] nilainya maka kita bisa hitung nilai di
+[2543.3s] y1 caranya sama y1 dapat dari mana Z1
+[2548.6s] kalikan bobot yang masuk ke y1 ya 0,75 *
+[2553.1s] 1 ya ditambah Z2 dikali bobot yang masuk
+[2557.2s] ke z e ke y1 ya 0,67 * -2 ya dapatnya
+[2563.8s] jumlahkan hasilnya
+[2566.4s] - 0,59 ingat ini harus diaktivasi dulu
+[2570.2s] teman-teman ya harus diaktivasi dengan
+[2573.6s] sigmoid tadi Nah kita aktivasi sehingga
+[2577.4s] y1-nya adalah
+[2580.4s] 0,36 jangan lupa ya setelah dijumlahkan
+[2583.5s] harus diaktivasi dulu dengan fungsi
+[2585.9s] sigmoid tadi maka kita dapat di sini y1
+[2590.1s] adalah
+[2592.2s] 036 itah output dari neural networks ini
+[2597.0s] Oke sampai di sini mudah-mudahan paham
+[2600.0s] ya oke oke nah 0,36 Ini ya kalau kita
+[2605.2s] bulatkan ya jadinya 0 ya setara dengan 0
+[2608.5s] karena dia nilainya di bawah
+[2610.3s] 0,5 ya nah nah sekarang kalau inputnya
+[2614.8s] saya ganti x1-nya 1 x2-nya juga 1 gimana
+[2620.3s] ngitungnya sama aja nanti Z1 dapat 0,73
+[2624.9s] ya nanti di Z2 dapatnya 0,27 nah Z1 dan
+[2630.2s] Z2 dipakai untuk ngitung output di
+[2633.2s] y1 outputnya misal 0,55 nah outputnya
+[2637.6s] 0,55 ya karena nilai outputnya di atas
+[2640.6s] 0,5 kalau kita bulatkan nanti jadinya 1
+[2644.4s] jadinya sat pembulatan ya ingat tadi ini
+[2649.1s] 1 dan 0 ini nanti bisa dipakai untuk
+[2651.2s] menentukan spam atau bukan spam gitu ya
+[2654.1s] apakah ini sakit a sakit b atau sakit c
+[2657.0s] dan seterusnya tadi
+[2660.2s] oke nah sekarang kita akan bahas
+[2662.0s] Bagaimana sih ya bagaimana menentukan
+[2665.4s] nilai bobot pada neur networks Nah kalau
+[2669.3s] teman-teman lihat tadi pada slide
+[2670.7s] sebelumnya ya saya sudah memberikan
+[2673.8s] nilai-nilai ee atau bobot ya di setiap
+[2676.6s] koneksi nah sebetulnya bobot pada neural
+[2680.8s] networks ini itu tidak ngasal ngasihnya
+[2683.6s] ya tidak ngasal ngasihnya tapi ada satu
+[2687.1s] mekanisme yang kita sebut dengan
+[2689.4s] learning atau pembelajaran ya jadi ee
+[2693.5s] nilai pada bobot itu ditentukan lewat
+[2696.4s] proses learning tersebut atau proses
+[2699.0s] belajar tersebut nah ini akan kita bahas
+[2702.4s] sekilas dulu di sini teman-teman ya Jadi
+[2705.2s] gini eh neural networks itu dia belajar
+[2708.4s] dari data dia akan belajar dari data Nah
+[2712.4s] dari data yang dia punya dia akan
+[2714.4s] pelajari
+[2715.4s] polanya nanti selama dia belajar ya
+[2719.2s] bobot-bobot yang ada di koneksi itu di
+[2721.8s] jaringannya itu akan diubah-ubah akan
+[2724.4s] berubah-ubah nilainya ya sampai dia
+[2728.0s] mendapatkan bobot yang paling optimal
+[2730.8s] Oke gimana gambarannya kayak gini
+[2732.4s] gambarannya
+[2733.6s] ya misal Saya punya
+[2736.0s] ehal Network seperti ini kita akan
+[2739.2s] training kita akan e ajari dia mengenali
+[2742.4s] pola data ingat ya ini adalah proses
+[2745.7s] untuk mendapatkan bobot pada neural
+[2747.8s] networks
+[2749.1s] Nah misalkan Saya punya x1-nya 1 x2-nya
+[2752.5s] 1 kita hitung maju ke depan ya sampai y1
+[2757.8s] kita akan dapat output ya tadi ya dapat
+[2759.9s] outputnya Nah nanti output yang
+[2763.2s] dihasilkan oleh neural networks ini akan
+[2766.5s] kita bandingkan dengan nilai yang kita
+[2769.1s] harapkan target ya Jadi kita sudah
+[2772.0s] pasang target nih output-nya harusnya
+[2774.5s] apa ternyata neural networks bilangnya
+[2777.3s] beda gitu loh ya misalkan targetnya
+[2780.3s] adalah satu tapi output yang diberikan
+[2782.6s] oleh neur networks ada 0,2 misalnya
+[2785.8s] dalam hal ini ya output-nya kan tidak
+[2788.4s] sama dengan target karena output enggak
+[2791.4s] sama dengan target maka akan terjadi
+[2793.6s] yang namanya error di situ ada kesalahan
+[2796.1s] Nah kalau error gimana perbaiki bobotnya
+[2799.6s] Nanti akan ada mekanisme begini ya Ada
+[2803.5s] dari nilai error yang kita dapatkan di
+[2805.5s] output layer di y1 tadi ya error
+[2809.0s] tersebut akan dipakai untuk memperbaiki
+[2812.5s] bobot jaringan ke belakang ya jadi di
+[2816.6s] sini
+[2817.4s] dari y1 ya dari output layer ke hidden
+[2821.1s] layer ya itu ada perhitungan mundur nah
+[2824.4s] namanya back propagation nanti back
+[2826.8s] propagation ini akan kita bahas di video
+[2829.3s] Selanjutnya ya J dari y1 ya dari output
+[2833.7s] layer ke hidden layer nanti ada satu
+[2836.3s] mekanisme di situ ya Jadi dia ngitung
+[2839.2s] mundur Nah setelah diaitung mundur nanti
+[2843.0s] bobot antara hidden layer dan output
+[2845.6s] layer akan diperbaik akan
+[2848.4s] di-update ya Nah kemudian dari hidden
+[2851.8s] layer mundur lagi ke input layer
+[2854.2s] teman-teman ya ketika mundur lagi ada
+[2856.8s] mekanisme perbaikan bobot di situ bobot
+[2860.1s] antara hidden layer dan input layer Akan
+[2863.5s] diperbaiki
+[2865.3s] di-update nah kemudian setelah di-update
+[2868.7s] ya kita hitung maju lagi itu maju lagi
+[2873.2s] sampai1 dapat output ternyata output
+[2876.4s] yang di dihasilkan masih beda dari
+[2879.1s] target ya masih beda dari target yang
+[2881.9s] kita harapkan masih ada error di situ
+[2885.0s] artinya mundur lagi ya error Tadi
+[2888.0s] dipakai untuk memperbaiki bobot ya
+[2891.2s] Hitung mundur kemudian eh apa bobot
+[2894.8s] antara output dan hidden diperbaiki
+[2897.2s] mundur lagi gitu ya perbaiki lagi bobot
+[2899.5s] antara hidden dengan input layer
+[2901.4s] kemudian setelah diperbaiki sama kembali
+[2904.2s] lagi Hitung maju lagi ya itu maju lagi
+[2907.7s] begitu nah ya seperti teman-teman ya
+[2912.0s] masih salah ya artinya masih ada apa
+[2914.8s] ketika output masih beda dengan target
+[2917.0s] ulangi lagi terus begitu ya mundur
+[2920.6s] perbaiki bobot ya mundur lagi perbaiki
+[2923.8s] bobot Sampai Kapan Sampai kapan kita
+[2926.6s] memperbaiki bobot sampai ya ketika
+[2930.6s] outputnya
+[2932.2s] Ya sudah mendekati banget ya mendekati
+[2936.2s] dari target jadi artinya selisih antara
+[2939.2s] output dengan target itu sangat tipis
+[2941.9s] baru kita berhenti di situ jadi kita
+[2945.0s] berhenti bukan pada saat output sama
+[2947.5s] dengan target tidak biasanya enggak akan
+[2949.4s] tercapai ini ya kita berhenti
+[2952.0s] learningnya itu ya maju mundurnya itu
+[2954.5s] berhenti ketika nilai output neural
+[2957.4s] networks itu sudah sangat mendekati
+[2961.2s] target yang kita harapkan baru dia
+[2963.1s] berhenti di situ nah ini baru gambaran
+[2965.8s] awal dari proses learning ini nah proses
+[2969.7s] learning Ini menghasilkan apa
+[2972.1s] menghasilkan bobot jaringan ya bobot
+[2975.7s] dalam e pada koneksi neural networks ini
+[2979.2s] jadi bobotnya itu enggak ngasal gitu ya
+[2981.7s] tapi ditentukan lewat cara seperti ini
+[2983.8s] Nah mungkin ada yang bertanya loh Pak eh
+[2986.9s] berarti nilai awal bobot tadi Bagaimana
+[2989.6s] nentukannya nah nilai awal bobot sebelum
+[2992.4s] learning tadi kita tentukan secara acak
+[2996.1s] secara acak nanti dia akan terus belajar
+[2999.2s] yang tadinya acak pelan-pelan akan
+[3002.3s] konvergen ya mengarah ke nilai yang
+[3004.8s] optimal jadi awalnya bobot jaringannya
+[3008.5s] acak ya kita set acak ya kemudian kita
+[3011.3s] masukkan ke proses learning Ini
+[3013.4s] menghasilkan bobot yang optimal itu
+[3016.2s] ceritanya ini proses e pembelajaran ya
+[3020.0s] Pembentukan bobot pada neural networks
+[3023.6s] sehingga outputnya itu enggak ngacau
+[3026.0s] nanti ya enggak ngawur gitu
+[3029.4s] oke Nah tadi itu prinsip kerja atau ee
+[3033.5s] proses pencarian bobot pada neural
+[3035.5s] networks nah ini pada bagian terakhir
+[3037.2s] ini kita akan bahas apa saja sih
+[3040.2s] arsitektur yang ada pada neural networks
+[3042.9s] Nah jadi gini ya yang kita bahas dari
+[3045.9s] tadi itu kan itu salah satu arsitektur
+[3048.3s] neural networks yang sederhana ada
+[3051.0s] hidden eh sor ada input ada hidden dan
+[3053.2s] output layer gitu ya ternyata ada model
+[3056.2s] lain dari yang kita bahas tadi
+[3058.0s] sebetulnya nah ini kita bahas di sini
+[3059.8s] arsitecttur neural networks nah yang
+[3063.0s] paling simpel namanya perseptron hanya
+[3065.8s] ada input dan output layer ini ya
+[3069.0s] inputnya bisa macam ya Enggak enggak
+[3071.6s] mesti tiga ya bisa du bisa 4 dan
+[3073.5s] seterusnya outputnya Biasanya cuma satu
+[3075.9s] neuron biasanya ini perseptron ya nanti
+[3079.4s] kalau perseptron dikasih eh hidden layer
+[3082.8s] jadinya multi layer perceptron ya Ada
+[3086.0s] input yang warna biru ada hidden yang
+[3088.8s] warna kuning dan ada output yang warna
+[3091.2s] hijau output layer ya ini namanya
+[3093.8s] multiayer perseptron ini yang kita bahas
+[3096.8s] dari awal tadi ya multilayer perseptron
+[3100.5s] salah satu arsitektur yang paling sering
+[3103.0s] dipakai ya Kenapa karena eh apa
+[3106.1s] performanya bagus dan apa arsitekturnya
+[3111.1s] sederhana ya relatif sederhana gitu
+[3114.7s] makanya banyak yang suka banyak yang
+[3116.1s] pakai gitu nah multiayer perepor ini
+[3120.4s] juga bisa memiliki lebih dari satu
+[3122.0s] hidden layer ya bisa punya dua hidden
+[3124.3s] layer seperti ini ini masih sama namanya
+[3126.2s] multiayer perceptron tapi tapi kalau
+[3130.3s] misalnya hidden layernya udah lebih dari
+[3132.7s] du ini nanti jatuhnya e jadi Deep neural
+[3137.0s] Network namanya yang sekarang lagi ramai
+[3139.2s] ya dibahas Deep learning gitu ya Deep
+[3141.6s] learning atau Deep neural Network Nah
+[3143.4s] itu biasanya multiayer
+[3145.5s] perceptron yang eh hidden layernya lebih
+[3148.5s] dari dua Nah cuma pada perkembangannya
+[3151.7s] nanti Deep eh Deep learning atau Deep
+[3154.8s] Network ini nanti macam-macam ya jenis
+[3156.4s] macam-macam dan nanti algoritma
+[3158.8s] pembelajaran juga beda-beda lagi
+[3160.7s] biasanya
+[3161.6s] gitu tapi kita belum bahas di sini gitu
+[3164.1s] ya kita baru bahas dasarnya dulu Ada
+[3167.5s] lagi namanya recurrent neural networks
+[3169.5s] recurrent jadi setelah maju ada
+[3171.6s] mundurnya gitu ya misalkan seperti ini
+[3174.7s] setelah dari input masuk ke hidden nah
+[3177.7s] di hidden layer nanti ada panah yang
+[3180.2s] balik ke belakang lagi gitu loh rec
+[3182.9s] current dia ah maju ada yang mundur lagi
+[3185.8s] ya maju ada yang mundur lagi gitu loh
+[3188.5s] jadi nilainya itu dikembalikan ke layer
+[3191.8s] sebelumnya ya sebagai apa sebagai memori
+[3195.9s] Supaya apa supaya angka sebelumnya nilai
+[3198.5s] sebelumnya enggak dilupakan begitu saja
+[3200.8s] gitu ya Ada lagi yang begini modelnya
+[3204.5s] recur networks ya ada yang begini
+[3206.6s] modelnya jadi dia looping di diri
+[3208.3s] sendiri gitu ya Ada lagi yang begini
+[3210.8s] modelnya macam-macam macam-macam ya Ini
+[3213.6s] namanya recaran neural networks jadi dia
+[3216.9s] perhitungannya itu ada yang maju ada
+[3219.1s] yang mundur gitu ya oke ya teman-teman
+[3223.1s] ya jadi itu pembahasan kita mengenai
+[3225.1s] dasar ya pengantar neural networks nah
+[3228.7s] pada video selanjutnya kita akan Bahas
+[3230.8s] eh lebih dalam lagi ya mengenai
+[3234.1s] algoritma back propagation dan
+[3236.8s] mudah-mudahan e Anda mudah memahaminya
+[3239.8s] klik like Kalau Anda suka dengan video
+[3241.6s] ini dan jangan lupa subscribe ya supaya
+[3244.4s] kita bisa terus sama-sama belajar saya
+[3247.0s] Muhammad Fahri undur diri Terima kasih
+[3249.1s] Asalamualaikum warahmatullah wabarakatuh
