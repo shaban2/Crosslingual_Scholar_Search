@@ -1,0 +1,855 @@
+[1.0s] hello today we're going to look at Muma
+[3.1s] linear time sequence modeling with
+[4.8s] Selective State Spaces by Albert goo and
+[7.3s] Tre da I know I'm a bit late on this
+[10.3s] paper uh but I still thought I'd give it
+[13.2s] a look and excuse the lack of face cam
+[15.8s] today I know it's a tragic loss to not
+[19.1s] see my face while doing these reviews I
+[21.7s] hope you can survive it uh so Mamba has
+[25.8s] been really big uh hailed as a poten
+[30.0s] itial competitor to Transformers uh has
+[33.4s] better scaling property scales to really
+[35.7s] long sequences and so on and yeah I
+[39.2s] wanted to know what it is and I wanted
+[42.7s] to know essentially two things like how
+[44.9s] does it differ from all the other stuff
+[47.4s] that exists today uh because there
+[50.2s] there's so much stuff for example there
+[52.1s] are so there are the
+[54.6s] Transformers and those obviously have
+[58.0s] their advantages and problems then there
+[60.0s] are on are like rnns like recurrent
+[62.6s] neural networks and then there are these
+[65.3s] you know State space models like S4 or
+[68.0s] something like this and there's always
+[70.5s] interesting tradeoffs between all of
+[73.3s] those notably um what will see is in the
+[77.0s] Transformer you have if you have a
+[79.5s] sequence of stuff you have attention
+[83.0s] that's essentially anything can look at
+[84.9s] anything else and if you have causal
+[86.7s] attention if I look at this input I'm
+[89.5s] able to selectively look back at another
+[93.4s] input and sort of use that in the
+[96.4s] computation uh of the next layer here
+[100.1s] okay so a Transformer is able to
+[103.6s] dynamically and selectively look at
+[107.2s] individual elements of the past and
+[110.0s] address each one individually but
+[112.8s] obviously you have a problem with that
+[114.7s] so the problem with that is that you
+[116.7s] have like L squar when L is the sequence
+[119.2s] length l squ computations or n SL or n l
+[123.9s] squ uh memory requirements in order to
+[127.3s] do this rnns on the other hand if you
+[131.0s] have a sequence
+[132.4s] there they if you consider this um this
+[137.8s] particular input and you want to compute
+[139.8s] the next layer you can only look back
+[143.1s] one time step in fact you can't even
+[145.3s] look at the last input you what you will
+[147.9s] do is from each input you will compute a
+[150.2s] hidden state so there's going to be some
+[152.2s] sort of a box here and you will update
+[154.5s] the box and then the next thing will
+[156.4s] come and it will update the box and then
+[158.3s] the next thing will come and it will
+[160.7s] update the box and so on so you're only
+[163.1s] allowed to look at the last box and the
+[166.7s] current input if you want to decide what
+[169.8s] the next box here should be and from the
+[172.2s] box you obviously then compute the the
+[174.9s] outputs so this is super restrictive in
+[178.4s] that you can only ever look at the last
+[180.9s] hidden State and the current input in
+[182.7s] order to compute the current output and
+[185.6s] the next hidden state but also also this
+[190.6s] essentially scales to infinite lengths
+[192.9s] because it instead of having you know
+[195.4s] this much requirement of memory it only
+[197.7s] has actually it doesn't even it it has L
+[200.4s] computation so you compute as many
+[202.8s] elements as you have right uh but then
+[206.0s] it the memory requirements are really
+[208.2s] they're really all of One they're really
+[210.4s] only how big is the hidden State and how
+[213.4s] big are are the inputs and outputs now
+[215.9s] if you want to do back propop here
+[218.1s] that's when it becomes you know a bit
+[220.0s] more iffy then you will actually have to
+[222.1s] remember the whole sequence of
+[223.8s] intermediate values in order to back
+[226.0s] propagate so ornin use a thing that's
+[228.0s] called back propop through time and I
+[230.8s] know I know this is super old school and
+[232.7s] before most of you were born but again
+[235.8s] consider the thing where you compute the
+[238.2s] hidden State out of the last last hidden
+[240.1s] State and the current input you compute
+[242.2s] the next hidden state from that and
+[244.3s] eventually you'll have some sort of
+[246.2s] output let's say the whole sequence only
+[248.0s] has one output you can do this with many
+[250.8s] outputs too but what you want to know is
+[253.6s] well how does the weights that compute
+[256.2s] this particular um transition here or
+[259.3s] this particular one how should I change
+[261.4s] that because I have some sort of loss
+[263.4s] over here well you need to back propop
+[265.8s] through all of these computations so
+[268.4s] through all of the comput
+[270.5s] that generate the hidden States from
+[272.8s] each other and then back through this
+[275.2s] computation in order to do that that's
+[277.4s] called back propop through time and
+[280.4s] because you com you back propop through
+[282.9s] so many time steps this is often either
+[286.2s] prohibitively expensive memory-wise or
+[288.9s] you'll just get this Vanishing or
+[290.4s] exploding gradient problems because
+[292.8s] essentially uh you have operation upon
+[295.1s] operation upon operation which are often
+[297.9s] multiplications Solutions to that are
+[300.3s] things like the
+[301.4s] lstm um that have built-in gating
+[304.2s] mechanisms but the important part to
+[306.6s] know is there is a hidden State and that
+[310.1s] goes through some trans so there is a
+[313.0s] function and the function of the next
+[316.0s] hidden state t +
+[318.2s] 1 depends on the last hidden State and
+[322.4s] the current input let's t + one some
+[327.2s] yeah and this function here can be
+[330.0s] pretty much anything in an lstm it's a
+[332.0s] complicated gating thing in a simple
+[334.4s] recurrent Network it's just I multiply
+[337.6s] the last hidden state by some weight and
+[340.3s] then this by some weight but it is a and
+[344.1s] then and then I add an on linearity or
+[346.2s] something like
+[347.4s] this now what about the this S4 type of
+[351.2s] thing and that's where this paper starts
+[354.5s] off this paper starts off by saying hey
+[356.9s] look these these uh State space models
+[360.5s] they've been pretty we've built some of
+[363.4s] these and they have some nice properties
+[365.8s] what are those nice properties the nice
+[367.9s] properties are that they essentially are
+[371.4s] an RNN essentially
+[374.6s] but when they have a
+[378.2s] sequence and uh a sequence of inputs
+[381.6s] they can essentially compute all of the
+[384.4s] outputs if there are multiple outputs or
+[386.8s] that single output over here in one
+[389.5s] swoop so they can essentially compute it
+[392.5s] like Zoom um in one big swoop and so if
+[396.6s] they have all the inputs uh they can
+[398.7s] just formulate this as a convolution
+[401.9s] operator and there are multiple reasons
+[404.9s] why that's the case but um two main
+[408.2s] reasons first reason there is no
+[413.4s] nonlinearity going from the last hidden
+[416.0s] state to the next hidden state right so
+[420.3s] that this this is a completely
+[423.2s] linear uh transition if you will I'm
+[427.4s] we'll we'll go a little bit into what I
+[429.3s] mean by this obviously here um here some
+[432.9s] kind of X is coming in and that doesn't
+[436.1s] necessarily need to be linear but sort
+[438.1s] of the backbone of this going through
+[441.1s] time from hidden state to Hidden state
+[443.1s] are linear
+[445.2s] computations um so no
+[447.6s] nonlinearity involved in that that what
+[450.5s] does that what that will mean is that
+[454.2s] essentially the whole this whole path
+[456.5s] here this whole back prop through time
+[458.4s] thing is going to be at least the path
+[461.2s] that goes back the hidden States until
+[464.2s] it you know branches off into the
+[465.7s] individual elements that is essentially
+[468.9s] one big Matrix multip like one big
+[472.1s] linear operation and uh that is a lot
+[476.1s] more well- behaved than if you also have
+[479.6s] the uh nonlinearities in between now
+[482.4s] obviously you can still have uh
+[484.4s] exploding or Vanishing gradients and so
+[486.7s] on so you could also um you can still
+[490.3s] have that but it is a lot more easy
+[493.9s] let's say than having complicated gating
+[496.3s] mechanisms there and what it means is
+[499.3s] that you can just kind of jump ahead to
+[501.5s] any point that you want because you can
+[503.2s] always you always know what the full
+[505.0s] operation is you always have a closed
+[506.6s] form to that um second okay what's
+[511.0s] second uh there is no time dependence so
+[515.3s] there's no time uh dependence of these
+[519.5s] things and no input dependence what that
+[522.2s] means is that the transition from State
+[526.1s] one to state two is going to be the same
+[529.8s] as the transition from state two to
+[531.5s] state three now again there is going to
+[533.8s] be inputs in these um that obviously
+[537.0s] don't always compute the same function
+[539.3s] but the transition between the time
+[541.8s] steps and how you incorporate new
+[543.6s] information is always the same so all
+[547.0s] the matrices that are involved in here
+[550.2s] essentially are all the same and not
+[553.6s] dependent on the input at all and
+[556.7s] therefore you can just kind of
+[558.9s] precompute all of the aggregation right
+[562.2s] here and then all you have to do is kind
+[564.0s] of multiply in your individual inputs
+[567.6s] from the time steps and you can just
+[569.6s] compute the whole thing as as one big
+[572.5s] computation so that's what we're going
+[574.3s] to look at the question is where do the
+[577.7s] these uh where does Mamba fit in Mamba
+[580.4s] is an architecture that makes use of
+[582.3s] what they call Selective State spaces
+[584.1s] and selective State spaces
+[586.6s] relaxes this property of s for a bit and
+[590.0s] what I mean by that the property that
+[592.2s] the transition from time step to time
+[594.5s] step is independent of the input it
+[598.7s] relax access that a little bit and
+[601.3s] therefore it moves S4 a little bit
+[604.6s] closer into the direction of
+[607.4s] lsms and and but it remains it retains
+[613.8s] this property that um the the backbone
+[618.4s] here is computable by one swoop um and
+[623.1s] we're going to they're going to do this
+[624.9s] as a as a prefix sum as a parallel scan
+[628.2s] it's it's computable as one swoop and
+[631.7s] therefore during training it looks more
+[634.6s] like a Transformer where you can just
+[636.6s] compute all of the forward passes of the
+[639.2s] whole sequence in one go instead of like
+[642.4s] the lstm where the forward pass no
+[644.6s] matter whether you know all the inputs
+[646.7s] already you have to compute the forward
+[648.8s] pass one after another so during
+[651.5s] training it looks more like a
+[652.7s] Transformer and during inference it
+[655.4s] actually looks more like an like an LM
+[660.2s] all right so we'll dive into the paper
+[663.4s] and I just I have a few sections
+[665.1s] highlighted not too much especially the
+[667.5s] experimental result you're very welcome
+[669.3s] to look at those the result is going to
+[671.3s] be that it is a strong competitor to
+[673.8s] Transformers so far they have not made
+[677.2s] experiments up to the big like up to the
+[681.6s] big Transformers and big so I I believe
+[684.2s] theyve made experiments up to about 1
+[686.3s] billion parameters that's obviously
+[688.6s] really B big in conventional terms but
+[690.6s] for language modeling uh the smallest
+[694.0s] ones start at like 7 billion so that
+[697.4s] remains to be seen But the scaling laws
+[699.1s] seem to be uh promising the other thing
+[702.2s] is that they say themselves it really
+[705.0s] excels at when you need really really
+[708.3s] long sequences like DNA modeling or
+[711.4s] audio waveforms and so on um they having
+[715.4s] a long context and being efficient with
+[718.0s] that is probably more important than
+[721.0s] this you know super ability to of
+[724.3s] Transformers to focus in on individual
+[726.6s] states all right so they say uh
+[729.9s] structured State space models sorry have
+[732.8s] been developed to address Transformers
+[734.5s] computational efficiency on Long
+[736.0s] sequences but they've not performed as
+[737.9s] well as attention on important
+[739.8s] modalities such as language we identify
+[742.1s] a key weak that a key weakness of such
+[744.0s] models is their inability to perform
+[746.3s] context based reasoning what does that
+[749.3s] mean they say we propose a new class of
+[752.1s] selective St spat model right The
+[754.0s] Selective is the difference instead of
+[755.9s] the structured that improves on prior
+[759.3s] work on several axes to achieve the
+[761.5s] modeling power of Transformers while
+[763.7s] scaling linearly in sequence
+[767.1s] length so they say the key abil key
+[770.0s] limitation of Prior models the ability
+[772.6s] to efficiently select data in an input
+[775.7s] dependent
+[777.5s] manner again what does what does that
+[780.6s] mean you have a previous hidden State
+[783.8s] you have a current input and you want to
+[786.3s] build the next hidden state t +
+[790.4s] one what structured State space models
+[793.7s] do is they have they'll have some kind
+[796.1s] of par parameterized function let's call
+[799.2s] that a and they'll have some sort of uh
+[805.4s] they'll have some sort here let's call
+[807.5s] that b even though
+[809.3s] like it's it's slightly different but
+[812.7s] and the the result is going to be that
+[814.6s] HT + 1 is going to be equal to something
+[817.7s] like a HT plus b x okay again not exact
+[824.0s] representation but in
+[827.0s] principle this and this is in ssms like
+[832.8s] is going to be completely fixed for the
+[836.5s] whole sequence always so you learn one
+[840.4s] set of
+[841.5s] parameters for you know 1 a and 1 B for
+[846.7s] the entire model okay now this obviously
+[850.3s] is very very different from Transformers
+[852.8s] where a like the attention Matrix is
+[855.3s] built dynamically at each single forward
+[858.3s] pass you know for each single uh for
+[860.8s] each single token you compute queries
+[862.8s] and keys and values and therefore the
+[865.0s] aggregation how you build the next
+[867.3s] hidden state is very dependent on on
+[870.3s] everything on the input on the past and
+[872.5s] so on uh in this particular case super
+[876.2s] fixed you can see this is even more
+[878.6s] restrictive than something like an lstm
+[881.1s] like in something like an lstm as we
+[883.0s] discussed before what you can do is you
+[886.8s] can
+[887.6s] make this and this actually dependent on
+[892.8s] the last hidden state so in an lstm
+[895.6s] you'll see that the last hidden state
+[898.3s] will be transformed into you know and
+[901.8s] then this gives you the a matrix like in
+[904.6s] a in some sort of a gating way and then
+[906.8s] X will be multiplied by by a and and so
+[909.8s] on so um I don't have an lstm cell in my
+[913.1s] head but in an
+[915.6s] lstm the propagation of the signals can
+[919.6s] be dependent on the previous hidden
+[922.2s] State and on the
+[924.6s] input okay and and that's the difference
+[928.1s] uh between the state space models and
+[930.1s] like the fully like General recurrent n
+[933.1s] networks what as what Muma is going to
+[936.2s] do mumb is going to say we
+[939.6s] allow the transition to be dependent on
+[944.4s] the current input not on the previous
+[947.2s] hidden state but on the current input
+[949.8s] and you should already be able to see if
+[952.3s] you do that it still means that sort of
+[955.0s] this backbone going from hidden uh going
+[957.1s] from hidden state to next hidden state
+[959.6s] is going to be a fixed computation uh
+[962.6s] given by this a matrix and that's why we
+[964.6s] can sort of precompute it throughout all
+[967.3s] of time because that a is going to be
+[969.8s] fixed and not dependent on the input
+[972.2s] although what we'll see is that in fact
+[975.4s] how uh the uh how the input is computed
+[980.5s] into and in the next hidden state is
+[982.6s] going to be um influenced by the by the
+[987.3s] input but
+[989.1s] not by the previous hidden State okay so
+[992.0s] I I hope I've made this clear a is going
+[995.0s] to be dependent on the input B is going
+[997.5s] to be dependent on the input but they're
+[1000.3s] not going to be dependent on the last
+[1003.2s] hidden state or any thing of the
+[1008.2s] past so it's kind of a tradeoff between
+[1012.7s] the state space models of the past and
+[1015.4s] recurrent neuron
+[1017.1s] networks um yeah so they they say okay
+[1020.0s] this poses a challenge for the
+[1021.4s] computation of the model all prior sorry
+[1024.2s] all prior SSM models must be time and
+[1027.7s] input invariant in order to be
+[1029.3s] computationally efficient we overcome
+[1031.1s] this with a hardware aware algorithm
+[1033.6s] that computes the model recurrently with
+[1035.6s] a scan instead of a convolution so they
+[1038.8s] say essentially we sort of make it
+[1041.2s] really fast on GPU even though we have
+[1045.0s] an algorithmically a different we have a
+[1047.9s] different Al algorithm we need to
+[1049.4s] compute something making the actual
+[1052.8s] recurrence or actually recurrently but
+[1055.8s] we do it in a way that fits really well
+[1057.7s] on Two gpus And therefore uh it's
+[1060.9s] actually in in the end it's actually
+[1066.1s] faster and yeah they make this into a
+[1069.2s] model um called Mamba uh Mamba is Mumbo
+[1073.6s] is not the same as selective State
+[1075.4s] spaces selective State space uh
+[1079.0s] are a part of Mamba uh and then combined
+[1082.2s] with some other stuff like uh 1D
+[1085.2s] convolutions and up projections and
+[1087.6s] gating that becomes the Mamba
+[1089.4s] architecture it's attention free uh
+[1092.8s] therefore it's it avoids the quadratic
+[1096.4s] bottlenecks of attention of attention
+[1099.4s] based models such as
+[1103.4s] Transformers so they say these are fully
+[1106.8s] recurrent models with the key prop
+[1108.8s] property uh for example high quality
+[1111.6s] selectivity brings strong performance
+[1113.6s] and on dense modalities such as language
+[1116.3s] and genomics I think that's going to be
+[1118.3s] the biggest sticking points so they have
+[1120.5s] recognized that you know this super
+[1122.1s] scalable thing like S4 is not really
+[1125.0s] suitable for language because you need
+[1126.7s] to be a little bit data dependent in
+[1130.3s] your transitions from you know through
+[1132.8s] the hidden States and now they say well
+[1135.0s] selectivity brings strong performance
+[1137.9s] which because they added selectivity
+[1140.6s] they added this dependence on the input
+[1143.1s] of the transition um now gives them a
+[1145.7s] bump in performance the jury is still
+[1148.8s] out whether in the future they'll say
+[1151.7s] yeah it's better but still in order to
+[1154.7s] really reach the performance of
+[1156.8s] Transformers we also need to make that
+[1159.2s] transition actually dependent on the
+[1161.2s] hidden State and at that point we're
+[1164.2s] back to essentially
+[1165.8s] lstms but it could be that the
+[1168.7s] dependence on the input just the input
+[1172.4s] um already makes them as strong as
+[1174.7s] Transformers on a lot of important
+[1178.6s] benchmarks
+[1181.1s] fast fast training and inference uh
+[1184.6s] computation memory scales linearly in
+[1186.5s] sequence length during training and
+[1188.4s] unrolling the model Auto regressively
+[1190.2s] during inference requires only constant
+[1192.1s] time per step since it does not require
+[1194.6s] a cache of previous element so there's
+[1197.0s] no key value cach FH and so like in
+[1199.4s] Transformers you literally just have to
+[1201.1s] remember the last hidden State and then
+[1204.6s] producing one additional token during
+[1206.6s] inference is just it's just two Matrix
+[1210.5s] multiplications or something like this
+[1212.7s] right so no attention no no nothing just
+[1216.0s] multiply it in and you have it and long
+[1218.3s] context the quality and efficiency
+[1219.9s] together yield the performance
+[1221.0s] improvements on real data up to sequence
+[1223.0s] length 1
+[1224.5s] million all right so this is the the the
+[1227.8s] arch Ure is a bit distributed throughout
+[1229.9s] the paper this is the The Selective
+[1233.2s] State space um part of this there's
+[1237.4s] going to be a more extensive thing here
+[1241.1s] um so the Muma architecture consists of
+[1244.3s] the part I've just shown
+[1246.2s] you but also of other things so you have
+[1249.8s] to imagine these things are going to be
+[1251.6s] layered on top of one another and then
+[1255.6s] um essentially you you'll always
+[1257.8s] consider consider the entire sequence as
+[1260.1s] one during training um so if we go in
+[1264.8s] here uh this here for example this is a
+[1267.4s] linear projection so you project up in
+[1269.6s] dimensions and you project each token
+[1272.1s] individually like in a Transformer then
+[1274.0s] you do a 1D convolution there is some
+[1276.6s] nonlinearity in there then comes that
+[1279.8s] SSM now in these two things you want to
+[1283.4s] consider the whole sequence as one
+[1285.9s] during training right however in the
+[1288.5s] projections right here they as far as I
+[1290.8s] understand go just individually over
+[1292.7s] tokens like the the MLPs in a
+[1295.2s] Transformer and then there is also this
+[1297.4s] extra mechanism right here which is a
+[1300.4s] gating mechanism like you're used to
+[1303.1s] from from other gated
+[1304.9s] architectures again this doesn't go
+[1307.1s] between time steps that's important to
+[1308.8s] note this goes from layer to layer right
+[1311.9s] so as you go up the layers the time
+[1314.5s] would be some sort the time steps aren't
+[1316.6s] even shown here there's no time
+[1318.1s] Direction in this particular diagram
+[1321.0s] there is also residual connections like
+[1323.3s] that go uh out out the way and so on um
+[1328.7s] yeah so the Mamba is an architecture
+[1332.6s] that includes this new uh selective
+[1335.2s] State
+[1337.2s] spaces that selective State space layer
+[1340.4s] looks about like this and here we now
+[1342.5s] have a Time direction right so here we
+[1344.9s] now consider how do we compute um
+[1348.5s] one token in this sequence given that we
+[1351.8s] have to accumulate this hidden State uh
+[1354.4s] over time and again we can do this
+[1357.0s] either during training where we try to
+[1360.0s] compute all of them as fast as possible
+[1361.9s] or during inference where we just do one
+[1363.6s] of these time steps so as you can see
+[1366.5s] the backbone is just going to be we have
+[1369.3s] this we multiply we mult essentially
+[1372.6s] there is
+[1373.7s] a there is a this this a matrix right
+[1376.9s] here that we're going to
+[1378.6s] use and there is the input that somehow
+[1381.7s] comes in and from these two things we're
+[1384.1s] going to produce that next hidden State
+[1387.0s] now what is all of this right here um
+[1390.4s] all of this is part of this state space
+[1394.1s] architecture how does that look there is
+[1397.0s] a technicality in here which is called
+[1401.0s] discretization now the the theory behind
+[1404.1s] State space models and and so on is was
+[1407.2s] developed for continuous time systems
+[1410.0s] and if you want to make them into
+[1412.4s] discrete you if you want to be sort of
+[1415.6s] correct you can't just uh you can't just
+[1418.4s] apply the same thing um if you do it in
+[1422.0s] the way they do it here it has some nice
+[1424.1s] properties such as I believe your you're
+[1426.9s] kind of time step in
+[1429.2s] independent uh you automatically
+[1431.9s] scale the things to the correct scaling
+[1435.3s] and so on however
+[1438.4s] whenever you hear
+[1440.3s] discretization um just you're free to
+[1444.0s] also just kind of ignore it for the
+[1446.4s] purposes of understanding what's going
+[1448.2s] on from a deep learning perspective and
+[1450.1s] from a data flow perspective I'm sorry
+[1452.8s] Albert if you're listening this must be
+[1455.1s] really offensive um and I apologize for
+[1458.9s] that uh um we can do another video where
+[1462.5s] we dive into sort of into more of the
+[1464.8s] background Behind These models and so on
+[1467.4s] um maybe not the best person to explain
+[1469.6s] that but we'll do our best to understand
+[1472.6s] kind of what's going on here on a more
+[1474.6s] high level so you have they call them
+[1478.4s] four parameters okay these are these are
+[1481.9s] matrices or vectors that just have
+[1484.4s] learnable
+[1486.0s] parameters you'll use this this here is
+[1489.6s] the S like a
+[1491.7s] parameterization
+[1493.2s] um
+[1495.1s] parameterization no sorry discretization
+[1497.4s] param
+[1498.9s] this here controls how on hidden state
+[1500.9s] is propagated forward this here controls
+[1503.7s] how much of the input is propagated into
+[1506.6s] the new hidden State and this here
+[1508.6s] controls how the hidden state is com is
+[1512.0s] processed into the uh output state so
+[1514.8s] you can see the next hidden state is
+[1517.2s] produced from the last hidden State
+[1519.4s] multiplied by what's called a bar and a
+[1521.5s] bar is simply a uh computation that
+[1524.9s] results from this discretization
+[1527.1s] parameter and the a matrix again don't
+[1531.7s] worry just consider if you want just
+[1534.0s] consider this here to be a learnable m
+[1536.9s] Matrix and this here to be a learnable
+[1539.4s] matrix and in that you can see from this
+[1542.3s] perspective this is a super duper simple
+[1545.9s] like the most plain recurrent neural
+[1548.6s] network there is without even some any
+[1551.4s] sort of nonlinearity around here you can
+[1554.6s] see this is just like a linear recurrent
+[1557.7s] neural network if you will where you
+[1560.6s] just kind of dampen in some way in some
+[1563.6s] multi-dimensional way the last hidden
+[1565.3s] State and then you add uh a a um
+[1569.2s] projected version of the input the
+[1571.3s] output is simply computed again as a
+[1573.8s] linear function of the Hidden State now
+[1576.6s] since everything is linear you can what
+[1579.9s] you can do is if you actually write this
+[1581.9s] out you actually write out I want to
+[1584.0s] compute sorry I want to compute Y3 what
+[1587.3s] am I doing I have an eraser if you
+[1590.0s] compute Y3 you can say oh well that's
+[1592.5s] just
+[1593.4s] H3 uh ah3 plus
+[1597.5s] bx3 oh but what's H3 well H3 is just ah
+[1603.5s] H2 oh sorry why is that that multiplied
+[1607.1s] by C right well that's just a H2 plus b
+[1610.8s] X2 and what's H2 well that's just a H1
+[1615.3s] plus b x X1 and so if I plug all of this
+[1620.4s] in I'm going to end up with Y3 is equal
+[1623.0s] to C * um C * a * a time
+[1631.1s] a
+[1632.8s] uh H1 let's say that's the initial
+[1635.9s] hidden State um so you can see you can
+[1639.1s] multiply this out what you'll end up
+[1641.1s] with is like you can we you'll end up
+[1643.1s] with like c a a a a uh uh B X1 c plus c
+[1651.6s] a a a b X2 and so on so plus uh c a a b
+[1659.2s] X3 so there's kind of the number of A's
+[1662.5s] just different depending on how many
+[1664.2s] time steps that particular X is in the
+[1666.5s] past but you can see I can multiply all
+[1668.7s] of this out and what that allows me to
+[1670.8s] do is that allows me to say well all of
+[1672.5s] this here is just constant no not this
+[1675.8s] all without X all of these matrices here
+[1678.3s] are just constant learnable
+[1680.4s] parameters this too this too so I can
+[1683.8s] just consider this as a vector a
+[1686.2s] dotproduct of c a a a a b c a a a
+[1692.2s] b c a a b and so on with
+[1699.1s] X1 X2 X3 and so on and this here I can
+[1705.4s] perfectly precompute you you know I just
+[1708.2s] after each learning step uh these these
+[1710.9s] are just learned parameters therefore I
+[1713.0s] can perfectly precompute that and when a
+[1715.2s] new sequence comes I just dot product it
+[1717.4s] in and I have the full output I have the
+[1721.1s] output available instantly and that's
+[1723.3s] what they do over here so you can see
+[1725.2s] they built this
+[1726.4s] kernel out of this and then they can say
+[1729.9s] well the output is simply going to be a
+[1732.7s] multiply the input as a vector by my
+[1736.2s] kernel and but boom I just have it all I
+[1739.7s] have it all available right um and
+[1742.7s] that's and that is uh why and you can
+[1746.8s] hopefully see that this is a convolution
+[1749.4s] uh so if you now if you not only want
+[1751.9s] one output but you actually want each of
+[1753.6s] the output of each of the time steps
+[1755.4s] this just results in a convolution
+[1757.3s] operation uh that you can do and that's
+[1760.9s] why the S4s and so on were so extremely
+[1764.1s] efficient because you can just compute
+[1765.5s] all at the same time all those linear
+[1767.4s] all is fixed just forward prop is one
+[1770.4s] convolution back prop super easy right
+[1774.4s] okay that's it and essentially in Mamba
+[1778.9s] we we're not we're or in structured
+[1780.7s] State spaces all we're doing is we're
+[1783.4s] making a b c and this Delta here input
+[1787.8s] dependent that's it that's the whole
+[1791.3s] that's the whole thing
+[1793.5s] um you can see this in the algorithm
+[1795.9s] here you can see see you have the SSM
+[1800.2s] here ABC go into it in fact no sorry a
+[1805.0s] bar and bar bar are computed from this
+[1807.6s] thing right here that's exactly the same
+[1810.6s] here and here but now instead of b c
+[1815.0s] this and a being just simple
+[1819.2s] parameters a is still a parameter
+[1822.5s] however everything else you can see b c
+[1826.1s] Delta is
+[1827.8s] computed from the input okay and that
+[1832.0s] means it it still means you can do the
+[1834.6s] zoom thing but the zoom thing now you
+[1837.9s] have to uh make that input dependent and
+[1841.9s] specifically specifically everything
+[1844.6s] gains a dimension so here see this has
+[1847.1s] no this is the same for each time step
+[1850.9s] this now is different for each time step
+[1854.0s] okay because each time step has a
+[1855.7s] different input and therefore or the
+[1858.5s] these things gain an extra Dimension and
+[1861.8s] that's kind of bad because that makes
+[1863.6s] them L times bigger than previously so
+[1867.9s] what do we do in order to make that
+[1871.3s] still
+[1873.4s] fast they differentiate now between two
+[1877.4s] things GPU high bandwidth memory and
+[1882.3s] what's called SRAM so gpus have two
+[1886.0s] different types of memory I didn't know
+[1888.0s] before this paper but they have the main
+[1890.6s] memory is kind of the slow memory that's
+[1894.1s] this right here that's high bandwidth
+[1896.6s] memory but that's slow even though it's
+[1898.4s] high bandwidth um well I guess high
+[1900.8s] bandwidth doesn't mean low ping all
+[1902.8s] right that's slow and then SRAM is
+[1905.7s] really small but is really fast and they
+[1909.6s] realize hey if we want to do the Matrix
+[1911.8s] multiplications these happen in this
+[1913.8s] SRAM that's essentially the cache that's
+[1915.7s] the fast stuff uh the the bulk of work
+[1920.2s] is actually moving stuff between the two
+[1922.9s] types of memory moving stuff between the
+[1925.4s] two is the slow thing and therefore
+[1927.2s] we've just made that L times bigger and
+[1929.9s] therefore we made that moving L times
+[1932.6s] slower because the multiplications
+[1935.0s] aren't that slow it's actually moving
+[1936.8s] the stuff around and therefore they come
+[1939.1s] up with a scheme where they don't have
+[1942.2s] to move as much stuff that that's
+[1945.8s] essentially it you can look the code but
+[1951.2s] um in the end it it just comes down to
+[1954.4s] that it comes down to moving stuff
+[1956.8s] around moving big stuff around is slow
+[1959.8s] and therefore they say you know instead
+[1963.2s] of computing this kind of stuff um this
+[1967.2s] kind of scan inputs in GPU um HPM we
+[1972.8s] load the parameters themselves directly
+[1976.1s] to fast s R perform the discretization
+[1978.6s] and recurrence in SRAM and then write
+[1980.7s] the final outputs back to hbm uh they
+[1984.1s] save themselves they actually don't save
+[1987.0s] themselves an L they save themselves an
+[1989.3s] n and n is the discretization expansion
+[1993.6s] Factor so during this discretization you
+[1996.4s] kind of need to expand um ex
+[1999.7s] dimensionality expand some of these
+[2002.3s] things and they save save themselves
+[2005.3s] that expansion and therefore are a lot
+[2008.8s] faster uh yeah so I'm not going to go
+[2012.9s] deeper into this except saying what they
+[2015.2s] say down here you know
+[2018.2s] um they make use of this uh reduction of
+[2022.6s] data movement plus a recomputation of
+[2026.8s] intermediate States and that results in
+[2029.8s] that the fused selective scan layer has
+[2034.2s] the same memory requirements as an
+[2036.1s] optimized transform former
+[2037.3s] implementation with flash
+[2039.2s] attention and I I believe that should
+[2041.4s] give you a good good idea of the
+[2044.2s] combination of what kind of is required
+[2047.5s] right
+[2049.6s] here so again they can still do the zoom
+[2053.6s] um except now the elements are input
+[2057.2s] dependent and therefore they have to do
+[2059.2s] the zoom differently and they do the
+[2061.3s] zoom using not the convolution because
+[2063.8s] the convolution would require the kernel
+[2065.5s] to be constant but they now do it via
+[2068.6s] What's called the prefix sum and the
+[2070.3s] prefix sum is and they call it a
+[2073.4s] parallel scan but it's essentially the
+[2075.4s] thing that computes this a * a * a * B
+[2079.4s] and then a or c a a a b and then a * a *
+[2084.0s] a * a * B and so on except now of course
+[2087.2s] all of the A's are different right so
+[2089.2s] it's now uh A1 * A2 * A3 * B3 A1 * A2
+[2096.2s] and also C C3 so you can see all of
+[2099.0s] these are now different so you can't do
+[2100.8s] like the tricks from before anymore and
+[2103.9s] what they do is a prefix sum and the
+[2105.5s] prefix sum is just the simplest form is
+[2108.0s] when you have an array like 1 5 9 2 uh
+[2112.6s] to compute the sum the cumulative sum
+[2114.9s] like 1 six uh 15 17 so that the way you
+[2121.0s] compute this in an efficient manner um
+[2124.3s] you can then you can then use this down
+[2127.2s] here for various things it's very simple
+[2131.2s] right and this is useful in a lot of
+[2132.8s] algorithm but to avoid recomputing a lot
+[2135.4s] of this stuff you can use prefix sums to
+[2138.5s] kind of precompute all of the sums or in
+[2142.0s] this case all of the multiplications of
+[2144.1s] different things together and then you
+[2145.7s] can use those and for example if you say
+[2149.2s] what's the sum from here to here you can
+[2151.5s] just subtract from 17 you can subtract
+[2155.1s] uh six or one sorry one and you can say
+[2157.3s] ah the sum here is 16 without having to
+[2160.0s] compute it again same principle goes for
+[2163.2s] how they make this here
+[2165.4s] fast the scaling laws look really scaly
+[2170.0s] uh so they the perplexity in language
+[2174.6s] modeling um and that is models trained
+[2178.6s] on the pile up to 1.3 billion parameters
+[2182.3s] scales better than all other attention
+[2184.7s] free models and there is the first to
+[2186.1s] match to perform performance of a very
+[2187.6s] strong Transformer Plus+ recipe that has
+[2190.4s] now become the standard particularly as
+[2192.6s] the sequence length grows so the jury
+[2194.9s] still out what happens at really large
+[2197.8s] scales but already at this scale this
+[2200.4s] looks quite promising um DNA modeling
+[2203.5s] and so on Mamba Superior to other things
+[2207.8s] uh yeah because long sequence lengths
+[2211.2s] are really the strength of these kinds
+[2213.4s] of models and again we'll have to see
+[2216.8s] what the exact tradeoff is going to be
+[2220.0s] whether we need to make the um the
+[2223.5s] transitions input dependent or not and
+[2227.6s] yeah you can see that uh inference
+[2229.4s] throughput on an a100 is good and
+[2233.7s] actually gets more drastic and drastic
+[2236.8s] as the batch size increases when you
+[2238.6s] compare them to
+[2240.5s] Transformers all right they have some
+[2243.4s] ablations here um it's say Mamba is a
+[2247.5s] strong candidate uh to be a general
+[2249.8s] sequence model backbone and lastly I
+[2253.0s] think I have one more highlighted
+[2254.3s] section where they discuss the
+[2256.5s] intricacies of the of the um of their
+[2262.2s] efficient implementation this section is
+[2264.6s] also good if you want to dive deeper
+[2266.5s] into this you can go into this section
+[2269.0s] especially they discuss what they
+[2271.4s] transfer how much elements they transfer
+[2274.0s] what that costs and so on so really
+[2276.8s] reducing that memory transfer and lastly
+[2279.2s] you can also dive into the code here on
+[2281.3s] GitHub if you do I invite you to look at
+[2283.6s] this Mamba simple Pi first and in fact
+[2287.4s] there the in this code base the same
+[2289.8s] thing is going to be implemented
+[2291.4s] multiple times one time for python one
+[2295.1s] time for GPU and then again one time for
+[2299.0s] uh inference where you do things
+[2300.7s] recurrently and one time for training
+[2303.1s] where you compute everything kind of at
+[2304.8s] the same time and so you you'll find the
+[2307.9s] same code written many many times in
+[2311.3s] different ways I invite you to look at
+[2313.7s] this step function right here which is
+[2316.6s] really really good and just assume you
+[2318.4s] don't have any of the extras so like
+[2320.3s] this uh causal con uh 1D update because
+[2323.8s] that gives you a good idea so see you
+[2326.0s] there's first an input projection then
+[2328.7s] there is a con 1D like a convolution 1D
+[2333.3s] convolution then um there is then then
+[2337.0s] the the parameters here are this DT they
+[2341.3s] talk about sort of projecting this down
+[2343.8s] and up and kind of putting it through a
+[2346.0s] dimensionality
+[2347.4s] bottleneck The Matrix a is is a
+[2351.0s] parameter it's just stored as log a uh
+[2354.2s] and not as a itself where was I H where
+[2358.5s] was I oh here then we do the
+[2361.2s] discretization the discretization goes
+[2364.4s] um you can see here discretization is is
+[2366.6s] done by multiplying this DT to a this DT
+[2370.2s] to B then the recurrence is calculated
+[2374.7s] the state time da plus uh x * DB so this
+[2380.7s] is the main recurrence for the hidden
+[2382.3s] State the output is calculated uh by
+[2385.2s] just multiplying the hidden state by C
+[2388.3s] and lastly there there is a recurrent
+[2390.4s] there's this gating Connection in D
+[2393.0s] which is exactly what we saw in the
+[2395.3s] paper in this architecture
+[2397.7s] diagram right right right
+[2403.2s] right here right so you have uh
+[2408.6s] projections 1D convolution nonlinearity
+[2412.3s] uh State space models with the with the
+[2414.5s] discretization and recurrence
+[2416.4s] computation uh gating pathway this is
+[2419.6s] with the Matrix D in the code out
+[2422.1s] projection and that's it all right that
+[2425.4s] was it for me for this architecture I
+[2427.6s] hope uh you got a little bit clearer on
+[2430.4s] what Mambo does how it can be used and
+[2433.0s] yeah it's exciting to go forward with
+[2434.9s] these architectures I hope you're having
+[2436.5s] a good time that was it for me Merry
+[2438.7s] Christmas and bye-bye

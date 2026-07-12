@@ -1,0 +1,10 @@
+PyMuPDF==1.27.2.3
+sentence-transformers==5.5.1
+faiss-cpu==1.14.2
+numpy==2.4.4
+requests==2.32.5
+gradio==6.15.2
+youtube-transcript-api==1.2.4
+rank-bm25==0.2.2
+pillow==12.2.0
+torch==2.11.0
