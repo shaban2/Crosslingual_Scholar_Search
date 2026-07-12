@@ -1,0 +1,42 @@
+{
+  "clip/raw/en": {
+    "p_at_10": 0.193,
+    "ndcg_at_10": 0.238
+  },
+  "clip/raw/id": {
+    "p_at_10": 0.113,
+    "ndcg_at_10": 0.12
+  },
+  "mclip/raw/en": {
+    "p_at_10": 0.16,
+    "ndcg_at_10": 0.227
+  },
+  "mclip/raw/id": {
+    "p_at_10": 0.113,
+    "ndcg_at_10": 0.155
+  },
+  "bm25/-/en": {
+    "p_at_10": 0.253,
+    "ndcg_at_10": 0.328
+  },
+  "bm25/-/id": {
+    "p_at_10": 0.18,
+    "ndcg_at_10": 0.241
+  },
+  "clip/calibrated/en": {
+    "p_at_10": 0.193,
+    "ndcg_at_10": 0.259
+  },
+  "clip/calibrated/id": {
+    "p_at_10": 0.047,
+    "ndcg_at_10": 0.051
+  },
+  "mclip/calibrated/en": {
+    "p_at_10": 0.16,
+    "ndcg_at_10": 0.218
+  },
+  "mclip/calibrated/id": {
+    "p_at_10": 0.067,
+    "ndcg_at_10": 0.092
+  }
+}
