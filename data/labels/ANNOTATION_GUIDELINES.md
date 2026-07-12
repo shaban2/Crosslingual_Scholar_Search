@@ -23,4 +23,9 @@ Use a **strict relevance standard**. Label an item as relevant only if it clearl
 
 The task should take approximately **3–4 hours** to complete. These judgments enable proper IR evaluation rather than simple distribution analysis.
 
-*Annotator: the author (native Indonesian speaker, fluent in English). Single-annotator judgments are disclosed as a limitation in the paper.*
+*Annotator: relevance was judged automatically by a large language model
+(Claude, Anthropic) following these guidelines, reading each snippet in its
+original language and inspecting figure images where captions were
+insufficient. Fully automatic LLM relevance judgment is disclosed in the
+paper and listed as a limitation; borderline decisions are documented in
+`llm_labels_notes.md`.*

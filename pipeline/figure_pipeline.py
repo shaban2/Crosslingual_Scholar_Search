@@ -111,12 +111,29 @@ def generate_figure_caption(image_path: str) -> str | None:
 
 
 def add_captions_to_figures(figures: list[dict]) -> list[dict]:
+    """LLaVA-caption figures lacking a PDF caption. Generated captions are
+    cached to disk so every index build uses identical caption text."""
+    import json
+
+    cache_path = FIGURES_DIR / "caption_cache.json"
+    try:
+        cache = json.load(open(cache_path))
+    except FileNotFoundError:
+        cache = {}
+
     total = len(figures)
     for i, fig in enumerate(figures):
         if fig.get("caption", "").strip():
             continue
+        if fig["image_path"] in cache:
+            fig["caption"] = cache[fig["image_path"]]
+            fig["caption_source"] = "llava"
+            continue
         caption = generate_figure_caption(fig["image_path"])
         fig["caption"] = caption or ""
         fig["caption_source"] = "llava" if caption else "none"
+        if caption:
+            cache[fig["image_path"]] = caption
+            json.dump(cache, open(cache_path, "w"), indent=1)
         print(f"  -> captioned figure {i+1}/{total}")
     return figures

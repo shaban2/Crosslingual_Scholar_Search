@@ -38,7 +38,10 @@ def item_key(meta: dict) -> str:
     if modality == "figure":
         return f"figure:{meta.get('image_path')}"
     if modality == "transcript":
-        return f"transcript:{meta.get('lecture_id')}@{meta.get('timestamp')}"
+        # timestamps are full-precision on fresh fetches but 1-decimal when
+        # reloaded from cached transcript files; normalize so the same
+        # segment gets the same key regardless of which build produced it
+        return f"transcript:{meta.get('lecture_id')}@{float(meta.get('timestamp', 0)):.1f}"
     return f"text:{meta.get('paper_id')}#{meta.get('section')}#{meta.get('chunk_index')}"
 
 
