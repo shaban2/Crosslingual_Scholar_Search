@@ -1,0 +1,16 @@
+query_id,original,revised,reason,semantic_change
+q01,Bagaimana mekanisme attention bekerja pada Transformer?,Bagaimana mekanisme atensi (attention) bekerja dalam model Transformer?,Menggunakan istilah Indonesia dan memperjelas bahwa Transformer adalah model.,none
+q02,Masalah apa yang diselesaikan oleh self-attention dibandingkan dengan jaringan rekuren?,Permasalahan apa yang diatasi oleh mekanisme atensi mandiri (self-attention) dibandingkan dengan jaringan rekuren?,Meningkatkan formalitas dan memperkenalkan padanan Indonesia.,none
+q03,Jelaskan diagram arsitektur model Transformer,Jelaskan diagram arsitektur model Transformer.,Menambahkan tanda baca akhir.,none
+q04,Bagaimana word embedding dipelajari dalam word2vec?,Bagaimana representasi kata (word embedding) dipelajari dalam word2vec?,Menggunakan padanan Indonesia sambil mempertahankan istilah teknis.,none
+q05,Apa perbedaan antara CBOW dan skip-gram?,Apa perbedaan antara CBOW dan skip-gram?,Sudah formal dan tepat.,none
+q06,Bagaimana convolutional neural network mengekstrak fitur dari citra?,Bagaimana jaringan saraf konvolusional (convolutional neural network) mengekstraksi fitur dari citra?,Menggunakan padanan Indonesia dan bentuk verba formal mengekstraksi.,none
+q07,Mengapa residual connection membantu melatih jaringan yang sangat dalam?,Mengapa koneksi residual (residual connection) membantu proses pelatihan jaringan yang sangat dalam?,Menggunakan padanan Indonesia dan konstruksi nominal yang lebih formal.,none
+q08,Bagaimana BERT dilatih dengan masked language modeling?,Bagaimana BERT menjalani prapelatihan menggunakan pemodelan bahasa bertopeng (masked language modeling)?,Membedakan prapelatihan dari pelatihan umum dan menggunakan padanan Indonesia.,none
+q09,Bagaimana BERT dapat digunakan untuk analisis sentimen?,Bagaimana BERT dapat digunakan untuk analisis sentimen?,Sudah formal dan tepat.,none
+q10,Apa keterbatasan jaringan LSTM dalam menangani sekuens yang panjang?,Apa saja keterbatasan jaringan LSTM dalam menangani sekuens panjang?,Membuat pertanyaan jamak lebih alami dan ringkas.,none
+q11,Bagaimana Mamba menangani dependensi jarak jauh?,Bagaimana Mamba menangani dependensi jangka panjang?,Menggunakan padanan yang lebih lazim untuk long-range dependencies dalam konteks sekuens.,none
+q12,Bandingkan biaya komputasi antara attention dan model state space,Bandingkan biaya komputasi mekanisme atensi (attention) dengan model ruang keadaan (state space model).,Menggunakan istilah formal dan memperbaiki konstruksi perbandingan.,none
+q13,Tunjukkan kurva loss pelatihan untuk model bahasa yang dalam,Tampilkan kurva kerugian pelatihan (training loss) untuk model bahasa mendalam.,Menggunakan verba dan istilah akademik yang lebih formal.,none
+q14,Apa arti rumus scaled dot-product attention?,Apa makna rumus atensi hasil kali titik berskala (scaled dot-product attention)?,Menggunakan padanan Indonesia formal sambil mempertahankan istilah baku Inggris.,none
+q15,Bagaimana cara kerja transfer learning dengan model yang sudah dilatih sebelumnya?,Bagaimana cara kerja pembelajaran transfer (transfer learning) pada model yang telah dilatih sebelumnya?,Menggunakan padanan Indonesia dan bentuk telah yang lebih formal.,none

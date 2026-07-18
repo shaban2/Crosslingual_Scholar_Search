@@ -1,5 +1,7 @@
 # Cross-Lingual Scholar Search
 
+Repository: https://github.com/shaban2/Crosslingual_Scholar_Search
+
 Measuring the language gap and modality gap in multimodal scholarly retrieval,
 using English/Indonesian as the test pair.
 
@@ -35,24 +37,51 @@ python build_index.py --download --encoder clip    # English CLIP baseline
 python build_index.py --encoder mclip              # multilingual CLIP
 python evaluate.py                                 # -> data/eval_results.json
 python analyze_gap.py                              # -> data/gap_analysis.json
+python run_revision_experiments.py --query-set all # versioned @5/@10/@20 runs
+python generate_revision_report.py                 # reconciled JSON/README/LaTeX values
+ollama serve
+python evaluate_reviews.py                         # bounded end-to-end review check
+python summarize_review_evaluation.py              # generated review-evaluation values
 ```
 
 ## Headline findings so far
 
 - English CLIP silos by language: the same query in EN vs ID returns almost
-  disjoint top-10 lists (mean Jaccard 0.015). Indonesian queries barely reach
+  disjoint top-10 lists (mean Jaccard 0.019). Indonesian queries barely reach
   English papers (3/15 queries), English queries barely reach Indonesian
   lectures (2/15).
 - The gaps stack: Indonesian query -> English figure is the lowest-scoring
-  cell in the similarity table (mean 0.499 vs 0.812 for same-language
+  cell in the similarity table (mean 0.498 vs 0.812 for same-language
   transcripts).
 - Multilingual CLIP closes the language gap (EN/ID consistency rises to
-  Jaccard 0.468; per-group score means equalize across query languages) but
+  Jaccard 0.474; per-group score means equalize across query languages) but
   compresses scores and biases retrieval toward transcripts, drowning paper
   text - trading a language bias for a register bias.
-- Figures are retrieved by no dense configuration in either language,
+- Figures are retrieved by neither raw dense configuration in either language,
   replicating the modality-gap finding of the original project on a corpus
   2.3x larger.
 
-Caveats: no human relevance judgments yet (planned); Indonesian transcripts
-are auto-generated captions (disclosed as a corpus property).
+Caveats: effectiveness uses provisional judgments from a single LLM assessor,
+with bilingual human validation left as future work. Indonesian transcripts are
+auto-generated captions (disclosed as a corpus property).
+
+## Documentation
+
+- `REPRODUCIBILITY.md` records commands, model identifiers, seeds, and scope.
+- `ARTIFACTS.md` lists released artifacts and the remaining public-URL requirement.
+- `ETHICS_AND_DATA.md` documents third-party data, automated processing, and risks.
+- `data/review_evaluation/` contains the bounded review outputs and qualitative example.
+
+<!-- REVISION_RESULTS_START -->
+### Reconciled query-robustness results
+
+Generated from `data/revision_results/summary.json` at top-10. Revised-query effectiveness is not directly comparable because the original judgment pool has incomplete coverage.
+
+| Configuration | Original EN/ID Jaccard | Formal-ID EN/ID Jaccard | Formal-ID judgment coverage |
+|---|---:|---:|---:|
+| CLIP raw | 0.019 | 0.000 | 58.7% |
+| mCLIP raw | 0.474 | 0.409 | 81.3% |
+| BM25 | 0.071 | 0.011 | 52.7% |
+| CLIP calibrated | 0.083 | 0.071 | 70.7% |
+| mCLIP calibrated | 0.505 | 0.489 | 85.3% |
+<!-- REVISION_RESULTS_END -->

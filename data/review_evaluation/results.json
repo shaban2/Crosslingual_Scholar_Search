@@ -1,0 +1,1167 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-07-18T08:43:30.276307+00:00",
+  "model": "llama3.2",
+  "temperature": 0,
+  "seed": 20260718,
+  "query_ids": [
+    "q01",
+    "q06",
+    "q11"
+  ],
+  "encoders": [
+    "clip",
+    "mclip"
+  ],
+  "top_k": 10,
+  "scope_note": "Mechanical grounding evaluation; not a human or factual-quality assessment.",
+  "runs": [
+    {
+      "query_id": "q01",
+      "topic": "transformer",
+      "encoder": "clip",
+      "language": "en",
+      "query": "How does the attention mechanism work in a Transformer?",
+      "sources": {
+        "S1": {
+          "item_key": "text:1706.03762_attention#conclusion#2",
+          "modality": "text",
+          "language": "en",
+          "score": 0.848450779914856
+        },
+        "S2": {
+          "item_key": "transcript:7jlZlSxZZ1g@33.0",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8475639820098877
+        },
+        "S3": {
+          "item_key": "transcript:RQowiOF_FvQ@80.8",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8435676097869873
+        },
+        "S4": {
+          "item_key": "transcript:RQowiOF_FvQ@149.5",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8404340147972107
+        },
+        "S5": {
+          "item_key": "text:2406.07887_empirical_mamba#results#129",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8356554508209229
+        },
+        "S6": {
+          "item_key": "text:2405.21060_mamba2#results#2",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8315533995628357
+        },
+        "S7": {
+          "item_key": "transcript:9dSkvxS2EB0@73.3",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8288041353225708
+        },
+        "S8": {
+          "item_key": "transcript:uazVw7ImZiQ@0.0",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8281381726264954
+        },
+        "S9": {
+          "item_key": "text:2406.07887_empirical_mamba#results#145",
+          "modality": "text",
+          "language": "en",
+          "score": 0.823665201663971
+        },
+        "S10": {
+          "item_key": "text:2404.16112_mamba360#results#66",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8219025135040283
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q01_clip_en.md",
+      "metrics": {
+        "citation_count": 4,
+        "valid_citation_count": 4,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 3,
+        "source_coverage": 0.3,
+        "cited_source_ids": [
+          "S1",
+          "S8",
+          "S10"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 235
+      }
+    },
+    {
+      "query_id": "q01",
+      "topic": "transformer",
+      "encoder": "clip",
+      "language": "id",
+      "query": "Bagaimana mekanisme attention bekerja pada Transformer?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:bjTM02jXgvE@3872.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9083247780799866
+        },
+        "S2": {
+          "item_key": "transcript:Ib5Wum2SRhY@843.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9054812788963318
+        },
+        "S3": {
+          "item_key": "transcript:bjTM02jXgvE@0.0",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9008126854896545
+        },
+        "S4": {
+          "item_key": "transcript:Ib5Wum2SRhY@953.1",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8998936414718628
+        },
+        "S5": {
+          "item_key": "transcript:Ib5Wum2SRhY@1207.5",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8908034563064575
+        },
+        "S6": {
+          "item_key": "transcript:bjTM02jXgvE@2213.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8877847194671631
+        },
+        "S7": {
+          "item_key": "transcript:Ib5Wum2SRhY@4348.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.887235164642334
+        },
+        "S8": {
+          "item_key": "transcript:Ib5Wum2SRhY@2.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8860101103782654
+        },
+        "S9": {
+          "item_key": "transcript:Ib5Wum2SRhY@1778.9",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8833970427513123
+        },
+        "S10": {
+          "item_key": "transcript:yuvtlMfo3_Y@1433.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8826500177383423
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q01_clip_id.md",
+      "metrics": {
+        "citation_count": 4,
+        "valid_citation_count": 4,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 4,
+        "source_coverage": 0.4,
+        "cited_source_ids": [
+          "S1",
+          "S2",
+          "S6",
+          "S7"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 139
+      }
+    },
+    {
+      "query_id": "q01",
+      "topic": "transformer",
+      "encoder": "mclip",
+      "language": "en",
+      "query": "How does the attention mechanism work in a Transformer?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:Ib5Wum2SRhY@953.1",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9403994679450989
+        },
+        "S2": {
+          "item_key": "transcript:yuvtlMfo3_Y@1869.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9380351305007935
+        },
+        "S3": {
+          "item_key": "transcript:Ib5Wum2SRhY@4348.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9317176342010498
+        },
+        "S4": {
+          "item_key": "transcript:bjTM02jXgvE@3748.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.931346595287323
+        },
+        "S5": {
+          "item_key": "transcript:Ib5Wum2SRhY@1092.6",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9312747120857239
+        },
+        "S6": {
+          "item_key": "transcript:Ib5Wum2SRhY@1207.5",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9310281872749329
+        },
+        "S7": {
+          "item_key": "transcript:bjTM02jXgvE@2088.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9300124645233154
+        },
+        "S8": {
+          "item_key": "transcript:Ib5Wum2SRhY@4474.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9291599988937378
+        },
+        "S9": {
+          "item_key": "transcript:Ib5Wum2SRhY@977.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9281585216522217
+        },
+        "S10": {
+          "item_key": "transcript:Ib5Wum2SRhY@4064.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9278390407562256
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q01_mclip_en.md",
+      "metrics": {
+        "citation_count": 3,
+        "valid_citation_count": 3,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 2,
+        "source_coverage": 0.2,
+        "cited_source_ids": [
+          "S2",
+          "S4"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 248
+      }
+    },
+    {
+      "query_id": "q01",
+      "topic": "transformer",
+      "encoder": "mclip",
+      "language": "id",
+      "query": "Bagaimana mekanisme attention bekerja pada Transformer?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:Ib5Wum2SRhY@953.1",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9505231380462646
+        },
+        "S2": {
+          "item_key": "transcript:yuvtlMfo3_Y@1869.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9491922855377197
+        },
+        "S3": {
+          "item_key": "transcript:Ib5Wum2SRhY@4348.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9469378590583801
+        },
+        "S4": {
+          "item_key": "transcript:Ib5Wum2SRhY@1092.6",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9438465237617493
+        },
+        "S5": {
+          "item_key": "transcript:bjTM02jXgvE@3748.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.943121612071991
+        },
+        "S6": {
+          "item_key": "transcript:Ib5Wum2SRhY@4474.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.941832423210144
+        },
+        "S7": {
+          "item_key": "transcript:Ib5Wum2SRhY@1207.5",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.941775381565094
+        },
+        "S8": {
+          "item_key": "transcript:bjTM02jXgvE@2088.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9391865730285645
+        },
+        "S9": {
+          "item_key": "transcript:Ib5Wum2SRhY@977.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9391465783119202
+        },
+        "S10": {
+          "item_key": "transcript:Ib5Wum2SRhY@4064.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9388667941093445
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q01_mclip_id.md",
+      "metrics": {
+        "citation_count": 0,
+        "valid_citation_count": 0,
+        "invalid_citations": [],
+        "citation_validity": 0.0,
+        "bracket_format_compliance": 0.0,
+        "unique_sources_cited": 0,
+        "source_coverage": 0.0,
+        "cited_source_ids": [],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 173
+      }
+    },
+    {
+      "query_id": "q06",
+      "topic": "cnn",
+      "encoder": "clip",
+      "language": "en",
+      "query": "How do convolutional neural networks extract features from images?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:ANyxBVxmdZ0@1220.5",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.9113065600395203
+        },
+        "S2": {
+          "item_key": "transcript:ANyxBVxmdZ0@4075.3",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.9023582935333252
+        },
+        "S3": {
+          "item_key": "transcript:RQowiOF_FvQ@1606.1",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8951977491378784
+        },
+        "S4": {
+          "item_key": "transcript:ANyxBVxmdZ0@1205.9",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8910940885543823
+        },
+        "S5": {
+          "item_key": "text:1409.1556_vgg#abstract#0",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8881779909133911
+        },
+        "S6": {
+          "item_key": "text:1512.03385_resnet#introduction#0",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8841538429260254
+        },
+        "S7": {
+          "item_key": "transcript:ANyxBVxmdZ0@1580.0",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.882988452911377
+        },
+        "S8": {
+          "item_key": "transcript:RQowiOF_FvQ@3599.5",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8820219039916992
+        },
+        "S9": {
+          "item_key": "transcript:ANyxBVxmdZ0@2622.5",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8810896277427673
+        },
+        "S10": {
+          "item_key": "text:1409.1556_vgg#introduction#0",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8809223771095276
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q06_clip_en.md",
+      "metrics": {
+        "citation_count": 7,
+        "valid_citation_count": 7,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 6,
+        "source_coverage": 0.6,
+        "cited_source_ids": [
+          "S1",
+          "S3",
+          "S5",
+          "S6",
+          "S7",
+          "S8"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 239
+      }
+    },
+    {
+      "query_id": "q06",
+      "topic": "cnn",
+      "encoder": "clip",
+      "language": "id",
+      "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:RQowiOF_FvQ@17.0",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8759433031082153
+        },
+        "S2": {
+          "item_key": "transcript:O-tfsQPI3RE@490.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.873571515083313
+        },
+        "S3": {
+          "item_key": "transcript:yuvtlMfo3_Y@79.9",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8713967800140381
+        },
+        "S4": {
+          "item_key": "transcript:O-tfsQPI3RE@3130.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8702753782272339
+        },
+        "S5": {
+          "item_key": "transcript:O-tfsQPI3RE@2031.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8670141100883484
+        },
+        "S6": {
+          "item_key": "transcript:ANyxBVxmdZ0@1220.5",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8666919469833374
+        },
+        "S7": {
+          "item_key": "transcript:O-tfsQPI3RE@50.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8639451265335083
+        },
+        "S8": {
+          "item_key": "transcript:ITc9C9-Y9uY@1.1",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8632633090019226
+        },
+        "S9": {
+          "item_key": "transcript:ANyxBVxmdZ0@376.8",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8629395365715027
+        },
+        "S10": {
+          "item_key": "transcript:bjTM02jXgvE@1411.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8619979619979858
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q06_clip_id.md",
+      "metrics": {
+        "citation_count": 3,
+        "valid_citation_count": 3,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 3,
+        "source_coverage": 0.3,
+        "cited_source_ids": [
+          "S1",
+          "S5",
+          "S6"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 155
+      }
+    },
+    {
+      "query_id": "q06",
+      "topic": "cnn",
+      "encoder": "mclip",
+      "language": "en",
+      "query": "How do convolutional neural networks extract features from images?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:O-tfsQPI3RE@3020.0",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9399267435073853
+        },
+        "S2": {
+          "item_key": "transcript:zdBCbz7pmkY@0.0",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9371269941329956
+        },
+        "S3": {
+          "item_key": "transcript:O-tfsQPI3RE@779.6",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9364023208618164
+        },
+        "S4": {
+          "item_key": "transcript:O-tfsQPI3RE@181.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9351287484169006
+        },
+        "S5": {
+          "item_key": "transcript:O-tfsQPI3RE@3151.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9351217746734619
+        },
+        "S6": {
+          "item_key": "text:1409.1556_vgg#abstract#0",
+          "modality": "text",
+          "language": "en",
+          "score": 0.9305505156517029
+        },
+        "S7": {
+          "item_key": "transcript:ANyxBVxmdZ0@163.3",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.9301531910896301
+        },
+        "S8": {
+          "item_key": "transcript:O-tfsQPI3RE@28.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.929501473903656
+        },
+        "S9": {
+          "item_key": "transcript:O-tfsQPI3RE@50.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9285784959793091
+        },
+        "S10": {
+          "item_key": "transcript:Ib5Wum2SRhY@52.0",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9282199740409851
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q06_mclip_en.md",
+      "metrics": {
+        "citation_count": 3,
+        "valid_citation_count": 3,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 2,
+        "source_coverage": 0.2,
+        "cited_source_ids": [
+          "S6",
+          "S7"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 198
+      }
+    },
+    {
+      "query_id": "q06",
+      "topic": "cnn",
+      "encoder": "mclip",
+      "language": "id",
+      "query": "Bagaimana convolutional neural network mengekstrak fitur dari citra?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:O-tfsQPI3RE@3020.0",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9616028070449829
+        },
+        "S2": {
+          "item_key": "transcript:O-tfsQPI3RE@779.6",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9602221250534058
+        },
+        "S3": {
+          "item_key": "transcript:zdBCbz7pmkY@0.0",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9550604820251465
+        },
+        "S4": {
+          "item_key": "transcript:O-tfsQPI3RE@3151.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9541254043579102
+        },
+        "S5": {
+          "item_key": "transcript:O-tfsQPI3RE@50.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9498857855796814
+        },
+        "S6": {
+          "item_key": "transcript:O-tfsQPI3RE@3213.6",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.949135422706604
+        },
+        "S7": {
+          "item_key": "transcript:O-tfsQPI3RE@3130.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9488216638565063
+        },
+        "S8": {
+          "item_key": "transcript:O-tfsQPI3RE@490.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9478942155838013
+        },
+        "S9": {
+          "item_key": "transcript:O-tfsQPI3RE@28.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9475805759429932
+        },
+        "S10": {
+          "item_key": "transcript:O-tfsQPI3RE@2975.7",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.946906566619873
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q06_mclip_id.md",
+      "metrics": {
+        "citation_count": 2,
+        "valid_citation_count": 2,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 2,
+        "source_coverage": 0.2,
+        "cited_source_ids": [
+          "S1",
+          "S8"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 185
+      }
+    },
+    {
+      "query_id": "q11",
+      "topic": "mamba",
+      "encoder": "clip",
+      "language": "en",
+      "query": "How does Mamba handle long-range dependencies?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:uazVw7ImZiQ@79.0",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8760198354721069
+        },
+        "S2": {
+          "item_key": "transcript:uazVw7ImZiQ@118.6",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8675517439842224
+        },
+        "S3": {
+          "item_key": "transcript:uazVw7ImZiQ@60.2",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8583133220672607
+        },
+        "S4": {
+          "item_key": "text:2405.21060_mamba2#method#5",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8528701066970825
+        },
+        "S5": {
+          "item_key": "text:2403.19887_jamba#results#24",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8463041186332703
+        },
+        "S6": {
+          "item_key": "text:2406.07887_empirical_mamba#method#0",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8446946144104004
+        },
+        "S7": {
+          "item_key": "text:2405.21060_mamba2#method#120",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8439855575561523
+        },
+        "S8": {
+          "item_key": "text:2404.16112_mamba360#method#85",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8436195254325867
+        },
+        "S9": {
+          "item_key": "transcript:7jlZlSxZZ1g@144.6",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.8429940938949585
+        },
+        "S10": {
+          "item_key": "text:2404.16112_mamba360#results#38",
+          "modality": "text",
+          "language": "en",
+          "score": 0.8408600091934204
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q11_clip_en.md",
+      "metrics": {
+        "citation_count": 4,
+        "valid_citation_count": 4,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 0.0,
+        "unique_sources_cited": 3,
+        "source_coverage": 0.3,
+        "cited_source_ids": [
+          "S2",
+          "S3",
+          "S8"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 233
+      }
+    },
+    {
+      "query_id": "q11",
+      "topic": "mamba",
+      "encoder": "clip",
+      "language": "id",
+      "query": "Bagaimana Mamba menangani dependensi jarak jauh?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:O-tfsQPI3RE@1319.9",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9002811312675476
+        },
+        "S2": {
+          "item_key": "transcript:Ib5Wum2SRhY@3881.9",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8939530253410339
+        },
+        "S3": {
+          "item_key": "transcript:Ib5Wum2SRhY@1778.9",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8928812146186829
+        },
+        "S4": {
+          "item_key": "transcript:YtmOw515BRQ@338.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8926753997802734
+        },
+        "S5": {
+          "item_key": "transcript:O-tfsQPI3RE@576.9",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8903077840805054
+        },
+        "S6": {
+          "item_key": "transcript:O-tfsQPI3RE@278.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8901262879371643
+        },
+        "S7": {
+          "item_key": "transcript:yuvtlMfo3_Y@1433.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.889765739440918
+        },
+        "S8": {
+          "item_key": "transcript:YtmOw515BRQ@358.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8888035416603088
+        },
+        "S9": {
+          "item_key": "transcript:O-tfsQPI3RE@1386.1",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8882848024368286
+        },
+        "S10": {
+          "item_key": "transcript:O-tfsQPI3RE@1663.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.8873522281646729
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q11_clip_id.md",
+      "metrics": {
+        "citation_count": 3,
+        "valid_citation_count": 3,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 0.0,
+        "unique_sources_cited": 3,
+        "source_coverage": 0.3,
+        "cited_source_ids": [
+          "S1",
+          "S6",
+          "S7"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 173
+      }
+    },
+    {
+      "query_id": "q11",
+      "topic": "mamba",
+      "encoder": "mclip",
+      "language": "en",
+      "query": "How does Mamba handle long-range dependencies?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:Ib5Wum2SRhY@2868.0",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.907530665397644
+        },
+        "S2": {
+          "item_key": "text:2312.00752_mamba#results#124",
+          "modality": "text",
+          "language": "en",
+          "score": 0.9063341617584229
+        },
+        "S3": {
+          "item_key": "transcript:uazVw7ImZiQ@118.6",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.9061824083328247
+        },
+        "S4": {
+          "item_key": "text:2404.16112_mamba360#method#88",
+          "modality": "text",
+          "language": "en",
+          "score": 0.9058982729911804
+        },
+        "S5": {
+          "item_key": "transcript:uazVw7ImZiQ@60.2",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.9057852029800415
+        },
+        "S6": {
+          "item_key": "text:2404.16112_mamba360#method#31",
+          "modality": "text",
+          "language": "en",
+          "score": 0.9057416915893555
+        },
+        "S7": {
+          "item_key": "transcript:yuvtlMfo3_Y@4538.6",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9056273102760315
+        },
+        "S8": {
+          "item_key": "transcript:YtmOw515BRQ@30.5",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.905205249786377
+        },
+        "S9": {
+          "item_key": "transcript:yuvtlMfo3_Y@2603.3",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.905022382736206
+        },
+        "S10": {
+          "item_key": "transcript:uazVw7ImZiQ@79.0",
+          "modality": "transcript",
+          "language": "en",
+          "score": 0.9049268960952759
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q11_mclip_en.md",
+      "metrics": {
+        "citation_count": 5,
+        "valid_citation_count": 5,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 1.0,
+        "unique_sources_cited": 5,
+        "source_coverage": 0.5,
+        "cited_source_ids": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S10"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 205
+      }
+    },
+    {
+      "query_id": "q11",
+      "topic": "mamba",
+      "encoder": "mclip",
+      "language": "id",
+      "query": "Bagaimana Mamba menangani dependensi jarak jauh?",
+      "sources": {
+        "S1": {
+          "item_key": "transcript:Ib5Wum2SRhY@180.5",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9404831528663635
+        },
+        "S2": {
+          "item_key": "text:2312.00752_mamba#results#124",
+          "modality": "text",
+          "language": "en",
+          "score": 0.940453052520752
+        },
+        "S3": {
+          "item_key": "transcript:Ib5Wum2SRhY@5634.5",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9394974708557129
+        },
+        "S4": {
+          "item_key": "transcript:Ib5Wum2SRhY@4588.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9393534064292908
+        },
+        "S5": {
+          "item_key": "transcript:Ib5Wum2SRhY@2697.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9378610849380493
+        },
+        "S6": {
+          "item_key": "transcript:Ib5Wum2SRhY@1713.2",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9373471736907959
+        },
+        "S7": {
+          "item_key": "transcript:Ib5Wum2SRhY@143.9",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.937129020690918
+        },
+        "S8": {
+          "item_key": "transcript:Ib5Wum2SRhY@4000.1",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9366763830184937
+        },
+        "S9": {
+          "item_key": "transcript:Ib5Wum2SRhY@1366.4",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9364503026008606
+        },
+        "S10": {
+          "item_key": "transcript:Ib5Wum2SRhY@1317.8",
+          "modality": "transcript",
+          "language": "id",
+          "score": 0.9362421035766602
+        }
+      },
+      "review_file": "data/review_evaluation/reviews/q11_mclip_id.md",
+      "metrics": {
+        "citation_count": 3,
+        "valid_citation_count": 3,
+        "invalid_citations": [],
+        "citation_validity": 1.0,
+        "bracket_format_compliance": 0.0,
+        "unique_sources_cited": 3,
+        "source_coverage": 0.3,
+        "cited_source_ids": [
+          "S2",
+          "S4",
+          "S9"
+        ],
+        "required_sections": {
+          "Overview": true,
+          "Key Findings": true,
+          "Cross-Modal Analysis": true,
+          "Conclusion": true
+        },
+        "section_completion": 1.0,
+        "word_count": 197
+      }
+    }
+  ],
+  "paired_results": [
+    {
+      "query_id": "q01",
+      "encoder": "clip",
+      "cited_evidence_jaccard": 0.0,
+      "en_unique_evidence": 3,
+      "id_unique_evidence": 4
+    },
+    {
+      "query_id": "q01",
+      "encoder": "mclip",
+      "cited_evidence_jaccard": 0.0,
+      "en_unique_evidence": 2,
+      "id_unique_evidence": 0
+    },
+    {
+      "query_id": "q06",
+      "encoder": "clip",
+      "cited_evidence_jaccard": 0.125,
+      "en_unique_evidence": 6,
+      "id_unique_evidence": 3
+    },
+    {
+      "query_id": "q06",
+      "encoder": "mclip",
+      "cited_evidence_jaccard": 0.0,
+      "en_unique_evidence": 2,
+      "id_unique_evidence": 2
+    },
+    {
+      "query_id": "q11",
+      "encoder": "clip",
+      "cited_evidence_jaccard": 0.0,
+      "en_unique_evidence": 3,
+      "id_unique_evidence": 3
+    },
+    {
+      "query_id": "q11",
+      "encoder": "mclip",
+      "cited_evidence_jaccard": 0.14285714285714285,
+      "en_unique_evidence": 5,
+      "id_unique_evidence": 3
+    }
+  ]
+}

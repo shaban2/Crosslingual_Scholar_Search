@@ -4,9 +4,13 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{multicol}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 \usepackage{microtype}
+\input{generated_results.tex}
+\input{generated_review_results.tex}
 
 \title{Lost in One Index: Measuring How Language and Modality Gaps\\
 Compound in English--Indonesian Multimodal Scholarly Search}
@@ -22,65 +26,71 @@ Institut Teknologi Sepuluh Nopember, Surabaya, Indonesia\\
 \maketitle
 
 \begin{abstract}
-Scholarly knowledge in Indonesia is split across languages: research papers
-are published in English, while lectures and theses are produced in
-Indonesian. Retrieval systems that embed all sources into a single vector
-index promise to bridge this divide, but their cross-lingual behavior is
-rarely measured. We build a bilingual multimodal test collection --- ten
-English papers (2{,}720 text chunks, 67 figures), eight English and eight
-Indonesian lecture videos (2{,}101 transcript segments), and 15
-translation-paired queries --- and measure how retrieval changes when the
-same question is asked in English versus Indonesian. Under an English-only
-CLIP encoder, retrieval silos by language: paired queries return nearly
-disjoint top-10 lists (mean Jaccard overlap 0.019), Indonesian queries reach
-English papers in only 3 of 15 cases, and the language and modality gaps
-compound --- Indonesian-query-to-figure similarity is the lowest-scoring
-group in the collection (mean 0.498 vs.\ 0.812 for same-language
-transcripts). A multilingual CLIP text encoder closes most of the
-consistency gap (Jaccard 0.474) but introduces a register bias that floods
-results with lecture transcripts. Per-group score calibration restores
-coverage --- figures return to up to 7 of 15 queries and every Indonesian
-query reaches English papers --- but halves relevance for Indonesian queries
-(nDCG@10 $0.120 \rightarrow 0.051$), exposing a fairness--precision
-tradeoff. A BM25 baseline outperforms every dense configuration in both
-languages, aided by code-switched English terminology in Indonesian
-lectures. We release the collection, relevance judgments, and code.
+Scholarly knowledge in Indonesia is distributed across languages. Research
+papers are commonly published in English, whereas lectures and theses are
+often produced in Indonesian. Retrieval systems that embed these sources in
+a single vector index could help connect them, but their cross-lingual
+behavior has received limited evaluation. We construct a bilingual,
+multimodal test collection containing ten English papers (2{,}720 text
+chunks and 67 figures), eight English and eight Indonesian lecture videos
+(2{,}101 transcript segments), and 15 translation-paired queries. We then
+measure how retrieval changes when the same question is expressed in English
+or Indonesian. With an English-only CLIP encoder, paired queries produce
+nearly disjoint top-10 lists (mean Jaccard overlap 0.019). Indonesian queries
+retrieve English papers in only 3 of 15 cases. The language and modality gaps
+also interact, with Indonesian-query-to-figure similarity forming the
+lowest-scoring group in the collection (mean 0.498, compared with 0.812 for
+same-language transcripts). A multilingual CLIP text encoder improves
+consistency substantially (Jaccard 0.474), but favors lecture transcripts
+over paper text. Per-group score calibration improves coverage. Figures are
+retrieved for up to 7 of 15 queries, and every Indonesian query retrieves an
+English paper. However, calibration reduces Indonesian-query effectiveness
+(nDCG@10 $0.120 \rightarrow 0.051$), indicating a fairness--precision
+tradeoff. Under provisional judgments from a single LLM assessor, BM25
+outperforms every dense configuration in both languages, partly because
+Indonesian lectures contain code-switched English terminology. A separately
+versioned formal Indonesian query set also shows that retrieval is sensitive
+to register, although mCLIP is more stable than CLIP or BM25. We release the
+collection, provisional judgments, query audit, and code.
 \end{abstract}
 
 \section{Introduction}
 
-A student at an Indonesian university studying deep learning lives between
-two languages. The primary literature --- arXiv papers, conference
-proceedings --- is in English. The explanations that make that literature
-accessible --- university lectures on YouTube, campus theses, national
-journals --- are largely in Bahasa Indonesia. Writing a literature review
-means searching both worlds, yet search tools handle them separately: an
-Indonesian question does not find English papers, and an English query does
-not surface the Indonesian lecture that best explains the concept.
+A student studying deep learning at an Indonesian university often works
+across two languages. Much of the primary literature, including arXiv papers
+and conference proceedings, is written in English. Explanatory material,
+including university lectures, campus theses, and national journals, is
+often available in Bahasa Indonesia. A literature review may therefore
+require searching both bodies of material. Existing search tools do not
+always connect them effectively. An Indonesian question may fail to retrieve
+an English paper, while an English query may not surface a relevant
+Indonesian lecture.
 
 Multimodal retrieval systems that embed text, figures, and lecture
-transcripts into one shared vector space appear to offer a way out: if all
-content lives in the same space, one query should retrieve across languages
-and modalities alike. Prior work on such systems, including our own earlier
-prototype~\cite{synthesizer}, has documented a \emph{modality gap}: in a
-shared CLIP index, figures score systematically below text and are almost
-never retrieved~\cite{liang2022mind}. This paper asks what happens when a
+transcripts into one shared vector space offer a possible solution. If the
+representations are well aligned, one query should retrieve across languages
+and modalities. Prior work on such systems, including our earlier
+prototype~\cite{synthesizer}, has documented a \emph{modality gap}. In a
+shared CLIP index, figures score systematically below text and are rarely
+retrieved~\cite{liang2022mind}. This paper examines what happens when a
 \emph{language} dimension is added, using English--Indonesian as the test
 pair. Indonesian is spoken by more than 270 million people, yet
 Indonesian-language evaluation resources remain scarce~\cite{nusacrowd,
 indonlu}, and to our knowledge no prior work measures cross-lingual behavior
 in multimodal scholarly search.
 
-We make four contributions:
+This work makes four contributions.
 \begin{enumerate}
   \item \textbf{A bilingual multimodal test collection.} Ten English
   deep-learning papers, eight English and eight Indonesian lecture videos,
   15 translation-paired queries (authored and verified by a native
-  speaker), and 999 pooled relevance judgments, all released publicly.
+  speaker), a formally revised Indonesian query variant with a complete
+  change audit, and 999 pooled provisional LLM relevance judgments, all
+  released publicly.
   \item \textbf{A measurement of the language gap and its interaction with
   the modality gap.} Under English-only CLIP, translation-paired queries
-  return nearly disjoint results (Jaccard 0.019), and the two gaps stack:
-  Indonesian queries against English figures form the lowest-similarity
+  return nearly disjoint results (Jaccard 0.019). Indonesian queries against
+  English figures form the lowest-similarity
   group in the collection.
   \item \textbf{An encoder comparison.} A multilingual CLIP text encoder
   recovers most cross-lingual consistency (Jaccard 0.474) but compresses
@@ -96,29 +106,29 @@ We make four contributions:
 \section{Related Work}
 
 \textbf{Cross-lingual and multilingual retrieval.} Cross-language
-information retrieval has classically relied on translation~\cite{clir};
-multilingual sentence encoders such as LaBSE~\cite{labse} and
+information retrieval has traditionally relied on translation~\cite{clir}.
+Multilingual sentence encoders such as LaBSE~\cite{labse} and
 knowledge-distilled multilingual CLIP~\cite{mclip} enable direct
 cross-lingual dense retrieval by aligning languages in one embedding space.
 Benchmarks such as MIRACL~\cite{miracl} evaluate multilingual text
-retrieval, and Indonesian NLP resources are expanding through efforts like
+retrieval. Indonesian NLP resources are also expanding through efforts such as
 IndoNLU~\cite{indonlu} and NusaCrowd~\cite{nusacrowd}. Multimodal
-\emph{and} multilingual scholarly retrieval, however, remains unmeasured;
-our collection targets exactly this intersection.
+\emph{and} multilingual scholarly retrieval, however, remains largely
+unmeasured. Our collection focuses on this intersection.
 
 \textbf{The modality gap.} Liang et al.~\cite{liang2022mind} showed that
 contrastively trained multimodal encoders place image and text embeddings
 in systematically different regions of the space. In retrieval over
-academic content, this manifests as figure starvation: in our earlier
-system, figures were never retrieved by unified top-$k$ search over a
-shared CLIP index~\cite{synthesizer}. The present work measures how this
+academic content, this can prevent figures from appearing in ranked results.
+In our earlier system, figures were never retrieved by unified top-$k$
+search over a shared CLIP index~\cite{synthesizer}. The present work measures how this
 gap interacts with a language gap and evaluates one mitigation.
 
 \textbf{Multimodal document retrieval.} ColPali~\cite{colpali} retrieves
 document pages as images with vision-language embeddings, and
 M3DocRAG~\cite{m3docrag} performs retrieval-augmented generation over
 multimodal document collections. These systems target visually rich English
-documents; our setting adds spoken lectures and a second language.
+documents, whereas our setting adds spoken lectures and a second language.
 
 \textbf{LLM-based relevance judgment.} Recent work shows large language
 models can produce relevance judgments that correlate with human assessors
@@ -129,28 +139,33 @@ alongside the released judgments.
 \section{Test Collection and System}
 
 \subsection{Corpus}
-The corpus covers deep learning broadly, chosen so that Indonesian lecture
-material exists for every topic:
+The corpus covers a broad range of deep-learning topics for which Indonesian
+lecture material is available.
 
 \begin{itemize}
-  \item \textbf{Papers (English):} ten arXiv papers ---
+  \item \textbf{Papers (English).} The collection includes ten arXiv papers on
   word2vec~\cite{word2vec}, VGG~\cite{vgg}, ResNet~\cite{resnet},
   Transformer~\cite{transformer}, BERT~\cite{bert}, Mamba~\cite{mamba},
   Jamba~\cite{jamba}, Mamba-360~\cite{mamba360}, Mamba-2~\cite{mamba2},
-  and an empirical study of Mamba-based LMs~\cite{empiricalmamba} ---
-  yielding 2{,}720 text chunks and 67 embedded raster figures.
-  \item \textbf{Lectures:} eight English videos (including 3Blue1Brown,
+  and an empirical study of Mamba-based LMs~\cite{empiricalmamba}. These
+  papers yield 2{,}720 text chunks and 67 embedded raster figures.
+  \item \textbf{Lectures.} The collection includes eight English videos
+  (including 3Blue1Brown,
   Stanford CS231N/CS224N, and Michigan lectures) and eight Indonesian
   videos from university and community channels (Machine Learning
   Indonesia, Telkom University course recordings, and others), yielding
   1{,}146 English and 955 Indonesian transcript segments. Indonesian
-  transcripts are auto-generated captions; transcription noise is part of
+  transcripts are auto-generated captions, so transcription noise is part of
   the measured condition.
-  \item \textbf{Queries:} 15 study questions in translation-paired form
+  \item \textbf{Queries.} The evaluation uses 15 study questions in
+  translation-paired form
   (English and Indonesian), spanning architectures, training methods, and
-  model comparisons. The Indonesian phrasings were written and then
-  corrected against academic register norms by the author, a native
-  speaker.
+  model comparisons. The original Indonesian phrasings were written by the
+  author, a native speaker. We preserve them unchanged as the experimental
+  baseline and add a separately versioned formal-register variant. The
+  revision introduces formal Indonesian equivalents while retaining widely
+  used English technical terms in parentheses. Every change and its
+  semantic-equivalence assessment is recorded in an audit file.
 \end{itemize}
 
 Text and transcripts are chunked to at most 50 words to respect the CLIP
@@ -161,48 +176,59 @@ metadata. The index contains 4{,}888 vectors of dimension 512, searched
 exactly with FAISS~\cite{faiss} inner product over unit-normalized vectors.
 
 \subsection{Retrieval configurations}
-We compare, at $k{=}10$ over identical corpora:
+We compare the following configurations at $k{=}10$ over identical corpora.
 \begin{itemize}
-  \item \textbf{CLIP}: English CLIP ViT-B/32 for text and images.
-  \item \textbf{mCLIP}: a multilingual text encoder distilled into the CLIP
+  \item \textbf{CLIP.} English CLIP ViT-B/32 encodes text and images.
+  \item \textbf{mCLIP.} A multilingual text encoder is distilled into the CLIP
   image space~\cite{mclip}, paired with the same image encoder.
-  \item \textbf{BM25}: lexical retrieval~\cite{bm25} over every textual
+  \item \textbf{BM25.} This lexical baseline~\cite{bm25} searches every textual
   representation (chunks, captions, transcripts), both languages mixed.
-  \item \textbf{Calibrated variants}: for each dense encoder, similarity
+  \item \textbf{Calibrated variants.} For each dense encoder, similarity
   scores are z-normalized per query \emph{within each (modality, language)
   group} before ranking, so that no group is advantaged by the scale of its
   score distribution.
 \end{itemize}
 
 \subsection{Measures}
-For every configuration and query language we report: the modality and
-content-language distribution of retrieved items; per-query coverage
-(queries returning $\geq$1 figure, $\geq$1 item of each content language);
-\emph{EN$\leftrightarrow$ID consistency} --- for each translation-paired
-query, the Jaccard overlap between the English query's and the Indonesian
-query's result sets, averaged over pairs (a language-fair system approaches
-1); and graded effectiveness (P@10, nDCG@10) against pooled binary
-relevance judgments. Judgments cover all 999 items retrieved by any
-configuration and were produced by a large language model following
-written guidelines (strict standard; term mention $\neq$ relevance; items
-judged on meaning regardless of language; figures judged by inspecting the
-image). Guidelines, per-convention notes, and known biases are released
-with the data; the single-judge design is a limitation
+For every configuration and query language, we report the modality and
+content-language distribution of retrieved items. We also report per-query
+coverage, including whether a query retrieves at least one figure and at
+least one item in each content language. \emph{EN$\leftrightarrow$ID
+consistency} is the Jaccard overlap between the result sets for each English
+query and its Indonesian translation, averaged across pairs. A
+language-consistent system approaches 1. Finally, we report graded
+effectiveness (P@10 and nDCG@10) against pooled binary relevance judgments.
+The baseline judgments cover 999 items retrieved by the original-query
+configurations. A single large language model produced the judgments under
+written guidelines. The guidelines apply a strict relevance standard,
+distinguish term mentions from relevance, assess meaning regardless of
+language, and require visual inspection of figures. We release the
+guidelines, decision conventions, and known biases with the data. These
+effectiveness values are provisional rather than human-validated evidence,
+and the single-assessor design remains a limitation
 (Section~\ref{sec:limits}).
+
+For robustness, we repeat every configuration with the formal Indonesian
+query variant at $k\in\{5,10,20\}$. We report per-query values, paired
+formal-minus-original differences, 95\% bootstrap confidence intervals
+(10{,}000 resamples; seed 20260718), and paired standardized effects. Because
+new rankings include items outside the original judgment pool, formal-query
+effectiveness is reported with judgment coverage and is not treated as
+directly comparable to the fully judged baseline.
 
 \section{Results}
 
-\subsection{English-only CLIP silos retrieval by language}
+\subsection{English-only CLIP separates retrieval by language}
 \label{sec:silo}
 
 Table~\ref{tab:dist} shows the modality and language distribution of
 retrieved items. Under CLIP, English queries retrieve almost exclusively
-English content (148/150 items) and Indonesian queries almost exclusively
-Indonesian content (134/150); only 3 of 15 Indonesian queries retrieve any
-English paper content at all. The consistency between translation-paired
-queries is near zero (Jaccard 0.019, overlap@10 0.033): \emph{the same
-question, asked in the other language, returns an almost entirely different
-result list}. Figures are never retrieved by either query language,
+English content (148/150 items), while Indonesian queries retrieve almost
+exclusively Indonesian content (134/150). Only 3 of 15 Indonesian queries
+retrieve any English paper content. Consistency between translation-paired
+queries is near zero (Jaccard 0.019, overlap@10 0.033). In other words, the
+same question expressed in the other language returns an almost entirely
+different result list. Neither query language retrieves figures, which
 replicating the modality gap on a corpus $2.3\times$ larger than in our
 earlier study~\cite{synthesizer}.
 
@@ -227,17 +253,18 @@ BM25  & ID & 18 & 2 & 130 & 25  & 125 & 1/15 \;\; 7/15 \;\; 15/15\\
 \end{tabular}
 \end{table}
 
-\subsection{The gaps compound}
+\subsection{Language and modality effects interact}
 \label{sec:gaps}
 
 Table~\ref{tab:gap} reports the mean cosine similarity between queries and
 \emph{all} indexed items, grouped by (modality, content language). Two
-structures are visible. First, the \emph{language gap}: under CLIP,
+patterns are visible. The first is the \emph{language gap}. Under CLIP,
 Indonesian queries score same-language transcripts at 0.812 but English
-paper text at only 0.649 --- a same-language bonus of $+0.16$ that explains
-the siloing in Section~\ref{sec:silo}. Second, the \emph{modality gap}:
-figures score far below all text groups for both query languages. The two
-effects stack: the Indonesian-query$\to$English-figure group (0.498) is the
+paper text at only 0.649. This difference of approximately $+0.16$ helps
+explain the separation observed in Section~\ref{sec:silo}. The second is the
+\emph{modality gap}. Figures score far below all text groups for both query
+languages. The effects also interact. The
+Indonesian-query$\to$English-figure group (0.498) is the
 lowest cell in the table, and its \emph{maximum} (0.622) barely reaches the
 \emph{mean} of the competing same-language transcript group. Content that
 is both cross-language and cross-modality is doubly disadvantaged.
@@ -261,41 +288,43 @@ Transcript ID (955)  & $.718 \pm .051$ & $.812 \pm .056$ & $.880 \pm .023$ & $.8
 \end{tabular}
 \end{table}
 
-\subsection{Multilingual encoding closes the language gap but opens a
-register gap}
+\subsection{Multilingual encoding reduces the language gap but introduces
+register bias}
 
 Under mCLIP the per-group means become nearly identical for English and
 Indonesian queries (Table~\ref{tab:gap}, right), and consistency between
-paired queries rises from 0.019 to 0.474 Jaccard (overlap@10 0.593) --- the
-encoder substitution alone removes most of the language siloing. But the
-distributions also compress (standard deviations halve) and reorder:
-transcripts of \emph{both} languages now outscore paper text, and retrieval
-floods with lecture segments (137--145 of 150 items;
-Table~\ref{tab:dist}), displacing the papers that hold the most
-authoritative content. Figures remain at zero. The language bias is traded
-for a register bias, and the underlying lesson generalizes: \emph{raw
-similarity scores are not comparable across content groups, and which group
-wins is an artifact of the encoder's training distribution.}
+paired queries rises from 0.019 to 0.474 Jaccard (overlap@10 0.593). Thus,
+changing the encoder removes most of the separation by language. The score
+distributions also become narrower, with standard deviations approximately
+halved, and their ordering changes. Transcripts in \emph{both} languages
+now outscore paper text and account for 137--145 of 150 retrieved items
+(Table~\ref{tab:dist}). This shift reduces the representation of papers,
+which generally provide the most authoritative content. Figures remain
+absent from the results. Multilingual encoding therefore reduces the
+language bias but introduces a register bias. More generally, raw
+similarity scores are not directly comparable across content groups because
+their relative scale depends on the encoder's training distribution.
 
-\subsection{Calibration restores coverage but costs precision}
+\subsection{Calibration improves coverage but reduces precision}
 
 Z-normalizing scores within each (modality, language) group forces the
-groups into comparable ranges. Coverage responds immediately: figures
-appear for up to 7 of 15 queries (mCLIP-calibrated: 5/15 for Indonesian
-queries), every Indonesian query retrieves English paper content
-(3/15 $\rightarrow$ 15/15 under CLIP), and the transcript flood recedes
-(mCLIP, ID queries: 145 $\rightarrow$ 48 transcript items). Paired-query
+groups into comparable ranges. This substantially changes coverage. Figures
+appear for up to 7 of 15 queries, including 5 of 15 Indonesian queries under
+calibrated mCLIP. Under CLIP, English-paper coverage for Indonesian queries
+increases from 3/15 to 15/15. For Indonesian queries under mCLIP, the number
+of transcript items decreases from 145 to 48. Paired-query
 consistency also peaks (Jaccard 0.505, overlap@10 0.640, mCLIP-calibrated).
 
-Relevance tells the other half of the story (Table~\ref{tab:rel}).
-Calibration leaves English-query effectiveness roughly unchanged (CLIP
-nDCG@10 $.238 \rightarrow .259$; mCLIP $.227 \rightarrow .218$) but
-\emph{halves} it for Indonesian queries (CLIP $.120 \rightarrow .051$;
-mCLIP $.155 \rightarrow .092$). Forcing starved groups into the top-10
-promotes items that are on-group but off-topic: with only 67 figures and a
-strict relevance standard, a guaranteed figure slot is usually filled by an
-irrelevant figure. Balanced exposure and precision are competing
-objectives; a single shared index satisfies at most one at a time.
+The effectiveness results show a different pattern (Table~\ref{tab:rel}).
+Calibration leaves English-query effectiveness approximately unchanged
+(CLIP nDCG@10 $.238 \rightarrow .259$; mCLIP $.227 \rightarrow .218$), but
+reduces Indonesian-query effectiveness by about half (CLIP
+$.120 \rightarrow .051$; mCLIP $.155 \rightarrow .092$). Calibration can
+therefore promote items from underrepresented groups even when they are not
+relevant to the query. With only 67 figures and a strict relevance standard,
+for example, a retrieved figure is often off-topic. These results indicate
+that balanced exposure and precision are competing objectives in a single
+shared index.
 
 \begin{table}[t]
 \centering
@@ -308,7 +337,7 @@ objectives; a single shared index satisfies at most one at a time.
  & \multicolumn{2}{c}{P@10} & \multicolumn{2}{c}{nDCG@10}\\
 Configuration & EN & ID & EN & ID\\
 \midrule
-BM25              & \textbf{.253} & \textbf{.180} & \textbf{.328} & \textbf{.241}\\
+BM25              & \textbf{.253} & \textbf{.180} & \textbf{.328} & \textbf{.242}\\
 CLIP raw          & .193 & .113 & .238 & .120\\
 CLIP calibrated   & .193 & .047 & .259 & .051\\
 mCLIP raw         & .160 & .113 & .227 & .155\\
@@ -317,70 +346,218 @@ mCLIP calibrated  & .160 & .067 & .218 & .092\\
 \end{tabular}
 \end{table}
 
-\subsection{BM25 outperforms all dense configurations}
+\subsection{BM25 outperforms all dense configurations under provisional judgments}
 
 BM25 achieves the best effectiveness in both query languages
 (Table~\ref{tab:rel}) while retrieving \emph{some} cross-modal content (via
-figure captions) and even some cross-lingual content: 7 of 15 Indonesian
-queries reach English material lexically. The bridge is code-switching ---
-Indonesian technical lectures routinely embed English terms
-(\emph{attention}, \emph{transformer}, \emph{layer}), giving lexical
-matching shared vocabulary across the language boundary. On a
-domain-specific corpus of this size, dense retrieval's semantic
-generalization does not yet pay for its calibration problems.
+figure captions) and some cross-lingual content. Seven of 15 Indonesian
+queries retrieve English material through lexical matching. Code-switching
+provides part of this connection because Indonesian technical lectures
+often include English terms such as \emph{attention}, \emph{transformer},
+and \emph{layer}. These terms provide shared vocabulary across the language
+boundary. In this domain-specific corpus, BM25 benefits more from that
+shared vocabulary than the dense configurations benefit from semantic
+generalization.
+
+\subsection{Retrieval is sensitive to formal Indonesian wording}
+\label{sec:robustness}
+
+Table~\ref{tab:robust} compares the frozen original queries with the
+separately versioned formal Indonesian set. Formal wording reduces paired
+top-10 overlap for every configuration. Raw CLIP falls from
+\OriginalClipJaccard{} to \FormalClipJaccard{} Jaccard, and BM25 from 0.071
+to \FormalBmTwentyFiveJaccard{}, consistent with both systems benefiting
+from English technical tokens in the original code-switched queries. Raw
+mCLIP is more stable (\OriginalMclipJaccard{} to \FormalMclipJaccard{};
+paired difference \FormalMclipJaccardDifference{}, 95\% bootstrap CI
+$[-0.166,0.030]$), while calibrated mCLIP changes by only
+\FormalMclipCalibratedJaccardDifference{} (CI $[-0.094,0.062]$). The central
+finding is therefore robust to this wording change. Multilingual encoding
+provides substantially greater cross-language consistency, although the
+absolute size of the gap depends on query register and terminology.
+
+\begin{table}[H]
+\centering
+\caption{Top-10 EN/ID Jaccard under the original and formal Indonesian query
+sets. Judgment coverage is the share of formal Indonesian top-10 items found
+in the original LLM-assessed pool; incomplete coverage prevents a controlled
+effectiveness comparison.}
+\label{tab:robust}
+\small
+\begin{tabular}{lrrr}
+\toprule
+Configuration & Original & Formal ID & Judgment coverage\\
+\midrule
+CLIP raw & \OriginalClipJaccard & \FormalClipJaccard & \FormalClipLabelCoverage\%\\
+mCLIP raw & \OriginalMclipJaccard & \FormalMclipJaccard & \FormalMclipLabelCoverage\%\\
+BM25 & \OriginalBmTwentyFiveJaccard & \FormalBmTwentyFiveJaccard & \FormalBmTwentyFiveLabelCoverage\%\\
+CLIP calibrated & \OriginalClipCalibratedJaccard & \FormalClipCalibratedJaccard & \FormalClipCalibratedLabelCoverage\%\\
+mCLIP calibrated & \OriginalMclipCalibratedJaccard & \FormalMclipCalibratedJaccard & \FormalMclipCalibratedLabelCoverage\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{A bounded end-to-end review evaluation}
+\label{sec:review-eval}
+
+The retrieval results determine which evidence is available to the review
+generator, but they do not by themselves establish review quality. We
+therefore add a bounded end-to-end check using three representative query
+pairs: Transformer attention (q01), CNN feature extraction (q06), and Mamba
+long-range dependencies (q11). For each English and Indonesian query, we
+generate a review from the raw CLIP and raw mCLIP top-10 results using Llama
+3.2 at temperature 0. This produces 12 reviews. We measure only properties
+that can be checked mechanically: whether source identifiers refer to the
+retrieved set, how many retrieved sources are cited, whether all required
+sections are present, and the overlap between evidence cited by paired
+English and Indonesian reviews. These measures do not assess factual
+correctness or human-perceived quality.
+
+All reviews contain the four required sections. Table~\ref{tab:revieweval}
+shows that citation identifiers are usually valid, but reviews cite only
+16.7--40.0\% of the retrieved sources. More importantly, the evidence cited
+by paired English and Indonesian reviews is nearly disjoint. Mean cited-
+evidence Jaccard is \ReviewClipEvidenceJaccard{} for CLIP and
+\ReviewMclipEvidenceJaccard{} for mCLIP. Multilingual retrieval therefore
+does not, in this small sample, guarantee evidence-consistent reviews.
+
+\begin{table}[t]
+\centering
+\caption{Mechanical review-grounding measures over three query pairs. Values
+are percentages except paired evidence Jaccard. A valid identifier names a
+retrieved source; it does not prove that the associated claim is supported.}
+\label{tab:revieweval}
+\small
+\begin{tabular}{llrrr}
+\toprule
+Encoder & Query lang. & Valid IDs & Source coverage & Paired Jaccard\\
+\midrule
+CLIP  & EN & \ReviewClipEnCitationValidity\% & \ReviewClipEnSourceCoverage\% & \ReviewClipEvidenceJaccard\\
+CLIP  & ID & \ReviewClipIdCitationValidity\% & \ReviewClipIdSourceCoverage\% & \ReviewClipEvidenceJaccard\\
+mCLIP & EN & \ReviewMclipEnCitationValidity\% & \ReviewMclipEnSourceCoverage\% & \ReviewMclipEvidenceJaccard\\
+mCLIP & ID & \ReviewMclipIdCitationValidity\% & \ReviewMclipIdSourceCoverage\% & \ReviewMclipEvidenceJaccard\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The q11 case illustrates the difference between retrieval and generation.
+For the English query, CLIP retrieves three English Mamba lecture segments
+in its top three. For the Indonesian query, its top three are Indonesian
+transcript segments unrelated to the Mamba architecture, and the resulting
+review incorrectly describes Mamba as a classification system. mCLIP places
+an English Mamba paper passage second for the Indonesian query and produces
+a more relevant overview, although it still makes claims that are not
+established by citation syntax alone. The complete reviews, retrieved item
+identifiers, and measurements are included in the released artifact.
 
 \section{Discussion}
 
-Our measurements support three practical conclusions. First,
-\emph{single-index dense retrieval is unsafe across languages and
-modalities without calibration}: which content gets retrieved is governed
-by encoder-induced score offsets (language, register, modality), not only
-by relevance. Second, \emph{each mitigation trades one bias for another}:
-multilingual encoding removes the language offset but introduces a register
-offset; per-group calibration equalizes exposure but promotes irrelevant
-items from sparse groups. Systems that need both fairness and precision
-should retrieve per group and merge with a relevance-aware policy ---
-learned fusion, or lexical--dense hybrids that exploit code-switching ---
-rather than rank raw or naively calibrated scores in one list. Third, for
-low-resource-language deployments, \emph{BM25 remains a strong default},
-and evaluations of multilingual dense retrievers should always include it.
+Our measurements support three practical conclusions. First, uncalibrated
+single-index dense retrieval can produce systematically uneven results
+across languages and modalities. Retrieval depends not only on relevance,
+but also on encoder-induced score differences associated with language,
+register, and modality. Second, each mitigation addresses only part of the
+problem. Multilingual encoding reduces the language offset but introduces a
+register offset, while per-group calibration improves exposure but can
+promote irrelevant items from smaller groups. Systems that require both
+balanced coverage and precision may benefit from retrieving within each
+group and then applying a relevance-aware merge policy. Possible approaches
+include learned fusion and lexical--dense hybrids that use code-switched
+terms. Third, BM25 remains an important baseline for low-resource-language
+deployments and should be included when evaluating multilingual dense
+retrievers. The robustness experiment adds an important qualification.
+Code-switched terminology can substantially improve lexical retrieval, so
+evaluations should report query register rather than treating Indonesian as
+a single uniform condition. Finally, the bounded review evaluation shows
+that improved multilingual retrieval does not automatically produce
+evidence-consistent synthesis. Retrieval and generation should therefore be
+evaluated separately.
 
 \section{Limitations}
 \label{sec:limits}
 
-The collection is small (one topic domain, 4{,}888 items, 15 query pairs)
-and covers one language pair; effect sizes are large and consistent, but
-generalization to other languages and domains is untested. Relevance was
-judged by a single LLM assessor; although the methodology follows recent
+The collection is limited to one topic domain, 4{,}888 items, 15 query
+pairs, and one language pair. Although the observed differences are large
+and consistent, their generalizability to other languages and domains has
+not been established. Relevance was judged by a single LLM assessor.
+Although the methodology follows recent
 practice~\cite{thomas2024,umbrela} and all guidelines, conventions, and
-judgments are released for audit, human verification --- even of a sample
---- would strengthen the conclusions. Indonesian transcripts are
-auto-generated captions, so ASR noise and caption quality are confounded
-with language effects (we treat this as part of the realistic condition,
-since it is what any deployed system would index). Finally, snippet
-truncation during judging may undercount the relevance of long text chunks
+judgments are released for audit, the effectiveness results remain
+provisional. Future validation should use at least two bilingual assessors
+on a stratified sample spanning query language, modality, configuration,
+and relevance label. The validation should report Cohen's $\kappa$ and raw
+agreement, then adjudicate disagreements before recalculating P@10 and
+nDCG@10. The formal-query runs retrieve previously unjudged items (top-10 judgment
+coverage ranges from 52.7\% to 85.3\%), so their apparent effectiveness is
+not compared directly with the fully pooled baseline. Indonesian
+transcripts are auto-generated captions, so ASR noise and caption quality are confounded
+with language effects. We treat this as part of the realistic condition
+because a deployed system would index the available captions. Finally,
+snippet truncation during judging may undercount the relevance of long text chunks
 relative to transcripts.
+
+The review evaluation is intentionally small and structural. It covers only
+three query pairs and two raw dense encoders. Valid source identifiers do not
+demonstrate factual support, and the qualitative q11 analysis is not a
+substitute for systematic review assessment. The experiment establishes a
+reproducible diagnostic, not a general estimate of literature-review quality.
+
+\section{Ethics and Artifact Availability}
+
+The corpus is derived from publicly accessible papers and lecture videos.
+Copyright remains with the original authors, publishers, and video creators.
+The artifact includes derived transcript excerpts and figure crops for audit,
+but not pretrained model weights or original source PDFs and videos. Metadata
+and reconstruction scripts identify the upstream sources.
+Automatically generated Indonesian captions may contain recognition errors,
+and LLaVA-generated figure captions may be inaccurate. The relevance
+judgments are provisional outputs from a single LLM assessor. Generated
+reviews should be checked against cited source material before academic use.
+
+The accompanying artifact contains the versioned queries, query audit,
+judgments, result files, generated review samples, and scripts needed to
+reproduce the tables. Result files record query and index hashes, model
+configuration, platform information, cutoff values, and random seeds. Exact
+commands and data-use notes are provided in the artifact documentation. The
+project repository is available at
+\url{https://github.com/shaban2/Crosslingual_Scholar_Search}. A permanent
+archival DOI can be added to the arXiv metadata after creating a versioned
+release.
 
 \section{Conclusion}
 
-We presented the first measurement, to our knowledge, of how language and
-modality gaps interact in multimodal scholarly retrieval, using a new
-English--Indonesian test collection. An English-only encoder silos
-retrieval by language; a multilingual encoder fixes alignment but not score
-comparability; calibration fixes exposure but not relevance; and a lexical
-baseline quietly outperforms them all. The collection, judgments, and code
-are released to support work on the missing piece: retrieval that is
-simultaneously language-fair, modality-fair, and precise.
+We presented, to our knowledge, the first measurement of how language and
+modality gaps interact in multimodal scholarly retrieval using an
+English--Indonesian test collection. An English-only encoder separates
+results by language. A multilingual encoder improves alignment but does not
+make scores comparable across content groups. Calibration improves coverage
+but does not consistently improve relevance. Under provisional judgments
+from a single LLM assessor, the lexical baseline achieves the highest
+effectiveness. A formal-register query variant confirms the relative
+advantage of multilingual encoding while showing that absolute gaps depend
+on terminology. The bounded review evaluation further shows that valid
+citation identifiers and improved retrieval alignment do not guarantee
+evidence-consistent synthesis. We release the collection, provisional
+judgments, audited query variants, review samples, and code to support future
+work on retrieval and generation that are simultaneously language-fair,
+modality-fair, grounded, and precise.
 
 \section*{Acknowledgments}
 
 The retrieval pipeline extends the Multimodal Research Synthesizer, built
 jointly with Hippolyte Marc-Antoine Catteau-Verniers, who kindly agreed to
 this solo extension. Experiment tooling, analysis scripts, and drafting
-were assisted by an AI system (Claude, Anthropic); the author designed the
-study, verified all results, and takes full responsibility for the content.
+were assisted by AI systems (Claude, Anthropic, and Codex, OpenAI). The
+author designed the study, verified all results, and takes full
+responsibility for the content.
 
+\section*{References}
+\begingroup
+\renewcommand{\section}[2]{}
+\begin{multicols}{2}
 \begin{thebibliography}{99}
+\scriptsize
+\raggedright
 
 \bibitem{synthesizer} S.~Lubanga and H.~M.-A. Catteau-Verniers,
 ``Multimodal Research Synthesizer,'' software and technical report, 2026.
@@ -470,5 +647,7 @@ Framework: BM25 and Beyond,'' \emph{Foundations and Trends in Information
 Retrieval}, vol.~3, no.~4, 2009.
 
 \end{thebibliography}
+\end{multicols}
+\endgroup
 
 \end{document}
