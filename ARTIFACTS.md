@@ -18,7 +18,14 @@ The public project repository is:
 
 https://github.com/shaban2/Crosslingual_Scholar_Search
 
-A versioned archival DOI can be added later by connecting a GitHub release to
-Zenodo. The GitHub URL should be included in the arXiv submission metadata.
+The permanent Zenodo concept DOI, which resolves to the latest archived
+release, is:
+
+https://doi.org/10.5281/zenodo.21427042
+
+The archived `v1.0.1` release has the version-specific DOI
+https://doi.org/10.5281/zenodo.21427043. The concept DOI should be used in the
+paper and arXiv metadata so that the citation remains valid across later
+releases.
 
 See `REPRODUCIBILITY.md` for commands and `ETHICS_AND_DATA.md` for data-use notes.

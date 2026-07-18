@@ -2,6 +2,8 @@
 
 Repository: https://github.com/shaban2/Crosslingual_Scholar_Search
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21427042.svg)](https://doi.org/10.5281/zenodo.21427042)
+
 Measuring the language gap and modality gap in multimodal scholarly retrieval,
 using English/Indonesian as the test pair.
 
@@ -68,7 +70,7 @@ auto-generated captions (disclosed as a corpus property).
 ## Documentation
 
 - `REPRODUCIBILITY.md` records commands, model identifiers, seeds, and scope.
-- `ARTIFACTS.md` lists released artifacts and the remaining public-URL requirement.
+- `ARTIFACTS.md` lists the released artifacts, repository, and permanent Zenodo DOI.
 - `ETHICS_AND_DATA.md` documents third-party data, automated processing, and risks.
 - `data/review_evaluation/` contains the bounded review outputs and qualitative example.
 
