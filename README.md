@@ -72,6 +72,14 @@ auto-generated captions (disclosed as a corpus property).
 - `ETHICS_AND_DATA.md` documents third-party data, automated processing, and risks.
 - `data/review_evaluation/` contains the bounded review outputs and qualitative example.
 
+## License
+
+Project-authored software is licensed under the MIT License. Original query
+sets, annotations, and generated result files are licensed under CC BY 4.0.
+Third-party papers, figures, transcripts, videos, and model weights remain
+under their original copyrights and licenses. See `LICENSE` and
+`DATA_LICENSE.md`.
+
 <!-- REVISION_RESULTS_START -->
 ### Reconciled query-robustness results
 

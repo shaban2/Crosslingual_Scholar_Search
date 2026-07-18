@@ -30,6 +30,8 @@ source material before academic use.
 
 ## Project license
 
-No project-wide software or data license is asserted by these notes. The author
-must choose and add an appropriate repository license before public release,
-while preserving all third-party licenses and attribution requirements.
+Project-authored software is licensed under MIT. Original query sets,
+annotations, and generated result files are licensed under CC BY 4.0.
+Third-party papers, figures, transcripts, videos, and model weights are
+excluded and remain under their original copyrights, licenses, and platform
+terms. See `LICENSE` and `DATA_LICENSE.md` for the controlling notices.
