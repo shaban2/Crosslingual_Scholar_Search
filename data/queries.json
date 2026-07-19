@@ -1,5 +1,5 @@
 {
-  "_note": "Bilingual query pairs. Indonesian reviewed and corrected by the author (native speaker) for PUEBI/academic register.",
+  "_note": "Original bilingual query pairs used as the frozen experimental baseline.",
   "queries": [
     {
       "id": "q01",

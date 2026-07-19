@@ -3,7 +3,7 @@
     "schema_version": 1,
     "query_set_id": "original",
     "query_file": "data/queries.json",
-    "query_sha256": "8da7c88ec39e98df97ed9111e2c067dbeda40b54298af886a8daa09a538f7450",
+    "query_sha256": "460a541cf90c3bcbac8e251dfddfb9fe4b77eb2b22d91e1a7f02274527a2f88b",
     "corpus_index_sha256": {
       "clip": "40fc84ee8c6dc5b56259c6a901f682e49a52a2ba42877461640e5cb70f8ce7e9",
       "mclip": "5e70f88969a4d951e781d3e716d17ead08f513690c59bcaf909ef09fa8aeb670"

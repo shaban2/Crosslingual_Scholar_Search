@@ -1,11 +1,8 @@
-\documentclass[11pt]{article}
+\documentclass[conference]{IEEEtran}
 
-\usepackage[margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{float}
-\usepackage{multicol}
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 \usepackage{microtype}
@@ -54,6 +51,11 @@ to register, although mCLIP is more stable than CLIP or BM25. We release the
 collection, provisional judgments, query audit, and code.
 \end{abstract}
 
+\begin{IEEEkeywords}
+cross-lingual retrieval, multimodal retrieval, scholarly search,
+English--Indonesian retrieval, CLIP, multilingual CLIP
+\end{IEEEkeywords}
+
 \section{Introduction}
 
 A student studying deep learning at an Indonesian university often works
@@ -83,8 +85,7 @@ This work makes four contributions.
 \begin{enumerate}
   \item \textbf{A bilingual multimodal test collection.} Ten English
   deep-learning papers, eight English and eight Indonesian lecture videos,
-  15 translation-paired queries (authored and verified by a native
-  speaker), a formally revised Indonesian query variant with a complete
+  15 translation-paired queries, a formally revised Indonesian query variant with a complete
   change audit, and 999 pooled provisional LLM relevance judgments, all
   released publicly.
   \item \textbf{A measurement of the language gap and its interaction with
@@ -160,9 +161,8 @@ lecture material is available.
   \item \textbf{Queries.} The evaluation uses 15 study questions in
   translation-paired form
   (English and Indonesian), spanning architectures, training methods, and
-  model comparisons. The original Indonesian phrasings were written by the
-  author, a native speaker. We preserve them unchanged as the experimental
-  baseline and add a separately versioned formal-register variant. The
+  model comparisons. We preserve the original Indonesian phrasings unchanged
+  as the experimental baseline and add a separately versioned formal-register variant. The
   revision introduces formal Indonesian equivalents while retaining widely
   used English technical terms in parentheses. Every change and its
   semantic-equivalence assessment is recorded in an audit file.
@@ -229,10 +229,10 @@ retrieve any English paper content. Consistency between translation-paired
 queries is near zero (Jaccard 0.019, overlap@10 0.033). In other words, the
 same question expressed in the other language returns an almost entirely
 different result list. Neither query language retrieves figures, which
-replicating the modality gap on a corpus $2.3\times$ larger than in our
+replicates the modality gap on a corpus $2.3\times$ larger than in our
 earlier study~\cite{synthesizer}.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \caption{Retrieved items by modality and content language (15 queries
 $\times$ top-10). Coverage counts queries returning $\geq$1 figure /
@@ -251,7 +251,7 @@ BM25  & EN & 85 & 4 & 61  & 146 & 4   & 2/15 \;\; 15/15 \;\; 1/15\\
 BM25  & ID & 18 & 2 & 130 & 25  & 125 & 1/15 \;\; 7/15 \;\; 15/15\\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Language and modality effects interact}
 \label{sec:gaps}
@@ -269,7 +269,7 @@ lowest cell in the table, and its \emph{maximum} (0.622) barely reaches the
 \emph{mean} of the competing same-language transcript group. Content that
 is both cross-language and cross-modality is doubly disadvantaged.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \caption{Query--item cosine similarity by (modality, content language),
 mean $\pm$ std over 15 queries $\times$ all items in the group.}
@@ -286,7 +286,7 @@ Transcript EN (1146) & $.761 \pm .049$ & $.703 \pm .050$ & $.860 \pm .024$ & $.8
 Transcript ID (955)  & $.718 \pm .051$ & $.812 \pm .056$ & $.880 \pm .023$ & $.899 \pm .027$\\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{Multilingual encoding reduces the language gap but introduces
 register bias}
@@ -376,7 +376,7 @@ finding is therefore robust to this wording change. Multilingual encoding
 provides substantially greater cross-language consistency, although the
 absolute size of the gap depends on query register and terminology.
 
-\begin{table}[H]
+\begin{table*}[t]
 \centering
 \caption{Top-10 EN/ID Jaccard under the original and formal Indonesian query
 sets. Judgment coverage is the share of formal Indonesian top-10 items found
@@ -395,7 +395,7 @@ CLIP calibrated & \OriginalClipCalibratedJaccard & \FormalClipCalibratedJaccard 
 mCLIP calibrated & \OriginalMclipCalibratedJaccard & \FormalMclipCalibratedJaccard & \FormalMclipCalibratedLabelCoverage\%\\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 \subsection{A bounded end-to-end review evaluation}
 \label{sec:review-eval}
@@ -421,7 +421,7 @@ evidence Jaccard is \ReviewClipEvidenceJaccard{} for CLIP and
 \ReviewMclipEvidenceJaccard{} for mCLIP. Multilingual retrieval therefore
 does not, in this small sample, guarantee evidence-consistent reviews.
 
-\begin{table}[t]
+\begin{table*}[t]
 \centering
 \caption{Mechanical review-grounding measures over three query pairs. Values
 are percentages except paired evidence Jaccard. A valid identifier names a
@@ -438,7 +438,7 @@ mCLIP & EN & \ReviewMclipEnCitationValidity\% & \ReviewMclipEnSourceCoverage\% &
 mCLIP & ID & \ReviewMclipIdCitationValidity\% & \ReviewMclipIdSourceCoverage\% & \ReviewMclipEvidenceJaccard\\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{table*}
 
 The q11 case illustrates the difference between retrieval and generation.
 For the English query, CLIP retrieves three English Mamba lecture segments
@@ -543,22 +543,15 @@ modality-fair, grounded, and precise.
 
 \section*{Acknowledgments}
 
-The retrieval pipeline extends the Multimodal Research Synthesizer, built
-jointly with Hippolyte Marc-Antoine Catteau-Verniers, who kindly agreed to
-this solo extension. Experiment tooling, analysis scripts, and drafting
-were assisted by AI systems (Claude, Anthropic, and Codex, OpenAI). The
-author designed the study, verified all results, and takes full
-responsibility for the content.
+The author used Claude to improve the readability and language quality of
+this manuscript, and Claude Code for code development support. All content
+was reviewed and edited by the author, who takes full responsibility for the
+final work.
 
-\section*{References}
-\begingroup
-\renewcommand{\section}[2]{}
-\begin{multicols}{2}
 \begin{thebibliography}{99}
-\scriptsize
 \raggedright
 
-\bibitem{synthesizer} S.~Lubanga and H.~M.-A. Catteau-Verniers,
+\bibitem{synthesizer} S.~Lubanga,
 ``Multimodal Research Synthesizer,'' software and technical report, 2026.
 \url{https://github.com/shaban2/Multimodal-Research-Synthesizer}
 
@@ -646,7 +639,5 @@ Framework: BM25 and Beyond,'' \emph{Foundations and Trends in Information
 Retrieval}, vol.~3, no.~4, 2009.
 
 \end{thebibliography}
-\end{multicols}
-\endgroup
 
 \end{document}

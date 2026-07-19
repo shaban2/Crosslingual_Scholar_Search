@@ -7,7 +7,7 @@ Repository: https://github.com/shaban2/Crosslingual_Scholar_Search
 Measuring the language gap and modality gap in multimodal scholarly retrieval,
 using English/Indonesian as the test pair.
 
-Solo research project by Shaban Lubanga. Builds on the pipeline of the 
+Solo research project by Shaban Lubanga. Builds on the pipeline of the
 Multimodal Research Synthesizer project
 (github.com/shaban2/Multimodal-Research-Synthesizer), extended with
 multi-encoder support, language-tagged metadata, a bilingual corpus, and a
